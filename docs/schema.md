@@ -18,6 +18,7 @@ medium      | string    |
 description | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
 album_id    | integer   | not null, foreign key (references album), indexed
+cover_photo | boolean | default: false (references the cover photo of the album)
 
 ## albums
 column name | data type | details
