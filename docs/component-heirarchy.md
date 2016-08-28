@@ -15,32 +15,21 @@
 
 
 **PhotoContainer**
- - PhotoIndex
+ - PhotoIndexItem
+  + title
+  + description
+  + medium
 
 **SearchResultsContainer**
  - Search
  - PhotoIndex
  - AlbumIndex
-             
+
 **TagContainer**
- - NotebookHeader
-  + NoteIndex
+ - PhotoIndex
+ - AlbumIndex
 
-**NoteIndex**
- - NoteIndexItem
-  + NoteDetail
-   * NoteTools
-    - NotebookSearch
-    - Tags
-     + Tag
-    * Note
-
-**NewNoteContainer**
- - NewNote
-  - RTETools
-  - NewNoteButton
-
-**NewAlbum**
+**NewAlbumContainer**
  - NewAlbum
  
 **NewPhoto**
