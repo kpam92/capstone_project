@@ -26,12 +26,12 @@ The following will be implemented by the end of week 9:
 * [Redux Structure][redux-structure]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-heirarchy.md
-[redux-structure]: docs/redux-structure.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[wireframes]: wireframes
+[components]: component-heirarchy.md
+[redux-structure]: redux-structure.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
 
 ## Implementation Timeline
 
