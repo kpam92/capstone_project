@@ -55,13 +55,13 @@ Redux structure, you'll need to do the same.
 ### Album API Request Actions
 (fetching albums for explore page)
 * `fetchAllAlbums`
-  0. invoked from `AlbumsIndex` `didMount`/`willReceiveProps`
+  0. invoked from `AlbumsIndex` `onEnter`
   0. `GET /api/albums` is called.
   0. `receiveAllalbums` is set as the success callback.
 
 (fetching albums for userpage)
 * `fetchAllAlbums`
-  0. invoked from `AlbumsIndex` `didMount`/`willReceiveProps`
+  0. invoked from `AlbumsIndex` `onEnter`
   0. `GET /api/users/:UserId/albums` is called.
   0. `receiveAllalbums` is set as the success callback.
   
@@ -72,7 +72,7 @@ Redux structure, you'll need to do the same.
 
 (fetching single album for view)
 * `fetchSingleAlbum`
-  0. invoked from `onClick` of coverphoto `didMount`/`willReceiveProps`
+  0. invoked from `onClick` of coverphoto `onEnter`
   0. `GET /api/users/:UserId/album/:AlbumId` is called.
   0. `receiveSingleAlbum` is set as the success callback.
 
@@ -107,7 +107,7 @@ Redux structure, you'll need to do the same.
 
 (fetching photos for the explore page)
 * `fetchAllPhotos`
-  0. invoked from `PhotosIndex` `didMount`/`willReceiveProps`
+  0. invoked from `PhotosIndex` `onEnter`
   0. `GET /api/photos` is called.
   0. `receiveAllPhotos` is set as the success callback.
 
@@ -117,7 +117,7 @@ Redux structure, you'll need to do the same.
   0. `receiveSingleNotebook` is set as the callback.
 
 * `fetchSinglePhoto`
-  0. invoked from onClick of photo in album `didMount`/`willReceiveProps`
+  0. invoked from onClick of photo in album `onEnter`
   0. `GET /api/photos/:PhotoId` is called.
   0. `receiveSinglePhoto` is set as the success callback.
 
