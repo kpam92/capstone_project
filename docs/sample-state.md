@@ -29,7 +29,8 @@
     1: {
       title: "Sample Album",
       author_id: 1,
-      description: "album description"
+      description: "album description",
+      photos_key: [1,2,3,6,7]
     }
   }
   album_comments: {
