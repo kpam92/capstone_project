@@ -25,10 +25,10 @@
 - `GET /api/photos`
 - `GET /api/photos/:id`
 - `GET /api/albums/:AlbumId/photos`
-- `GET /api/albums/:AlbumId/photos/:PhotoId
-- `POST /api/albums/:AlbumId/photos/:PhotoId
-- `PATCH /api/albums/:AlbumId/photos/:PhotoId
-- `DELETE /api/albums/:AlbumId/photos/:PhotoId
+- `GET /api/albums/:AlbumId/photos/:PhotoId`
+- `POST /api/photos/:PhotoId`
+- `PATCH /api/photos/:PhotoId`
+- `DELETE /api/photos/:PhotoId`
 
 ### Albums
 
@@ -39,7 +39,7 @@
 - `GET /api/albums/:AlbumId/photos`
 
 ### Tags
-(tags will be accessible to search through in search results)
+(tags will be accessible to search through in search results, routes have room to update)
 - `GET /api/tags`
 - `POST /api/albums/:AlbumId/tags`
 - `POST /api/albums/:AlbumId/photos/:PhotoId/tags`
