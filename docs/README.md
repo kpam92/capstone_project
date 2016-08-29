@@ -4,7 +4,7 @@
 
 [heroku]: http://openwall.herokuapp.com
 
-OpenWall is a full-stack web application inspired by photo web applications Flickr, Cargo Collective, and Pixieset. This application is a space for artists and creators to showcase their work in a virtual gallery space. It utilizes Ruby on Rails on the backend, with a PostgreSQL database, as well as React/Redux on the frontend.  
+OpenWall is a full-stack web application inspired by photo web applications Flickr, Cargo Collective, and Pixieset. This application is a space for artists and creators to showcase their work in a virtual gallery space. It utilizes Ruby on Rails on the backend, with a PostgreSQL database, as well as React/Redux on the frontend. Photos will be uploaded and stored through a Cloudinary server.
 
 ## Minimum Viable Product
 
