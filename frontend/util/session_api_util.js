@@ -1,22 +1,32 @@
+import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
 
-export const signup = success => {
-  $.ajax({
-    method: 'POST',
-    url: 'api/users',
-    success
-  });
+export const login = function(user, success, error) {
+	$.ajax({
+		method: 'POST',
+		url: 'api/session',
+		data: user,
+		success,
+		error
+	});
 };
-export const login = success => {
-  $.ajax({
-    method: 'POST',
-    url: 'api/session',
-    success
-  });
+
+export const signup = (user, success, error) => {
+	$.ajax({
+		method: 'POST',
+		url: 'api/user',
+		data: user,
+		success,
+		error
+	});
 };
-export const logout = success => {
-  $.ajax({
-    method: 'DELETE',
-    url: 'api/session',
-    success
-  });
+
+export const logout = function(success){
+	$.ajax({
+		method: 'DELETE',
+		url: 'api/session',
+		success,
+		error: () => {
+		  console.log("Logout error in SessionApiUtil#logout");
+		}
+	});
 };

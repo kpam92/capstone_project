@@ -32,13 +32,8 @@ class AppRouter extends React.Component{
     return(
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
-          <IndexRoute component={ SearchContainer } />
           <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
           <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
-          // <Route path="/benches/new" component={ BenchFormContainer } onEnter={ this._ensureLoggedIn }/>
-          // <Route path="/benches/:benchId" component={ BenchShowContainer} >
-            <Route path="review" component={ ReviewFormContainer } onEnter={ this._ensureLoggedIn }/>
-          </Route>
         </Route>
       </Router>
     );
