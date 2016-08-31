@@ -20,11 +20,10 @@ export default ({getState, dispatch}) => next => action => {
   switch(action.type){
     case SessionConstants.LOGIN:
       login(action.user, successCallback, errorCallback);
-      hashHistory.push('/home')
       return next(action);
     case SessionConstants.LOGOUT:
       logout(() => next(action));
-      hashHistory.push('/home')
+      hashHistory.push('/');
       break;
     case SessionConstants.SIGNUP:
       signup(action.user, successCallback, errorCallback);
