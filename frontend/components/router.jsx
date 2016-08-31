@@ -3,6 +3,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 //Components
 import App from './app';
+// import Home from './home/home';
 import SessionFormContainer from './session_form/session_form_container';
 
 class AppRouter extends React.Component{
