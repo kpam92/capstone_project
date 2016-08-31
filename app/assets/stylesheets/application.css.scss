@@ -30,18 +30,14 @@ button, article, footer, small {
   background: transparent;
   font-family: 'Muli', sans-serif;
 }*/
- * {
- }
-  {
-   decoration: none;
- }
+
  .root {
    min-width: 900px;
  }
 .header-nav {
   background: lightgrey;
   height: 100px;
-  width: 900px;
+  width: 960px;
   position: absolute;
 }
 .login-form-container {
