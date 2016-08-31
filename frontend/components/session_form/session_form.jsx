@@ -61,7 +61,7 @@ class SessionForm extends React.Component {
 							Please { this.props.formType } or { this.navLink() };
 						<div className="login-form">
 							<br />
-							<label className="first-form"> Username:
+							<label className="first-form"> Username:   
 								<input type="text"
 									value={this.state.username}
 									onChange={this.update("username")}
