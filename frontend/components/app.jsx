@@ -3,9 +3,9 @@ import { Link } from 'react-router';
 import GreetingContainer from './greeting/greeting_container';
 
 const App = ({children}) => (
-  <div>
+  <div className="header-nav">
     <header>
-      <Link to="/" className="header-nav"><h1>OpenWall</h1></Link>
+      <Link to="/home"><h1>OpenWall</h1></Link>
       <GreetingContainer />
     </header>
     {children}

@@ -13,8 +13,24 @@
  *= require_tree .
  *= require_self
  */
+ /*html, body, header, nav, h1, a, ul, li,
+strong, main, section, img, div, h2, p,
+form, fieldset, label, input, textarea,
+button, article, footer, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  color: inherit;
+  background: transparent;
+  font-family: 'Muli', sans-serif;
+}*/
  * {
-   font-family: 'Muli', sans-serif;
  }
   {
    decoration: none;
@@ -23,9 +39,10 @@
    min-width: 900px;
  }
 .header-nav {
-  background: red;
+  background: lightgrey;
   height: 100px;
   width: 900px;
+  position: absolute;
 }
 .login-form-container {
   background: lightgrey;
@@ -47,9 +64,9 @@
 
 }
 .button {
-    background-color:#d9d9d9;
+    background-color:#eee;
     border: none;
-    color: white;
+    color: grey;
     padding: 15px 32px;
     text-align: center;
     font-family: 'Lato', sans-serif;
@@ -68,5 +85,14 @@
   font-weight: bold;
   margin: 10px;
   display:inline-block;
+}
 
+.header-group {
+  float: right;
+}
+.header-name {
+  float: left
+}
+.header-button {
+  float: left
 }

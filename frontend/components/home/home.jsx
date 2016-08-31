@@ -8,7 +8,9 @@ class Home extends React.Component {
 
   render() {
     return(
+      <div className='home'>
       <h1>this is home talking</h1>
+      </div>
     )
   }
 }
