@@ -31,33 +31,100 @@ button, article, footer, small {
   font-family: 'Muli', sans-serif;
 }*/
 
+.splash-background {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(http://res.cloudinary.com/dt5viyxyq/image/upload/v1472602002/background_wykesg.jpg);
+  background-size:contain;
+  width: 100%;
+  background-repeat: no-repeat;
+  height: 1000px;
+  position: relative;
+  background-size: cover;
+}
+.splash-logo {
+  color: white;
+  font-size: 150px;
+  font-family: 'Roboto', sans-serif;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 130px;
+  padding-top: 45px;
+
+}
+.logo-letter {
+  font-size: 160px;
+  font-style: italic;
+  color: steelblue;
+  font-weight: 500;
+}
  .root {
    min-width: 900px;
  }
-.header-nav {
+/*.header-nav {
   background: lightgrey;
   height: 100px;
   width: 960px;
   position: absolute;
+}*/
+.header-nav { list-style: none;
+    font-weight: bold;
+    margin-bottom: 8px;
+    width: 100%;
+
+    background-color: lightgrey;
+    height:50px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc2c2), color-stop(15%, #cccccc), color-stop(100%, #fffcfc))
 }
-.login-form-container {
+
+.icon {
+  height: 48px;
+}
+
+/*.login-form-container {
   background: lightgrey;
   width: 500px;
   height: 300px;
-  margin-top: 100px;
+  position: relative;
+  border-radius: 20px;
+}*/
+.login-form-container {
+
   margin-left: auto;
   margin-right: auto;
-  position: relative;
+  margin-top: 70px;
   text-align: center;
-  border-radius: 20px;
-  opacity: 50%;
+  height: 270px;
+  width: 400px;
+  padding: 20px;
+  background-color: lightgrey;
+
+  /* outer shadows  (note the rgba is red, green, blue, alpha) */
+  -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+  /* rounded corners */
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 7px;
+  border-radius: 3px;
+
+  /* gradients */
+
+  border-radius: 3px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(15%, #fffcfc), color-stop(100%, #fffcfc));
 }
 .login-form-box {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding: 20px;
   align-content: center;
   position: relative;
-
+}
+.login-form {
+  font-family: 'Roboto', sans-serif;
 }
 .button {
     background-color:#eee;
@@ -65,7 +132,7 @@ button, article, footer, small {
     color: grey;
     padding: 15px 32px;
     text-align: center;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;

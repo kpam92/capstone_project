@@ -25826,6 +25826,7 @@
 	            return next(action);
 	          });
 	          _reactRouter.hashHistory.push('/');
+	          _reactRouter.hashHistory.push('/login');
 	          break;
 	        case _session_actions.SessionConstants.SIGNUP:
 	          (0, _session_api_util.signup)(action.user, successCallback, errorCallback);
@@ -32289,24 +32290,11 @@
 	    'div',
 	    { className: 'splash-background' },
 	    _react2.default.createElement(
-	      'div',
-	      { className: 'header-nav' },
-	      _react2.default.createElement(
-	        'header',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/home' },
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'OpenWall'
-	          )
-	        ),
-	        _react2.default.createElement(_greeting_container2.default, null)
-	      ),
-	      children
-	    )
+	      'header',
+	      null,
+	      _react2.default.createElement(_greeting_container2.default, null)
+	    ),
+	    children
 	  );
 	};
 	
@@ -32380,6 +32368,22 @@
 	      _reactRouter.Link,
 	      { to: '/signup', activeClassName: 'current' },
 	      'Sign up!'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'splash-logo' },
+	      _react2.default.createElement(
+	        'label',
+	        { className: 'logo-letter' },
+	        'O'
+	      ),
+	      'pen',
+	      _react2.default.createElement(
+	        'label',
+	        { className: 'logo-letter' },
+	        'W'
+	      ),
+	      'all'
 	    )
 	  );
 	};
@@ -32387,7 +32391,12 @@
 	var personalGreeting = function personalGreeting(currentUser, logout) {
 	  return _react2.default.createElement(
 	    'hgroup',
-	    { className: 'header-group' },
+	    { className: 'header-nav' },
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: '/home' },
+	      _react2.default.createElement('img', { className: 'icon', src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1472601564/font-template-calligraphy-o_on3edg.gif' })
+	    ),
 	    _react2.default.createElement(
 	      'button',
 	      { className: 'header-button', onClick: logout },

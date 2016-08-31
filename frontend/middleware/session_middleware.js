@@ -24,6 +24,7 @@ export default ({getState, dispatch}) => next => action => {
     case SessionConstants.LOGOUT:
       logout(() => next(action));
       hashHistory.push('/');
+      hashHistory.push('/login');
       break;
     case SessionConstants.SIGNUP:
       signup(action.user, successCallback, errorCallback);
