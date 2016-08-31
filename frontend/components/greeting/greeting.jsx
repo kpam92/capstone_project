@@ -3,10 +3,11 @@ import { Link } from 'react-router';
 
 const sessionLinks = () => (
   <nav className="login-signup">
-    <Link to="/login" activeClassName="current">Login</Link>
+    <Link to="/login" activeClassName="current">LOGIN</Link>
     &nbsp;or&nbsp;
-    <Link to="/signup" activeClassName="current">Sign up!</Link>
+    <Link to="/signup" activeClassName="current">SIGN UP</Link>
     <div className='splash-logo'><label className="logo-letter">O</label>pen<label className="logo-letter">W</label>all</div>
+    <div className='tagline'> A virtual space for creating and sharing...</div>
   </nav>
 );
 

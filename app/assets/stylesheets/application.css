@@ -28,8 +28,17 @@ button, article, footer, small {
   vertical-align: inherit;
   color: inherit;
   background: transparent;
-  font-family: 'Muli', sans-serif;
 }*/
+*{
+  font-family: 'Roboto', sans-serif;
+}
+a:link{
+  text-decoration:none;
+  color: steelblue;
+}
+a:hover {
+  text-decoration-color: red;
+}
 
 .splash-background {
   background:
@@ -53,7 +62,7 @@ button, article, footer, small {
   margin-left: auto;
   margin-right: auto;
   padding-left: 130px;
-  padding-top: 45px;
+  padding-top: 20px;
 
 }
 .logo-letter {
@@ -61,6 +70,17 @@ button, article, footer, small {
   font-style: italic;
   color: steelblue;
   font-weight: 500;
+}
+.tagline {
+  display: inline-block;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-weight: lighter;
+  font-style: italic;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 300px;
+  font-size: 30px;
 }
  .root {
    min-width: 900px;
@@ -96,7 +116,7 @@ button, article, footer, small {
 
   margin-left: auto;
   margin-right: auto;
-  margin-top: 70px;
+  margin-top: 50px;
   text-align: center;
   height: 270px;
   width: 400px;
@@ -126,7 +146,18 @@ button, article, footer, small {
 .login-form {
   font-family: 'Roboto', sans-serif;
 }
-.button {
+
+.form-label {
+  padding-right: 10px;
+  font-weight:100;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.form-label input {
+  height: 25px;
+  width: 200px;
+}
+.splash-button {
     background-color:#eee;
     border: none;
     color: grey;
@@ -136,11 +167,11 @@ button, article, footer, small {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 5px;
     outline: none;
-    margin: 10px;
+    margin: 25px 17px;
 }
-.button:hover {
+.splash-button:hover {
   background-color: #cccccc;
 }
 

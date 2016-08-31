@@ -60,11 +60,14 @@ class SessionForm extends React.Component {
 					<form onSubmit={this.handleSubmit} className="login-form-box">
 						Welcome to OpenWall!
 						<br/>
-							Please { this.props.formType } or { this.navLink() };
+							Please { this.props.formType } or { this.navLink() }
 							{ this.renderErrors() }
 						<div className="login-form">
 							<br />
-							<label className="first-form"> Username:
+							<label className="first-form">
+								<label className="form-label">
+									USERNAME:
+								</label>
 								<input type="text"
 									value={this.state.username}
 									onChange={this.update("username")}
@@ -72,7 +75,10 @@ class SessionForm extends React.Component {
 							</label>
 
 							<br />
-							<label className="first-form"> Password:
+							<label className="first-form">
+								<label className="form-label">
+								 PASSWORD:
+							 </label>
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update("password")}
@@ -80,7 +86,8 @@ class SessionForm extends React.Component {
 							</label>
 
 							<br />
-							<input className="button" type="submit" value="Submit" />
+							<input className="splash-button" type="submit" value="Guest Login" />
+							<input className="splash-button" type="submit" value="Submit" />
 						</div>
 					</form>
 				</div>

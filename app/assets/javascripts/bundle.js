@@ -32361,13 +32361,13 @@
 	    _react2.default.createElement(
 	      _reactRouter.Link,
 	      { to: '/login', activeClassName: 'current' },
-	      'Login'
+	      'LOGIN'
 	    ),
 	    ' or ',
 	    _react2.default.createElement(
 	      _reactRouter.Link,
 	      { to: '/signup', activeClassName: 'current' },
-	      'Sign up!'
+	      'SIGN UP'
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -32384,6 +32384,11 @@
 	        'W'
 	      ),
 	      'all'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'tagline' },
+	      ' A virtual space for creating and sharing...'
 	    )
 	  );
 	};
@@ -32586,7 +32591,6 @@
 							this.props.formType,
 							' or ',
 							this.navLink(),
-							';',
 							this.renderErrors(),
 							_react2.default.createElement(
 								'div',
@@ -32595,7 +32599,11 @@
 								_react2.default.createElement(
 									'label',
 									{ className: 'first-form' },
-									' Username:',
+									_react2.default.createElement(
+										'label',
+										{ className: 'form-label' },
+										'USERNAME:'
+									),
 									_react2.default.createElement('input', { type: 'text',
 										value: this.state.username,
 										onChange: this.update("username"),
@@ -32605,14 +32613,19 @@
 								_react2.default.createElement(
 									'label',
 									{ className: 'first-form' },
-									' Password:',
+									_react2.default.createElement(
+										'label',
+										{ className: 'form-label' },
+										'PASSWORD:'
+									),
 									_react2.default.createElement('input', { type: 'password',
 										value: this.state.password,
 										onChange: this.update("password"),
 										className: 'login-input' })
 								),
 								_react2.default.createElement('br', null),
-								_react2.default.createElement('input', { className: 'button', type: 'submit', value: 'Submit' })
+								_react2.default.createElement('input', { className: 'splash-button', type: 'submit', value: 'Guest Login' }),
+								_react2.default.createElement('input', { className: 'splash-button', type: 'submit', value: 'Submit' })
 							)
 						)
 					)
