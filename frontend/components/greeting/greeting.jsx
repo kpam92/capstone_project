@@ -13,7 +13,7 @@ const sessionLinks = () => (
 
 const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-nav">
-    <Link to="/home"><img className="icon" src="http://res.cloudinary.com/dt5viyxyq/image/upload/v1472601564/font-template-calligraphy-o_on3edg.gif"/></Link>
+    <Link to="/home"><label className="icon">O</label></Link>
     <button className="header-button" onClick={logout}>Log Out</button>
 		<h2 className="header-name">{currentUser.username}</h2>
 	</hgroup>

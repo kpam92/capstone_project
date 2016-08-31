@@ -32400,7 +32400,11 @@
 	    _react2.default.createElement(
 	      _reactRouter.Link,
 	      { to: '/home' },
-	      _react2.default.createElement('img', { className: 'icon', src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1472601564/font-template-calligraphy-o_on3edg.gif' })
+	      _react2.default.createElement(
+	        'label',
+	        { className: 'icon' },
+	        'O'
+	      )
 	    ),
 	    _react2.default.createElement(
 	      'button',
@@ -32711,8 +32715,8 @@
 	        { className: 'home' },
 	        _react2.default.createElement(
 	          'h1',
-	          null,
-	          'this is home talking'
+	          { className: 'page-head-text' },
+	          'EXPLORE'
 	        )
 	      );
 	    }
