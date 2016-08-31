@@ -39,6 +39,8 @@ class SessionForm extends React.Component {
 		}
 	}
 
+
+
 	renderErrors(){
 		return(
 			<ul>
@@ -59,6 +61,7 @@ class SessionForm extends React.Component {
 						Welcome to OpenWall!
 						<br/>
 							Please { this.props.formType } or { this.navLink() };
+							{ this.renderErrors() }
 						<div className="login-form">
 							<br />
 							<label className="first-form"> Username:
