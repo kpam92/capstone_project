@@ -51,7 +51,8 @@ a:hover {
   width: 100%;
   background-repeat: no-repeat;
   height: 1000px;
-  position: relative;
+  position: absolute;
+  z-index: -1;
   background-size: cover;
 }
 .splash-logo {
@@ -108,7 +109,9 @@ a:hover {
   width: 100%;
   height: 54px;
   background-color: #9AC1CE;
-  background-color: rgba(255,255,255,0.95)
+  /*background-color: rgba(255,255,255,0.95)*/
+  /*background-color: rgba(249, 244, 244, 0.95);*/
+  background-color: rgba(243, 241, 239, 0.95)
 }
 .icon {
   font-size: 48px;
@@ -203,9 +206,7 @@ a:hover {
 .header-name {
   float: left
 }
-.header-button {
-  float: left
-}
+
 .explore-text {
   padding-left: 50px;
   padding-top: 50px;
@@ -213,7 +214,8 @@ a:hover {
   font-size: 50px;
 }
 .header-button {
-    background-color:#eee;
+    float: left;
+    background-color: white;
     border: none;
     color: grey;
     padding: 10px 20px;

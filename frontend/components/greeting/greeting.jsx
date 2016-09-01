@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const sessionLinks = () => (
+<div>
+<div className="splash-background"/>
   <nav className="login-signup">
     <Link to="/login" activeClassName="current">LOGIN</Link>
     &nbsp;or&nbsp;
@@ -9,6 +11,7 @@ const sessionLinks = () => (
     <div className='splash-logo'><label className="logo-letter">O</label>pen<label className="logo-letter">W</label>all</div>
     <div className='tagline'> A virtual space for creating and sharing...</div>
   </nav>
+</div>
 );
 
 const personalGreeting = (currentUser, logout) => (

@@ -32288,7 +32288,7 @@
 	  var children = _ref.children;
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'splash-background' },
+	    null,
 	    _react2.default.createElement(
 	      'header',
 	      null,
@@ -32356,39 +32356,44 @@
 	
 	var sessionLinks = function sessionLinks() {
 	  return _react2.default.createElement(
-	    'nav',
-	    { className: 'login-signup' },
+	    'div',
+	    null,
+	    _react2.default.createElement('div', { className: 'splash-background' }),
 	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: '/login', activeClassName: 'current' },
-	      'LOGIN'
-	    ),
-	    ' or ',
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: '/signup', activeClassName: 'current' },
-	      'SIGN UP'
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'splash-logo' },
+	      'nav',
+	      { className: 'login-signup' },
 	      _react2.default.createElement(
-	        'label',
-	        { className: 'logo-letter' },
-	        'O'
+	        _reactRouter.Link,
+	        { to: '/login', activeClassName: 'current' },
+	        'LOGIN'
 	      ),
-	      'pen',
+	      ' or ',
 	      _react2.default.createElement(
-	        'label',
-	        { className: 'logo-letter' },
-	        'W'
+	        _reactRouter.Link,
+	        { to: '/signup', activeClassName: 'current' },
+	        'SIGN UP'
 	      ),
-	      'all'
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'tagline' },
-	      ' A virtual space for creating and sharing...'
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'splash-logo' },
+	        _react2.default.createElement(
+	          'label',
+	          { className: 'logo-letter' },
+	          'O'
+	        ),
+	        'pen',
+	        _react2.default.createElement(
+	          'label',
+	          { className: 'logo-letter' },
+	          'W'
+	        ),
+	        'all'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'tagline' },
+	        ' A virtual space for creating and sharing...'
+	      )
 	    )
 	  );
 	};
