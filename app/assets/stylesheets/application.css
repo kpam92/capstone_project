@@ -32,7 +32,14 @@ button, article, footer, small {
 *{
   font-family: 'Roboto', sans-serif;
 }
+ul {
+list-style-type: none;
+}
 a:link{
+  text-decoration:none;
+  color: steelblue;
+}
+a:visited{
   text-decoration:none;
   color: steelblue;
 }

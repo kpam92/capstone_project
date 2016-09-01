@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import { fetchAllPhotos } from '../../actions/photo_actions';
-import PhotoIndex from './index';
+import PhotoIndex from './photo_index';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  photos: state.photos
 });
 
 const mapDispatchToProps = dispatch => ({

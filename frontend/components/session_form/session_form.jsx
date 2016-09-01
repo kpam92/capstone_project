@@ -28,13 +28,11 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e){
 		e.preventDefault();
-		debugger;
 		const user = this.state;
 		this.props.processForm({user});
 	}
 	handleGuest(e){
 		e.preventDefault();
-		debugger;
 		const user = {username: "user1", password: "password", guest: true};
 		this.props.login({user})
 	}

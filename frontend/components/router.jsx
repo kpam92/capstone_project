@@ -5,12 +5,15 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
+import { fetchAllPhotos } from '../actions/photo_actions';
 
 class AppRouter extends React.Component{
   constructor(props){
     super(props);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
+    this._fetchAllPhotosOnEnter = this._fetchAllPhotosOnEnter.bind(this);
+    this.store = this.props.store;
   }
 
   _ensureLoggedIn(nextState, replace){
@@ -18,6 +21,8 @@ class AppRouter extends React.Component{
     const currentUser = currentState.session.currentUser;
     if (!currentUser) {
       replace('/login');
+    } else {
+      this._fetchAllPhotosOnEnter();
     }
   }
 
@@ -27,6 +32,10 @@ class AppRouter extends React.Component{
     if (currentUser) {
       replace('/');
     }
+  }
+
+  _fetchAllPhotosOnEnter(){
+    this.store.dispatch(fetchAllPhotos());
   }
 
   render(){

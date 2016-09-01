@@ -2,10 +2,15 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import AppRouter from './router.jsx';
 
-const Root = props => {
+const Root = ({store}) => {
+
+  const fetchAllPhotosOnEnter = () => {
+		store.dispatch(Actions.fetchAllPhotos());
+	};
+
   return (
-    <Provider store={props.store}>
-      <AppRouter/>
+    <Provider store={store}>
+      <AppRouter store= {store}/>
     </Provider>
   );
 };
