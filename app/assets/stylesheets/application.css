@@ -123,6 +123,10 @@ a:hover {
   margin-bottom: 3px;
   cursor: url("http://res.cloudinary.com/dt5viyxyq/image/upload/c_thumb,h_25/v1472684324/home-128_zzhumx.png"), auto;
 }
+.login-signup a:link{
+  font-size: 20px;
+  padding: 10px 10px;
+}
 
 /*.login-form-container {
   background: lightgrey;
