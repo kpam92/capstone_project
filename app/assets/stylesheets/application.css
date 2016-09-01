@@ -106,7 +106,7 @@ a:hover {
   left: 0;
   z-index: 9999;
   width: 100%;
-  height: 50px;
+  height: 54px;
   background-color: #9AC1CE;
   background-color: rgba(255,255,255,0.95)
 }
@@ -116,7 +116,7 @@ a:hover {
   font-weight: bold;
   font-style: italic;
   float: left;
-  padding-left: 18px;
+  padding-left: 37px;
   margin-bottom: 3px;
   cursor: url("http://res.cloudinary.com/dt5viyxyq/image/upload/c_thumb,h_25/v1472684324/home-128_zzhumx.png"), auto;
 }
@@ -205,4 +205,27 @@ a:hover {
 }
 .header-button {
   float: left
+}
+.explore-text {
+  padding-left: 50px;
+  padding-top: 50px;
+  letter-spacing: 7px;
+  font-size: 50px;
+}
+.header-button {
+    background-color:#eee;
+    border: none;
+    color: grey;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px 40px;
+}
+.header-button:hover {
+  background-color: #cccccc;
 }

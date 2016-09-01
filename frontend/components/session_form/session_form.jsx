@@ -6,11 +6,12 @@ class SessionForm extends React.Component {
 		super(props);
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			guest: false
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleGuest = this.handleGuest.bind(this);
 	}
-
 	componentDidUpdate(){
 		this.redirectIfLoggedIn();
 	}
@@ -27,8 +28,15 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e){
 		e.preventDefault();
+		debugger;
 		const user = this.state;
 		this.props.processForm({user});
+	}
+	handleGuest(e){
+		e.preventDefault();
+		debugger;
+		const user = {username: "user1", password: "password", guest: true};
+		this.props.login({user})
 	}
 
 	navLink(){
@@ -86,7 +94,7 @@ class SessionForm extends React.Component {
 							</label>
 
 							<br />
-							<input className="splash-button" type="submit" value="Guest Login" />
+							<input className="splash-button" type="button" onClick={this.handleGuest} value="Guest Login" />
 							<input className="splash-button" type="submit" value="Submit" />
 						</div>
 					</form>

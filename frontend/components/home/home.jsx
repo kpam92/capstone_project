@@ -8,8 +8,11 @@ class Home extends React.Component {
 
   render() {
     return(
-      <div className='home'>
-      <h1 className="page-head-text">EXPLORE</h1>
+      <div className='home-nav'>
+        <h1 className="explore-text">EXPLORE</h1>
+          <div className='explore-buttons'>
+            
+          </div>
       </div>
     )
   }

@@ -32464,6 +32464,9 @@
 	  var _processForm = formType === 'login' ? _session_actions.login : _session_actions.signup;
 	
 	  return {
+	    login: function login(user) {
+	      return dispatch((0, _session_actions.login)(user));
+	    },
 	    processForm: function processForm(user) {
 	      return dispatch(_processForm(user));
 	    },
@@ -32511,9 +32514,11 @@
 	
 			_this.state = {
 				username: "",
-				password: ""
+				password: "",
+				guest: false
 			};
 			_this.handleSubmit = _this.handleSubmit.bind(_this);
+			_this.handleGuest = _this.handleGuest.bind(_this);
 			return _this;
 		}
 	
@@ -32542,8 +32547,17 @@
 			key: 'handleSubmit',
 			value: function handleSubmit(e) {
 				e.preventDefault();
+				debugger;
 				var user = this.state;
 				this.props.processForm({ user: user });
+			}
+		}, {
+			key: 'handleGuest',
+			value: function handleGuest(e) {
+				e.preventDefault();
+				debugger;
+				var user = { username: "user1", password: "password", guest: true };
+				this.props.login({ user: user });
 			}
 		}, {
 			key: 'navLink',
@@ -32628,7 +32642,7 @@
 										className: 'login-input' })
 								),
 								_react2.default.createElement('br', null),
-								_react2.default.createElement('input', { className: 'splash-button', type: 'submit', value: 'Guest Login' }),
+								_react2.default.createElement('input', { className: 'splash-button', type: 'button', onClick: this.handleGuest, value: 'Guest Login' }),
 								_react2.default.createElement('input', { className: 'splash-button', type: 'submit', value: 'Submit' })
 							)
 						)
@@ -32712,12 +32726,13 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'home' },
+	        { className: 'home-nav' },
 	        _react2.default.createElement(
 	          'h1',
-	          { className: 'page-head-text' },
+	          { className: 'explore-text' },
 	          'EXPLORE'
-	        )
+	        ),
+	        _react2.default.createElement('div', { className: 'explore-buttons' })
 	      );
 	    }
 	  }]);
