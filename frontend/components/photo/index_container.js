@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { fetchAllPhotos } from '../../actions/photo_actions';
 import PhotoIndex from './index';
 
 const mapStateToProps = state => ({
@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchAllPhotos: () => dispatch(fetchAllPhotos())
 });
 
 export default connect(

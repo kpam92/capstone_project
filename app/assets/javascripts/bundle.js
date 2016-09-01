@@ -62,6 +62,8 @@
 	
 	var _session_actions = __webpack_require__(297);
 	
+	var _photo_actions = __webpack_require__(383);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.addEventListener("DOMContentLoaded", function () {
@@ -77,6 +79,7 @@
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 	  window.store = store;
 	  window.receiveCurrentUser = _session_actions.receiveCurrentUser;
+	  window.fetchAllPhotos = _photo_actions.fetchAllPhotos;
 	});
 
 /***/ },
@@ -22346,10 +22349,15 @@
 	
 	var _session_reducer2 = _interopRequireDefault(_session_reducer);
 	
+	var _photo_reducer = __webpack_require__(385);
+	
+	var _photo_reducer2 = _interopRequireDefault(_photo_reducer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RootReducer = exports.RootReducer = (0, _redux.combineReducers)({
-	  session: _session_reducer2.default
+	  session: _session_reducer2.default,
+	  photo: _photo_reducer2.default
 	});
 	
 	exports.default = RootReducer;
@@ -25782,9 +25790,13 @@
 	
 	var _session_middleware2 = _interopRequireDefault(_session_middleware);
 	
+	var _photo_middleware = __webpack_require__(382);
+	
+	var _photo_middleware2 = _interopRequireDefault(_photo_middleware);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RootMiddleware = (0, _redux.applyMiddleware)(_session_middleware2.default);
+	var RootMiddleware = (0, _redux.applyMiddleware)(_session_middleware2.default, _photo_middleware2.default);
 	
 	exports.default = RootMiddleware;
 
@@ -32767,7 +32779,7 @@
 	
 	var _reactRedux = __webpack_require__(365);
 	
-	var _session_actions = __webpack_require__(297);
+	var _photo_actions = __webpack_require__(383);
 	
 	var _index = __webpack_require__(381);
 	
@@ -32782,7 +32794,11 @@
 	};
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
+	  return {
+	    fetchAllPhotos: function fetchAllPhotos() {
+	      return dispatch((0, _photo_actions.fetchAllPhotos)());
+	    }
+	  };
 	};
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_index2.default);
@@ -32835,6 +32851,140 @@
 	}(_react2.default.Component);
 	
 	exports.default = PhotoIndex;
+
+/***/ },
+/* 382 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _photo_actions = __webpack_require__(383);
+	
+	var _photo_api_util = __webpack_require__(384);
+	
+	var _reactRouter = __webpack_require__(301);
+	
+	exports.default = function (_ref) {
+	  var getState = _ref.getState;
+	  var dispatch = _ref.dispatch;
+	  return function (next) {
+	    return function (action) {
+	      var receivePhotoSuccess = function receivePhotoSuccess(data) {
+	        return dispatch((0, _photo_actions.receiveAllPhotos)(data));
+	      };
+	      var errorCallback = function errorCallback(xhr) {
+	        var errors = xhr.responseJSON;
+	        dispatch((0, _photo_actions.receiveErrors)(errors));
+	      };
+	      switch (action.type) {
+	        case _photo_actions.PhotoConstants.FETCH_ALL_PHOTOS:
+	          (0, _photo_api_util.fetchAllPhotos)(receivePhotoSuccess, errorCallback);
+	          return next(action);
+	        default:
+	          return next(action);
+	      }
+	    };
+	  };
+	};
+
+/***/ },
+/* 383 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var PhotoConstants = exports.PhotoConstants = {
+	  FETCH_ALL_PHOTOS: "FETCH_ALL_PHOTOS",
+	  RECEIVE_ALL_PHOTOS: "RECEIVE_ALL_PHOTOS",
+	  RECEIVE_ERRORS: "RECEIVE_ERRORS"
+	};
+	
+	var fetchAllPhotos = exports.fetchAllPhotos = function fetchAllPhotos() {
+	  return {
+	    type: PhotoConstants.FETCH_ALL_PHOTOS
+	  };
+	};
+	
+	var receiveAllPhotos = exports.receiveAllPhotos = function receiveAllPhotos(photos) {
+	  return {
+	    type: PhotoConstants.RECEIVE_ALL_PHOTOS,
+	    photos: photos
+	  };
+	};
+	
+	var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
+	  return {
+	    type: PhotoConstants.RECEIVE_ERRORS,
+	    errors: errors
+	  };
+	};
+
+/***/ },
+/* 384 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.fetchAllPhotos = undefined;
+	
+	var _photo_actions = __webpack_require__(383);
+	
+	var fetchAllPhotos = exports.fetchAllPhotos = function fetchAllPhotos(success, error) {
+		$.ajax({
+			method: 'GET',
+			url: 'api/photos',
+			success: success,
+			error: error
+		});
+	};
+
+/***/ },
+/* 385 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _merge = __webpack_require__(189);
+	
+	var _merge2 = _interopRequireDefault(_merge);
+	
+	var _photo_actions = __webpack_require__(383);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// const defaultState = Object.freeze({currentUser: null, errors:[]});
+	
+	var PhotoReducer = function PhotoReducer() {
+	  var oldState = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _photo_actions.PhotoConstants.RECEIVE_ALL_PHOTOS:
+	      debugger;
+	      return (0, _merge2.default)({}, oldState, action.photos);
+	    case _photo_actions.PhotoConstants.RECEIVE_ERRORS:
+	      var errors = action.errors;
+	      return (0, _merge2.default)({}, oldState, { errors: errors });
+	    default:
+	      return oldState;
+	  }
+	};
+	
+	exports.default = PhotoReducer;
 
 /***/ }
 /******/ ]);
