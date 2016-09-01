@@ -18,7 +18,7 @@ class PhotoIndex extends React.Component {
       <PhotoIndexItem key={photo.id} photo = {photo}/>
     ));
   	return (
-  		<ul>
+  		<ul className='landing-photo-grid'>
         {photoList}
       </ul>
   	);

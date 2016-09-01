@@ -245,11 +245,25 @@ a:hover {
 
 
 .landing-photo-grid {
-  display: flex;
-  flex-wrap: wrap;
+  list-style: none;
+  min-width: 900px;
+  /*display: flex;*/
+  margin: 0;
+  padding: 0;
 }
-.landing-photo-grid img {
+.landing-photo-grid li {
+  /*flex: 3 1 100px;*/
+  display: inline-block;
   width: 50%;
-  height: 50%;
+  height:50%;
+  zoom: 1;         /* for IE */
+  display*:inline;
+}
+/*.landing-photo-grid li:nth-child(1) {
+  flex: 1 1 100px;
+}*/
+.landing-photo-grid img {
+  width: 80%;
+  height: inherit;
 
 }

@@ -33005,7 +33005,7 @@
 	      });
 	      return _react2.default.createElement(
 	        'ul',
-	        null,
+	        { className: 'landing-photo-grid' },
 	        photoList
 	      );
 	    }
@@ -33053,8 +33053,8 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'landing-photo-grid' },
+	        'li',
+	        null,
 	        _react2.default.createElement('img', { src: this.props.photo.image_url }),
 	        _react2.default.createElement(
 	          'h3',
