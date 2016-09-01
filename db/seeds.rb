@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(username: 'user1', password: 'password')
+
 Photo.create!(title:"kevin",medium:"digital", description:"man and dog",
              author_id:1, album_id:1, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472746902/_MG_8090_kcryvq.jpg")
+
+Photo.create!(title:"ACA",medium:"digital", description:"2016 team",
+             author_id:1, album_id:1, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472767620/a1_g7gv2m.jpg")

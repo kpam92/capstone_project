@@ -242,3 +242,14 @@ a:hover {
 .header-button:hover {
   background-color: #cccccc;
 }
+
+
+.landing-photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.landing-photo-grid img {
+  width: 50%;
+  height: 50%;
+
+}

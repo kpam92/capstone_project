@@ -32931,7 +32931,7 @@
 	
 	var _photo_actions = __webpack_require__(299);
 	
-	var _photo_index = __webpack_require__(387);
+	var _photo_index = __webpack_require__(385);
 	
 	var _photo_index2 = _interopRequireDefault(_photo_index);
 	
@@ -32955,58 +32955,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_index2.default);
 
 /***/ },
-/* 385 */,
-/* 386 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var PhotoIndexItem = function (_React$Component) {
-	  _inherits(PhotoIndexItem, _React$Component);
-	
-	  function PhotoIndexItem(props) {
-	    _classCallCheck(this, PhotoIndexItem);
-	
-	    return _possibleConstructorReturn(this, (PhotoIndexItem.__proto__ || Object.getPrototypeOf(PhotoIndexItem)).call(this, props));
-	  }
-	
-	  _createClass(PhotoIndexItem, [{
-	    key: 'render',
-	    value: function render() {
-	      debugger;
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement('img', { src: this.props.photo.image_url })
-	      );
-	    }
-	  }]);
-	
-	  return PhotoIndexItem;
-	}(_react2.default.Component);
-	
-	exports.default = PhotoIndexItem;
-
-/***/ },
-/* 387 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33057,11 +33006,7 @@
 	      return _react2.default.createElement(
 	        'ul',
 	        null,
-	        photoList,
-	        '// ',
-	        this.props.photos.map(function (photo) {
-	          //   <PhotoIndexItem key={photo.id} photo = {photo}/>
-	        })
+	        photoList
 	      );
 	    }
 	  }]);
@@ -33070,6 +33015,65 @@
 	}(_react2.default.Component);
 	
 	exports.default = PhotoIndex;
+
+/***/ },
+/* 386 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var PhotoIndexItem = function (_React$Component) {
+	  _inherits(PhotoIndexItem, _React$Component);
+	
+	  function PhotoIndexItem(props) {
+	    _classCallCheck(this, PhotoIndexItem);
+	
+	    return _possibleConstructorReturn(this, (PhotoIndexItem.__proto__ || Object.getPrototypeOf(PhotoIndexItem)).call(this, props));
+	  }
+	
+	  _createClass(PhotoIndexItem, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'landing-photo-grid' },
+	        _react2.default.createElement('img', { src: this.props.photo.image_url }),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          this.props.photo.title
+	        ),
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          this.props.photo.description
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return PhotoIndexItem;
+	}(_react2.default.Component);
+	
+	exports.default = PhotoIndexItem;
 
 /***/ }
 /******/ ]);
