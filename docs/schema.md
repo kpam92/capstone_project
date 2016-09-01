@@ -14,6 +14,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
+imag_url    | string    | not null
 medium      | string    |
 description | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
@@ -26,7 +27,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
-description | string    | 
+description | string    |
 
 ## photo_comments
 column name | data type | details
