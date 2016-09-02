@@ -15,6 +15,7 @@ class PhotoIndexItem extends React.Component {
   }
   onModalOpen(){
     ModalStyle.content.opacity = 100;
+    ModalStyle.content.background
   }
 
   _handleClick() {
@@ -35,9 +36,9 @@ class PhotoIndexItem extends React.Component {
             onRequestClose={this.onModalClose}
             style={ModalStyle}
             onAfterOpen={this.onModalOpen}>
+            <a className="modal-close" onClick={this.onModalClose}><img src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png"/></a>
 
             <div className='modal-container'>
-              <button className="splash-button" onClick={this.onModalClose}>Close</button>
               <img src={this.props.photo.image_url}/>
             </div>
 

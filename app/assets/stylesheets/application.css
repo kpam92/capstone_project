@@ -32,6 +32,9 @@ button, article, footer, small {
 *{
   font-family: 'Roboto', sans-serif;
 }
+img:hover {
+  opacity: 0.9;
+}
 ul {
 list-style-type: none;
 }
@@ -119,6 +122,26 @@ a:hover {
   /*background-color: rgba(255,255,255,0.95)*/
   /*background-color: rgba(249, 244, 244, 0.95);*/
   background-color: rgba(243, 241, 239, 0.95)
+}
+.right-nav {
+  float: right;
+  margin-right: 77px;
+}
+.right-nav li {
+  list-style-type: none;
+  display: inline;
+}
+.header-name {
+  color: #356E82;
+  padding-right: 10px;
+  letter-spacing: 3px;
+  font-size: 20px;
+
+}
+.prof-icon img{
+  border-radius: 30px;
+  width: 47px;
+  margin-top: 3px;
 }
 .icon {
   font-size: 48px;
@@ -214,9 +237,7 @@ a:hover {
 .header-group {
   float: right;
 }
-.header-name {
-  float: left
-}
+
 
 .explore-text {
   padding-left: 50px;
@@ -267,9 +288,14 @@ a:hover {
   height: inherit;
 
 }
-.modal-container{
+div.modal-container img{
   margin: auto;
   display: block;
-  width: 80%;
+  width: 100%;
   max-width: 700px;
+  max-height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
 }

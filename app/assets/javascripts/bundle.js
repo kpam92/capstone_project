@@ -32585,9 +32585,22 @@
 	      'Log Out'
 	    ),
 	    _react2.default.createElement(
-	      'h2',
-	      { className: 'header-name' },
-	      currentUser.username
+	      'div',
+	      { className: 'right-nav' },
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'header-name' },
+	        currentUser.username
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#', className: 'prof-icon' },
+	          _react2.default.createElement('img', { src: currentUser.profile_pic })
+	        )
+	      )
 	    )
 	  );
 	};
@@ -33075,6 +33088,7 @@
 	    key: 'onModalOpen',
 	    value: function onModalOpen() {
 	      _modal_style2.default.content.opacity = 100;
+	      _modal_style2.default.content.background;
 	    }
 	  }, {
 	    key: '_handleClick',
@@ -33110,13 +33124,13 @@
 	            style: _modal_style2.default,
 	            onAfterOpen: this.onModalOpen },
 	          _react2.default.createElement(
+	            'a',
+	            { className: 'modal-close', onClick: this.onModalClose },
+	            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
+	          ),
+	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-container' },
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'splash-button', onClick: this.onModalClose },
-	              'Close'
-	            ),
 	            _react2.default.createElement('img', { src: this.props.photo.image_url })
 	          )
 	        )
