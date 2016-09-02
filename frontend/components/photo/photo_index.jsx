@@ -13,7 +13,6 @@ class PhotoIndex extends React.Component {
 
 
   render() {
-    console.log('render', this.props.photos)
     const photoList = this.props.photos.map(photo => (
       <PhotoIndexItem key={photo.id} photo = {photo}/>
     ));

@@ -4,7 +4,7 @@ import {configureStore} from './store/store';
 import Root from './components/root';
 import {receiveCurrentUser} from "./actions/session_actions"
 import {fetchAllPhotos} from "./actions/photo_actions"
-
+import Modal from 'react-modal';
 
 
 
@@ -16,7 +16,7 @@ if (window.currentUser) {
 } else {
   store = configureStore();
 }
-
+  Modal.setAppElement(document.body);
   const root = document.getElementById("root");
   ReactDOM.render(<Root store = {store}/>, root);
   window.store = store;
