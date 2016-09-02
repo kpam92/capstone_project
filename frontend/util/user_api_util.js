@@ -4,7 +4,7 @@ export const fetchAllUsers = function(success, error) {
   debugger;
 	$.ajax({
 		method: 'GET',
-		url: 'api/user',
+		url: 'api/users',
 		success,
 		error
 	});
