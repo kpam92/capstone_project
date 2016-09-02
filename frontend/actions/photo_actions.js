@@ -1,7 +1,7 @@
 export const PhotoConstants = {
   FETCH_ALL_PHOTOS: "FETCH_ALL_PHOTOS",
   RECEIVE_ALL_PHOTOS: "RECEIVE_ALL_PHOTOS",
-  RECEIVE_ERRORS: "RECEIVE_ERRORS"
+  RECEIVE_ERRORS: "RECEIVE_ERRORS",
 };
 
 export const fetchAllPhotos = () => ({

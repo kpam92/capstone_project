@@ -18,7 +18,11 @@ const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-nav">
     <Link to="/home"><label className="icon">O</label></Link>
     <button className="header-button" onClick={logout}>Log Out</button>
+    <form>
+      <input className="search-bar"type="text" name="search"/>
+    </form>
     <div className="right-nav">
+
   		<li className="header-name">{currentUser.username}</li>
       <li><a href="#" className='prof-icon'><img src={currentUser.profile_pic}/></a></li>
     </div>

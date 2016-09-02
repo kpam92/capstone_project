@@ -4,7 +4,7 @@ import ModalStyle from './modal_style'
 class PhotoIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { modalOpen: false, url: ""};
+    this.state = { modalOpen: false };
     this.onModalClose = this.onModalClose.bind(this)
     this.onModalOpen = this.onModalOpen.bind(this)
   }
@@ -19,8 +19,11 @@ class PhotoIndexItem extends React.Component {
   }
 
   _handleClick() {
-    this.setState({ modalOpen: true, url: this.props.photo.image_url});
+    debugger;
+    this.setState({ modalOpen: true});
   }
+
+
 
   render() {
     return(

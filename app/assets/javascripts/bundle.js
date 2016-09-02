@@ -32585,6 +32585,11 @@
 	      'Log Out'
 	    ),
 	    _react2.default.createElement(
+	      'form',
+	      null,
+	      _react2.default.createElement('input', { className: 'search-bar', type: 'text', name: 'search' })
+	    ),
+	    _react2.default.createElement(
 	      'div',
 	      { className: 'right-nav' },
 	      _react2.default.createElement(
@@ -33072,7 +33077,7 @@
 	
 	    var _this = _possibleConstructorReturn(this, (PhotoIndexItem.__proto__ || Object.getPrototypeOf(PhotoIndexItem)).call(this, props));
 	
-	    _this.state = { modalOpen: false, url: "" };
+	    _this.state = { modalOpen: false };
 	    _this.onModalClose = _this.onModalClose.bind(_this);
 	    _this.onModalOpen = _this.onModalOpen.bind(_this);
 	    return _this;
@@ -33093,7 +33098,8 @@
 	  }, {
 	    key: '_handleClick',
 	    value: function _handleClick() {
-	      this.setState({ modalOpen: true, url: this.props.photo.image_url });
+	      debugger;
+	      this.setState({ modalOpen: true });
 	    }
 	  }, {
 	    key: 'render',
@@ -35110,7 +35116,7 @@
 	    border: '1px solid #ccc',
 	    padding: '20px',
 	    opacity: '0',
-	    transition: 'opacity 0.5s'
+	    transition: 'opacity 0.25s'
 	    // z-index: 11
 	  }
 	};

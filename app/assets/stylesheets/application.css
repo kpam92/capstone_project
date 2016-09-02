@@ -143,6 +143,31 @@ a:hover {
   width: 47px;
   margin-top: 3px;
 }
+
+
+.search-bar {
+    position: fixed;
+    margin-top: 17px;
+    width: 118px;
+    box-sizing: border-box;
+    border: 0px solid #ccc;
+    border-radius: 32px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('http://res.cloudinary.com/dt5viyxyq/image/upload/v1472837172/search-icon-png-2_tfgi9a.png');
+    background-size: contain;
+    background-position: 2px 0px;
+    background-repeat: no-repeat;
+    padding: 0px 20px 0px 27px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.search-bar:focus {
+    width: 30%;
+    outline: none;
+}
+
 .icon {
   font-size: 48px;
   font-family: 'Roboto', sans-serif;
