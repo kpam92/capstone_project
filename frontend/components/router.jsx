@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
+import ProfileContainer from './profile/profile_container';
 
 import { fetchAllPhotos } from '../actions/photo_actions';
 
@@ -46,7 +47,7 @@ class AppRouter extends React.Component{
           <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
           <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
           <Route path="/home" component={ HomeContainer } onEnter={this._ensureLoggedIn}/>
-          
+          <Route path="/profile/:profileId" component={ProfileContainer} onEnter={this._ensureLoggedIn}/>
         </Route>
       </Router>
     );
