@@ -25882,6 +25882,7 @@
 	
 	  switch (action.type) {
 	    case _user_actions.UserConstants.RECEIVE_ALL_USERS:
+	      debugger;
 	      return [].concat(_toConsumableArray(action.users));
 	    case _user_actions.UserConstants.RECEIVE_SINGLE_USER:
 	      return [action.user];
@@ -33045,6 +33046,8 @@
 	
 	var _home2 = _interopRequireDefault(_home);
 	
+	var _user_actions = __webpack_require__(301);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var mapStateToProps = function mapStateToProps(state) {
@@ -33054,7 +33057,11 @@
 	};
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
+	  return {
+	    fetchAllUsers: function fetchAllUsers() {
+	      return dispatch((0, _user_actions.fetchAllUsers)());
+	    }
+	  };
 	};
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_home2.default);
@@ -33099,6 +33106,12 @@
 	  }
 	
 	  _createClass(Home, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      debugger;
+	      this.props.fetchAllUsers();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -33137,6 +33150,8 @@
 	
 	var _photo_actions = __webpack_require__(299);
 	
+	var _user_actions = __webpack_require__(301);
+	
 	var _photo_index = __webpack_require__(389);
 	
 	var _photo_index2 = _interopRequireDefault(_photo_index);
@@ -33154,6 +33169,22 @@
 	  return {
 	    fetchAllPhotos: function fetchAllPhotos() {
 	      return dispatch((0, _photo_actions.fetchAllPhotos)());
+	    },
+	    goToProfile: function (_goToProfile) {
+	      function goToProfile(_x) {
+	        return _goToProfile.apply(this, arguments);
+	      }
+	
+	      goToProfile.toString = function () {
+	        return _goToProfile.toString();
+	      };
+	
+	      return goToProfile;
+	    }(function (id) {
+	      return dispatch(goToProfile(id));
+	    }),
+	    fetchAllUsers: function fetchAllUsers() {
+	      return dispatch((0, _user_actions.fetchAllUsers)());
 	    }
 	  };
 	};

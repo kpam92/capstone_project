@@ -6,6 +6,11 @@ class Home extends React.Component {
     super(props)
   }
 
+  componentDidMount(){
+    debugger;
+    this.props.fetchAllUsers();
+  }
+
   render() {
     return(
     <div>

@@ -6,6 +6,7 @@ import {UserConstants} from "../actions/user_actions";
 const UserReducer = (oldState = [] , action) => {
   switch (action.type) {
     case UserConstants.RECEIVE_ALL_USERS:
+    debugger;
       return [...action.users];
     case UserConstants.RECEIVE_SINGLE_USER:
       return [action.user];

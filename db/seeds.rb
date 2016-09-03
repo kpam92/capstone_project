@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(username: 'user1', password: 'password')
-User.create!(username: 'SallyMander', password: 'password')
+User.create!(username: 'SallyMander', password: 'password', profile_pic: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1472938130/12308595_10153376057065889_205887642227916082_n_iqbgzf.jpg')
 
 Photo.create!(title:"kevin",medium:"digital", description:"man and dog",
              author_id:1, album_id:1, cover_photo: false,
