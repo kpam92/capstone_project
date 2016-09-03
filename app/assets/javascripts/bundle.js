@@ -62,7 +62,7 @@
 	
 	var _session_actions = __webpack_require__(297);
 	
-	var _photo_actions = __webpack_require__(299);
+	var _user_actions = __webpack_require__(410);
 	
 	var _reactModal = __webpack_require__(387);
 	
@@ -83,7 +83,7 @@
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 	  window.store = store;
 	  window.receiveCurrentUser = _session_actions.receiveCurrentUser;
-	  window.fetchAllPhotos = _photo_actions.fetchAllPhotos;
+	  window.goToProfile = _user_actions.goToProfile;
 	});
 
 /***/ },
@@ -22357,11 +22357,16 @@
 	
 	var _photo_reducer2 = _interopRequireDefault(_photo_reducer);
 	
+	var _user_reducer = __webpack_require__(413);
+	
+	var _user_reducer2 = _interopRequireDefault(_user_reducer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RootReducer = exports.RootReducer = (0, _redux.combineReducers)({
 	  session: _session_reducer2.default,
-	  photos: _photo_reducer2.default
+	  photos: _photo_reducer2.default,
+	  user: _user_reducer2.default
 	});
 	
 	exports.default = RootReducer;
@@ -25871,9 +25876,13 @@
 	
 	var _photo_middleware2 = _interopRequireDefault(_photo_middleware);
 	
+	var _user_middleware = __webpack_require__(411);
+	
+	var _user_middleware2 = _interopRequireDefault(_user_middleware);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RootMiddleware = (0, _redux.applyMiddleware)(_session_middleware2.default, _photo_middleware2.default);
+	var RootMiddleware = (0, _redux.applyMiddleware)(_session_middleware2.default, _photo_middleware2.default, _user_middleware2.default);
 	
 	exports.default = RootMiddleware;
 
@@ -35233,6 +35242,175 @@
 	}(_react2.default.Component);
 	
 	exports.default = Profile;
+
+/***/ },
+/* 410 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var UserConstants = exports.UserConstants = {
+	  FETCH_ALL_USERS: "FETCH_ALL_USERS",
+	  RECEIVE_ALL_USERS: "RECEIVE_ALL_USERS",
+	  RECEIVE_ERRORS: "RECEIVE_ERRORS",
+	  RECEIVE_SINGLE_USER: "RECEIVE_SINGLE_USER",
+	  GO_TO_PROFILE: "GO_TO_PROFILE"
+	};
+	
+	var fetchAllUsers = exports.fetchAllUsers = function fetchAllUsers() {
+	  return {
+	    type: UserConstants.FETCH_ALL_USERS
+	  };
+	};
+	
+	var receiveAllUsers = exports.receiveAllUsers = function receiveAllUsers(users) {
+	  return {
+	    type: UserConstants.RECEIVE_ALL_USERS,
+	    users: users
+	  };
+	};
+	var receiveSingleUser = exports.receiveSingleUser = function receiveSingleUser(user) {
+	  return {
+	    type: UserConstants.RECEIVE_SINGLE_USER,
+	    user: user
+	  };
+	};
+	var goToProfile = exports.goToProfile = function goToProfile(id) {
+	  return {
+	    type: UserConstants.GO_TO_PROFILE,
+	    id: id
+	  };
+	};
+	
+	var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
+	  return {
+	    type: UserConstants.RECEIVE_ERRORS,
+	    errors: errors
+	  };
+	};
+
+/***/ },
+/* 411 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _user_actions = __webpack_require__(410);
+	
+	var _user_api_util = __webpack_require__(412);
+	
+	var _reactRouter = __webpack_require__(303);
+	
+	exports.default = function (_ref) {
+	  var getState = _ref.getState;
+	  var dispatch = _ref.dispatch;
+	  return function (next) {
+	    return function (action) {
+	      var receiveUserSuccess = function receiveUserSuccess(data) {
+	        return dispatch((0, _user_actions.receiveAllUsers)(data));
+	      };
+	      var receiveSingleUserSuccess = function receiveSingleUserSuccess(data) {
+	        return dispatch((0, _user_actions.receiveSingleUser)(data));
+	      };
+	      var errorCallback = function errorCallback(xhr) {
+	        var errors = xhr.responseJSON;
+	        dispatch((0, _user_actions.receiveErrors)(errors));
+	      };
+	      switch (action.type) {
+	        case _user_actions.UserConstants.FETCH_ALL_USERS:
+	          (0, _user_api_util.fetchAllUsers)(receiveUserSuccess, errorCallback);
+	          return next(action);
+	        case _user_actions.UserConstants.GO_TO_PROFILE:
+	          debugger;
+	          (0, _user_api_util.fetchSingleUser)(action.id, receiveSingleUserSuccess, errorCallback);
+	          return next(action);
+	        default:
+	          debugger;
+	          return next(action);
+	      }
+	    };
+	  };
+	};
+
+/***/ },
+/* 412 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.fetchSingleUser = exports.fetchAllUsers = undefined;
+	
+	var _user_actions = __webpack_require__(410);
+	
+	var fetchAllUsers = exports.fetchAllUsers = function fetchAllUsers(success, error) {
+		debugger;
+		$.ajax({
+			method: 'GET',
+			url: 'api/users',
+			success: success,
+			error: error
+		});
+	};
+	
+	var fetchSingleUser = exports.fetchSingleUser = function fetchSingleUser(id, success, error) {
+		debugger;
+		$.ajax({
+			method: 'GET',
+			url: 'api/users/' + id,
+			success: success,
+			error: error
+		});
+	};
+
+/***/ },
+/* 413 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _merge = __webpack_require__(189);
+	
+	var _merge2 = _interopRequireDefault(_merge);
+	
+	var _user_actions = __webpack_require__(410);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	var UserReducer = function UserReducer() {
+	  var oldState = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _user_actions.UserConstants.RECEIVE_ALL_USERS:
+	      return [].concat(_toConsumableArray(action.users));
+	    case _user_actions.UserConstants.RECEIVE_SINGLE_USER:
+	      debugger;
+	      return [action.user];
+	    case _user_actions.UserConstants.RECEIVE_ERRORS:
+	      var errors = action.errors;
+	      return (0, _merge2.default)({}, oldState, { errors: errors });
+	    default:
+	      return oldState;
+	  }
+	};
+	
+	exports.default = UserReducer;
 
 /***/ }
 /******/ ]);

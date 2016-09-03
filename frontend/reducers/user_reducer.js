@@ -7,6 +7,9 @@ const UserReducer = (oldState = [] , action) => {
   switch (action.type) {
     case UserConstants.RECEIVE_ALL_USERS:
       return [...action.users];
+    case UserConstants.RECEIVE_SINGLE_USER:
+    debugger;
+      return [action.user];
     case UserConstants.RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, oldState, {errors});
