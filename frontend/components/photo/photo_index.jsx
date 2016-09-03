@@ -8,13 +8,13 @@ class PhotoIndex extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.fetchAllPhotos();
+    this.props.fetchAllUsers();
   }
 
 
   render() {
     const photoList = this.props.photos.map(photo => (
-      <PhotoIndexItem key={photo.id} photo = {photo}/>
+      <PhotoIndexItem key={photo.id} photo = {photo} props = {this.props}/>
     ));
   	return (
   		<ul className='landing-photo-grid'>

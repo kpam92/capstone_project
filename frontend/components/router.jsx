@@ -8,13 +8,14 @@ import HomeContainer from './home/home_container';
 import ProfileContainer from './profile/profile_container';
 
 import { fetchAllPhotos } from '../actions/photo_actions';
+import { fetchAllUsers } from '../actions/user_actions';
 
 class AppRouter extends React.Component{
   constructor(props){
     super(props);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
-    this._fetchAllPhotosOnEnter = this._fetchAllPhotosOnEnter.bind(this);
+    this._fetchAllAssetsOnEnter = this._fetchAllAssetsOnEnter.bind(this);
     this.store = this.props.store;
   }
 
@@ -24,7 +25,7 @@ class AppRouter extends React.Component{
     if (!currentUser) {
       replace('/login');
     } else {
-      this._fetchAllPhotosOnEnter();
+      this._fetchAllAssetsOnEnter();
     }
   }
 
@@ -36,8 +37,9 @@ class AppRouter extends React.Component{
     }
   }
 
-  _fetchAllPhotosOnEnter(){
+  _fetchAllAssetsOnEnter(){
     this.store.dispatch(fetchAllPhotos());
+    this.store.dispatch(fetchAllUsers());
   }
 
   render(){

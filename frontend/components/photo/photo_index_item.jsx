@@ -19,21 +19,34 @@ class PhotoIndexItem extends React.Component {
   }
 
   _handleClick() {
-    debugger;
     this.setState({ modalOpen: true});
   }
 
-
+  componentDidMount(){
+    // this.props.fetchSingleUser(this.props.photo.author_id);
+  }
 
 
   render() {
+    debugger;
+    const author = (id) => {
+      let result = ''
+      this.props.props.user.map(x => {
+        if (id === x.id) {
+          result = x.profile_pic;
+        }
+      })
+      return result;
+    }
     return(
       <li>
-        <a>
+        <a className="photo-grid">
         <img src={this.props.photo.image_url} onClick={this._handleClick.bind(this)}/>
         </a>
+        <div className="auth">
         <h3>{this.props.photo.title}</h3>
         <h5>{this.props.photo.description}</h5>
+        <img src={author(this.props.photo.author_id)}/></div>
 
           <Modal
             isOpen={this.state.modalOpen}

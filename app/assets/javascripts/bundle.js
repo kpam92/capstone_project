@@ -25882,7 +25882,6 @@
 	
 	  switch (action.type) {
 	    case _user_actions.UserConstants.RECEIVE_ALL_USERS:
-	      debugger;
 	      return [].concat(_toConsumableArray(action.users));
 	    case _user_actions.UserConstants.RECEIVE_SINGLE_USER:
 	      return [action.user];
@@ -32531,6 +32530,8 @@
 	
 	var _photo_actions = __webpack_require__(299);
 	
+	var _user_actions = __webpack_require__(301);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32553,7 +32554,7 @@
 	
 	    _this._ensureLoggedIn = _this._ensureLoggedIn.bind(_this);
 	    _this._redirectIfLoggedIn = _this._redirectIfLoggedIn.bind(_this);
-	    _this._fetchAllPhotosOnEnter = _this._fetchAllPhotosOnEnter.bind(_this);
+	    _this._fetchAllAssetsOnEnter = _this._fetchAllAssetsOnEnter.bind(_this);
 	    _this.store = _this.props.store;
 	    return _this;
 	  }
@@ -32566,7 +32567,7 @@
 	      if (!currentUser) {
 	        replace('/login');
 	      } else {
-	        this._fetchAllPhotosOnEnter();
+	        this._fetchAllAssetsOnEnter();
 	      }
 	    }
 	  }, {
@@ -32579,9 +32580,10 @@
 	      }
 	    }
 	  }, {
-	    key: '_fetchAllPhotosOnEnter',
-	    value: function _fetchAllPhotosOnEnter() {
+	    key: '_fetchAllAssetsOnEnter',
+	    value: function _fetchAllAssetsOnEnter() {
 	      this.store.dispatch((0, _photo_actions.fetchAllPhotos)());
+	      this.store.dispatch((0, _user_actions.fetchAllUsers)());
 	    }
 	  }, {
 	    key: 'render',
@@ -33108,8 +33110,7 @@
 	  _createClass(Home, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      debugger;
-	      this.props.fetchAllUsers();
+	      // this.props.fetchAllUsers();
 	    }
 	  }, {
 	    key: 'render',
@@ -33161,7 +33162,8 @@
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
 	    currentUser: state.session.currentUser,
-	    photos: state.photos
+	    photos: state.photos,
+	    user: state.user
 	  };
 	};
 	
@@ -33185,7 +33187,20 @@
 	    }),
 	    fetchAllUsers: function fetchAllUsers() {
 	      return dispatch((0, _user_actions.fetchAllUsers)());
-	    }
+	    },
+	    fetchSingleUser: function (_fetchSingleUser) {
+	      function fetchSingleUser(_x2) {
+	        return _fetchSingleUser.apply(this, arguments);
+	      }
+	
+	      fetchSingleUser.toString = function () {
+	        return _fetchSingleUser.toString();
+	      };
+	
+	      return fetchSingleUser;
+	    }(function (id) {
+	      return dispatch(fetchSingleUser(id));
+	    })
 	  };
 	};
 	
@@ -33231,13 +33246,15 @@
 	  _createClass(PhotoIndex, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      // this.props.fetchAllPhotos();
+	      this.props.fetchAllUsers();
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+	
 	      var photoList = this.props.photos.map(function (photo) {
-	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo });
+	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
 	      });
 	      return _react2.default.createElement(
 	        'ul',
@@ -33313,29 +33330,50 @@
 	  }, {
 	    key: '_handleClick',
 	    value: function _handleClick() {
-	      debugger;
 	      this.setState({ modalOpen: true });
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      // this.props.fetchSingleUser(this.props.photo.author_id);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+	
+	      debugger;
+	      var author = function author(id) {
+	        var result = '';
+	        _this2.props.props.user.map(function (x) {
+	          if (id === x.id) {
+	            result = x.profile_pic;
+	          }
+	        });
+	        return result;
+	      };
 	      return _react2.default.createElement(
 	        'li',
 	        null,
 	        _react2.default.createElement(
 	          'a',
-	          null,
+	          { className: 'photo-grid' },
 	          _react2.default.createElement('img', { src: this.props.photo.image_url, onClick: this._handleClick.bind(this) })
 	        ),
 	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          this.props.photo.title
-	        ),
-	        _react2.default.createElement(
-	          'h5',
-	          null,
-	          this.props.photo.description
+	          'div',
+	          { className: 'auth' },
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            this.props.photo.title
+	          ),
+	          _react2.default.createElement(
+	            'h5',
+	            null,
+	            this.props.photo.description
+	          ),
+	          _react2.default.createElement('img', { src: author(this.props.photo.author_id) })
 	        ),
 	        _react2.default.createElement(
 	          _reactModal2.default,

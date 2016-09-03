@@ -144,6 +144,12 @@ a:hover {
   margin-top: 3px;
 }
 
+.auth img{
+  border-radius: 30px;
+  width: 47px;
+  margin-top: 3px;
+}
+
 
 .search-bar {
     position: fixed;
@@ -308,7 +314,7 @@ a:hover {
 /*.landing-photo-grid li:nth-child(1) {
   flex: 1 1 100px;
 }*/
-.landing-photo-grid img {
+.photo-grid img {
   width: 80%;
   height: inherit;
 

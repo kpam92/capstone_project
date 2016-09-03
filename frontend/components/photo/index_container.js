@@ -5,13 +5,15 @@ import PhotoIndex from './photo_index';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  photos: state.photos
+  photos: state.photos,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchAllPhotos: () => dispatch(fetchAllPhotos()),
   goToProfile: (id) => dispatch(goToProfile(id)),
-  fetchAllUsers: () => dispatch(fetchAllUsers())
+  fetchAllUsers: () => dispatch(fetchAllUsers()),
+  fetchSingleUser: (id) => dispatch(fetchSingleUser(id))
 });
 
 export default connect(

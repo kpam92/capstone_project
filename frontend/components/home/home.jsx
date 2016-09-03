@@ -7,8 +7,7 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    debugger;
-    this.props.fetchAllUsers();
+    // this.props.fetchAllUsers();
   }
 
   render() {
