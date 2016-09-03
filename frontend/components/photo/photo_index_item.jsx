@@ -43,10 +43,9 @@ class PhotoIndexItem extends React.Component {
         <img src={this.props.photo.image_url} onClick={this._handleClick.bind(this)}/>
         </a>
         <div className="auth">
-        <h3>{this.props.photo.title}</h3>
-        <h5>{this.props.photo.description}</h5>
-        <img src={author(this.props.photo.author_id)}/></div>
-
+          <img src={author(this.props.photo.author_id)}/>
+          <h3>{this.props.photo.title}</h3>
+        </div>
           <Modal
             isOpen={this.state.modalOpen}
             onRequestClose={this.onModalClose}

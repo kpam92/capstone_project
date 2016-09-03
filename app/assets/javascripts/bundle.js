@@ -33362,17 +33362,12 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'auth' },
+	          _react2.default.createElement('img', { src: author(this.props.photo.author_id) }),
 	          _react2.default.createElement(
 	            'h3',
 	            null,
 	            this.props.photo.title
-	          ),
-	          _react2.default.createElement(
-	            'h5',
-	            null,
-	            this.props.photo.description
-	          ),
-	          _react2.default.createElement('img', { src: author(this.props.photo.author_id) })
+	          )
 	        ),
 	        _react2.default.createElement(
 	          _reactModal2.default,
