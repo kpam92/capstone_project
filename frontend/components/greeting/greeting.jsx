@@ -24,7 +24,7 @@ const personalGreeting = (currentUser, logout) => (
     <div className="right-nav">
 
   		<li className="header-name">{currentUser.username}</li>
-      <li><a href="#" className='prof-icon'><img src={currentUser.profile_pic}/></a></li>
+      <li><Link to="/profile/1" className='prof-icon'><img src={currentUser.profile_pic}/></Link></li>
     </div>
 	</hgroup>
 );
@@ -36,5 +36,7 @@ function Greeting({currentUser, logout}){
     return sessionLinks();
   }
 }
+
+
 
 export default Greeting;
