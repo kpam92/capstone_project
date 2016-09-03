@@ -28,7 +28,6 @@ class PhotoIndexItem extends React.Component {
 
 
   render() {
-    debugger;
     const author = (id) => {
       let result = ''
       this.props.props.user.map(x => {

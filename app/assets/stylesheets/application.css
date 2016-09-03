@@ -146,8 +146,15 @@ a:hover {
 
 .auth img{
   border-radius: 30px;
-  width: 47px;
+  width: 34px;
   margin-top: 3px;
+}
+
+.auth {
+  position: relative;
+}
+.auth *{
+  float:left;
 }
 
 

@@ -33342,7 +33342,6 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      debugger;
 	      var author = function author(id) {
 	        var result = '';
 	        _this2.props.props.user.map(function (x) {
