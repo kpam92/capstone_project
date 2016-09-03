@@ -35316,8 +35316,9 @@
 	      var receiveUserSuccess = function receiveUserSuccess(data) {
 	        return dispatch((0, _user_actions.receiveAllUsers)(data));
 	      };
-	      var receiveSingleUserSuccess = function receiveSingleUserSuccess(data) {
-	        return dispatch((0, _user_actions.receiveSingleUser)(data));
+	      var receiveSingleUserSuccess = function receiveSingleUserSuccess(user) {
+	        dispatch((0, _user_actions.receiveSingleUser)(user));
+	        _reactRouter.hashHistory.push('/profile/' + user.id);
 	      };
 	      var errorCallback = function errorCallback(xhr) {
 	        var errors = xhr.responseJSON;
@@ -35328,11 +35329,9 @@
 	          (0, _user_api_util.fetchAllUsers)(receiveUserSuccess, errorCallback);
 	          return next(action);
 	        case _user_actions.UserConstants.GO_TO_PROFILE:
-	          debugger;
 	          (0, _user_api_util.fetchSingleUser)(action.id, receiveSingleUserSuccess, errorCallback);
 	          return next(action);
 	        default:
-	          debugger;
 	          return next(action);
 	      }
 	    };
@@ -35353,7 +35352,6 @@
 	var _user_actions = __webpack_require__(410);
 	
 	var fetchAllUsers = exports.fetchAllUsers = function fetchAllUsers(success, error) {
-		debugger;
 		$.ajax({
 			method: 'GET',
 			url: 'api/users',
@@ -35363,7 +35361,6 @@
 	};
 	
 	var fetchSingleUser = exports.fetchSingleUser = function fetchSingleUser(id, success, error) {
-		debugger;
 		$.ajax({
 			method: 'GET',
 			url: 'api/users/' + id,
@@ -35400,7 +35397,6 @@
 	    case _user_actions.UserConstants.RECEIVE_ALL_USERS:
 	      return [].concat(_toConsumableArray(action.users));
 	    case _user_actions.UserConstants.RECEIVE_SINGLE_USER:
-	      debugger;
 	      return [action.user];
 	    case _user_actions.UserConstants.RECEIVE_ERRORS:
 	      var errors = action.errors;

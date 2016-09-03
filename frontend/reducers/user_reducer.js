@@ -8,7 +8,6 @@ const UserReducer = (oldState = [] , action) => {
     case UserConstants.RECEIVE_ALL_USERS:
       return [...action.users];
     case UserConstants.RECEIVE_SINGLE_USER:
-    debugger;
       return [action.user];
     case UserConstants.RECEIVE_ERRORS:
       const errors = action.errors;

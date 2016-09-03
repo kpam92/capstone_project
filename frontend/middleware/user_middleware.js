@@ -11,7 +11,9 @@ import { Link, hashHistory } from 'react-router';
 
 export default ({getState, dispatch}) => next => action => {
   const receiveUserSuccess = data => dispatch(receiveAllUsers(data));
-  const receiveSingleUserSuccess = data => dispatch(receiveSingleUser(data));
+  const receiveSingleUserSuccess = user => {
+    dispatch(receiveSingleUser(user));
+    hashHistory.push(`/profile/${user.id}`)};
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
@@ -21,11 +23,9 @@ export default ({getState, dispatch}) => next => action => {
       fetchAllUsers(receiveUserSuccess, errorCallback);
       return next(action);
     case UserConstants.GO_TO_PROFILE:
-    debugger;
       fetchSingleUser(action.id, receiveSingleUserSuccess, errorCallback);
       return next(action);
     default:
-    debugger
       return next(action);
   }
 };
