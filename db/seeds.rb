@@ -17,9 +17,9 @@ Photo.create!(title:"ACA",medium:"digital", description:"2016 team",
 Photo.create!(title:"Girl & Hands",medium:"ink",
              author_id:3, album_id:2, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472768974/girl_and_hands_y20osh.jpg")
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472746902/_MG_8090_kcryvq.jpg")
 Photo.create!(title:"Vanessa with flowers",medium:"film",
              author_id:3, album_id:2, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472768971/stephen_9010-2_rti9cb.jpg")
 Photo.create!(title:"kevin",medium:"digital", description:"man and dog",
              author_id:2, album_id:1, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472746902/_MG_8090_kcryvq.jpg")

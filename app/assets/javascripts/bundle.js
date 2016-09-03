@@ -33293,6 +33293,8 @@
 	
 	var _modal_style2 = _interopRequireDefault(_modal_style);
 	
+	var _reactRouter = __webpack_require__(305);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33394,7 +33396,7 @@
 	  return PhotoIndexItem;
 	}(_react2.default.Component);
 	
-	exports.default = PhotoIndexItem;
+	exports.default = (0, _reactRouter.withRouter)(PhotoIndexItem);
 
 /***/ },
 /* 391 */

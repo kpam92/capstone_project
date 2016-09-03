@@ -1,6 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal';
 import ModalStyle from './modal_style'
+import { withRouter } from 'react-router';
+
+
+
 class PhotoIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +32,8 @@ class PhotoIndexItem extends React.Component {
 
 
   render() {
+
+  
     const author = (id) => {
       let result = ''
       this.props.props.user.map(x => {
@@ -64,4 +70,4 @@ class PhotoIndexItem extends React.Component {
     }
   }
 
-export default PhotoIndexItem;
+export default withRouter(PhotoIndexItem);
