@@ -64,7 +64,7 @@
 	
 	var _user_actions = __webpack_require__(301);
 	
-	var _reactModal = __webpack_require__(391);
+	var _reactModal = __webpack_require__(393);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
@@ -32524,7 +32524,7 @@
 	
 	var _home_container2 = _interopRequireDefault(_home_container);
 	
-	var _profile_container = __webpack_require__(412);
+	var _profile_container = __webpack_require__(391);
 	
 	var _profile_container2 = _interopRequireDefault(_profile_container);
 	
@@ -33285,11 +33285,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactModal = __webpack_require__(391);
+	var _reactModal = __webpack_require__(393);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
-	var _modal_style = __webpack_require__(411);
+	var _modal_style = __webpack_require__(413);
 	
 	var _modal_style2 = _interopRequireDefault(_modal_style);
 	
@@ -33353,6 +33353,13 @@
 	        });
 	        return result;
 	      };
+	
+	      var handleProfileClick = function handleProfileClick(router, url) {
+	        return function () {
+	          return router.push(url);
+	        };
+	      };
+	
 	      return _react2.default.createElement(
 	        'li',
 	        null,
@@ -33364,7 +33371,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'auth' },
-	          _react2.default.createElement('img', { src: author(this.props.photo.author_id) }),
+	          _react2.default.createElement('img', { onClick: handleProfileClick(this.props.router, '/profile/' + this.props.photo.author_id), src: author(this.props.photo.author_id) }),
 	          _react2.default.createElement(
 	            'h3',
 	            null,
@@ -33402,22 +33409,128 @@
 /* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(392);
+	'use strict';
 	
-
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(373);
+	
+	var _profile = __webpack_require__(392);
+	
+	var _profile2 = _interopRequireDefault(_profile);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos
+	  };
+	};
+	// import { fetchAllPhotos } from '../../actions/photo_actions';
+	
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchUserPhotos: function (_fetchUserPhotos) {
+	      function fetchUserPhotos() {
+	        return _fetchUserPhotos.apply(this, arguments);
+	      }
+	
+	      fetchUserPhotos.toString = function () {
+	        return _fetchUserPhotos.toString();
+	      };
+	
+	      return fetchUserPhotos;
+	    }(function () {
+	      return dispatch(fetchUserPhotos());
+	    })
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_profile2.default);
 
 /***/ },
 /* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Profile = function (_React$Component) {
+	  _inherits(Profile, _React$Component);
+	
+	  function Profile(props) {
+	    _classCallCheck(this, Profile);
+	
+	    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+	  }
+	
+	  _createClass(Profile, [{
+	    key: 'render',
+	    value: function render() {
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'this is the profile talking'
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Profile;
+	}(_react2.default.Component);
+	
+	exports.default = Profile;
+
+/***/ },
+/* 393 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(394);
+	
+
+
+/***/ },
+/* 394 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
-	var ExecutionEnvironment = __webpack_require__(393);
-	var ModalPortal = React.createFactory(__webpack_require__(394));
-	var ariaAppHider = __webpack_require__(409);
-	var elementClass = __webpack_require__(410);
+	var ExecutionEnvironment = __webpack_require__(395);
+	var ModalPortal = React.createFactory(__webpack_require__(396));
+	var ariaAppHider = __webpack_require__(411);
+	var elementClass = __webpack_require__(412);
 	var renderSubtreeIntoContainer = __webpack_require__(34).unstable_renderSubtreeIntoContainer;
-	var Assign = __webpack_require__(398);
+	var Assign = __webpack_require__(400);
 	
 	var SafeHTMLElement = ExecutionEnvironment.canUseDOM ? window.HTMLElement : {};
 	var AppElement = ExecutionEnvironment.canUseDOM ? document.body : {appendChild: function() {}};
@@ -33525,7 +33638,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 393 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -33570,14 +33683,14 @@
 
 
 /***/ },
-/* 394 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var div = React.DOM.div;
-	var focusManager = __webpack_require__(395);
-	var scopeTab = __webpack_require__(397);
-	var Assign = __webpack_require__(398);
+	var focusManager = __webpack_require__(397);
+	var scopeTab = __webpack_require__(399);
+	var Assign = __webpack_require__(400);
 	
 	// so that our CSS is statically analyzable
 	var CLASS_NAMES = {
@@ -33768,10 +33881,10 @@
 
 
 /***/ },
-/* 395 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var findTabbable = __webpack_require__(396);
+	var findTabbable = __webpack_require__(398);
 	var modalElement = null;
 	var focusLaterElement = null;
 	var needToFocus = false;
@@ -33842,7 +33955,7 @@
 
 
 /***/ },
-/* 396 */
+/* 398 */
 /***/ function(module, exports) {
 
 	/*!
@@ -33898,10 +34011,10 @@
 
 
 /***/ },
-/* 397 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var findTabbable = __webpack_require__(396);
+	var findTabbable = __webpack_require__(398);
 	
 	module.exports = function(node, event) {
 	  var tabbable = findTabbable(node);
@@ -33923,7 +34036,7 @@
 
 
 /***/ },
-/* 398 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33934,9 +34047,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseAssign = __webpack_require__(399),
-	    createAssigner = __webpack_require__(405),
-	    keys = __webpack_require__(401);
+	var baseAssign = __webpack_require__(401),
+	    createAssigner = __webpack_require__(407),
+	    keys = __webpack_require__(403);
 	
 	/**
 	 * A specialized version of `_.assign` for customizing assigned values without
@@ -34009,7 +34122,7 @@
 
 
 /***/ },
-/* 399 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34020,8 +34133,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseCopy = __webpack_require__(400),
-	    keys = __webpack_require__(401);
+	var baseCopy = __webpack_require__(402),
+	    keys = __webpack_require__(403);
 	
 	/**
 	 * The base implementation of `_.assign` without support for argument juggling,
@@ -34042,7 +34155,7 @@
 
 
 /***/ },
-/* 400 */
+/* 402 */
 /***/ function(module, exports) {
 
 	/**
@@ -34080,7 +34193,7 @@
 
 
 /***/ },
-/* 401 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34091,9 +34204,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var getNative = __webpack_require__(402),
-	    isArguments = __webpack_require__(403),
-	    isArray = __webpack_require__(404);
+	var getNative = __webpack_require__(404),
+	    isArguments = __webpack_require__(405),
+	    isArray = __webpack_require__(406);
 	
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -34322,7 +34435,7 @@
 
 
 /***/ },
-/* 402 */
+/* 404 */
 /***/ function(module, exports) {
 
 	/**
@@ -34465,7 +34578,7 @@
 
 
 /***/ },
-/* 403 */
+/* 405 */
 /***/ function(module, exports) {
 
 	/**
@@ -34700,7 +34813,7 @@
 
 
 /***/ },
-/* 404 */
+/* 406 */
 /***/ function(module, exports) {
 
 	/**
@@ -34886,7 +34999,7 @@
 
 
 /***/ },
-/* 405 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34897,9 +35010,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var bindCallback = __webpack_require__(406),
-	    isIterateeCall = __webpack_require__(407),
-	    restParam = __webpack_require__(408);
+	var bindCallback = __webpack_require__(408),
+	    isIterateeCall = __webpack_require__(409),
+	    restParam = __webpack_require__(410);
 	
 	/**
 	 * Creates a function that assigns properties of source object(s) to a given
@@ -34944,7 +35057,7 @@
 
 
 /***/ },
-/* 406 */
+/* 408 */
 /***/ function(module, exports) {
 
 	/**
@@ -35015,7 +35128,7 @@
 
 
 /***/ },
-/* 407 */
+/* 409 */
 /***/ function(module, exports) {
 
 	/**
@@ -35153,7 +35266,7 @@
 
 
 /***/ },
-/* 408 */
+/* 410 */
 /***/ function(module, exports) {
 
 	/**
@@ -35226,7 +35339,7 @@
 
 
 /***/ },
-/* 409 */
+/* 411 */
 /***/ function(module, exports) {
 
 	var _element = typeof document !== 'undefined' ? document.body : null;
@@ -35274,7 +35387,7 @@
 
 
 /***/ },
-/* 410 */
+/* 412 */
 /***/ function(module, exports) {
 
 	module.exports = function(opts) {
@@ -35339,7 +35452,7 @@
 
 
 /***/ },
-/* 411 */
+/* 413 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35371,112 +35484,6 @@
 	};
 	
 	exports.default = ModalStyle;
-
-/***/ },
-/* 412 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(373);
-	
-	var _profile = __webpack_require__(413);
-	
-	var _profile2 = _interopRequireDefault(_profile);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    currentUser: state.session.currentUser,
-	    photos: state.photos
-	  };
-	};
-	// import { fetchAllPhotos } from '../../actions/photo_actions';
-	
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    fetchUserPhotos: function (_fetchUserPhotos) {
-	      function fetchUserPhotos() {
-	        return _fetchUserPhotos.apply(this, arguments);
-	      }
-	
-	      fetchUserPhotos.toString = function () {
-	        return _fetchUserPhotos.toString();
-	      };
-	
-	      return fetchUserPhotos;
-	    }(function () {
-	      return dispatch(fetchUserPhotos());
-	    })
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_profile2.default);
-
-/***/ },
-/* 413 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Profile = function (_React$Component) {
-	  _inherits(Profile, _React$Component);
-	
-	  function Profile(props) {
-	    _classCallCheck(this, Profile);
-	
-	    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
-	  }
-	
-	  _createClass(Profile, [{
-	    key: 'render',
-	    value: function render() {
-	
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'this is the profile talking'
-	        ),
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Profile;
-	}(_react2.default.Component);
-	
-	exports.default = Profile;
 
 /***/ }
 /******/ ]);

@@ -31,9 +31,11 @@ class PhotoIndexItem extends React.Component {
   }
 
 
+
+
   render() {
 
-  
+
     const author = (id) => {
       let result = ''
       this.props.props.user.map(x => {
@@ -43,13 +45,18 @@ class PhotoIndexItem extends React.Component {
       })
       return result;
     }
+
+    const handleProfileClick = (router, url) => (
+    () => router.push(url)
+    )
+
     return(
       <li>
         <a className="photo-grid">
         <img src={this.props.photo.image_url} onClick={this._handleClick.bind(this)}/>
         </a>
         <div className="auth">
-          <img src={author(this.props.photo.author_id)}/>
+          <img onClick={handleProfileClick(this.props.router, `/profile/${this.props.photo.author_id}`)} src={author(this.props.photo.author_id)}/>
           <h3>{this.props.photo.title}</h3>
         </div>
           <Modal
