@@ -33125,6 +33125,17 @@
 	            'h1',
 	            { className: 'explore-text' },
 	            'EXPLORE'
+	          ),
+	          _react2.default.createElement('div', { className: '' }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button' },
+	            'By Album'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button' },
+	            'By Photo'
 	          )
 	        ),
 	        _react2.default.createElement(_index_container2.default, null)

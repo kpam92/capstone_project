@@ -15,6 +15,9 @@ class Home extends React.Component {
     <div>
       <div className='home-nav'>
         <h1 className="explore-text">EXPLORE</h1>
+        <div className=""/>
+        <button className="explore-button">By Album</button>
+        <button className="explore-button">By Photo</button>
       </div>
       <PhotoIndexContainer/>
     </div>
