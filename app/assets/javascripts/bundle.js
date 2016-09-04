@@ -35465,7 +35465,7 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      var currProfile = function currProfile(id) {
+	      var profUser = function profUser(id) {
 	        var result = '';
 	        _this2.props.user.map(function (x) {
 	          if (id === x.id) {
@@ -35474,11 +35474,12 @@
 	        });
 	        return result;
 	      };
+	      var thisProf = profUser(parseInt(this.props.params.profileId));
 	      debugger;
 	      return _react2.default.createElement(
 	        'div',
-	        { className: currProfile(this.props.params.userId).username },
-	        _react2.default.createElement('img', { src: currProfile(this.props.params.profileId).profile_pic })
+	        { className: 'prof-container' },
+	        _react2.default.createElement('img', { src: thisProf.profile_pic })
 	      );
 	    }
 	  }]);

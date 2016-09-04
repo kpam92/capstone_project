@@ -7,8 +7,7 @@ class Profile extends React.Component{
 
 
   render(){
-
-    const currProfile = (id) => {
+    const profUser = (id) => {
       let result = ''
       this.props.user.map(x => {
         if (id === x.id) {
@@ -17,10 +16,11 @@ class Profile extends React.Component{
       })
       return result;
     }
+    const thisProf = profUser(parseInt(this.props.params.profileId))
     debugger;
     return(
-      <div className={currProfile(this.props.params.userId).username}>
-        <img src={currProfile(this.props.params.profileId).profile_pic}/>
+      <div className="prof-container">
+        <img src={thisProf.profile_pic}/>
       </div>
     )
   }
