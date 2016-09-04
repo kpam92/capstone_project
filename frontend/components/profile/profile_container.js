@@ -4,7 +4,8 @@ import Profile from './profile';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  photos: state.photos
+  photos: state.photos,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
