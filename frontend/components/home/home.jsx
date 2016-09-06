@@ -6,6 +6,9 @@ import AlbumIndexLandingContainer from '../album/album_index_landing_container';
 class Home extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      photos: true
+    }
   }
 
   componentDidMount(){
@@ -22,7 +25,7 @@ class Home extends React.Component {
         <button className="explore-button">By Album</button>
         <button className="explore-button">By Photo</button>
       </div>
-      <PhotoIndexContainer/>
+      { this.state.photos ? <PhotoIndexContainer/>}
     </div>
     )
   }
