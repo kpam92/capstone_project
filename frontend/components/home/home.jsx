@@ -9,23 +9,33 @@ class Home extends React.Component {
     this.state = {
       photos: true
     }
+    // this.handleAlbumClick = this.handleAlbumClick.bind(this);
+    // this.handlePhotoClick = this.handlePhotoClick.bind(this);
   }
 
   componentDidMount(){
     // this.props.fetchAllUsers();
   }
 
+  _handleAlbumClick() {
+    this.setState({photos: false})
+  }
+
+  _handlePhotoClick() {
+    this.setState({ photos: true});
+  }
   render() {
+
 
     return(
     <div>
       <div className='home-nav'>
         <h1 className="explore-text">EXPLORE</h1>
         <div className=""/>
-        <button className="explore-button">By Album</button>
-        <button className="explore-button">By Photo</button>
+        <button className="explore-button" onClick={this._handleAlbumClick.bind(this)}>By Album</button>
+        <button className="explore-button" onClick={this._handlePhotoClick.bind(this)}>By Photo</button>
       </div>
-      { this.state.photos ? <PhotoIndexContainer/>}
+      { this.state.photos ? <PhotoIndexContainer/> : <AlbumIndexLandingContainer/> }
     </div>
     )
   }

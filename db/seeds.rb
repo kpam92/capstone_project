@@ -11,9 +11,9 @@ User.create!(username: 'Kpam', password: 'password', profile_pic: 'http://res.cl
 User.create!(username: 'SallyMander', password: 'password', profile_pic: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1472938130/12308595_10153376057065889_205887642227916082_n_iqbgzf.jpg')
 
 
-Photo.create!(title:"ACA",medium:"digital", description:"2016 team",
-             author_id:2, album_id:1, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472767620/a1_g7gv2m.jpg")
+Photo.create!(title:"Group Photo",medium:"digital", description:"2016 team",
+             author_id:2, album_id:5, cover_photo: true,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_814/v1472767620/a1_g7gv2m.jpg")
 Photo.create!(title:"Girl & Hands",medium:"ink",
              author_id:3, album_id:2, cover_photo: true,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472768974/girl_and_hands_y20osh.jpg")
@@ -43,7 +43,22 @@ Photo.create!(title:"Strength",medium:"illustration",
 Photo.create!(title:"Crocodile Tears",medium:"illustration",
              author_id:3, album_id:3, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473181576/crocodile-tears_x6btuu.jpg")
+
+
+
+Photo.create!(title:"Kelcey",medium:"digital",
+             author_id:2, album_id:5, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_900/v1473198970/kelcey2_zw6fxd.jpg")
+
+
+
+Photo.create!(title:"Jackie",medium:"digital",
+             author_id:2, album_id:5, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_976/v1473198991/jac1_guias2.jpg")
+
+
 Album.create!(title: "Main Gallery", author_id: 2, cover_photo_id: 4)
 Album.create!(title: "Main Gallery", author_id: 3, cover_photo_id: 2)
 Album.create!(title: "Illustration", author_id: 3, cover_photo_id: 7)
 Album.create!(title: "Photography", author_id: 3, cover_photo_id: 5)
+Album.create!(title: "ACA Photoshoot", author_id: 2, cover_photo_id: 1)
