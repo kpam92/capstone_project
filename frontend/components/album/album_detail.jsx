@@ -59,14 +59,21 @@ class AlbumDetail extends React.Component {
     const photoList = thisAlbumPhotos.map(photo => (
       <PhotoIndexItem key={photo.id} photo = {photo} props = {this.props}/>
     ));
-
+    debugger;
+    const editButton = () => {
+      if (thisAlbum.author_id === this.props.currentUser.id) {
+        return (
+          <button className="explore-button">Edit Album</button>
+        )
+      }
+    }
     return(
       <div>
         <div className='home-nav'>
           <h1 className="explore-text">{thisAlbum.title}</h1>
           <div className=""/>
           <button className="explore-button" onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}`)}>Back to Profile</button>
-          <button className="explore-button">Edit Album</button>
+          {editButton}
         </div>
         <div className="album-show-container">
           <ul className="album-photo-grid">

@@ -36111,7 +36111,16 @@
 	      var photoList = thisAlbumPhotos.map(function (photo) {
 	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
 	      });
-	
+	      debugger;
+	      var editButton = function editButton() {
+	        if (thisAlbum.author_id === _this2.props.currentUser.id) {
+	          return _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button' },
+	            'Edit Album'
+	          );
+	        }
+	      };
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -36129,11 +36138,7 @@
 	            { className: 'explore-button', onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id) },
 	            'Back to Profile'
 	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'explore-button' },
-	            'Edit Album'
-	          )
+	          editButton
 	        ),
 	        _react2.default.createElement(
 	          'div',
