@@ -52,7 +52,7 @@ class AlbumDetail extends React.Component {
 
     const thisAlbum = currAlbum(parseInt(this.props.params.albumId))
 
-    const handleAlbumClick = (router, url) => (
+    const handleProfileClick = (router, url) => (
       () => router.push(url)
     )
 
@@ -65,7 +65,7 @@ class AlbumDetail extends React.Component {
         <div className='home-nav'>
           <h1 className="explore-text">{thisAlbum.title}</h1>
           <div className=""/>
-          <button className="explore-button">Back to Profile</button>
+          <button className="explore-button" onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}`)}>Back to Profile</button>
           <button className="explore-button">Edit Album</button>
         </div>
         <div className="album-show-container">

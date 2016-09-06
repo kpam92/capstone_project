@@ -441,3 +441,7 @@ div.modal-container img{
   height: inherit;
 
 }
+
+.album-show-container .auth img {
+  display:none;
+}

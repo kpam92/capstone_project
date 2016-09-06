@@ -36102,7 +36102,7 @@
 	
 	      var thisAlbum = currAlbum(parseInt(this.props.params.albumId));
 	
-	      var handleAlbumClick = function handleAlbumClick(router, url) {
+	      var handleProfileClick = function handleProfileClick(router, url) {
 	        return function () {
 	          return router.push(url);
 	        };
@@ -36126,7 +36126,7 @@
 	          _react2.default.createElement('div', { className: '' }),
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'explore-button' },
+	            { className: 'explore-button', onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id) },
 	            'Back to Profile'
 	          ),
 	          _react2.default.createElement(

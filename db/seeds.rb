@@ -41,7 +41,7 @@ Photo.create!(title:"Strength",medium:"illustration",
 
 
 Photo.create!(title:"Crocodile Tears",medium:"illustration",
-             author_id:2, album_id:3, cover_photo: false,
+             author_id:3, album_id:3, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473181576/crocodile-tears_x6btuu.jpg")
 Album.create!(title: "Main Gallery", author_id: 2, cover_photo_id: 4)
 Album.create!(title: "Main Gallery", author_id: 3, cover_photo_id: 2)
