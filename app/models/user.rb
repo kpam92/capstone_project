@@ -8,9 +8,13 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many(:photos,
-  foreign_key: :author_id)
+  foreign_key: :author_id,
+  class_name: 'Photo')
+  has_many(:albums,
+  foreign_key: :author_id,
+  class_name: 'Album')
 
-  # has_many :albums
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

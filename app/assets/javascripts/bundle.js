@@ -35486,11 +35486,24 @@
 	        return result;
 	      };
 	      var thisProf = profUser(parseInt(this.props.params.profileId));
-	      debugger;
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'prof-container' },
-	        _react2.default.createElement('img', { src: thisProf.profile_pic })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'prof-header' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'prof-main-pic' },
+	            _react2.default.createElement('img', { src: thisProf.profile_pic })
+	          ),
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            thisProf.username
+	          )
+	        )
 	      );
 	    }
 	  }]);

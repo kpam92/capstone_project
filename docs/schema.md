@@ -14,7 +14,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
-imag_url    | string    | not null
+image_url    | string    | not null
 medium      | string    |
 description | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
