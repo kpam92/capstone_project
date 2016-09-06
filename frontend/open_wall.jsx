@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {configureStore} from './store/store';
 import Root from './components/root';
 import {receiveCurrentUser} from "./actions/session_actions"
-import {goToProfile} from "./actions/user_actions"
+import {fetchAllAlbums} from "./actions/album_actions"
 import Modal from 'react-modal';
 
 
@@ -21,6 +21,6 @@ if (window.currentUser) {
   ReactDOM.render(<Root store = {store}/>, root);
   window.store = store;
   window.receiveCurrentUser = receiveCurrentUser;
-  window.goToProfile = goToProfile;
+  window.fetchAllAlbums = fetchAllAlbums;
 
 });

@@ -9,6 +9,7 @@ import ProfileContainer from './profile/profile_container';
 
 import { fetchAllPhotos } from '../actions/photo_actions';
 import { fetchAllUsers } from '../actions/user_actions';
+import { fetchAllAlbums } from '../actions/album_actions';
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -40,6 +41,7 @@ class AppRouter extends React.Component{
   _fetchAllAssetsOnEnter(){
     this.store.dispatch(fetchAllPhotos());
     this.store.dispatch(fetchAllUsers());
+    this.store.dispatch(fetchAllAlbums());
   }
 
   render(){

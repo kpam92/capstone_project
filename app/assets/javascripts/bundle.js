@@ -62,7 +62,7 @@
 	
 	var _session_actions = __webpack_require__(297);
 	
-	var _user_actions = __webpack_require__(301);
+	var _album_actions = __webpack_require__(415);
 	
 	var _reactModal = __webpack_require__(391);
 	
@@ -83,7 +83,7 @@
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 	  window.store = store;
 	  window.receiveCurrentUser = _session_actions.receiveCurrentUser;
-	  window.goToProfile = _user_actions.goToProfile;
+	  window.fetchAllAlbums = _album_actions.fetchAllAlbums;
 	});
 
 /***/ },
@@ -22357,6 +22357,10 @@
 	
 	var _photo_reducer2 = _interopRequireDefault(_photo_reducer);
 	
+	var _album_reducer = __webpack_require__(417);
+	
+	var _album_reducer2 = _interopRequireDefault(_album_reducer);
+	
 	var _user_reducer = __webpack_require__(300);
 	
 	var _user_reducer2 = _interopRequireDefault(_user_reducer);
@@ -22366,7 +22370,8 @@
 	var RootReducer = exports.RootReducer = (0, _redux.combineReducers)({
 	  session: _session_reducer2.default,
 	  photos: _photo_reducer2.default,
-	  user: _user_reducer2.default
+	  user: _user_reducer2.default,
+	  albums: _album_reducer2.default
 	});
 	
 	exports.default = RootReducer;
@@ -25964,13 +25969,17 @@
 	
 	var _photo_middleware2 = _interopRequireDefault(_photo_middleware);
 	
+	var _album_middleware = __webpack_require__(414);
+	
+	var _album_middleware2 = _interopRequireDefault(_album_middleware);
+	
 	var _user_middleware = __webpack_require__(370);
 	
 	var _user_middleware2 = _interopRequireDefault(_user_middleware);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RootMiddleware = (0, _redux.applyMiddleware)(_session_middleware2.default, _photo_middleware2.default, _user_middleware2.default);
+	var RootMiddleware = (0, _redux.applyMiddleware)(_session_middleware2.default, _photo_middleware2.default, _user_middleware2.default, _album_middleware2.default);
 	
 	exports.default = RootMiddleware;
 
@@ -32532,6 +32541,8 @@
 	
 	var _user_actions = __webpack_require__(301);
 	
+	var _album_actions = __webpack_require__(415);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32584,6 +32595,7 @@
 	    value: function _fetchAllAssetsOnEnter() {
 	      this.store.dispatch((0, _photo_actions.fetchAllPhotos)());
 	      this.store.dispatch((0, _user_actions.fetchAllUsers)());
+	      this.store.dispatch((0, _album_actions.fetchAllAlbums)());
 	    }
 	  }, {
 	    key: 'render',
@@ -35512,6 +35524,140 @@
 	}(_react2.default.Component);
 	
 	exports.default = Profile;
+
+/***/ },
+/* 414 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _album_actions = __webpack_require__(415);
+	
+	var _album_api_util = __webpack_require__(416);
+	
+	var _reactRouter = __webpack_require__(305);
+	
+	exports.default = function (_ref) {
+	  var getState = _ref.getState;
+	  var dispatch = _ref.dispatch;
+	  return function (next) {
+	    return function (action) {
+	      var receiveAlbumSuccess = function receiveAlbumSuccess(data) {
+	        return dispatch((0, _album_actions.receiveAllAlbums)(data));
+	      };
+	      var errorCallback = function errorCallback(xhr) {
+	        var errors = xhr.responseJSON;
+	        dispatch((0, _album_actions.receiveErrors)(errors));
+	      };
+	      switch (action.type) {
+	        case _album_actions.AlbumConstants.FETCH_ALL_ALBUMS:
+	          (0, _album_api_util.fetchAllAlbums)(receiveAlbumSuccess, errorCallback);
+	          return next(action);
+	        default:
+	          return next(action);
+	      }
+	    };
+	  };
+	};
+
+/***/ },
+/* 415 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var AlbumConstants = exports.AlbumConstants = {
+	  FETCH_ALL_ALBUMS: "FETCH_ALL_ALBUMS",
+	  RECEIVE_ALL_ALBUMS: "RECEIVE_ALL_ALBUMS",
+	  RECEIVE_ERRORS: "RECEIVE_ERRORS"
+	};
+	
+	var fetchAllAlbums = exports.fetchAllAlbums = function fetchAllAlbums() {
+	  return {
+	    type: AlbumConstants.FETCH_ALL_ALBUMS
+	  };
+	};
+	
+	var receiveAllAlbums = exports.receiveAllAlbums = function receiveAllAlbums(albums) {
+	  return {
+	    type: AlbumConstants.RECEIVE_ALL_ALBUMS,
+	    albums: albums
+	  };
+	};
+	
+	var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
+	  return {
+	    type: AlbumConstants.RECEIVE_ERRORS,
+	    errors: errors
+	  };
+	};
+
+/***/ },
+/* 416 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.fetchAllAlbums = undefined;
+	
+	var _album_actions = __webpack_require__(415);
+	
+	var fetchAllAlbums = exports.fetchAllAlbums = function fetchAllAlbums(success, error) {
+		$.ajax({
+			method: 'GET',
+			url: 'api/albums',
+			success: success,
+			error: error
+		});
+	};
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _merge = __webpack_require__(189);
+	
+	var _merge2 = _interopRequireDefault(_merge);
+	
+	var _album_actions = __webpack_require__(415);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	// const defaultState = Object.freeze({currentUser: null, errors:[]});
+	var AlbumReducer = function AlbumReducer() {
+	  var oldState = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _album_actions.AlbumConstants.RECEIVE_ALL_ALBUMS:
+	      return [].concat(_toConsumableArray(action.albums));
+	    case _album_actions.AlbumConstants.RECEIVE_ERRORS:
+	      var errors = action.errors;
+	      return (0, _merge2.default)({}, oldState, { errors: errors });
+	    default:
+	      return oldState;
+	  }
+	};
+	
+	exports.default = AlbumReducer;
 
 /***/ }
 /******/ ]);
