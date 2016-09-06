@@ -22,7 +22,7 @@ class Home extends React.Component {
         <button className="explore-button">By Album</button>
         <button className="explore-button">By Photo</button>
       </div>
-      <AlbumIndexLandingContainer/>
+      <PhotoIndexContainer/>
     </div>
     )
   }

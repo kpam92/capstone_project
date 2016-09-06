@@ -33338,7 +33338,7 @@
 	            'By Photo'
 	          )
 	        ),
-	        _react2.default.createElement(_album_index_landing_container2.default, null)
+	        _react2.default.createElement(_index_container2.default, null)
 	      );
 	    }
 	  }]);
