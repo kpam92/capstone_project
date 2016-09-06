@@ -32937,7 +32937,13 @@
 	  );
 	};
 	
-	var personalGreeting = function personalGreeting(currentUser, logout) {
+	var handleProfileClick = function handleProfileClick(router, url) {
+	  return function () {
+	    return router.push(url);
+	  };
+	};
+	
+	var personalGreeting = function personalGreeting(currentUser, logout, router) {
 	  return _react2.default.createElement(
 	    'hgroup',
 	    { className: 'header-nav' },
@@ -32972,9 +32978,12 @@
 	        'li',
 	        null,
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/profile/1', className: 'prof-icon' },
-	          _react2.default.createElement('img', { src: currentUser.profile_pic })
+	          'a',
+	          { className: 'prof-icon' },
+	          _react2.default.createElement('img', { onClick: function onClick() {
+	              return router.push('/profile/' + currentUser.id);
+	            },
+	            src: currentUser.profile_pic })
 	        )
 	      )
 	    )
@@ -32984,15 +32993,16 @@
 	function Greeting(_ref) {
 	  var currentUser = _ref.currentUser;
 	  var logout = _ref.logout;
+	  var router = _ref.router;
 	
 	  if (currentUser) {
-	    return personalGreeting(currentUser, logout);
+	    return personalGreeting(currentUser, logout, router);
 	  } else {
 	    return sessionLinks();
 	  }
 	}
 	
-	exports.default = Greeting;
+	exports.default = (0, _reactRouter.withRouter)(Greeting);
 
 /***/ },
 /* 388 */

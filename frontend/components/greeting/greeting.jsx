@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-
+import { withRouter } from 'react-router';
 const sessionLinks = () => (
 <div>
 <div className="splash-background"/>
@@ -14,7 +14,11 @@ const sessionLinks = () => (
 </div>
 );
 
-const personalGreeting = (currentUser, logout) => (
+const handleProfileClick = (router, url) => (
+() => router.push(url)
+)
+
+const personalGreeting = (currentUser, logout, router) => (
 	<hgroup className="header-nav">
     <Link to="/home"><label className="icon">O</label></Link>
     <button className="header-button" onClick={logout}>Log Out</button>
@@ -24,14 +28,15 @@ const personalGreeting = (currentUser, logout) => (
     <div className="right-nav">
 
   		<li className="header-name">{currentUser.username}</li>
-      <li><Link to="/profile/1" className='prof-icon'><img src={currentUser.profile_pic}/></Link></li>
+      <li><a className='prof-icon'><img onClick={() => router.push(`/profile/${currentUser.id}`)}
+                                        src={currentUser.profile_pic}/></a></li>
     </div>
 	</hgroup>
 );
 
-function Greeting({currentUser, logout}){
+function Greeting({currentUser, logout, router}){
   if (currentUser){
-    return personalGreeting(currentUser, logout);
+    return personalGreeting(currentUser, logout, router);
   } else {
     return sessionLinks();
   }
@@ -39,4 +44,4 @@ function Greeting({currentUser, logout}){
 
 
 
-export default Greeting;
+export default withRouter(Greeting);
