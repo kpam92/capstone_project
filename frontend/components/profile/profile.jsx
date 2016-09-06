@@ -18,7 +18,6 @@ class Profile extends React.Component{
       return result;
     }
     const thisProf = profUser(parseInt(this.props.params.profileId))
-
     return(
       <div className="prof-container">
         <div className="prof-header">

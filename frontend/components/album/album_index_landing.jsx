@@ -2,7 +2,7 @@ import React from 'react';
 import AlbumIndexItem from './album_index_item';
 
 
-class AlbumIndex extends React.Component {
+class AlbumIndexLanding extends React.Component {
   constructor(props){
     super(props);
   }
@@ -35,15 +35,15 @@ class AlbumIndex extends React.Component {
     //   return result;
     // }
 
-    const albumList = userAlbums(this.props.prof.id).map(album => (
+    const albumList = this.props.albums.map(album => (
       <AlbumIndexItem key={album.id} album = {album} props = {this.props}/>
     ));
 
   	return (
-  		<ul className='prof-album-grid'>
+  		<ul className='landing-photo-grid'>
         {albumList}
       </ul>
   	);
   }
 }
-export default AlbumIndex;
+export default AlbumIndexLanding;

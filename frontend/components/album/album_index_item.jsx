@@ -45,7 +45,7 @@ class AlbumIndexItem extends React.Component {
     const Author = albumAuthFun(this.props.album.author_id);
 
     return(
-      <li>
+      <li className="album-li">
         <img onClick={handleAlbumClick(this.props.router, `/album/${this.props.album.id}`)} src={cover_photo(this.props.album.cover_photo_id)}/>
         <div className="auth">
           <img onClick={handleAlbumClick(this.props.router,  `/album/${this.props.album.id}`)} src={Author.profile_pic}/>

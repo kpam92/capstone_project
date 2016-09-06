@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import PhotoIndexContainer from '../photo/index_container';
+import AlbumIndexLandingContainer from '../album/album_index_landing_container';
+// import AlbumIndexContainer from '../album/album_index_container';
 class Home extends React.Component {
   constructor(props) {
     super(props)
@@ -11,7 +13,7 @@ class Home extends React.Component {
   }
 
   render() {
-    
+
     return(
     <div>
       <div className='home-nav'>
@@ -20,7 +22,7 @@ class Home extends React.Component {
         <button className="explore-button">By Album</button>
         <button className="explore-button">By Photo</button>
       </div>
-      <PhotoIndexContainer/>
+      <AlbumIndexLandingContainer/>
     </div>
     )
   }

@@ -441,8 +441,15 @@ div.modal-container img{
           /* for IE */
   display*:inline;
 }
-
-.album-photo-grid img {
+.landing-photo-grid .album-li {
+  /*flex: 3 1 100px;*/
+  display: inline-block;
+  width: 50%;
+  height:50%;
+  zoom: 1;         /* for IE */
+  display*:inline;
+}
+.album-li > img {
   width: 80%;
   height: inherit;
 
