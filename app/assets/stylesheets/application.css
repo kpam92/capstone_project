@@ -451,3 +451,16 @@ div.modal-container img{
 .album-show-container .auth img {
   display:none;
 }
+.prof-container .auth img {
+  display:none;
+}
+
+.album-text {
+  padding-left: 50px;
+  padding-top: 50px;
+  letter-spacing: 7px;
+  font-size: 50px;
+}
+.album-text::first-letter {
+  color: #515a47;
+}

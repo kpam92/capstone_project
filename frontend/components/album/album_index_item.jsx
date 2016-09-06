@@ -33,11 +33,24 @@ class AlbumIndexItem extends React.Component {
     const handleAlbumClick = (router, url) => (
     () => router.push(url)
     )
+    const albumAuthFun = (id) => {
+      let result = ""
+        this.props.props.user.map(x => {
+          if (id === x.id) {
+            result = x;
+          }
+        })
+        return result;
+    }
+    const Author = albumAuthFun(this.props.album.author_id);
 
     return(
       <li>
         <img onClick={handleAlbumClick(this.props.router, `/album/${this.props.album.id}`)} src={cover_photo(this.props.album.cover_photo_id)}/>
-        <h3>{this.props.album.title}</h3>
+        <div className="auth">
+          <img onClick={handleAlbumClick(this.props.router,  `/album/${this.props.album.id}`)} src={Author.profile_pic}/>
+          <h3>{this.props.album.title}</h3>
+        </div>
       </li>
       )
     };

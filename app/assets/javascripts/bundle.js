@@ -35954,15 +35954,30 @@
 	          return router.push(url);
 	        };
 	      };
+	      var albumAuthFun = function albumAuthFun(id) {
+	        var result = "";
+	        _this2.props.props.user.map(function (x) {
+	          if (id === x.id) {
+	            result = x;
+	          }
+	        });
+	        return result;
+	      };
+	      var Author = albumAuthFun(this.props.album.author_id);
 	
 	      return _react2.default.createElement(
 	        'li',
 	        null,
 	        _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: cover_photo(this.props.album.cover_photo_id) }),
 	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          this.props.album.title
+	          'div',
+	          { className: 'auth' },
+	          _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: Author.profile_pic }),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            this.props.album.title
+	          )
 	        )
 	      );
 	    }
@@ -36121,7 +36136,7 @@
 	      var photoList = thisAlbumPhotos.map(function (photo) {
 	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
 	      });
-	      debugger;
+	
 	      var editButton = function editButton() {
 	        if (thisAlbum.author_id === _this2.props.currentUser.id) {
 	          return _react2.default.createElement(
@@ -36139,14 +36154,14 @@
 	          { className: 'home-nav' },
 	          _react2.default.createElement(
 	            'h1',
-	            { className: 'explore-text' },
+	            { className: 'album-text' },
 	            thisAlbum.title
 	          ),
 	          _react2.default.createElement('div', { className: '' }),
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'explore-button', onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id) },
-	            'Back to Profile'
+	            'User Profile'
 	          ),
 	          editButton
 	        ),
