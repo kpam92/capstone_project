@@ -32,6 +32,12 @@ button, article, footer, small {
 *{
   font-family: 'Roboto', sans-serif;
 }
+.back-to-top {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  opacity: .25;
+}
 img:hover {
   opacity: 0.9;
 }
