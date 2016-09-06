@@ -33452,6 +33452,7 @@
 	      var photoList = this.props.photos.map(function (photo) {
 	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
 	      });
+	
 	      function shuffle(array) {
 	        var currentIndex = array.length,
 	            temporaryValue,
@@ -36030,6 +36031,10 @@
 	
 	var _reactRouter = __webpack_require__(307);
 	
+	var _photo_index_item = __webpack_require__(394);
+	
+	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36102,30 +36107,9 @@
 	          return router.push(url);
 	        };
 	      };
+	
 	      var photoList = thisAlbumPhotos.map(function (photo) {
-	        return _react2.default.createElement(
-	          'li',
-	          null,
-	          _react2.default.createElement('img', { key: photo.image_url, src: photo.image_url, onClick: _this2._handleClick.bind(_this2) }),
-	          _react2.default.createElement(
-	            _reactModal2.default,
-	            {
-	              isOpen: _this2.state.modalOpen,
-	              onRequestClose: _this2.onModalClose,
-	              style: _modal_style2.default,
-	              onAfterOpen: _this2.onModalOpen },
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'modal-close', onClick: _this2.onModalClose },
-	              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'modal-container' },
-	              _react2.default.createElement('img', { src: photo.image_url })
-	            )
-	          )
-	        );
+	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
 	      });
 	
 	      return _react2.default.createElement(

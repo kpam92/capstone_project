@@ -13,9 +13,13 @@ class PhotoIndex extends React.Component {
 
 
   render() {
+
+    
     const photoList = this.props.photos.map(photo => (
       <PhotoIndexItem key={photo.id} photo = {photo} props = {this.props}/>
     ));
+
+
     function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
 

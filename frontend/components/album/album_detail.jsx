@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import ModalStyle from './modal_style'
 import { withRouter } from 'react-router';
+import PhotoIndexItem from '../photo/photo_index_item';
 
 
 
@@ -54,22 +55,9 @@ class AlbumDetail extends React.Component {
     const handleAlbumClick = (router, url) => (
       () => router.push(url)
     )
+
     const photoList = thisAlbumPhotos.map(photo => (
-      <li>
-        <img key={photo.image_url} src={photo.image_url} onClick={this._handleClick.bind(this)}/>
-          <Modal
-            isOpen={this.state.modalOpen}
-            onRequestClose={this.onModalClose}
-            style={ModalStyle}
-            onAfterOpen={this.onModalOpen}>
-            <a className="modal-close" onClick={this.onModalClose}><img src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png"/></a>
-
-            <div className='modal-container'>
-              <img src={photo.image_url}/>
-            </div>
-
-          </Modal>
-      </li>
+      <PhotoIndexItem key={photo.id} photo = {photo} props = {this.props}/>
     ));
 
     return(
