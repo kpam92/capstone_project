@@ -71,8 +71,9 @@ class AlbumDetail extends React.Component {
       <div>
         <div className='home-nav'>
           <h1 className="album-text">{thisAlbum.title}</h1>
-          <div className=""/>
+
           <button className="explore-button" onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}`)}>User Profile</button>
+          { this.props.currentUser.id === thisAlbum.author_id ? <button className="explore-button">Add Photo</button> : <a/> }
           {editButton}
         </div>
         <div className="album-show-container">

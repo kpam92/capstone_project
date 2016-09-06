@@ -35988,7 +35988,9 @@
 	        });
 	        return result;
 	      };
+	
 	      var thisProf = profUser(parseInt(this.props.params.profileId));
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'prof-container' },
@@ -36004,7 +36006,12 @@
 	            'h1',
 	            null,
 	            thisProf.username
-	          )
+	          ),
+	          this.props.currentUser.id === thisProf.id ? _react2.default.createElement(
+	            'button',
+	            { className: 'album-button' },
+	            'Add Album'
+	          ) : _react2.default.createElement('a', null)
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -36351,12 +36358,16 @@
 	            { className: 'album-text' },
 	            thisAlbum.title
 	          ),
-	          _react2.default.createElement('div', { className: '' }),
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'explore-button', onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id) },
 	            'User Profile'
 	          ),
+	          this.props.currentUser.id === thisAlbum.author_id ? _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button' },
+	            'Add Photo'
+	          ) : _react2.default.createElement('a', null),
 	          editButton
 	        ),
 	        _react2.default.createElement(

@@ -464,3 +464,21 @@ div.modal-container img{
 .album-text::first-letter {
   color: #515a47;
 }
+.album-button {
+  background-color: #eee;
+  border: none;
+  color: grey;
+  padding: 15px 32px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+  /* margin: 25px 17px; */
+  position: absolute;
+  right: 1em;
+  top: 9em;
+  right: 2em;
+}

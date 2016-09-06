@@ -17,12 +17,15 @@ class Profile extends React.Component{
       })
       return result;
     }
+
     const thisProf = profUser(parseInt(this.props.params.profileId))
+
     return(
       <div className="prof-container">
         <div className="prof-header">
           <div className="prof-main-pic"><img src={thisProf.profile_pic}/></div>
           <h1>{thisProf.username}</h1>
+          { this.props.currentUser.id === thisProf.id ? <button className="album-button">Add Album</button> : <a/> }
         </div>
         <div className="album-grid">
           <AlbumIndexContainer prof={thisProf}/>
