@@ -6,6 +6,8 @@ const AlbumReducer = (oldState = [] , action) => {
   switch (action.type) {
     case AlbumConstants.RECEIVE_ALL_ALBUMS:
       return [...action.albums];
+    case AlbumConstants.RECEIVE_SINGLE_ALBUM:
+      return [action.albums];
     case AlbumConstants.RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, oldState, {errors});

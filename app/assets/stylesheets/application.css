@@ -408,7 +408,7 @@ div.modal-container img{
   display: inline-block;
   width: 50%;
   height:50%;
-  margin: 28px;        /* for IE */
+  margin-top: 28px;        /* for IE */
   display*:inline;
 }
 
@@ -418,4 +418,26 @@ div.modal-container img{
 }
 .prof-album-grid h3{
   text-align: center;
+}
+.album-photo-grid {
+  list-style: none;
+  min-width: 900px;
+  /*display: flex;*/
+  margin: 0;
+  padding: 0;
+}
+
+.album-photo-grid li {
+  /*flex: 3 1 100px;*/
+  display: inline-block;
+  width: 50%;
+  height:50%;
+          /* for IE */
+  display*:inline;
+}
+
+.album-photo-grid img {
+  width: 80%;
+  height: inherit;
+
 }

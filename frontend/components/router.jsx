@@ -6,6 +6,7 @@ import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
 import ProfileContainer from './profile/profile_container';
+import AlbumDetailContainer from './album/album_detail_container';
 
 import { fetchAllPhotos } from '../actions/photo_actions';
 import { fetchAllUsers } from '../actions/user_actions';
@@ -52,6 +53,7 @@ class AppRouter extends React.Component{
           <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
           <Route path="/home" component={ HomeContainer } onEnter={this._ensureLoggedIn}/>
           <Route path="/profile/:profileId" component={ProfileContainer} onEnter={this._ensureLoggedIn}/>
+          <Route path="/album/:albumId" component={AlbumDetailContainer} onEnter={this._ensureLoggedIn}/>
         </Route>
       </Router>
     );

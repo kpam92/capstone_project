@@ -36,7 +36,7 @@ class AlbumIndexItem extends React.Component {
 
     return(
       <li>
-        <img src={cover_photo(this.props.album.cover_photo_id)}/>
+        <img onClick={handleAlbumClick(this.props.router, `/album/${this.props.album.id}`)} src={cover_photo(this.props.album.cover_photo_id)}/>
         <h3>{this.props.album.title}</h3>
       </li>
       )

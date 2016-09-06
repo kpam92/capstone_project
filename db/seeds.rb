@@ -23,5 +23,27 @@ Photo.create!(title:"Vanessa with flowers",medium:"film",
 Photo.create!(title:"kevin",medium:"digital", description:"man and dog",
              author_id:2, album_id:1, cover_photo: true,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472746902/_MG_8090_kcryvq.jpg")
+
+
+Photo.create!(title:"Kiyomi in the Desert",medium:"film",
+             author_id:3, album_id:4, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473181575/IMG_0429_copy_luhghh.jpg")
+
+
+Photo.create!(title:"Stephen with Ceramic",medium:"film",
+             author_id:3, album_id:4, cover_photo: true,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473181573/stephen_ceramic_f6mno4.jpg")
+
+
+Photo.create!(title:"Strength",medium:"illustration",
+             author_id:3, album_id:3, cover_photo: true,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473181581/strength_tmze2m.jpg")
+
+
+Photo.create!(title:"Crocodile Tears",medium:"illustration",
+             author_id:2, album_id:3, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473181576/crocodile-tears_x6btuu.jpg")
 Album.create!(title: "Main Gallery", author_id: 2, cover_photo_id: 4)
 Album.create!(title: "Main Gallery", author_id: 3, cover_photo_id: 2)
+Album.create!(title: "Illustration", author_id: 3, cover_photo_id: 7)
+Album.create!(title: "Photography", author_id: 3, cover_photo_id: 5)

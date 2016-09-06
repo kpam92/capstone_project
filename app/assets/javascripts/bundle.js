@@ -84,6 +84,7 @@
 	  window.store = store;
 	  window.receiveCurrentUser = _session_actions.receiveCurrentUser;
 	  window.fetchAllAlbums = _album_actions.fetchAllAlbums;
+	  window.fetchSingleAlbum = _album_actions.fetchSingleAlbum;
 	});
 
 /***/ },
@@ -25889,6 +25890,8 @@
 	  switch (action.type) {
 	    case _album_actions.AlbumConstants.RECEIVE_ALL_ALBUMS:
 	      return [].concat(_toConsumableArray(action.albums));
+	    case _album_actions.AlbumConstants.RECEIVE_SINGLE_ALBUM:
+	      return [action.albums];
 	    case _album_actions.AlbumConstants.RECEIVE_ERRORS:
 	      var errors = action.errors;
 	      return (0, _merge2.default)({}, oldState, { errors: errors });
@@ -25911,7 +25914,9 @@
 	var AlbumConstants = exports.AlbumConstants = {
 	  FETCH_ALL_ALBUMS: "FETCH_ALL_ALBUMS",
 	  RECEIVE_ALL_ALBUMS: "RECEIVE_ALL_ALBUMS",
-	  RECEIVE_ERRORS: "RECEIVE_ERRORS"
+	  RECEIVE_ERRORS: "RECEIVE_ERRORS",
+	  FETCH_SINGLE_ALBUM: "FETCH_SINGLE_ALBUM",
+	  RECEIVE_SINGLE_ALBUM: "RECEIVE_SINGLE_ALBUM"
 	};
 	
 	var fetchAllAlbums = exports.fetchAllAlbums = function fetchAllAlbums() {
@@ -25923,6 +25928,19 @@
 	var receiveAllAlbums = exports.receiveAllAlbums = function receiveAllAlbums(albums) {
 	  return {
 	    type: AlbumConstants.RECEIVE_ALL_ALBUMS,
+	    albums: albums
+	  };
+	};
+	var fetchSingleAlbum = exports.fetchSingleAlbum = function fetchSingleAlbum(id) {
+	  return {
+	    type: AlbumConstants.FETCH_SINGLE_ALBUM,
+	    id: id
+	  };
+	};
+	
+	var receiveSingleAlbum = exports.receiveSingleAlbum = function receiveSingleAlbum(albums) {
+	  return {
+	    type: AlbumConstants.RECEIVE_SINGLE_ALBUM,
 	    albums: albums
 	  };
 	};
@@ -31883,8 +31901,11 @@
 	  var dispatch = _ref.dispatch;
 	  return function (next) {
 	    return function (action) {
-	      var receiveAlbumSuccess = function receiveAlbumSuccess(data) {
+	      var receiveAllAlbumSuccess = function receiveAllAlbumSuccess(data) {
 	        return dispatch((0, _album_actions.receiveAllAlbums)(data));
+	      };
+	      var receiveSingleAlbumSuccess = function receiveSingleAlbumSuccess(data) {
+	        return dispatch((0, _album_actions.receiveSingleAlbum)(data));
 	      };
 	      var errorCallback = function errorCallback(xhr) {
 	        var errors = xhr.responseJSON;
@@ -31892,7 +31913,10 @@
 	      };
 	      switch (action.type) {
 	        case _album_actions.AlbumConstants.FETCH_ALL_ALBUMS:
-	          (0, _album_api_util.fetchAllAlbums)(receiveAlbumSuccess, errorCallback);
+	          (0, _album_api_util.fetchAllAlbums)(receiveAllAlbumSuccess, errorCallback);
+	          return next(action);
+	        case _album_actions.AlbumConstants.FETCH_SINGLE_ALBUM:
+	          (0, _album_api_util.fetchSingleAlbum)(action.id, receiveSingleAlbumSuccess, errorCallback);
 	          return next(action);
 	        default:
 	          return next(action);
@@ -31910,7 +31934,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.fetchAllAlbums = undefined;
+	exports.fetchSingleAlbum = exports.fetchAllAlbums = undefined;
 	
 	var _album_actions = __webpack_require__(301);
 	
@@ -31918,6 +31942,15 @@
 		$.ajax({
 			method: 'GET',
 			url: 'api/albums',
+			success: success,
+			error: error
+		});
+	};
+	
+	var fetchSingleAlbum = exports.fetchSingleAlbum = function fetchSingleAlbum(id, success, error) {
+		$.ajax({
+			method: 'GET',
+			url: 'api/albums/' + id,
 			success: success,
 			error: error
 		});
@@ -32671,6 +32704,10 @@
 	
 	var _profile_container2 = _interopRequireDefault(_profile_container);
 	
+	var _album_detail_container = __webpack_require__(421);
+	
+	var _album_detail_container2 = _interopRequireDefault(_album_detail_container);
+	
 	var _photo_actions = __webpack_require__(299);
 	
 	var _user_actions = __webpack_require__(303);
@@ -32743,7 +32780,8 @@
 	          _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _session_form_container2.default, onEnter: this._redirectIfLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _session_form_container2.default, onEnter: this._redirectIfLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _home_container2.default, onEnter: this._ensureLoggedIn }),
-	          _react2.default.createElement(_reactRouter.Route, { path: '/profile/:profileId', component: _profile_container2.default, onEnter: this._ensureLoggedIn })
+	          _react2.default.createElement(_reactRouter.Route, { path: '/profile/:profileId', component: _profile_container2.default, onEnter: this._ensureLoggedIn }),
+	          _react2.default.createElement(_reactRouter.Route, { path: '/album/:albumId', component: _album_detail_container2.default, onEnter: this._ensureLoggedIn })
 	        )
 	      );
 	    }
@@ -33261,6 +33299,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -33413,10 +33452,32 @@
 	      var photoList = this.props.photos.map(function (photo) {
 	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
 	      });
+	      function shuffle(array) {
+	        var currentIndex = array.length,
+	            temporaryValue,
+	            randomIndex;
+	
+	        // While there remain elements to shuffle...
+	        while (0 !== currentIndex) {
+	
+	          // Pick a remaining element...
+	          randomIndex = Math.floor(Math.random() * currentIndex);
+	          currentIndex -= 1;
+	
+	          // And swap it with the current element.
+	          temporaryValue = array[currentIndex];
+	          array[currentIndex] = array[randomIndex];
+	          array[randomIndex] = temporaryValue;
+	        }
+	
+	        return array;
+	      }
+	      var shuffledPhotoList = shuffle(photoList);
+	
 	      return _react2.default.createElement(
 	        'ul',
 	        { className: 'landing-photo-grid' },
-	        photoList
+	        shuffledPhotoList
 	      );
 	    }
 	  }]);
@@ -35886,7 +35947,7 @@
 	      return _react2.default.createElement(
 	        'li',
 	        null,
-	        _react2.default.createElement('img', { src: cover_photo(this.props.album.cover_photo_id) }),
+	        _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: cover_photo(this.props.album.cover_photo_id) }),
 	        _react2.default.createElement(
 	          'h3',
 	          null,
@@ -35900,6 +35961,247 @@
 	}(_react2.default.Component);
 	
 	exports.default = (0, _reactRouter.withRouter)(AlbumIndexItem);
+
+/***/ },
+/* 421 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(377);
+	
+	var _album_actions = __webpack_require__(301);
+	
+	var _album_detail = __webpack_require__(422);
+	
+	var _album_detail2 = _interopRequireDefault(_album_detail);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// import { fetchAllPhotos } from '../../actions/photo_actions';
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user,
+	    albums: state.albums
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    // fetchAllAlbums: () => dispatch(fetchAllAlbums()),
+	    // fetchAllUsers: () => dispatch(fetchAllUsers()),
+	    fetchSingleAlbum: function fetchSingleAlbum(id) {
+	      return dispatch((0, _album_actions.fetchSingleAlbum)(id));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_detail2.default);
+
+/***/ },
+/* 422 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactModal = __webpack_require__(395);
+	
+	var _reactModal2 = _interopRequireDefault(_reactModal);
+	
+	var _modal_style = __webpack_require__(423);
+	
+	var _modal_style2 = _interopRequireDefault(_modal_style);
+	
+	var _reactRouter = __webpack_require__(307);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AlbumDetail = function (_React$Component) {
+	  _inherits(AlbumDetail, _React$Component);
+	
+	  function AlbumDetail(props) {
+	    _classCallCheck(this, AlbumDetail);
+	
+	    var _this = _possibleConstructorReturn(this, (AlbumDetail.__proto__ || Object.getPrototypeOf(AlbumDetail)).call(this, props));
+	
+	    _this.state = { modalOpen: false };
+	    _this.onModalClose = _this.onModalClose.bind(_this);
+	    _this.onModalOpen = _this.onModalOpen.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(AlbumDetail, [{
+	    key: 'onModalClose',
+	    value: function onModalClose() {
+	      this.setState({ modalOpen: false });
+	      _modal_style2.default.content.opacity = 0;
+	    }
+	  }, {
+	    key: 'onModalOpen',
+	    value: function onModalOpen() {
+	      _modal_style2.default.content.opacity = 100;
+	      _modal_style2.default.content.background;
+	    }
+	  }, {
+	    key: '_handleClick',
+	    value: function _handleClick() {
+	      this.setState({ modalOpen: true });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var currAlbumPhotos = function currAlbumPhotos(id) {
+	        var result = [];
+	        _this2.props.photos.map(function (x) {
+	          if (id === x.album_id) {
+	            result.push(x);
+	          }
+	        });
+	        return result;
+	      };
+	      var thisAlbumPhotos = currAlbumPhotos(parseInt(this.props.params.albumId));
+	
+	      var currAlbum = function currAlbum(id) {
+	        var result = "";
+	        _this2.props.albums.map(function (x) {
+	          if (id === x.id) {
+	            result = x;
+	          }
+	        });
+	        return result;
+	      };
+	
+	      var thisAlbum = currAlbum(parseInt(this.props.params.albumId));
+	
+	      var handleAlbumClick = function handleAlbumClick(router, url) {
+	        return function () {
+	          return router.push(url);
+	        };
+	      };
+	      var photoList = thisAlbumPhotos.map(function (photo) {
+	        return _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement('img', { key: photo.image_url, src: photo.image_url, onClick: _this2._handleClick.bind(_this2) }),
+	          _react2.default.createElement(
+	            _reactModal2.default,
+	            {
+	              isOpen: _this2.state.modalOpen,
+	              onRequestClose: _this2.onModalClose,
+	              style: _modal_style2.default,
+	              onAfterOpen: _this2.onModalOpen },
+	            _react2.default.createElement(
+	              'a',
+	              { className: 'modal-close', onClick: _this2.onModalClose },
+	              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'modal-container' },
+	              _react2.default.createElement('img', { src: photo.image_url })
+	            )
+	          )
+	        );
+	      });
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'home-nav' },
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'explore-text' },
+	            thisAlbum.title
+	          ),
+	          _react2.default.createElement('div', { className: '' }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button' },
+	            'Back to Profile'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button' },
+	            'Edit Album'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'album-show-container' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'album-photo-grid' },
+	            photoList
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return AlbumDetail;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouter.withRouter)(AlbumDetail);
+
+/***/ },
+/* 423 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ModalStyle = {
+	  overlay: {
+	    position: 'fixed',
+	    top: 0,
+	    left: 0,
+	    right: 0,
+	    bottom: 0,
+	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
+	  },
+	  content: {
+	    position: 'fixed',
+	    top: '100px',
+	    left: '150px',
+	    right: '150px',
+	    bottom: '100px',
+	    border: '1px solid #ccc',
+	    padding: '20px',
+	    opacity: '0',
+	    transition: 'opacity 0.25s'
+	    // z-index: 11
+	  }
+	};
+	
+	exports.default = ModalStyle;
 
 /***/ }
 /******/ ]);
