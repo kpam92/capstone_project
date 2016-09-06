@@ -394,3 +394,28 @@ div.modal-container img{
   letter-spacing: 6px;
   font-weight: 100;
 }
+
+.prof-album-grid {
+  list-style: none;
+  min-width: 900px;
+  /*display: flex;*/
+  margin: 0;
+  padding: 0;
+}
+
+.prof-album-grid li {
+  /*flex: 3 1 100px;*/
+  display: inline-block;
+  width: 50%;
+  height:50%;
+  margin: 28px;        /* for IE */
+  display*:inline;
+}
+
+.prof-album-grid img{
+  width: 65%;
+  height: inherit;
+}
+.prof-album-grid h3{
+  text-align: center;
+}

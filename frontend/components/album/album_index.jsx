@@ -14,9 +14,20 @@ class AlbumIndex extends React.Component {
 
 
   render() {
-    const albumList = this.props.albums.map(album => (
+    const userAlbums = (id) => {
+      let result = [];
+      this.props.albums.map(album => {
+        if (album.author_id === id) {
+          result.push(album);
+        };
+      })
+      return result;
+    }
+
+    const albumList = userAlbums(this.props.prof.id).map(album => (
       <AlbumIndexItem key={album.id} album = {album} props = {this.props}/>
     ));
+
   	return (
   		<ul className='prof-album-grid'>
         {albumList}

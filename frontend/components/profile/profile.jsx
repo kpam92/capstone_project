@@ -1,4 +1,5 @@
 import React from 'react';
+import AlbumIndexContainer from '../album/album_index_container';
 
 class Profile extends React.Component{
   constructor(props){
@@ -23,6 +24,9 @@ class Profile extends React.Component{
         <div className="prof-header">
           <div className="prof-main-pic"><img src={thisProf.profile_pic}/></div>
           <h1>{thisProf.username}</h1>
+        </div>
+        <div className="album-grid">
+          <AlbumIndexContainer prof={thisProf}/>
         </div>
       </div>
     )

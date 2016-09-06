@@ -20,7 +20,6 @@ class AlbumIndexItem extends React.Component {
 
   render() {
 
-
     const cover_photo = (id) => {
       let result = ''
       this.props.props.photos.map(x => {
@@ -34,14 +33,11 @@ class AlbumIndexItem extends React.Component {
     const handleAlbumClick = (router, url) => (
     () => router.push(url)
     )
+
     return(
       <li>
-        <a className="photo-grid">
-        <img src={cover_photo(this.props.album.cover_photo_id)} onClick={this.handleAlbumclick(this.props.router, `/albums/${this.props.album.id}`)}/>
-        </a>
-        <div className="album-title">
-          <h3>{this.props.album.title}</h3>
-        </div>
+        <img src={cover_photo(this.props.album.cover_photo_id)}/>
+        <h3>{this.props.album.title}</h3>
       </li>
       )
     };
