@@ -353,7 +353,8 @@ a:hover {
 div.modal-container img{
   margin: auto;
   display: block;
-  top: 36px;
+  top: 15px;
+  left: 10px;
   /*width: 274px;*/
   max-width: 620px;
   max-height: 620px;
@@ -554,4 +555,8 @@ div.modal-container img:hover{
 }
   .comment-button:hover {
     background-color: #cccccc;
+  }
+
+  img.delete-button {
+    padding-left: 3px;
   }

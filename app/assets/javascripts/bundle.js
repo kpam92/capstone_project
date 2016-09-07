@@ -87,6 +87,7 @@
 	  window.receiveCurrentUser = _session_actions.receiveCurrentUser;
 	  window.fetchAllAlbums = _album_actions.fetchAllAlbums;
 	  window.fetchAllComments = _comment_actions.fetchAllComments;
+	  window.deleteComment = _comment_actions.deleteComment;
 	});
 
 /***/ },
@@ -25851,7 +25852,8 @@
 	  RECEIVE_ALL_COMMENTS: "RECEIVE_ALL_COMMENTS",
 	  RECEIVE_ERRORS: "RECEIVE_ERRORS",
 	  CREATE_COMMENT: 'CREATE_COMMENT',
-	  RECEIVE_NEW_COMMENT: 'RECEIVE_NEW_COMMENT'
+	  RECEIVE_NEW_COMMENT: 'RECEIVE_NEW_COMMENT',
+	  DELETE_COMMENT: 'DELETE_COMMENT'
 	
 	};
 	
@@ -25879,6 +25881,12 @@
 	var receiveNewComment = exports.receiveNewComment = function receiveNewComment(comment) {
 	  return {
 	    type: CommentConstants.RECEIVE_NEW_COMMENT,
+	    comment: comment
+	  };
+	};
+	var deleteComment = exports.deleteComment = function deleteComment(comment) {
+	  return {
+	    type: CommentConstants.DELETE_COMMENT,
 	    comment: comment
 	  };
 	};
@@ -31966,6 +31974,9 @@
 	      var receiveCommentSuccess = function receiveCommentSuccess(data) {
 	        return dispatch((0, _comment_actions.receiveAllComments)(data));
 	      };
+	      var deleteSuccess = function deleteSuccess() {
+	        return dispatch((0, _comment_actions.fetchAllComments)());
+	      };
 	      var receiveNewCommentSuccess = function receiveNewCommentSuccess(data) {
 	        debugger;
 	        dispatch((0, _comment_actions.receiveNewComment)(data));
@@ -31977,12 +31988,15 @@
 	      };
 	      switch (action.type) {
 	        case _comment_actions.CommentConstants.FETCH_ALL_COMMENTS:
-	          (0, _comment_api_util.fetchAllComments)(receiveCommentSuccess, errorCallback);
+	          (0, _comment_api_util.fetchAllCommentsApi)(receiveCommentSuccess, errorCallback);
 	          next(action);
 	          break;
 	        case _comment_actions.CommentConstants.CREATE_COMMENT:
-	          debugger;
 	          (0, _comment_api_util.createComment)(action.comment, receiveNewCommentSuccess, errorCallback);
+	          return next(action);
+	          break;
+	        case _comment_actions.CommentConstants.DELETE_COMMENT:
+	          (0, _comment_api_util.deleteComment)(action.comment, deleteSuccess, errorCallback);
 	          return next(action);
 	          break;
 	        default:
@@ -32001,11 +32015,11 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.createComment = exports.fetchAllComments = undefined;
+	exports.deleteComment = exports.createComment = exports.fetchAllCommentsApi = undefined;
 	
 	var _comment_actions = __webpack_require__(299);
 	
-	var fetchAllComments = exports.fetchAllComments = function fetchAllComments(success, error) {
+	var fetchAllCommentsApi = exports.fetchAllCommentsApi = function fetchAllCommentsApi(success, error) {
 		$.ajax({
 			method: 'GET',
 			url: 'api/comments',
@@ -32015,11 +32029,19 @@
 	};
 	
 	var createComment = exports.createComment = function createComment(comment, success, error) {
-		debugger;
 		$.ajax({
 			method: 'POST',
 			url: 'api/comments',
 			data: { comment: comment },
+			success: success,
+			error: error
+		});
+	};
+	var deleteComment = exports.deleteComment = function deleteComment(comment, success, error) {
+		debugger;
+		$.ajax({
+			method: 'DELETE',
+			url: 'api/comments/' + comment,
 			success: success,
 			error: error
 		});
@@ -35858,10 +35880,10 @@
 	  },
 	  content: {
 	    position: 'fixed',
-	    top: '100px',
+	    top: '72px',
 	    left: '150px',
 	    right: '150px',
-	    bottom: '21px',
+	    bottom: '7px',
 	    border: '1px solid #ccc',
 	    padding: '20px',
 	    opacity: '0',
@@ -36046,6 +36068,7 @@
 	          { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
 	          _react2.default.createElement('input', {
 	            type: 'text',
+	            id: 'comment-body',
 	            value: this.state.body,
 	            placeholder: 'type comment here...',
 	            onChange: this.update('body') }),
@@ -36134,7 +36157,9 @@
 	          null,
 	          currAuthor.username,
 	          ' : ',
-	          this.props.comment.body
+	          this.props.comment.body,
+	          '   ',
+	          this.props.props.currentUser.id === this.props.comment.author_id ? _react2.default.createElement('img', { className: 'delete-button', src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_15/v1472778565/x_alt-128_p7d2vo.png' }) : _react2.default.createElement('a', null)
 	        )
 	      );
 	    }

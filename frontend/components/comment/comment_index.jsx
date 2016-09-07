@@ -47,6 +47,7 @@ class CommentIndex extends React.Component {
         <form className="form-container" onSubmit={this.handleSubmit.bind(this)}>
           <input
             type="text"
+            id="comment-body"
             value={this.state.body}
             placeholder="type comment here..."
             onChange={this.update('body')}/>

@@ -4,7 +4,7 @@ import {configureStore} from './store/store';
 import Root from './components/root';
 import {receiveCurrentUser} from "./actions/session_actions"
 import {fetchAllAlbums, fetchSingleAlbum} from "./actions/album_actions"
-import {fetchAllComments} from "./actions/comment_actions"
+import {fetchAllComments, deleteComment} from "./actions/comment_actions"
 import Modal from 'react-modal';
 
 
@@ -24,5 +24,6 @@ if (window.currentUser) {
   window.receiveCurrentUser = receiveCurrentUser;
   window.fetchAllAlbums = fetchAllAlbums;
   window.fetchAllComments = fetchAllComments;
+  window.deleteComment = deleteComment;
 
 });

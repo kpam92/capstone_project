@@ -1,6 +1,6 @@
 import { receiveAllComments, receiveNewComment, receiveErrors } from '../actions/comment_actions';
 
-export const fetchAllComments = function(success, error) {
+export const fetchAllCommentsApi = function(success, error) {
 	$.ajax({
 		method: 'GET',
 		url: 'api/comments',
@@ -10,11 +10,19 @@ export const fetchAllComments = function(success, error) {
 };
 
 export const createComment = function(comment, success, error) {
-	debugger;
 	$.ajax({
 		method: 'POST',
 		url: 'api/comments',
 		data: {comment: comment},
+		success,
+		error
+	});
+};
+export const deleteComment = function(comment, success, error) {
+	debugger;
+	$.ajax({
+		method: 'DELETE',
+		url: `api/comments/${comment}`,
 		success,
 		error
 	});
