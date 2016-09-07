@@ -359,8 +359,8 @@ div.modal-container img{
   top: 15px;
   left: 10px;
   /*width: 274px;*/
-  max-width: 620px;
-  max-height: 620px;
+  max-width: 67%;
+  max-height: 101%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -564,3 +564,6 @@ div.modal-container img:hover{
   img.delete-button {
     padding-left: 3px;
   }
+.comment-div h5 {
+  width: 217px;
+}

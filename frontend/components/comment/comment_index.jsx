@@ -15,6 +15,7 @@ class CommentIndex extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createComment(this.state);
+    this.setState({body: ''})
   }
 
   update(property) {

@@ -36034,6 +36034,7 @@
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
 	      this.props.createComment(this.state);
+	      this.setState({ body: '' });
 	    }
 	  }, {
 	    key: 'update',
@@ -36172,13 +36173,17 @@
 	        'li',
 	        null,
 	        _react2.default.createElement(
-	          'h5',
-	          null,
-	          currAuthor.username,
-	          ' : ',
-	          this.props.comment.body,
-	          '   ',
-	          this.props.props.currentUser.id === this.props.comment.author_id ? _react2.default.createElement('img', { className: 'delete-button', onClick: this.handleDeleteClick.bind(this), src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_15/v1472778565/x_alt-128_p7d2vo.png' }) : _react2.default.createElement('a', null)
+	          'div',
+	          { className: 'comment-div' },
+	          _react2.default.createElement(
+	            'h5',
+	            null,
+	            currAuthor.username,
+	            ' : ',
+	            this.props.comment.body,
+	            '   ',
+	            this.props.props.currentUser.id === this.props.comment.author_id ? _react2.default.createElement('img', { className: 'delete-button', onClick: this.handleDeleteClick.bind(this), src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_15/v1472778565/x_alt-128_p7d2vo.png' }) : _react2.default.createElement('a', null)
+	          )
 	        )
 	      );
 	    }
