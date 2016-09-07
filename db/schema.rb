@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906021937) do
+ActiveRecord::Schema.define(version: 20160907063041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20160906021937) do
     t.datetime "updated_at",     null: false
     t.integer  "cover_photo_id", null: false
     t.index ["author_id"], name: "index_albums_on_author_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "body",       null: false
+    t.integer  "author_id",  null: false
+    t.integer  "photo_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_comments_on_author_id", using: :btree
+    t.index ["photo_id"], name: "index_comments_on_photo_id", using: :btree
   end
 
   create_table "photos", force: :cascade do |t|
@@ -40,11 +50,11 @@ ActiveRecord::Schema.define(version: 20160906021937) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                                                                                                 null: false
-    t.string   "password_digest",                                                                                          null: false
-    t.string   "session_token",                                                                                            null: false
-    t.datetime "created_at",                                                                                               null: false
-    t.datetime "updated_at",                                                                                               null: false
+    t.string   "username",                    null: false
+    t.string   "password_digest",             null: false
+    t.string   "session_token",               null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "profile_pic",     default: "http://res.cloudinary.com/dt5viyxyq/image/upload/v1472832936/user_xczx2f.png"
     t.index ["session_token"], name: "index_users_on_session_token", using: :btree
     t.index ["username"], name: "index_users_on_username", using: :btree
