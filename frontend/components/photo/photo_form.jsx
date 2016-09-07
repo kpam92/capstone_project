@@ -21,13 +21,14 @@ class PhotoForm extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
+    let that = this;
     cloudinary.openUploadWidget(
                window.CLOUDINARY_OPTIONS,
                function(error, images) {
                  if (error === null) {
-                  this.setState({image_url: images[0].url})
+                  that.setState({image_url: images[0].url})
                  }
-              });
+            });
   }
 
 
@@ -54,7 +55,8 @@ class PhotoForm extends React.Component {
           value={this.state.description}
           placeholder="description (optional)"
           onChange={this.update('description')}/>
-        {this.state.image_url === "" ? <button onClick={this.handleUpload.bind(this)}>Upload Photo</button> : <img src={this.state.image_url}/>}
+        {this.state.image_url === "" ? <button onClick={this.handleUpload.bind(this)}>Upload Photo</button> :
+                                        <img className='image-preview'src={this.state.image_url}/>}
         <button>Submit Photo</button>
       </form>
     </div>

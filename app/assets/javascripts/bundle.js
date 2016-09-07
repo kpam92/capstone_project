@@ -36572,9 +36572,10 @@
 	    key: 'handleUpload',
 	    value: function handleUpload(e) {
 	      e.preventDefault();
+	      var that = this;
 	      cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, function (error, images) {
 	        if (error === null) {
-	          this.setState({ image_url: images[0].url });
+	          that.setState({ image_url: images[0].url });
 	        }
 	      });
 	    }
@@ -36607,7 +36608,7 @@
 	            'button',
 	            { onClick: this.handleUpload.bind(this) },
 	            'Upload Photo'
-	          ) : _react2.default.createElement('img', { src: this.state.image_url }),
+	          ) : _react2.default.createElement('img', { className: 'image-preview', src: this.state.image_url }),
 	          _react2.default.createElement(
 	            'button',
 	            null,
