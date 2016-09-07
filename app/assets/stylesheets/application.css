@@ -32,6 +32,9 @@ button, article, footer, small {
 *{
   font-family: 'Roboto', sans-serif;
 }
+input:focus {
+  outline: none;
+}
 .back-to-top {
   position: fixed;
   bottom: 2em;
@@ -536,8 +539,9 @@ div.modal-container img:hover{
 }
 .comment-box input {
   width: 195px;
-    margin: 10px;
+  margin: 10px;
 }
+
 .comment-button {
   float: left;
   background: #ece9e7;
