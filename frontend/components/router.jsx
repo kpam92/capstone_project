@@ -55,7 +55,7 @@ class AppRouter extends React.Component{
           <Route path="/home" component={ HomeContainer } onEnter={this._ensureLoggedIn}/>
           <Route path="/profile/:profileId" component={ProfileContainer} onEnter={this._ensureLoggedIn}/>
           <Route path="/album/:albumId" component={AlbumDetailContainer} onEnter={this._ensureLoggedIn}/>
-          <Route path="/upload/:albumId" component={PhotoFormContainer} onEnter={this._ensureLoggedIn}/>
+          <Route path="profile/:profileId/upload/:albumId" component={PhotoFormContainer} onEnter={this._ensureLoggedIn}/>
         </Route>
       </Router>
     );

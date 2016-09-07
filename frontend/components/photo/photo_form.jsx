@@ -12,6 +12,7 @@ class PhotoForm extends React.Component {
       title: '',
       description: '',
       image_url: '',
+      album_id: '',
     };
   }
 
@@ -31,10 +32,16 @@ class PhotoForm extends React.Component {
             });
   }
 
-
+  handleSubmit(e) {
+    e.preventDefault();
+    debugger;
+    this.props.createPokemon(this.state);
+  }
 
   render() {
 
+
+    // const currAlbum = currAlbumFun(parseInt(this.props.params.albumId))
 
 
     return(
@@ -45,6 +52,14 @@ class PhotoForm extends React.Component {
           value={this.state.title}
           placeholder="title"
           onChange={this.update('title')}/>
+        <input
+          type="hidden"
+          name={this.state.author_id}
+          value={parseInt(this.props.params.profileId)}/>
+        <input
+          type="hidden"
+          name={this.state.album_id}
+          value={parseInt(this.props.params.albumId)}/>
         <input
           type="text"
           value={this.state.medium}

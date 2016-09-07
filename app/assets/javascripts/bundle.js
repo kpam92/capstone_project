@@ -32786,7 +32786,7 @@
 	          _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _home_container2.default, onEnter: this._ensureLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/profile/:profileId', component: _profile_container2.default, onEnter: this._ensureLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/album/:albumId', component: _album_detail_container2.default, onEnter: this._ensureLoggedIn }),
-	          _react2.default.createElement(_reactRouter.Route, { path: '/upload/:albumId', component: _photo_form_container2.default, onEnter: this._ensureLoggedIn })
+	          _react2.default.createElement(_reactRouter.Route, { path: 'profile/:profileId/upload/:albumId', component: _photo_form_container2.default, onEnter: this._ensureLoggedIn })
 	        )
 	      );
 	    }
@@ -36381,7 +36381,7 @@
 	          ),
 	          this.props.currentUser.id === thisAlbum.author_id ? _react2.default.createElement(
 	            'button',
-	            { onClick: this.upload, className: 'explore-button' },
+	            { onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id + '/upload/' + thisAlbum.id), className: 'explore-button' },
 	            'Add Photo'
 	          ) : _react2.default.createElement('a', null),
 	          editButton
@@ -36554,7 +36554,8 @@
 	    _this.state = {
 	      title: '',
 	      description: '',
-	      image_url: ''
+	      image_url: '',
+	      album_id: ''
 	    };
 	    return _this;
 	  }
@@ -36580,8 +36581,18 @@
 	      });
 	    }
 	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      debugger;
+	      this.props.createPokemon(this.state);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	
+	      // const currAlbum = currAlbumFun(parseInt(this.props.params.albumId))
+	
 	
 	      return _react2.default.createElement(
 	        'div',
@@ -36594,6 +36605,14 @@
 	            value: this.state.title,
 	            placeholder: 'title',
 	            onChange: this.update('title') }),
+	          _react2.default.createElement('input', {
+	            type: 'hidden',
+	            name: this.state.author_id,
+	            value: parseInt(this.props.params.profileId) }),
+	          _react2.default.createElement('input', {
+	            type: 'hidden',
+	            name: this.state.album_id,
+	            value: parseInt(this.props.params.albumId) }),
 	          _react2.default.createElement('input', {
 	            type: 'text',
 	            value: this.state.medium,
