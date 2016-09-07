@@ -32708,6 +32708,10 @@
 	
 	var _album_detail_container2 = _interopRequireDefault(_album_detail_container);
 	
+	var _photo_form_container = __webpack_require__(426);
+	
+	var _photo_form_container2 = _interopRequireDefault(_photo_form_container);
+	
 	var _photo_actions = __webpack_require__(299);
 	
 	var _user_actions = __webpack_require__(303);
@@ -32781,7 +32785,8 @@
 	          _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _session_form_container2.default, onEnter: this._redirectIfLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _home_container2.default, onEnter: this._ensureLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/profile/:profileId', component: _profile_container2.default, onEnter: this._ensureLoggedIn }),
-	          _react2.default.createElement(_reactRouter.Route, { path: '/album/:albumId', component: _album_detail_container2.default, onEnter: this._ensureLoggedIn })
+	          _react2.default.createElement(_reactRouter.Route, { path: '/album/:albumId', component: _album_detail_container2.default, onEnter: this._ensureLoggedIn }),
+	          _react2.default.createElement(_reactRouter.Route, { path: '/upload/:albumId', component: _photo_form_container2.default, onEnter: this._ensureLoggedIn })
 	        )
 	      );
 	    }
@@ -36432,6 +36437,191 @@
 	};
 	
 	exports.default = ModalStyle;
+
+/***/ },
+/* 426 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(377);
+	
+	var _photo_actions = __webpack_require__(299);
+	
+	var _user_actions = __webpack_require__(303);
+	
+	var _photo_form = __webpack_require__(427);
+	
+	var _photo_form2 = _interopRequireDefault(_photo_form);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchAllPhotos: function fetchAllPhotos() {
+	      return dispatch((0, _photo_actions.fetchAllPhotos)());
+	    },
+	    goToProfile: function (_goToProfile) {
+	      function goToProfile(_x) {
+	        return _goToProfile.apply(this, arguments);
+	      }
+	
+	      goToProfile.toString = function () {
+	        return _goToProfile.toString();
+	      };
+	
+	      return goToProfile;
+	    }(function (id) {
+	      return dispatch(goToProfile(id));
+	    }),
+	    fetchAllUsers: function fetchAllUsers() {
+	      return dispatch((0, _user_actions.fetchAllUsers)());
+	    },
+	    fetchSingleUser: function (_fetchSingleUser) {
+	      function fetchSingleUser(_x2) {
+	        return _fetchSingleUser.apply(this, arguments);
+	      }
+	
+	      fetchSingleUser.toString = function () {
+	        return _fetchSingleUser.toString();
+	      };
+	
+	      return fetchSingleUser;
+	    }(function (id) {
+	      return dispatch(fetchSingleUser(id));
+	    })
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_form2.default);
+
+/***/ },
+/* 427 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactModal = __webpack_require__(395);
+	
+	var _reactModal2 = _interopRequireDefault(_reactModal);
+	
+	var _modal_style = __webpack_require__(415);
+	
+	var _modal_style2 = _interopRequireDefault(_modal_style);
+	
+	var _reactRouter = __webpack_require__(307);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var PhotoForm = function (_React$Component) {
+	  _inherits(PhotoForm, _React$Component);
+	
+	  function PhotoForm(props) {
+	    _classCallCheck(this, PhotoForm);
+	
+	    var _this = _possibleConstructorReturn(this, (PhotoForm.__proto__ || Object.getPrototypeOf(PhotoForm)).call(this, props));
+	
+	    _this.state = {
+	      title: '',
+	      description: '',
+	      image_url: ''
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(PhotoForm, [{
+	    key: 'update',
+	    value: function update(property) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        return _this2.setState(_defineProperty({}, property, e.target.value));
+	      };
+	    }
+	  }, {
+	    key: 'handleUpload',
+	    value: function handleUpload(e) {
+	      e.preventDefault();
+	      cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, function (error, images) {
+	        if (error === null) {
+	          this.setState({ image_url: images[0].url });
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'photo-form-container' },
+	        _react2.default.createElement(
+	          'form',
+	          { className: 'form-container', onSubmit: this.handleSubmit },
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.title,
+	            placeholder: 'title',
+	            onChange: this.update('title') }),
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.medium,
+	            placeholder: 'medium (optional)',
+	            onChange: this.update('medium') }),
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.description,
+	            placeholder: 'description (optional)',
+	            onChange: this.update('description') }),
+	          this.state.image_url === "" ? _react2.default.createElement(
+	            'button',
+	            { onClick: this.handleUpload.bind(this) },
+	            'Upload Photo'
+	          ) : _react2.default.createElement('img', { src: this.state.image_url }),
+	          _react2.default.createElement(
+	            'button',
+	            null,
+	            'Submit Photo'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return PhotoForm;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouter.withRouter)(PhotoForm);
 
 /***/ }
 /******/ ]);

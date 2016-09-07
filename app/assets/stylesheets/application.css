@@ -482,3 +482,9 @@ div.modal-container img{
   top: 9em;
   right: 2em;
 }
+
+.photo-form-container {
+    background: red;
+    margin-top: 74px;
+    padding: 10px;
+}

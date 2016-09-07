@@ -15,53 +15,51 @@ class PhotoForm extends React.Component {
     };
   }
 
+  update(property) {
+    return e => this.setState({[property]: e.target.value});
+  }
+
+  handleUpload(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(
+               window.CLOUDINARY_OPTIONS,
+               function(error, images) {
+                 if (error === null) {
+                  this.setState({image_url: images[0].url})
+                 }
+              });
+  }
+
 
 
   render() {
 
 
-    const author = (id) => {
-      let result = ''
-      this.props.props.user.map(x => {
-        if (id === x.id) {
-          result = x.profile_pic;
-        }
-      })
-      return result;
-    }
-
-    const handleProfileClick = (router, url) => (
-    () => router.push(url)
-    )
 
     return(
-    <div className="photo-form">
-      <input
+    <div className="photo-form-container">
+      <form className="form-container" onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          value={this.state.title}
+          placeholder="title"
+          onChange={this.update('title')}/>
+        <input
+          type="text"
+          value={this.state.medium}
+          placeholder="medium (optional)"
+          onChange={this.update('medium')}/>
+        <input
+          type="text"
+          value={this.state.description}
+          placeholder="description (optional)"
+          onChange={this.update('description')}/>
+        {this.state.image_url === "" ? <button onClick={this.handleUpload.bind(this)}>Upload Photo</button> : <img src={this.state.image_url}/>}
+        <button>Submit Photo</button>
+      </form>
     </div>
-      <li>
-        <a className="photo-grid">
-        <img src={this.props.photo.image_url} onClick={this._handleClick.bind(this)}/>
-        </a>
-        <div className="auth">
-          <img onClick={handleProfileClick(this.props.router, `/profile/${this.props.photo.author_id}`)} src={author(this.props.photo.author_id)}/>
-          <h3>{this.props.photo.title}</h3>
-        </div>
-          <Modal
-            isOpen={this.state.modalOpen}
-            onRequestClose={this.onModalClose}
-            style={ModalStyle}
-            onAfterOpen={this.onModalOpen}>
-            <a className="modal-close" onClick={this.onModalClose}><img src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png"/></a>
-
-            <div className='modal-container'>
-              <img src={this.props.photo.image_url}/>
-            </div>
-
-          </Modal>
-
-      </li>
       )
     }
   }
 
-export default withRouter(PhotoIndexItem);
+export default withRouter(PhotoForm);
