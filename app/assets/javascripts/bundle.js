@@ -35963,7 +35963,20 @@
 	    }),
 	    createComment: function createComment(id) {
 	      return dispatch((0, _comment_actions.createComment)(id));
-	    }
+	    },
+	    deleteComment: function (_deleteComment) {
+	      function deleteComment(_x3) {
+	        return _deleteComment.apply(this, arguments);
+	      }
+	
+	      deleteComment.toString = function () {
+	        return _deleteComment.toString();
+	      };
+	
+	      return deleteComment;
+	    }(function (id) {
+	      return dispatch(deleteComment(id));
+	    })
 	
 	  };
 	};
@@ -36128,6 +36141,12 @@
 	      // this.props.fetchSingleUser(this.props.photo.author_id);
 	    }
 	  }, {
+	    key: 'handleDeleteClick',
+	    value: function handleDeleteClick(e) {
+	      e.preventDefault();
+	      this.props.props.deleteComment(this.props.comment.id);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -36159,7 +36178,7 @@
 	          ' : ',
 	          this.props.comment.body,
 	          '   ',
-	          this.props.props.currentUser.id === this.props.comment.author_id ? _react2.default.createElement('img', { className: 'delete-button', src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_15/v1472778565/x_alt-128_p7d2vo.png' }) : _react2.default.createElement('a', null)
+	          this.props.props.currentUser.id === this.props.comment.author_id ? _react2.default.createElement('img', { className: 'delete-button', onClick: this.handleDeleteClick.bind(this), src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_15/v1472778565/x_alt-128_p7d2vo.png' }) : _react2.default.createElement('a', null)
 	        )
 	      );
 	    }

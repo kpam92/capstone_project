@@ -16,7 +16,8 @@ const mapDispatchToProps = dispatch => ({
   goToProfile: (id) => dispatch(goToProfile(id)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   fetchSingleUser: (id) => dispatch(fetchSingleUser(id)),
-  createComment: (id) => dispatch(createComment(id))
+  createComment: (id) => dispatch(createComment(id)),
+  deleteComment: (id) => dispatch(deleteComment(id))
 
 });
 
