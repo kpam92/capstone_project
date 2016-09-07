@@ -25839,7 +25839,10 @@
 	var PhotoConstants = exports.PhotoConstants = {
 	  FETCH_ALL_PHOTOS: "FETCH_ALL_PHOTOS",
 	  RECEIVE_ALL_PHOTOS: "RECEIVE_ALL_PHOTOS",
-	  RECEIVE_ERRORS: "RECEIVE_ERRORS"
+	  RECEIVE_ERRORS: "RECEIVE_ERRORS",
+	  CREATE_PHOTO: 'CREATE_PHOTO',
+	  RECEIVE_NEW_PHOTO: 'RECEIVE_NEW_PHOTO'
+	
 	};
 	
 	var fetchAllPhotos = exports.fetchAllPhotos = function fetchAllPhotos() {
@@ -25852,6 +25855,21 @@
 	  return {
 	    type: PhotoConstants.RECEIVE_ALL_PHOTOS,
 	    photos: photos
+	  };
+	};
+	
+	var createPhoto = exports.createPhoto = function createPhoto(photo, push) {
+	  return {
+	    type: PhotoConstants.CREATE_PHOTO,
+	    photo: photo,
+	    push: push
+	  };
+	};
+	
+	var receiveNewPhoto = exports.receiveNewPhoto = function receiveNewPhoto(photo) {
+	  return {
+	    type: PhotoConstants.RECEIVE_NEW_PHOTO,
+	    photo: photo
 	  };
 	};
 	
@@ -31843,6 +31861,10 @@
 	      var receivePhotoSuccess = function receivePhotoSuccess(data) {
 	        return dispatch((0, _photo_actions.receiveAllPhotos)(data));
 	      };
+	      var receiveNewPhotoSuccess = function receiveNewPhotoSuccess(data) {
+	        dispatch((0, _photo_actions.receiveNewPhoto)(data));
+	        _reactRouter.hashHistory.push('/album/' + data.album_id);
+	      };
 	      var errorCallback = function errorCallback(xhr) {
 	        var errors = xhr.responseJSON;
 	        dispatch((0, _photo_actions.receiveErrors)(errors));
@@ -31850,6 +31872,10 @@
 	      switch (action.type) {
 	        case _photo_actions.PhotoConstants.FETCH_ALL_PHOTOS:
 	          (0, _photo_api_util.fetchAllPhotos)(receivePhotoSuccess, errorCallback);
+	          next(action);
+	          break;
+	        case _photo_actions.PhotoConstants.CREATE_PHOTO:
+	          (0, _photo_api_util.createPhoto)(action.photo, receiveNewPhotoSuccess, errorCallback);
 	          return next(action);
 	        default:
 	          return next(action);
@@ -31867,7 +31893,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.fetchAllPhotos = undefined;
+	exports.createPhoto = exports.fetchAllPhotos = undefined;
 	
 	var _photo_actions = __webpack_require__(299);
 	
@@ -31875,6 +31901,16 @@
 		$.ajax({
 			method: 'GET',
 			url: 'api/photos',
+			success: success,
+			error: error
+		});
+	};
+	
+	var createPhoto = exports.createPhoto = function createPhoto(photo, success, error) {
+		$.ajax({
+			method: 'POST',
+			url: 'api/photos',
+			data: { photo: photo },
 			success: success,
 			error: error
 		});
@@ -36501,7 +36537,10 @@
 	      return fetchSingleUser;
 	    }(function (id) {
 	      return dispatch(fetchSingleUser(id));
-	    })
+	    }),
+	    createPhoto: function createPhoto(id) {
+	      return dispatch((0, _photo_actions.createPhoto)(id));
+	    }
 	  };
 	};
 	
@@ -36554,8 +36593,10 @@
 	    _this.state = {
 	      title: '',
 	      description: '',
+	      medium: '',
 	      image_url: '',
-	      album_id: ''
+	      album_id: parseInt(_this.props.params.albumId),
+	      author_id: parseInt(_this.props.params.profileId)
 	    };
 	    return _this;
 	  }
@@ -36584,8 +36625,7 @@
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
-	      debugger;
-	      this.props.createPokemon(this.state);
+	      this.props.createPhoto(this.state);
 	    }
 	  }, {
 	    key: 'render',
@@ -36599,20 +36639,12 @@
 	        { className: 'photo-form-container' },
 	        _react2.default.createElement(
 	          'form',
-	          { className: 'form-container', onSubmit: this.handleSubmit },
+	          { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
 	          _react2.default.createElement('input', {
 	            type: 'text',
 	            value: this.state.title,
 	            placeholder: 'title',
 	            onChange: this.update('title') }),
-	          _react2.default.createElement('input', {
-	            type: 'hidden',
-	            name: this.state.author_id,
-	            value: parseInt(this.props.params.profileId) }),
-	          _react2.default.createElement('input', {
-	            type: 'hidden',
-	            name: this.state.album_id,
-	            value: parseInt(this.props.params.albumId) }),
 	          _react2.default.createElement('input', {
 	            type: 'text',
 	            value: this.state.medium,
@@ -36625,12 +36657,12 @@
 	            onChange: this.update('description') }),
 	          this.state.image_url === "" ? _react2.default.createElement(
 	            'button',
-	            { onClick: this.handleUpload.bind(this) },
+	            { className: 'splash-button', onClick: this.handleUpload.bind(this) },
 	            'Upload Photo'
 	          ) : _react2.default.createElement('img', { className: 'image-preview', src: this.state.image_url }),
 	          _react2.default.createElement(
 	            'button',
-	            null,
+	            { className: 'splash-button' },
 	            'Submit Photo'
 	          )
 	        )

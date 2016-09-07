@@ -11,8 +11,10 @@ class PhotoForm extends React.Component {
     this.state = {
       title: '',
       description: '',
+      medium: '',
       image_url: '',
-      album_id: '',
+      album_id: parseInt(this.props.params.albumId),
+      author_id: parseInt(this.props.params.profileId),
     };
   }
 
@@ -34,8 +36,7 @@ class PhotoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
-    this.props.createPokemon(this.state);
+    this.props.createPhoto(this.state);
   }
 
   render() {
@@ -46,20 +47,12 @@ class PhotoForm extends React.Component {
 
     return(
     <div className="photo-form-container">
-      <form className="form-container" onSubmit={this.handleSubmit}>
+      <form className="form-container" onSubmit={this.handleSubmit.bind(this)}>
         <input
           type="text"
           value={this.state.title}
           placeholder="title"
           onChange={this.update('title')}/>
-        <input
-          type="hidden"
-          name={this.state.author_id}
-          value={parseInt(this.props.params.profileId)}/>
-        <input
-          type="hidden"
-          name={this.state.album_id}
-          value={parseInt(this.props.params.albumId)}/>
         <input
           type="text"
           value={this.state.medium}
@@ -70,9 +63,9 @@ class PhotoForm extends React.Component {
           value={this.state.description}
           placeholder="description (optional)"
           onChange={this.update('description')}/>
-        {this.state.image_url === "" ? <button onClick={this.handleUpload.bind(this)}>Upload Photo</button> :
+        {this.state.image_url === "" ? <button className="splash-button" onClick={this.handleUpload.bind(this)}>Upload Photo</button> :
                                         <img className='image-preview'src={this.state.image_url}/>}
-        <button>Submit Photo</button>
+        <button className="splash-button">Submit Photo</button>
       </form>
     </div>
       )

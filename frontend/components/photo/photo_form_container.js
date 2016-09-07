@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllPhotos } from '../../actions/photo_actions';
+import { fetchAllPhotos, createPhoto } from '../../actions/photo_actions';
 import { fetchAllUsers } from '../../actions/user_actions';
 import PhotoForm from './photo_form';
 
@@ -13,7 +13,8 @@ const mapDispatchToProps = dispatch => ({
   fetchAllPhotos: () => dispatch(fetchAllPhotos()),
   goToProfile: (id) => dispatch(goToProfile(id)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
-  fetchSingleUser: (id) => dispatch(fetchSingleUser(id))
+  fetchSingleUser: (id) => dispatch(fetchSingleUser(id)),
+  createPhoto: (id) => dispatch(createPhoto(id))
 });
 
 export default connect(

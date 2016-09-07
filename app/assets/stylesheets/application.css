@@ -484,7 +484,28 @@ div.modal-container img{
 }
 
 .photo-form-container {
-    background: red;
-    margin-top: 74px;
-    padding: 10px;
+  background: #515a47;
+  margin-top: 74px;
+  padding: 30px;
+  height: 600px;
+  width: 400px;
+  position: relative;
+  position: $position;
+  -ms-transform: translateY(-50%);
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-container input {
+  margin-top: 18px;
+  position: inline-block;
+  height: 35px;
+  width: 386px;
+  border-radius: 4px;
+  border: none;
+}
+
+.form-container img{
+  width: 340px;
+  padding: 22px;
+  margin-top: 3px;
 }
