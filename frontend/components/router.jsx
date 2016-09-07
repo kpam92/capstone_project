@@ -12,6 +12,7 @@ import PhotoFormContainer from './photo/photo_form_container';
 import { fetchAllPhotos } from '../actions/photo_actions';
 import { fetchAllUsers } from '../actions/user_actions';
 import { fetchAllAlbums } from '../actions/album_actions';
+import { fetchAllComments } from '../actions/comment_actions';
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -44,6 +45,7 @@ class AppRouter extends React.Component{
     this.store.dispatch(fetchAllPhotos());
     this.store.dispatch(fetchAllUsers());
     this.store.dispatch(fetchAllAlbums());
+    this.store.dispatch(fetchAllComments());
   }
 
   render(){

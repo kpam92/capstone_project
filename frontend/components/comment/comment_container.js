@@ -6,7 +6,8 @@ import CommentIndex from './comment_index';
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   photos: state.photos,
-  user: state.user
+  user: state.user,
+  comments: state.comments
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,4 +20,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PhotoIndex);
+)(CommentIndex);

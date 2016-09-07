@@ -32919,15 +32919,15 @@
 	
 	var _home_container2 = _interopRequireDefault(_home_container);
 	
-	var _profile_container = __webpack_require__(423);
+	var _profile_container = __webpack_require__(426);
 	
 	var _profile_container2 = _interopRequireDefault(_profile_container);
 	
-	var _album_detail_container = __webpack_require__(427);
+	var _album_detail_container = __webpack_require__(430);
 	
 	var _album_detail_container2 = _interopRequireDefault(_album_detail_container);
 	
-	var _photo_form_container = __webpack_require__(430);
+	var _photo_form_container = __webpack_require__(433);
 	
 	var _photo_form_container2 = _interopRequireDefault(_photo_form_container);
 	
@@ -32936,6 +32936,8 @@
 	var _user_actions = __webpack_require__(305);
 	
 	var _album_actions = __webpack_require__(303);
+	
+	var _comment_actions = __webpack_require__(299);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32990,6 +32992,7 @@
 	      this.store.dispatch((0, _photo_actions.fetchAllPhotos)());
 	      this.store.dispatch((0, _user_actions.fetchAllUsers)());
 	      this.store.dispatch((0, _album_actions.fetchAllAlbums)());
+	      this.store.dispatch((0, _comment_actions.fetchAllComments)());
 	    }
 	  }, {
 	    key: 'render',
@@ -33508,7 +33511,7 @@
 	
 	var _index_container2 = _interopRequireDefault(_index_container);
 	
-	var _album_index_landing_container = __webpack_require__(420);
+	var _album_index_landing_container = __webpack_require__(423);
 	
 	var _album_index_landing_container2 = _interopRequireDefault(_album_index_landing_container);
 	
@@ -33770,6 +33773,10 @@
 	
 	var _reactRouter = __webpack_require__(309);
 	
+	var _comment_container = __webpack_require__(420);
+	
+	var _comment_container2 = _interopRequireDefault(_comment_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33869,6 +33876,11 @@
 	            'div',
 	            { className: 'modal-container' },
 	            _react2.default.createElement('img', { src: this.props.photo.image_url })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'comment-box' },
+	            _react2.default.createElement(_comment_container2.default, { photoid: this.props.photo.id })
 	          )
 	        )
 	      );
@@ -35866,7 +35878,248 @@
 	
 	var _reactRedux = __webpack_require__(381);
 	
-	var _album_index_landing = __webpack_require__(421);
+	var _photo_actions = __webpack_require__(301);
+	
+	var _user_actions = __webpack_require__(305);
+	
+	var _comment_index = __webpack_require__(421);
+	
+	var _comment_index2 = _interopRequireDefault(_comment_index);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user,
+	    comments: state.comments
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchAllPhotos: function fetchAllPhotos() {
+	      return dispatch((0, _photo_actions.fetchAllPhotos)());
+	    },
+	    goToProfile: function (_goToProfile) {
+	      function goToProfile(_x) {
+	        return _goToProfile.apply(this, arguments);
+	      }
+	
+	      goToProfile.toString = function () {
+	        return _goToProfile.toString();
+	      };
+	
+	      return goToProfile;
+	    }(function (id) {
+	      return dispatch(goToProfile(id));
+	    }),
+	    fetchAllUsers: function fetchAllUsers() {
+	      return dispatch((0, _user_actions.fetchAllUsers)());
+	    },
+	    fetchSingleUser: function (_fetchSingleUser) {
+	      function fetchSingleUser(_x2) {
+	        return _fetchSingleUser.apply(this, arguments);
+	      }
+	
+	      fetchSingleUser.toString = function () {
+	        return _fetchSingleUser.toString();
+	      };
+	
+	      return fetchSingleUser;
+	    }(function (id) {
+	      return dispatch(fetchSingleUser(id));
+	    })
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_comment_index2.default);
+
+/***/ },
+/* 421 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _comment_index_item = __webpack_require__(422);
+	
+	var _comment_index_item2 = _interopRequireDefault(_comment_index_item);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CommentIndex = function (_React$Component) {
+	  _inherits(CommentIndex, _React$Component);
+	
+	  function CommentIndex(props) {
+	    _classCallCheck(this, CommentIndex);
+	
+	    return _possibleConstructorReturn(this, (CommentIndex.__proto__ || Object.getPrototypeOf(CommentIndex)).call(this, props));
+	  }
+	
+	  _createClass(CommentIndex, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.fetchAllUsers();
+	    }
+	
+	    //this.props.photo_id
+	
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var commentList = function commentList(id) {
+	        var result = [];
+	        _this2.props.comments.map(function (comment) {
+	          if (comment.photo_id === id) {
+	            result.push(comment);
+	          }
+	        });
+	        return result;
+	      };
+	
+	      var allComments = commentList(this.props.photoid).map(function (comment) {
+	        return _react2.default.createElement(_comment_index_item2.default, { key: comment.id, comment: comment, props: _this2.props });
+	      });
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Comments'
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'landing-photo-grid' },
+	          allComments
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return CommentIndex;
+	}(_react2.default.Component);
+	
+	exports.default = CommentIndex;
+
+/***/ },
+/* 422 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(309);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CommentIndexItem = function (_React$Component) {
+	  _inherits(CommentIndexItem, _React$Component);
+	
+	  function CommentIndexItem(props) {
+	    _classCallCheck(this, CommentIndexItem);
+	
+	    return _possibleConstructorReturn(this, (CommentIndexItem.__proto__ || Object.getPrototypeOf(CommentIndexItem)).call(this, props));
+	  }
+	
+	  _createClass(CommentIndexItem, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      // this.props.fetchSingleUser(this.props.photo.author_id);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var author = function author(id) {
+	        var result = '';
+	        _this2.props.props.user.map(function (x) {
+	          if (id === x.id) {
+	            result = x;
+	          }
+	        });
+	        return result;
+	      };
+	
+	      var handleProfileClick = function handleProfileClick(router, url) {
+	        return function () {
+	          return router.push(url);
+	        };
+	      };
+	      // this.props.props this.props.comment
+	      var currAuthor = author(this.props.comment.author_id);
+	      return _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          currAuthor.username,
+	          ' : '
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          this.props.comment.body
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return CommentIndexItem;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouter.withRouter)(CommentIndexItem);
+
+/***/ },
+/* 423 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(381);
+	
+	var _album_index_landing = __webpack_require__(424);
 	
 	var _album_index_landing2 = _interopRequireDefault(_album_index_landing);
 	
@@ -35931,7 +36184,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_index_landing2.default);
 
 /***/ },
-/* 421 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35946,7 +36199,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _album_index_item = __webpack_require__(422);
+	var _album_index_item = __webpack_require__(425);
 	
 	var _album_index_item2 = _interopRequireDefault(_album_index_item);
 	
@@ -36017,7 +36270,7 @@
 	exports.default = AlbumIndexLanding;
 
 /***/ },
-/* 422 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36114,7 +36367,7 @@
 	exports.default = (0, _reactRouter.withRouter)(AlbumIndexItem);
 
 /***/ },
-/* 423 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36125,7 +36378,7 @@
 	
 	var _reactRedux = __webpack_require__(381);
 	
-	var _profile = __webpack_require__(424);
+	var _profile = __webpack_require__(427);
 	
 	var _profile2 = _interopRequireDefault(_profile);
 	
@@ -36162,7 +36415,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_profile2.default);
 
 /***/ },
-/* 424 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36177,7 +36430,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _album_index_container = __webpack_require__(425);
+	var _album_index_container = __webpack_require__(428);
 	
 	var _album_index_container2 = _interopRequireDefault(_album_index_container);
 	
@@ -36252,7 +36505,7 @@
 	exports.default = Profile;
 
 /***/ },
-/* 425 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36263,7 +36516,7 @@
 	
 	var _reactRedux = __webpack_require__(381);
 	
-	var _album_index = __webpack_require__(426);
+	var _album_index = __webpack_require__(429);
 	
 	var _album_index2 = _interopRequireDefault(_album_index);
 	
@@ -36328,7 +36581,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_index2.default);
 
 /***/ },
-/* 426 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36343,7 +36596,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _album_index_item = __webpack_require__(422);
+	var _album_index_item = __webpack_require__(425);
 	
 	var _album_index_item2 = _interopRequireDefault(_album_index_item);
 	
@@ -36414,7 +36667,7 @@
 	exports.default = AlbumIndex;
 
 /***/ },
-/* 427 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36427,7 +36680,7 @@
 	
 	var _album_actions = __webpack_require__(303);
 	
-	var _album_detail = __webpack_require__(428);
+	var _album_detail = __webpack_require__(431);
 	
 	var _album_detail2 = _interopRequireDefault(_album_detail);
 	
@@ -36456,7 +36709,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_detail2.default);
 
 /***/ },
-/* 428 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36475,7 +36728,7 @@
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
-	var _modal_style = __webpack_require__(429);
+	var _modal_style = __webpack_require__(432);
 	
 	var _modal_style2 = _interopRequireDefault(_modal_style);
 	
@@ -36624,7 +36877,7 @@
 	exports.default = (0, _reactRouter.withRouter)(AlbumDetail);
 
 /***/ },
-/* 429 */
+/* 432 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36658,7 +36911,7 @@
 	exports.default = ModalStyle;
 
 /***/ },
-/* 430 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36673,7 +36926,7 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _photo_form = __webpack_require__(431);
+	var _photo_form = __webpack_require__(434);
 	
 	var _photo_form2 = _interopRequireDefault(_photo_form);
 	
@@ -36730,7 +36983,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_form2.default);
 
 /***/ },
-/* 431 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

@@ -517,3 +517,9 @@ div.modal-container img{
   padding: 22px;
   margin-top: 3px;
 }
+.comment-box {
+  position: relative;
+  float: right;
+  width: 180px;
+  margin: 39px;
+  }
