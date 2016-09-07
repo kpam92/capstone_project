@@ -353,14 +353,22 @@ a:hover {
 div.modal-container img{
   margin: auto;
   display: block;
-  width: 100%;
+  top: 36px;
+  /*width: 274px;*/
   max-width: 700px;
-  max-height: 500px;
+  max-height: 620px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
 }
+
+
+.modal-close img{
+  position: relative;
+  float: right;
+}
+
 .prof-container {
   margin-top: 67px;
 }

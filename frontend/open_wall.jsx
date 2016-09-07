@@ -4,6 +4,7 @@ import {configureStore} from './store/store';
 import Root from './components/root';
 import {receiveCurrentUser} from "./actions/session_actions"
 import {fetchAllAlbums, fetchSingleAlbum} from "./actions/album_actions"
+import {fetchAllComments} from "./actions/comment_actions"
 import Modal from 'react-modal';
 
 
@@ -22,6 +23,6 @@ if (window.currentUser) {
   window.store = store;
   window.receiveCurrentUser = receiveCurrentUser;
   window.fetchAllAlbums = fetchAllAlbums;
-  window.fetchSingleAlbum = fetchSingleAlbum;
+  window.fetchAllComments = fetchAllComments;
 
 });

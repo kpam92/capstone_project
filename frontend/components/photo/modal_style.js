@@ -13,7 +13,7 @@ const ModalStyle = {
     top             : '100px',
     left            : '150px',
     right           : '150px',
-    bottom          : '100px',
+    bottom          : '21px',
     border          : '1px solid #ccc',
     padding         : '20px',
     opacity         : '0',
