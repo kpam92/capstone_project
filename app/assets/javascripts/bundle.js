@@ -36280,6 +36280,7 @@
 	    _this.state = { modalOpen: false };
 	    _this.onModalClose = _this.onModalClose.bind(_this);
 	    _this.onModalOpen = _this.onModalOpen.bind(_this);
+	    _this.upload = _this.upload.bind(_this);
 	    return _this;
 	  }
 	
@@ -36299,6 +36300,16 @@
 	    key: '_handleClick',
 	    value: function _handleClick() {
 	      this.setState({ modalOpen: true });
+	    }
+	  }, {
+	    key: 'upload',
+	    value: function upload(e) {
+	      e.preventDefault();
+	      cloudinary.openUploadWidget(window.cloudinary_options, function (error, images) {
+	        if (error === null) {
+	          console.log("HI");
+	        }
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -36365,7 +36376,7 @@
 	          ),
 	          this.props.currentUser.id === thisAlbum.author_id ? _react2.default.createElement(
 	            'button',
-	            { className: 'explore-button' },
+	            { onClick: this.upload, className: 'explore-button' },
 	            'Add Photo'
 	          ) : _react2.default.createElement('a', null),
 	          editButton

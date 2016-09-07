@@ -12,6 +12,7 @@ class AlbumDetail extends React.Component {
     this.state = { modalOpen: false };
     this.onModalClose = this.onModalClose.bind(this)
     this.onModalOpen = this.onModalOpen.bind(this)
+    this.upload = this.upload.bind(this)
   }
 
   onModalClose(){
@@ -26,7 +27,16 @@ class AlbumDetail extends React.Component {
   _handleClick() {
     this.setState({ modalOpen: true});
   }
-
+  upload(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(
+      window.cloudinary_options,
+      function(error, images) {
+        if (error === null) {
+          console.log("HI")
+        }
+   });
+  }
   render() {
 
     const currAlbumPhotos = (id) => {
@@ -73,7 +83,7 @@ class AlbumDetail extends React.Component {
           <h1 className="album-text">{thisAlbum.title}</h1>
 
           <button className="explore-button" onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}`)}>User Profile</button>
-          { this.props.currentUser.id === thisAlbum.author_id ? <button className="explore-button">Add Photo</button> : <a/> }
+          { this.props.currentUser.id === thisAlbum.author_id ? <button onClick={this.upload}className="explore-button">Add Photo</button> : <a/> }
           {editButton}
         </div>
         <div className="album-show-container">
