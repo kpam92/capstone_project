@@ -38,8 +38,7 @@ class CommentIndexItem extends React.Component {
     const currAuthor = author(this.props.comment.author_id)
     return(
       <li>
-        <h3>{currAuthor.username} : </h3>
-        <h4>{this.props.comment.body}</h4>
+        <h5>{currAuthor.username} : {this.props.comment.body}</h5>
       </li>
       )
     }

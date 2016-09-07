@@ -27,6 +27,7 @@ export default ({getState, dispatch}) => next => action => {
     case PhotoConstants.CREATE_PHOTO:
       createPhoto(action.photo,receiveNewPhotoSuccess, errorCallback);
       return next(action);
+      break;
     default:
       return next(action);
   }

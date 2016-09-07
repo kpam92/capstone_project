@@ -12,6 +12,7 @@ import { Link, hashHistory } from 'react-router';
 export default ({getState, dispatch}) => next => action => {
   const receiveCommentSuccess = data => dispatch(receiveAllComments(data));
   const receiveNewCommentSuccess = (data) => {
+    debugger;
     dispatch(receiveNewComment(data));
     // hashHistory.push(`/album/${data.album_id}`);
   };
@@ -25,8 +26,10 @@ export default ({getState, dispatch}) => next => action => {
       next(action);
       break;
     case CommentConstants.CREATE_COMMENT:
+    debugger;
       createComment(action.comment ,receiveNewCommentSuccess, errorCallback);
       return next(action);
+      break;
     default:
       return next(action);
   }

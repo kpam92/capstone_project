@@ -18,7 +18,7 @@ export const receiveAllComments = comments => ({
 
 export const createComment = (comment, push) => ({
 	type: CommentConstants.CREATE_COMMENT,
-	photo,
+	comment,
 	push
 });
 

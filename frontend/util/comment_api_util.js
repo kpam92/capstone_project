@@ -10,6 +10,7 @@ export const fetchAllComments = function(success, error) {
 };
 
 export const createComment = function(comment, success, error) {
+	debugger;
 	$.ajax({
 		method: 'POST',
 		url: 'api/comments',

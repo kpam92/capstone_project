@@ -25824,8 +25824,9 @@
 	  switch (action.type) {
 	    case _comment_actions.CommentConstants.RECEIVE_ALL_COMMENTS:
 	      return [].concat(_toConsumableArray(action.comments));
-	    case _comment_actions.CommentConstants.RECEIVE_ALL_COMMENTS:
-	      return [].concat(_toConsumableArray(oldState), [action.comments]);
+	    case _comment_actions.CommentConstants.RECEIVE_NEW_COMMENT:
+	      debugger;
+	      return [].concat(_toConsumableArray(oldState), [action.comment]);
 	    case _comment_actions.CommentConstants.RECEIVE_ERRORS:
 	      var errors = action.errors;
 	      return (0, _merge2.default)({}, oldState, { errors: errors });
@@ -25870,7 +25871,7 @@
 	var createComment = exports.createComment = function createComment(comment, push) {
 	  return {
 	    type: CommentConstants.CREATE_COMMENT,
-	    photo: photo,
+	    comment: comment,
 	    push: push
 	  };
 	};
@@ -31966,6 +31967,7 @@
 	        return dispatch((0, _comment_actions.receiveAllComments)(data));
 	      };
 	      var receiveNewCommentSuccess = function receiveNewCommentSuccess(data) {
+	        debugger;
 	        dispatch((0, _comment_actions.receiveNewComment)(data));
 	        // hashHistory.push(`/album/${data.album_id}`);
 	      };
@@ -31979,8 +31981,10 @@
 	          next(action);
 	          break;
 	        case _comment_actions.CommentConstants.CREATE_COMMENT:
+	          debugger;
 	          (0, _comment_api_util.createComment)(action.comment, receiveNewCommentSuccess, errorCallback);
 	          return next(action);
+	          break;
 	        default:
 	          return next(action);
 	      }
@@ -32011,6 +32015,7 @@
 	};
 	
 	var createComment = exports.createComment = function createComment(comment, success, error) {
+		debugger;
 		$.ajax({
 			method: 'POST',
 			url: 'api/comments',
@@ -32060,6 +32065,7 @@
 	        case _photo_actions.PhotoConstants.CREATE_PHOTO:
 	          (0, _photo_api_util.createPhoto)(action.photo, receiveNewPhotoSuccess, errorCallback);
 	          return next(action);
+	          break;
 	        default:
 	          return next(action);
 	      }
@@ -35882,6 +35888,8 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
+	var _comment_actions = __webpack_require__(299);
+	
 	var _comment_index = __webpack_require__(421);
 	
 	var _comment_index2 = _interopRequireDefault(_comment_index);
@@ -35930,7 +35938,11 @@
 	      return fetchSingleUser;
 	    }(function (id) {
 	      return dispatch(fetchSingleUser(id));
-	    })
+	    }),
+	    createComment: function createComment(id) {
+	      return dispatch((0, _comment_actions.createComment)(id));
+	    }
+	
 	  };
 	};
 	
@@ -35958,6 +35970,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -35970,25 +35984,39 @@
 	  function CommentIndex(props) {
 	    _classCallCheck(this, CommentIndex);
 	
-	    return _possibleConstructorReturn(this, (CommentIndex.__proto__ || Object.getPrototypeOf(CommentIndex)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (CommentIndex.__proto__ || Object.getPrototypeOf(CommentIndex)).call(this, props));
+	
+	    _this.state = {
+	      body: '',
+	      photo_id: _this.props.photoid,
+	      author_id: _this.props.currentUser.id
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(CommentIndex, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.props.fetchAllUsers();
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      this.props.createComment(this.state);
 	    }
+	  }, {
+	    key: 'update',
+	    value: function update(property) {
+	      var _this2 = this;
 	
-	    //this.props.photo_id
-	
+	      return function (e) {
+	        return _this2.setState(_defineProperty({}, property, e.target.value));
+	      };
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
+	      var _this3 = this;
 	
 	      var commentList = function commentList(id) {
 	        var result = [];
-	        _this2.props.comments.map(function (comment) {
+	        _this3.props.comments.map(function (comment) {
 	          if (comment.photo_id === id) {
 	            result.push(comment);
 	          }
@@ -35997,7 +36025,7 @@
 	      };
 	
 	      var allComments = commentList(this.props.photoid).map(function (comment) {
-	        return _react2.default.createElement(_comment_index_item2.default, { key: comment.id, comment: comment, props: _this2.props });
+	        return _react2.default.createElement(_comment_index_item2.default, { key: comment.id, comment: comment, props: _this3.props });
 	      });
 	
 	      return _react2.default.createElement(
@@ -36005,13 +36033,27 @@
 	        null,
 	        _react2.default.createElement(
 	          'h3',
-	          null,
-	          'Comments'
+	          { className: '' },
+	          'COMMENTS'
 	        ),
 	        _react2.default.createElement(
 	          'ul',
 	          { className: 'landing-photo-grid' },
 	          allComments
+	        ),
+	        _react2.default.createElement(
+	          'form',
+	          { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.body,
+	            placeholder: 'type comment here...',
+	            onChange: this.update('body') }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'comment-button' },
+	            'Add Comment'
+	          )
 	        )
 	      );
 	    }
@@ -36088,14 +36130,10 @@
 	        'li',
 	        null,
 	        _react2.default.createElement(
-	          'h3',
+	          'h5',
 	          null,
 	          currAuthor.username,
-	          ' : '
-	        ),
-	        _react2.default.createElement(
-	          'h4',
-	          null,
+	          ' : ',
 	          this.props.comment.body
 	        )
 	      );

@@ -355,12 +355,15 @@ div.modal-container img{
   display: block;
   top: 36px;
   /*width: 274px;*/
-  max-width: 700px;
+  max-width: 620px;
   max-height: 620px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
+}
+div.modal-container img:hover{
+  opacity: 1;
 }
 
 
@@ -518,8 +521,37 @@ div.modal-container img{
   margin-top: 3px;
 }
 .comment-box {
+  border-radius: 10px;
   position: relative;
+  background: #d7be82;
   float: right;
-  width: 180px;
-  margin: 39px;
+  width: 220px;
+  margin: 50px 10px 50px 10px;
+  padding: 10px;
+  /*outline: solid #515a47 4px;*/
+  }
+.comment-box h3 {
+  margin: 10px 40px 10px 40px;
+}
+.comment-box input {
+  width: 195px;
+    margin: 10px;
+}
+.comment-button {
+  float: left;
+  background: #ece9e7;
+  border: none;
+  color: grey;
+  padding: 10px 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  border-radius: 5px;
+  outline: none;
+  margin: 10px 40px;
+}
+  .comment-button:hover {
+    background-color: #cccccc;
   }
