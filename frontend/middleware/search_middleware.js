@@ -11,6 +11,7 @@ export default ({getState, dispatch}) => next => action => {
   };
   switch(action.type){
     case SearchConstants.RECEIVE_NEW_SEARCH_RESULTS:
+      
       hashHistory.push(`/profile/1`);
       next(action);
       break;

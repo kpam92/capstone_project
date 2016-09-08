@@ -19,7 +19,7 @@ export const fetchSingleAlbum = function(id, success, error) {
 };
 
 export const createAlbum = function(album, success, error) {
-	debugger;
+
 	$.ajax({
 		method: 'POST',
 		url: 'api/albums',

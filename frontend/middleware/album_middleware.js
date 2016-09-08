@@ -29,7 +29,7 @@ export default ({getState, dispatch}) => next => action => {
       fetchSingleAlbum(action.id, receiveSingleAlbumSuccess, errorCallback);
       return next(action);
       case AlbumConstants.CREATE_ALBUM:
-        debugger;
+        
         createAlbum(action.album ,receiveNewAlbumSuccess, errorCallback);
         return next(action);
         break;

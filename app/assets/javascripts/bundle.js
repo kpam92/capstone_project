@@ -26214,7 +26214,7 @@
 	
 	  switch (action.type) {
 	    case _search_actions.SearchConstants.RECEIVE_NEW_SEARCH_RESULTS:
-	      debugger;
+	
 	      return [action.search_results];
 	    default:
 	      return state;
@@ -32249,7 +32249,7 @@
 	          (0, _album_api_util.fetchSingleAlbum)(action.id, receiveSingleAlbumSuccess, errorCallback);
 	          return next(action);
 	        case _album_actions.AlbumConstants.CREATE_ALBUM:
-	          debugger;
+	
 	          (0, _album_api_util.createAlbum)(action.album, receiveNewAlbumSuccess, errorCallback);
 	          return next(action);
 	          break;
@@ -32292,7 +32292,7 @@
 	};
 	
 	var createAlbum = exports.createAlbum = function createAlbum(album, success, error) {
-		debugger;
+	
 		$.ajax({
 			method: 'POST',
 			url: 'api/albums',
@@ -33260,6 +33260,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -33272,13 +33274,32 @@
 	  function Greeting(props) {
 	    _classCallCheck(this, Greeting);
 	
-	    return _possibleConstructorReturn(this, (Greeting.__proto__ || Object.getPrototypeOf(Greeting)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Greeting.__proto__ || Object.getPrototypeOf(Greeting)).call(this, props));
+	
+	    _this.state = { search_results: "" };
+	    return _this;
 	  }
 	
 	  _createClass(Greeting, [{
+	    key: 'update',
+	    value: function update(property) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        return _this2.setState(_defineProperty({}, property, e.target.value));
+	      };
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      this.props.receiveNewSearchResults(this.state);
+	      this.setState({ search_results: '' });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
+	      var _this3 = this;
 	
 	      var sessionLinks = function sessionLinks() {
 	        return _react2.default.createElement(
@@ -33339,13 +33360,13 @@
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'header-button', onClick: _this2.props.logout },
+	            { className: 'header-button', onClick: _this3.props.logout },
 	            'Log Out'
 	          ),
 	          _react2.default.createElement(
 	            'form',
-	            { onSubmit: _this2.props.receiveNewSearchResults },
-	            _react2.default.createElement('input', { className: 'search-bar', type: 'text', name: 'search' })
+	            { onSubmit: _this3.handleSubmit.bind(_this3) },
+	            _react2.default.createElement('input', { className: 'search-bar', type: 'text', name: 'search', value: _this3.state.search_results, onChange: _this3.update('search_results') })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -33353,7 +33374,7 @@
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'header-name' },
-	              _this2.props.currentUser.username
+	              _this3.props.currentUser.username
 	            ),
 	            _react2.default.createElement(
 	              'li',
@@ -33361,8 +33382,8 @@
 	              _react2.default.createElement(
 	                'a',
 	                { className: 'prof-icon' },
-	                _react2.default.createElement('img', { onClick: handleRouteClick(_this2.props.router, '/profile/' + _this2.props.currentUser.id),
-	                  src: _this2.props.currentUser.profile_pic })
+	                _react2.default.createElement('img', { onClick: handleRouteClick(_this3.props.router, '/profile/' + _this3.props.currentUser.id),
+	                  src: _this3.props.currentUser.profile_pic })
 	              )
 	            )
 	          )
@@ -37586,6 +37607,7 @@
 	      };
 	      switch (action.type) {
 	        case _search_actions.SearchConstants.RECEIVE_NEW_SEARCH_RESULTS:
+	
 	          _reactRouter.hashHistory.push('/profile/1');
 	          next(action);
 	          break;

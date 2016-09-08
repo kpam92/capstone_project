@@ -5,7 +5,18 @@ import { withRouter } from 'react-router';
 
 class Greeting extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {search_results: ""}
+  }
+
+  update(property) {
+    return e => this.setState({[property]: e.target.value});
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.receiveNewSearchResults(this.state);
+    this.setState({search_results: ''});
   }
 
   render() {
@@ -28,8 +39,8 @@ class Greeting extends React.Component {
     	<hgroup className="header-nav">
         <Link to="/home"><label className="icon">O</label></Link>
         <button className="header-button" onClick={this.props.logout}>Log Out</button>
-        <form onSubmit={this.props.receiveNewSearchResults}>
-          <input className="search-bar"type="text" name="search"/>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <input className="search-bar"type="text"  name="search" value={this.state.search_results} onChange={this.update('search_results')}/>
         </form>
         <div className="right-nav">
 
