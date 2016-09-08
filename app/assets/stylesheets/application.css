@@ -406,7 +406,7 @@ div.modal-container img:hover{
   color: white;
   position: absolute;
   top: 70px;
-  left: 225px;
+  left: 285px;
   font-size: 69px;
   letter-spacing: 6px;
   font-weight: 100;
@@ -591,4 +591,14 @@ div.modal-container img:hover{
 }
 .no-res {
   padding: 26px 0px 26px 230px;
+  font-weight: 100;
+}
+
+.auth h3 {
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.album-form-container .form-container input {
+  margin: 15px;
 }

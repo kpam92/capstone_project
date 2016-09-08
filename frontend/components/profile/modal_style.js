@@ -17,7 +17,8 @@ const ModalStyle = {
     border          : '1px solid #ccc',
     padding         : '20px',
     opacity         : '0',
-    transition      : 'opacity 0.25s'
+    transition      : 'opacity 0.25s',
+    background      : 'rgb(44, 95, 118)'
     // z-index: 11
   }
 }

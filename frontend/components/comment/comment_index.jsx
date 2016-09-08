@@ -51,6 +51,7 @@ class CommentIndex extends React.Component {
             id="comment-body"
             value={this.state.body}
             placeholder="type comment here..."
+            autoComplete="off"
             onChange={this.update('body')}/>
           <button className="comment-button">Add Comment</button>
         </form>

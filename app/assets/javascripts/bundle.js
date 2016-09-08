@@ -33408,7 +33408,7 @@
 	          _react2.default.createElement(
 	            'form',
 	            { onSubmit: _this3.handleSubmit.bind(_this3) },
-	            _react2.default.createElement('input', { className: 'search-bar', type: 'text', name: 'search', value: _this3.state.search_results, onChange: _this3.update('search_results') })
+	            _react2.default.createElement('input', { className: 'search-bar', type: 'text', autoComplete: 'off', name: 'search', value: _this3.state.search_results, onChange: _this3.update('search_results') })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -36276,6 +36276,7 @@
 	            id: 'comment-body',
 	            value: this.state.body,
 	            placeholder: 'type comment here...',
+	            autoComplete: 'off',
 	            onChange: this.update('body') }),
 	          _react2.default.createElement(
 	            'button',
@@ -37215,7 +37216,8 @@
 	    border: '1px solid #ccc',
 	    padding: '20px',
 	    opacity: '0',
-	    transition: 'opacity 0.25s'
+	    transition: 'opacity 0.25s',
+	    background: 'rgb(44, 95, 118)'
 	    // z-index: 11
 	  }
 	};

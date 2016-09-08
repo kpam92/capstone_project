@@ -40,7 +40,7 @@ class Greeting extends React.Component {
         <Link to="/home"><label className="icon">O</label></Link>
         <button className="header-button" onClick={this.props.logout}>Log Out</button>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <input className="search-bar"type="text"  name="search" value={this.state.search_results} onChange={this.update('search_results')}/>
+          <input className="search-bar"type="text" autoComplete="off" name="search" value={this.state.search_results} onChange={this.update('search_results')}/>
         </form>
         <div className="right-nav">
 
