@@ -25831,7 +25831,7 @@
 	    case _comment_actions.CommentConstants.RECEIVE_ALL_COMMENTS:
 	      return [].concat(_toConsumableArray(action.comments));
 	    case _comment_actions.CommentConstants.RECEIVE_NEW_COMMENT:
-	      debugger;
+	
 	      return [].concat(_toConsumableArray(oldState), [action.comment]);
 	    case _comment_actions.CommentConstants.RECEIVE_ERRORS:
 	      var errors = action.errors;
@@ -36266,7 +36266,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'ul',
-	          { className: 'landing-photo-grid' },
+	          { className: 'comments-grid' },
 	          allComments
 	        ),
 	        _react2.default.createElement(
@@ -37779,7 +37779,7 @@
 	      var photoList = editedPhotoList(this.props.search_results[0].search_results.toUpperCase()).map(function (photo) {
 	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
 	      });
-	      // debugger;
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'search-container' },

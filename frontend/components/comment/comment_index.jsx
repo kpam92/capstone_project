@@ -42,7 +42,7 @@ class CommentIndex extends React.Component {
   	return (
       <div>
         <h3 className="">COMMENTS</h3>
-    		<ul className='landing-photo-grid'>
+    		<ul className='comments-grid'>
           {allComments}
         </ul>
         <form className="form-container" onSubmit={this.handleSubmit.bind(this)}>

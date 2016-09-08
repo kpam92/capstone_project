@@ -47,7 +47,7 @@ class Home extends React.Component {
     const photoList = editedPhotoList(this.props.search_results[0].search_results.toUpperCase()).map(photo => (
       <PhotoIndexItem key={photo.id} photo = {photo} props = {this.props}/>
     ));
-    // debugger;
+  
     return(
     <div className="search-container">
       <div className='home-nav'>
