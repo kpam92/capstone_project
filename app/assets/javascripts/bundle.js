@@ -37713,6 +37713,10 @@
 	
 	var _album_index_landing_container2 = _interopRequireDefault(_album_index_landing_container);
 	
+	var _album_index_item = __webpack_require__(428);
+	
+	var _album_index_item2 = _interopRequireDefault(_album_index_item);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37752,18 +37756,19 @@
 	      var editedAlbumList = function editedAlbumList(substring) {
 	        var result = [];
 	        _this2.props.albums.map(function (x) {
-	          if (x.title.indexOf(substring) !== -1) {
+	          if (x.title.toUpperCase().indexOf(substring) !== -1) {
 	            result.push(x);
-	          } else if (x.description && x.description.indexOf(substring) !== -1) {
+	          } else if (x.description && x.description.toUpperCase().indexOf(substring) !== -1) {
 	            result.push(x);
 	          }
 	        });
 	        return result;
 	      };
 	
-	      var photoList = editedPhotoList(this.props.search_results[0].search_results);
-	      var albumList = editedAlbumList(this.props.search_results[0].search_results);
-	      // debugger;
+	      var albumList = editedAlbumList(this.props.search_results[0].search_results.toUpperCase()).map(function (album) {
+	        return _react2.default.createElement(_album_index_item2.default, { key: album.id, album: album, props: _this2.props });
+	      });
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -37784,6 +37789,16 @@
 	              )
 	            )
 	          )
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'prof-album-grid' },
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Albums'
+	          ),
+	          albumList
 	        )
 	      );
 	    }
