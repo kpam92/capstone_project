@@ -36773,6 +36773,11 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'album-grid' },
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'explore-text' },
+	            'ALBUMS'
+	          ),
 	          _react2.default.createElement(_album_index_container2.default, { prof: thisProf })
 	        ),
 	        _react2.default.createElement(
