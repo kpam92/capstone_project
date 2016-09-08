@@ -33250,6 +33250,8 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -33258,109 +33260,131 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var sessionLinks = function sessionLinks() {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement('div', { className: 'splash-background' }),
-	    _react2.default.createElement(
-	      'nav',
-	      { className: 'login-signup' },
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/login', activeClassName: 'current' },
-	        'LOGIN'
-	      ),
-	      ' or ',
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/signup', activeClassName: 'current' },
-	        'SIGN UP'
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'splash-logo' },
-	        _react2.default.createElement(
-	          'label',
-	          { className: 'logo-letter' },
-	          'O'
-	        ),
-	        'pen',
-	        _react2.default.createElement(
-	          'label',
-	          { className: 'logo-letter' },
-	          'W'
-	        ),
-	        'all'
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'tagline' },
-	        ' A virtual space for creating and sharing...'
-	      )
-	    )
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var personalGreeting = function personalGreeting(currentUser, logout, router, receiveNewSearchResults) {
-	  return _react2.default.createElement(
-	    'hgroup',
-	    { className: 'header-nav' },
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: '/home' },
-	      _react2.default.createElement(
-	        'label',
-	        { className: 'icon' },
-	        'O'
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'header-button', onClick: logout },
-	      'Log Out'
-	    ),
-	    _react2.default.createElement(
-	      'form',
-	      { onSubmit: receiveNewSearchResults },
-	      _react2.default.createElement('input', { className: 'search-bar', type: 'text', name: 'search' })
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'right-nav' },
-	      _react2.default.createElement(
-	        'li',
-	        { className: 'header-name' },
-	        currentUser.username
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          'a',
-	          { className: 'prof-icon' },
-	          _react2.default.createElement('img', { onClick: function onClick() {
-	              return router.push('/profile/' + currentUser.id);
-	            },
-	            src: currentUser.profile_pic })
-	        )
-	      )
-	    )
-	  );
-	};
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function Greeting(_ref) {
-	  var currentUser = _ref.currentUser;
-	  var logout = _ref.logout;
-	  var router = _ref.router;
-	  var receiveNewSearchResults = _ref.receiveNewSearchResults;
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	  if (currentUser) {
-	    return personalGreeting(currentUser, logout, router, receiveNewSearchResults);
-	  } else {
-	    return sessionLinks();
+	var Greeting = function (_React$Component) {
+	  _inherits(Greeting, _React$Component);
+	
+	  function Greeting(props) {
+	    _classCallCheck(this, Greeting);
+	
+	    return _possibleConstructorReturn(this, (Greeting.__proto__ || Object.getPrototypeOf(Greeting)).call(this, props));
 	  }
-	}
+	
+	  _createClass(Greeting, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var sessionLinks = function sessionLinks() {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement('div', { className: 'splash-background' }),
+	          _react2.default.createElement(
+	            'nav',
+	            { className: 'login-signup' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/login', activeClassName: 'current' },
+	              'LOGIN'
+	            ),
+	            ' or ',
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/signup', activeClassName: 'current' },
+	              'SIGN UP'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'splash-logo' },
+	              _react2.default.createElement(
+	                'label',
+	                { className: 'logo-letter' },
+	                'O'
+	              ),
+	              'pen',
+	              _react2.default.createElement(
+	                'label',
+	                { className: 'logo-letter' },
+	                'W'
+	              ),
+	              'all'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'tagline' },
+	              ' A virtual space for creating and sharing...'
+	            )
+	          )
+	        );
+	      };
+	
+	      var personalGreeting = function personalGreeting() {
+	        return _react2.default.createElement(
+	          'hgroup',
+	          { className: 'header-nav' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/home' },
+	            _react2.default.createElement(
+	              'label',
+	              { className: 'icon' },
+	              'O'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'header-button', onClick: _this2.props.logout },
+	            'Log Out'
+	          ),
+	          _react2.default.createElement(
+	            'form',
+	            { onSubmit: _this2.props.receiveNewSearchResults },
+	            _react2.default.createElement('input', { className: 'search-bar', type: 'text', name: 'search' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'right-nav' },
+	            _react2.default.createElement(
+	              'li',
+	              { className: 'header-name' },
+	              _this2.props.currentUser.username
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'a',
+	                { className: 'prof-icon' },
+	                _react2.default.createElement('img', { onClick: handleRouteClick(_this2.props.router, '/profile/' + _this2.props.currentUser.id),
+	                  src: _this2.props.currentUser.profile_pic })
+	              )
+	            )
+	          )
+	        );
+	      };
+	
+	      var handleRouteClick = function handleRouteClick(router, url) {
+	        return function () {
+	          return router.push(url);
+	        };
+	      };
+	
+	      if (this.props.currentUser) {
+	        return personalGreeting();
+	      } else {
+	        return sessionLinks();
+	      }
+	    }
+	  }]);
+	
+	  return Greeting;
+	}(_react2.default.Component);
 	
 	exports.default = (0, _reactRouter.withRouter)(Greeting);
 
