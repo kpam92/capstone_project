@@ -575,3 +575,17 @@ div.modal-container img:hover{
   font-size: 58px;
   font-weight: 300;
 }
+
+
+.search-container .photo-grid img {
+    width: 250px;
+    height: inherit;
+}
+.search-container h2 {
+  position: relative;
+  letter-spacing: 7px;
+  padding: 26px 0px 26px 230px;
+  text-decoration: overline;
+  text-decoration: underline;
+  color: #515a47;
+}

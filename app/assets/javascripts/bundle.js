@@ -37709,6 +37709,10 @@
 	
 	var _index_container2 = _interopRequireDefault(_index_container);
 	
+	var _photo_index_item = __webpack_require__(401);
+	
+	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
+	
 	var _album_index_landing_container = __webpack_require__(426);
 	
 	var _album_index_landing_container2 = _interopRequireDefault(_album_index_landing_container);
@@ -37743,11 +37747,11 @@
 	      var editedPhotoList = function editedPhotoList(substring) {
 	        var result = [];
 	        _this2.props.photos.map(function (x) {
-	          if (x.title.indexOf(substring) !== -1) {
+	          if (x.title.toUpperCase().indexOf(substring) !== -1) {
 	            result.push(x);
-	          } else if (x.description && x.description.indexOf(substring) !== -1) {
+	          } else if (x.description && x.description.toUpperCase().indexOf(substring) !== -1) {
 	            result.push(x);
-	          } else if (x.medium && x.medium.indexOf(substring) !== -1) {
+	          } else if (x.medium && x.medium.toUpperCase().indexOf(substring) !== -1) {
 	            result.push(x);
 	          }
 	        });
@@ -37769,9 +37773,13 @@
 	        return _react2.default.createElement(_album_index_item2.default, { key: album.id, album: album, props: _this2.props });
 	      });
 	
+	      var photoList = editedPhotoList(this.props.search_results[0].search_results.toUpperCase()).map(function (photo) {
+	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
+	      });
+	      // debugger;
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'search-container' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'home-nav' },
@@ -37792,11 +37800,21 @@
 	        ),
 	        _react2.default.createElement(
 	          'ul',
-	          { className: 'prof-album-grid' },
+	          { className: 'landing-photo-grid' },
 	          _react2.default.createElement(
-	            'h3',
+	            'h2',
 	            null,
-	            'Albums'
+	            'PHOTOS'
+	          ),
+	          photoList
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'landing-photo-grid' },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'ALBUMS'
 	          ),
 	          albumList
 	        )
