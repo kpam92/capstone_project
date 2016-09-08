@@ -6,7 +6,8 @@ import PhotoIndex from './photo_index';
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   photos: state.photos,
-  user: state.user
+  user: state.user,
+  comments: state.comments
 });
 
 const mapDispatchToProps = dispatch => ({

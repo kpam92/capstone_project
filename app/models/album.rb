@@ -7,7 +7,7 @@ class Album < ApplicationRecord
  belongs_to(:author,
             foreign_key: :author_id,
             class_name: 'User')
-belongs_to(:cover_photo,
+has_one(:cover_photo,
          foreign_key: :cover_photo_id,
          class_name: 'Photo')
 end

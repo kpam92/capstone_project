@@ -14,7 +14,6 @@ export default ({getState, dispatch}) => next => action => {
   const receiveCommentSuccess = data => dispatch(receiveAllComments(data));
   const deleteSuccess = () => dispatch(fetchAllComments());
   const receiveNewCommentSuccess = (data) => {
-    debugger;
     dispatch(receiveNewComment(data));
     // hashHistory.push(`/album/${data.album_id}`);
   };

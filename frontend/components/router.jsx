@@ -8,6 +8,7 @@ import HomeContainer from './home/home_container';
 import ProfileContainer from './profile/profile_container';
 import AlbumDetailContainer from './album/album_detail_container';
 import PhotoFormContainer from './photo/photo_form_container';
+import AlbumFormContainer from './album/album_form_container';
 
 import { fetchAllPhotos } from '../actions/photo_actions';
 import { fetchAllUsers } from '../actions/user_actions';
@@ -57,7 +58,8 @@ class AppRouter extends React.Component{
           <Route path="/home" component={ HomeContainer } onEnter={this._ensureLoggedIn}/>
           <Route path="/profile/:profileId" component={ProfileContainer} onEnter={this._ensureLoggedIn}/>
           <Route path="/album/:albumId" component={AlbumDetailContainer} onEnter={this._ensureLoggedIn}/>
-          <Route path="profile/:profileId/upload/:albumId" component={PhotoFormContainer} onEnter={this._ensureLoggedIn}/>
+          <Route path="profile/:profileId/upload/album/:albumId" component={PhotoFormContainer} onEnter={this._ensureLoggedIn}/>
+          <Route path="profile/:profileId/upload" component={AlbumFormContainer} onEnter={this._ensureLoggedIn}/>
         </Route>
       </Router>
     );

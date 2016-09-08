@@ -8,6 +8,8 @@ const AlbumReducer = (oldState = [] , action) => {
       return [...action.albums];
     case AlbumConstants.RECEIVE_SINGLE_ALBUM:
       return [action.albums];
+    case AlbumConstants.RECEIVE_NEW_ALBUM:
+      return [...oldState, action.album]
     case AlbumConstants.RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, oldState, {errors});

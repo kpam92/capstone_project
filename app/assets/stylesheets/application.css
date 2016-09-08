@@ -499,6 +499,7 @@ div.modal-container img:hover{
 }
 
 .photo-form-container {
+  opacity: 0.89;
   background: #515a47;
   margin-top: 74px;
   padding: 30px;
@@ -509,6 +510,7 @@ div.modal-container img:hover{
   -ms-transform: translateY(-50%);
   margin-left: auto;
   margin-right: auto;
+  border-radius: 25px;
 }
 .form-container input {
   margin-top: 18px;

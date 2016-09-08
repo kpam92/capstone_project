@@ -3,7 +3,9 @@ export const AlbumConstants = {
   RECEIVE_ALL_ALBUMS: "RECEIVE_ALL_ALBUMS",
   RECEIVE_ERRORS: "RECEIVE_ERRORS",
   FETCH_SINGLE_ALBUM: "FETCH_SINGLE_ALBUM",
-  RECEIVE_SINGLE_ALBUM: "RECEIVE_SINGLE_ALBUM"
+  RECEIVE_SINGLE_ALBUM: "RECEIVE_SINGLE_ALBUM",
+  CREATE_ALBUM: "CREATE_ALBUM",
+  RECEIVE_NEW_ALBUM: "RECEIVE_NEW_ALBUM"
 };
 
 export const fetchAllAlbums = () => ({
@@ -22,6 +24,17 @@ export const fetchSingleAlbum = id => ({
 export const receiveSingleAlbum = albums => ({
   type: AlbumConstants.RECEIVE_SINGLE_ALBUM,
   albums
+});
+
+export const receiveNewAlbum = comment => ({
+	type: AlbumConstants.RECEIVE_NEW_ALBUM,
+	comment
+});
+
+export const createAlbum = (album, push) => ({
+  type: AlbumConstants.CREATE_ALBUM,
+  album,
+  push
 });
 
 export const receiveErrors = errors => ({
