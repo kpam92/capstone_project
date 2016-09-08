@@ -506,7 +506,7 @@ div.modal-container img:hover{
   height: 600px;
   width: 400px;
   position: relative;
-  position: $position;
+  
   -ms-transform: translateY(-50%);
   margin-left: auto;
   margin-right: auto;
