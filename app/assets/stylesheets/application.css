@@ -569,3 +569,9 @@ div.modal-container img:hover{
 .comment-div h5 {
   width: 217px;
 }
+
+.explore-text span {
+  color: steelblue;
+  font-size: 58px;
+  font-weight: 300;
+}

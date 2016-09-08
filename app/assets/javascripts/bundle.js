@@ -56,7 +56,7 @@
 	
 	var _store = __webpack_require__(172);
 	
-	var _root = __webpack_require__(382);
+	var _root = __webpack_require__(383);
 	
 	var _root2 = _interopRequireDefault(_root);
 	
@@ -66,7 +66,7 @@
 	
 	var _comment_actions = __webpack_require__(299);
 	
-	var _reactModal = __webpack_require__(401);
+	var _reactModal = __webpack_require__(402);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
@@ -26263,19 +26263,19 @@
 	
 	var _comment_middleware2 = _interopRequireDefault(_comment_middleware);
 	
-	var _search_middleware = __webpack_require__(439);
+	var _search_middleware = __webpack_require__(376);
 	
 	var _search_middleware2 = _interopRequireDefault(_search_middleware);
 	
-	var _photo_middleware = __webpack_require__(376);
+	var _photo_middleware = __webpack_require__(377);
 	
 	var _photo_middleware2 = _interopRequireDefault(_photo_middleware);
 	
-	var _album_middleware = __webpack_require__(378);
+	var _album_middleware = __webpack_require__(379);
 	
 	var _album_middleware2 = _interopRequireDefault(_album_middleware);
 	
-	var _user_middleware = __webpack_require__(380);
+	var _user_middleware = __webpack_require__(381);
 	
 	var _user_middleware2 = _interopRequireDefault(_user_middleware);
 	
@@ -32136,9 +32136,46 @@
 	  value: true
 	});
 	
+	var _search_actions = __webpack_require__(307);
+	
+	var _reactRouter = __webpack_require__(311);
+	
+	exports.default = function (_ref) {
+	  var getState = _ref.getState;
+	  var dispatch = _ref.dispatch;
+	  return function (next) {
+	    return function (action) {
+	
+	      var errorCallback = function errorCallback(xhr) {
+	        var errors = xhr.responseJSON;
+	        dispatch(receiveErrors(errors));
+	      };
+	      switch (action.type) {
+	        case _search_actions.SearchConstants.RECEIVE_NEW_SEARCH_RESULTS:
+	
+	          _reactRouter.hashHistory.push('/search/' + action.search_results.search_results);
+	          next(action);
+	          break;
+	        default:
+	          return next(action);
+	      }
+	    };
+	  };
+	};
+
+/***/ },
+/* 377 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
 	var _photo_actions = __webpack_require__(301);
 	
-	var _photo_api_util = __webpack_require__(377);
+	var _photo_api_util = __webpack_require__(378);
 	
 	var _reactRouter = __webpack_require__(311);
 	
@@ -32175,7 +32212,7 @@
 	};
 
 /***/ },
-/* 377 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32207,7 +32244,7 @@
 	};
 
 /***/ },
-/* 378 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32218,7 +32255,7 @@
 	
 	var _album_actions = __webpack_require__(303);
 	
-	var _album_api_util = __webpack_require__(379);
+	var _album_api_util = __webpack_require__(380);
 	
 	var _reactRouter = __webpack_require__(311);
 	
@@ -32261,7 +32298,7 @@
 	};
 
 /***/ },
-/* 379 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32303,7 +32340,7 @@
 	};
 
 /***/ },
-/* 380 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32314,7 +32351,7 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _user_api_util = __webpack_require__(381);
+	var _user_api_util = __webpack_require__(382);
 	
 	var _reactRouter = __webpack_require__(311);
 	
@@ -32349,7 +32386,7 @@
 	};
 
 /***/ },
-/* 381 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32380,7 +32417,7 @@
 	};
 
 /***/ },
-/* 382 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32393,9 +32430,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
-	var _router = __webpack_require__(390);
+	var _router = __webpack_require__(391);
 	
 	var _router2 = _interopRequireDefault(_router);
 	
@@ -32419,7 +32456,7 @@
 	exports.default = Root;
 
 /***/ },
-/* 383 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32427,11 +32464,11 @@
 	exports.__esModule = true;
 	exports.connect = exports.Provider = undefined;
 	
-	var _Provider = __webpack_require__(384);
+	var _Provider = __webpack_require__(385);
 	
 	var _Provider2 = _interopRequireDefault(_Provider);
 	
-	var _connect = __webpack_require__(387);
+	var _connect = __webpack_require__(388);
 	
 	var _connect2 = _interopRequireDefault(_connect);
 	
@@ -32441,7 +32478,7 @@
 	exports.connect = _connect2["default"];
 
 /***/ },
-/* 384 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -32451,11 +32488,11 @@
 	
 	var _react = __webpack_require__(1);
 	
-	var _storeShape = __webpack_require__(385);
+	var _storeShape = __webpack_require__(386);
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -32525,7 +32562,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 385 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32541,7 +32578,7 @@
 	});
 
 /***/ },
-/* 386 */
+/* 387 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32570,7 +32607,7 @@
 	}
 
 /***/ },
-/* 387 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -32582,19 +32619,19 @@
 	
 	var _react = __webpack_require__(1);
 	
-	var _storeShape = __webpack_require__(385);
+	var _storeShape = __webpack_require__(386);
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
-	var _shallowEqual = __webpack_require__(388);
+	var _shallowEqual = __webpack_require__(389);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _wrapActionCreators = __webpack_require__(389);
+	var _wrapActionCreators = __webpack_require__(390);
 	
 	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -32969,7 +33006,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 388 */
+/* 389 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -33000,7 +33037,7 @@
 	}
 
 /***/ },
-/* 389 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33017,7 +33054,7 @@
 	}
 
 /***/ },
-/* 390 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33034,33 +33071,37 @@
 	
 	var _reactRouter = __webpack_require__(311);
 	
-	var _app = __webpack_require__(391);
+	var _app = __webpack_require__(392);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _session_form_container = __webpack_require__(394);
+	var _session_form_container = __webpack_require__(395);
 	
 	var _session_form_container2 = _interopRequireDefault(_session_form_container);
 	
-	var _home_container = __webpack_require__(396);
+	var _home_container = __webpack_require__(397);
 	
 	var _home_container2 = _interopRequireDefault(_home_container);
 	
-	var _profile_container = __webpack_require__(428);
+	var _profile_container = __webpack_require__(429);
 	
 	var _profile_container2 = _interopRequireDefault(_profile_container);
 	
-	var _album_detail_container = __webpack_require__(435);
+	var _album_detail_container = __webpack_require__(436);
 	
 	var _album_detail_container2 = _interopRequireDefault(_album_detail_container);
 	
-	var _photo_form_container = __webpack_require__(437);
+	var _photo_form_container = __webpack_require__(438);
 	
 	var _photo_form_container2 = _interopRequireDefault(_photo_form_container);
 	
-	var _album_form_container = __webpack_require__(432);
+	var _album_form_container = __webpack_require__(433);
 	
 	var _album_form_container2 = _interopRequireDefault(_album_form_container);
+	
+	var _search_container = __webpack_require__(440);
+	
+	var _search_container2 = _interopRequireDefault(_search_container);
 	
 	var _photo_actions = __webpack_require__(301);
 	
@@ -33137,6 +33178,7 @@
 	          _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _session_form_container2.default, onEnter: this._redirectIfLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _session_form_container2.default, onEnter: this._redirectIfLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _home_container2.default, onEnter: this._ensureLoggedIn }),
+	          _react2.default.createElement(_reactRouter.Route, { path: '/search/:search_part', component: _search_container2.default, onEnter: this._ensureLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/profile/:profileId', component: _profile_container2.default, onEnter: this._ensureLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/album/:albumId', component: _album_detail_container2.default, onEnter: this._ensureLoggedIn }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'profile/:profileId/upload/album/:albumId', component: _photo_form_container2.default, onEnter: this._ensureLoggedIn }),
@@ -33156,7 +33198,7 @@
 	exports.default = AppRouter;
 
 /***/ },
-/* 391 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33171,7 +33213,7 @@
 	
 	var _reactRouter = __webpack_require__(311);
 	
-	var _greeting_container = __webpack_require__(392);
+	var _greeting_container = __webpack_require__(393);
 	
 	var _greeting_container2 = _interopRequireDefault(_greeting_container);
 	
@@ -33194,7 +33236,7 @@
 	exports.default = App;
 
 /***/ },
-/* 392 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33203,7 +33245,7 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
 	var _session_actions = __webpack_require__(297);
 	
@@ -33211,7 +33253,7 @@
 	
 	var _search_actions = __webpack_require__(307);
 	
-	var _greeting = __webpack_require__(393);
+	var _greeting = __webpack_require__(394);
 	
 	var _greeting2 = _interopRequireDefault(_greeting);
 	
@@ -33241,7 +33283,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_greeting2.default);
 
 /***/ },
-/* 393 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33410,7 +33452,7 @@
 	exports.default = (0, _reactRouter.withRouter)(Greeting);
 
 /***/ },
-/* 394 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33419,9 +33461,9 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
-	var _session_form = __webpack_require__(395);
+	var _session_form = __webpack_require__(396);
 	
 	var _session_form2 = _interopRequireDefault(_session_form);
 	
@@ -33454,7 +33496,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_session_form2.default);
 
 /***/ },
-/* 395 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33632,7 +33674,7 @@
 	exports.default = SessionForm;
 
 /***/ },
-/* 396 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33641,9 +33683,9 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
-	var _home = __webpack_require__(397);
+	var _home = __webpack_require__(398);
 	
 	var _home2 = _interopRequireDefault(_home);
 	
@@ -33668,7 +33710,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_home2.default);
 
 /***/ },
-/* 397 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33685,11 +33727,11 @@
 	
 	var _reactRouter = __webpack_require__(311);
 	
-	var _index_container = __webpack_require__(398);
+	var _index_container = __webpack_require__(399);
 	
 	var _index_container2 = _interopRequireDefault(_index_container);
 	
-	var _album_index_landing_container = __webpack_require__(425);
+	var _album_index_landing_container = __webpack_require__(426);
 	
 	var _album_index_landing_container2 = _interopRequireDefault(_album_index_landing_container);
 	
@@ -33771,7 +33813,7 @@
 	exports.default = Home;
 
 /***/ },
-/* 398 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33780,13 +33822,13 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
 	var _photo_actions = __webpack_require__(301);
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _photo_index = __webpack_require__(399);
+	var _photo_index = __webpack_require__(400);
 	
 	var _photo_index2 = _interopRequireDefault(_photo_index);
 	
@@ -33841,7 +33883,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_index2.default);
 
 /***/ },
-/* 399 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33856,7 +33898,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _photo_index_item = __webpack_require__(400);
+	var _photo_index_item = __webpack_require__(401);
 	
 	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
 	
@@ -33925,7 +33967,7 @@
 	exports.default = PhotoIndex;
 
 /***/ },
-/* 400 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33940,17 +33982,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactModal = __webpack_require__(401);
+	var _reactModal = __webpack_require__(402);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
-	var _modal_style = __webpack_require__(421);
+	var _modal_style = __webpack_require__(422);
 	
 	var _modal_style2 = _interopRequireDefault(_modal_style);
 	
 	var _reactRouter = __webpack_require__(311);
 	
-	var _comment_container = __webpack_require__(422);
+	var _comment_container = __webpack_require__(423);
 	
 	var _comment_container2 = _interopRequireDefault(_comment_container);
 	
@@ -34070,25 +34112,25 @@
 	exports.default = (0, _reactRouter.withRouter)(PhotoIndexItem);
 
 /***/ },
-/* 401 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(402);
+	module.exports = __webpack_require__(403);
 	
 
 
 /***/ },
-/* 402 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
-	var ExecutionEnvironment = __webpack_require__(403);
-	var ModalPortal = React.createFactory(__webpack_require__(404));
-	var ariaAppHider = __webpack_require__(419);
-	var elementClass = __webpack_require__(420);
+	var ExecutionEnvironment = __webpack_require__(404);
+	var ModalPortal = React.createFactory(__webpack_require__(405));
+	var ariaAppHider = __webpack_require__(420);
+	var elementClass = __webpack_require__(421);
 	var renderSubtreeIntoContainer = __webpack_require__(34).unstable_renderSubtreeIntoContainer;
-	var Assign = __webpack_require__(408);
+	var Assign = __webpack_require__(409);
 	
 	var SafeHTMLElement = ExecutionEnvironment.canUseDOM ? window.HTMLElement : {};
 	var AppElement = ExecutionEnvironment.canUseDOM ? document.body : {appendChild: function() {}};
@@ -34196,7 +34238,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 403 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -34241,14 +34283,14 @@
 
 
 /***/ },
-/* 404 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var div = React.DOM.div;
-	var focusManager = __webpack_require__(405);
-	var scopeTab = __webpack_require__(407);
-	var Assign = __webpack_require__(408);
+	var focusManager = __webpack_require__(406);
+	var scopeTab = __webpack_require__(408);
+	var Assign = __webpack_require__(409);
 	
 	// so that our CSS is statically analyzable
 	var CLASS_NAMES = {
@@ -34439,10 +34481,10 @@
 
 
 /***/ },
-/* 405 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var findTabbable = __webpack_require__(406);
+	var findTabbable = __webpack_require__(407);
 	var modalElement = null;
 	var focusLaterElement = null;
 	var needToFocus = false;
@@ -34513,7 +34555,7 @@
 
 
 /***/ },
-/* 406 */
+/* 407 */
 /***/ function(module, exports) {
 
 	/*!
@@ -34569,10 +34611,10 @@
 
 
 /***/ },
-/* 407 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var findTabbable = __webpack_require__(406);
+	var findTabbable = __webpack_require__(407);
 	
 	module.exports = function(node, event) {
 	  var tabbable = findTabbable(node);
@@ -34594,7 +34636,7 @@
 
 
 /***/ },
-/* 408 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34605,9 +34647,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseAssign = __webpack_require__(409),
-	    createAssigner = __webpack_require__(415),
-	    keys = __webpack_require__(411);
+	var baseAssign = __webpack_require__(410),
+	    createAssigner = __webpack_require__(416),
+	    keys = __webpack_require__(412);
 	
 	/**
 	 * A specialized version of `_.assign` for customizing assigned values without
@@ -34680,7 +34722,7 @@
 
 
 /***/ },
-/* 409 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34691,8 +34733,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseCopy = __webpack_require__(410),
-	    keys = __webpack_require__(411);
+	var baseCopy = __webpack_require__(411),
+	    keys = __webpack_require__(412);
 	
 	/**
 	 * The base implementation of `_.assign` without support for argument juggling,
@@ -34713,7 +34755,7 @@
 
 
 /***/ },
-/* 410 */
+/* 411 */
 /***/ function(module, exports) {
 
 	/**
@@ -34751,7 +34793,7 @@
 
 
 /***/ },
-/* 411 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34762,9 +34804,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var getNative = __webpack_require__(412),
-	    isArguments = __webpack_require__(413),
-	    isArray = __webpack_require__(414);
+	var getNative = __webpack_require__(413),
+	    isArguments = __webpack_require__(414),
+	    isArray = __webpack_require__(415);
 	
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -34993,7 +35035,7 @@
 
 
 /***/ },
-/* 412 */
+/* 413 */
 /***/ function(module, exports) {
 
 	/**
@@ -35136,7 +35178,7 @@
 
 
 /***/ },
-/* 413 */
+/* 414 */
 /***/ function(module, exports) {
 
 	/**
@@ -35371,7 +35413,7 @@
 
 
 /***/ },
-/* 414 */
+/* 415 */
 /***/ function(module, exports) {
 
 	/**
@@ -35557,7 +35599,7 @@
 
 
 /***/ },
-/* 415 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -35568,9 +35610,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var bindCallback = __webpack_require__(416),
-	    isIterateeCall = __webpack_require__(417),
-	    restParam = __webpack_require__(418);
+	var bindCallback = __webpack_require__(417),
+	    isIterateeCall = __webpack_require__(418),
+	    restParam = __webpack_require__(419);
 	
 	/**
 	 * Creates a function that assigns properties of source object(s) to a given
@@ -35615,7 +35657,7 @@
 
 
 /***/ },
-/* 416 */
+/* 417 */
 /***/ function(module, exports) {
 
 	/**
@@ -35686,7 +35728,7 @@
 
 
 /***/ },
-/* 417 */
+/* 418 */
 /***/ function(module, exports) {
 
 	/**
@@ -35824,7 +35866,7 @@
 
 
 /***/ },
-/* 418 */
+/* 419 */
 /***/ function(module, exports) {
 
 	/**
@@ -35897,7 +35939,7 @@
 
 
 /***/ },
-/* 419 */
+/* 420 */
 /***/ function(module, exports) {
 
 	var _element = typeof document !== 'undefined' ? document.body : null;
@@ -35945,7 +35987,7 @@
 
 
 /***/ },
-/* 420 */
+/* 421 */
 /***/ function(module, exports) {
 
 	module.exports = function(opts) {
@@ -36010,7 +36052,7 @@
 
 
 /***/ },
-/* 421 */
+/* 422 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36044,7 +36086,7 @@
 	exports.default = ModalStyle;
 
 /***/ },
-/* 422 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36053,7 +36095,7 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
 	var _photo_actions = __webpack_require__(301);
 	
@@ -36061,7 +36103,7 @@
 	
 	var _comment_actions = __webpack_require__(299);
 	
-	var _comment_index = __webpack_require__(423);
+	var _comment_index = __webpack_require__(424);
 	
 	var _comment_index2 = _interopRequireDefault(_comment_index);
 	
@@ -36133,7 +36175,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_comment_index2.default);
 
 /***/ },
-/* 423 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36148,7 +36190,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _comment_index_item = __webpack_require__(424);
+	var _comment_index_item = __webpack_require__(425);
 	
 	var _comment_index_item2 = _interopRequireDefault(_comment_index_item);
 	
@@ -36251,7 +36293,7 @@
 	exports.default = CommentIndex;
 
 /***/ },
-/* 424 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36344,7 +36386,7 @@
 	exports.default = (0, _reactRouter.withRouter)(CommentIndexItem);
 
 /***/ },
-/* 425 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36353,9 +36395,9 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
-	var _album_index_landing = __webpack_require__(426);
+	var _album_index_landing = __webpack_require__(427);
 	
 	var _album_index_landing2 = _interopRequireDefault(_album_index_landing);
 	
@@ -36420,7 +36462,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_index_landing2.default);
 
 /***/ },
-/* 426 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36435,7 +36477,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _album_index_item = __webpack_require__(427);
+	var _album_index_item = __webpack_require__(428);
 	
 	var _album_index_item2 = _interopRequireDefault(_album_index_item);
 	
@@ -36506,7 +36548,7 @@
 	exports.default = AlbumIndexLanding;
 
 /***/ },
-/* 427 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36602,7 +36644,7 @@
 	exports.default = (0, _reactRouter.withRouter)(AlbumIndexItem);
 
 /***/ },
-/* 428 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36611,9 +36653,9 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
-	var _profile = __webpack_require__(429);
+	var _profile = __webpack_require__(430);
 	
 	var _profile2 = _interopRequireDefault(_profile);
 	
@@ -36642,7 +36684,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_profile2.default);
 
 /***/ },
-/* 429 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36657,19 +36699,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _album_index_container = __webpack_require__(430);
+	var _album_index_container = __webpack_require__(431);
 	
 	var _album_index_container2 = _interopRequireDefault(_album_index_container);
 	
-	var _album_form_container = __webpack_require__(432);
+	var _album_form_container = __webpack_require__(433);
 	
 	var _album_form_container2 = _interopRequireDefault(_album_form_container);
 	
-	var _reactModal = __webpack_require__(401);
+	var _reactModal = __webpack_require__(402);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
-	var _modal_style = __webpack_require__(434);
+	var _modal_style = __webpack_require__(435);
 	
 	var _modal_style2 = _interopRequireDefault(_modal_style);
 	
@@ -36808,7 +36850,7 @@
 	exports.default = Profile;
 
 /***/ },
-/* 430 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36817,9 +36859,9 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
-	var _album_index = __webpack_require__(431);
+	var _album_index = __webpack_require__(432);
 	
 	var _album_index2 = _interopRequireDefault(_album_index);
 	
@@ -36884,7 +36926,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_index2.default);
 
 /***/ },
-/* 431 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36899,7 +36941,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _album_index_item = __webpack_require__(427);
+	var _album_index_item = __webpack_require__(428);
 	
 	var _album_index_item2 = _interopRequireDefault(_album_index_item);
 	
@@ -36970,7 +37012,7 @@
 	exports.default = AlbumIndex;
 
 /***/ },
-/* 432 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36979,7 +37021,7 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
 	var _photo_actions = __webpack_require__(301);
 	
@@ -36987,7 +37029,7 @@
 	
 	var _album_actions = __webpack_require__(303);
 	
-	var _album_form = __webpack_require__(433);
+	var _album_form = __webpack_require__(434);
 	
 	var _album_form2 = _interopRequireDefault(_album_form);
 	
@@ -37047,7 +37089,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_form2.default);
 
 /***/ },
-/* 433 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37147,7 +37189,7 @@
 	exports.default = (0, _reactRouter.withRouter)(AlbumForm);
 
 /***/ },
-/* 434 */
+/* 435 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37181,7 +37223,7 @@
 	exports.default = ModalStyle;
 
 /***/ },
-/* 435 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37190,11 +37232,11 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
 	var _album_actions = __webpack_require__(303);
 	
-	var _album_detail = __webpack_require__(436);
+	var _album_detail = __webpack_require__(437);
 	
 	var _album_detail2 = _interopRequireDefault(_album_detail);
 	
@@ -37223,7 +37265,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_detail2.default);
 
 /***/ },
-/* 436 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37240,7 +37282,7 @@
 	
 	var _reactRouter = __webpack_require__(311);
 	
-	var _photo_index_item = __webpack_require__(400);
+	var _photo_index_item = __webpack_require__(401);
 	
 	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
 	
@@ -37386,7 +37428,7 @@
 	exports.default = (0, _reactRouter.withRouter)(AlbumDetail);
 
 /***/ },
-/* 437 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37395,13 +37437,13 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(383);
+	var _reactRedux = __webpack_require__(384);
 	
 	var _photo_actions = __webpack_require__(301);
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _photo_form = __webpack_require__(438);
+	var _photo_form = __webpack_require__(439);
 	
 	var _photo_form2 = _interopRequireDefault(_photo_form);
 	
@@ -37458,7 +37500,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_form2.default);
 
 /***/ },
-/* 438 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37473,11 +37515,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactModal = __webpack_require__(401);
+	var _reactModal = __webpack_require__(402);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
-	var _modal_style = __webpack_require__(421);
+	var _modal_style = __webpack_require__(422);
 	
 	var _modal_style2 = _interopRequireDefault(_modal_style);
 	
@@ -37587,7 +37629,7 @@
 	exports.default = (0, _reactRouter.withRouter)(PhotoForm);
 
 /***/ },
-/* 439 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37596,32 +37638,161 @@
 	  value: true
 	});
 	
-	var _search_actions = __webpack_require__(307);
+	var _reactRedux = __webpack_require__(384);
+	
+	var _session_actions = __webpack_require__(297);
+	
+	var _user_actions = __webpack_require__(305);
+	
+	var _search = __webpack_require__(441);
+	
+	var _search2 = _interopRequireDefault(_search);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  var _ref;
+	
+	  return _ref = {
+	    currentUser: state.session.currentUser,
+	    search_results: state.search_results
+	  }, _defineProperty(_ref, 'currentUser', state.session.currentUser), _defineProperty(_ref, 'photos', state.photos), _defineProperty(_ref, 'user', state.user), _defineProperty(_ref, 'albums', state.albums), _ref;
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    logout: function logout() {
+	      return dispatch((0, _session_actions.logout)());
+	    },
+	    goToProfile: function goToProfile(id) {
+	      return dispatch((0, _user_actions.goToProfile)(id));
+	    },
+	    receiveNewSearchResults: function (_receiveNewSearchResults) {
+	      function receiveNewSearchResults(_x) {
+	        return _receiveNewSearchResults.apply(this, arguments);
+	      }
+	
+	      receiveNewSearchResults.toString = function () {
+	        return _receiveNewSearchResults.toString();
+	      };
+	
+	      return receiveNewSearchResults;
+	    }(function (data) {
+	      return dispatch(receiveNewSearchResults(data));
+	    })
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_search2.default);
+
+/***/ },
+/* 441 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactRouter = __webpack_require__(311);
 	
-	exports.default = function (_ref) {
-	  var getState = _ref.getState;
-	  var dispatch = _ref.dispatch;
-	  return function (next) {
-	    return function (action) {
+	var _index_container = __webpack_require__(399);
 	
-	      var errorCallback = function errorCallback(xhr) {
-	        var errors = xhr.responseJSON;
-	        dispatch(receiveErrors(errors));
+	var _index_container2 = _interopRequireDefault(_index_container);
+	
+	var _album_index_landing_container = __webpack_require__(426);
+	
+	var _album_index_landing_container2 = _interopRequireDefault(_album_index_landing_container);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// import AlbumIndexContainer from '../album/album_index_container';
+	var Home = function (_React$Component) {
+	  _inherits(Home, _React$Component);
+	
+	  function Home(props) {
+	    _classCallCheck(this, Home);
+	
+	    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+	  }
+	
+	  _createClass(Home, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var editedPhotoList = function editedPhotoList(substring) {
+	        var result = [];
+	        _this2.props.photos.map(function (x) {
+	          if (x.title.indexOf(substring) !== -1) {
+	            result.push(x);
+	          } else if (x.description && x.description.indexOf(substring) !== -1) {
+	            result.push(x);
+	          } else if (x.medium && x.medium.indexOf(substring) !== -1) {
+	            result.push(x);
+	          }
+	        });
+	        return result;
 	      };
-	      switch (action.type) {
-	        case _search_actions.SearchConstants.RECEIVE_NEW_SEARCH_RESULTS:
+	      var editedAlbumList = function editedAlbumList(substring) {
+	        var result = [];
+	        _this2.props.albums.map(function (x) {
+	          if (x.title.indexOf(substring) !== -1) {
+	            result.push(x);
+	          } else if (x.description && x.description.indexOf(substring) !== -1) {
+	            result.push(x);
+	          }
+	        });
+	        return result;
+	      };
 	
-	          _reactRouter.hashHistory.push('/profile/1');
-	          next(action);
-	          break;
-	        default:
-	          return next(action);
-	      }
-	    };
-	  };
-	};
+	      var photoList = editedPhotoList(this.props.search_results[0].search_results);
+	      var albumList = editedAlbumList(this.props.search_results[0].search_results);
+	      // debugger;
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'home-nav' },
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'explore-text' },
+	            'RESULTS FOR : ',
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              _react2.default.createElement(
+	                'q',
+	                null,
+	                this.props.search_results[0].search_results
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Home;
+	}(_react2.default.Component);
+	
+	exports.default = Home;
 
 /***/ }
 /******/ ]);
