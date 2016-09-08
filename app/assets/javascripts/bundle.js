@@ -25826,7 +25826,7 @@
 	    case _comment_actions.CommentConstants.RECEIVE_ALL_COMMENTS:
 	      return [].concat(_toConsumableArray(action.comments));
 	    case _comment_actions.CommentConstants.RECEIVE_NEW_COMMENT:
-	      debugger;
+	
 	      return [].concat(_toConsumableArray(oldState), [action.comment]);
 	    case _comment_actions.CommentConstants.RECEIVE_ERRORS:
 	      var errors = action.errors;
@@ -32038,7 +32038,7 @@
 		});
 	};
 	var deleteComment = exports.deleteComment = function deleteComment(comment, success, error) {
-		debugger;
+	
 		$.ajax({
 			method: 'DELETE',
 			url: 'api/comments/' + comment,
@@ -36429,11 +36429,10 @@
 	        return result;
 	      };
 	      var Author = albumAuthFun(this.props.album.author_id);
-	
 	      return _react2.default.createElement(
 	        'li',
 	        { className: 'album-li' },
-	        _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: cover_photo(this.props.album.cover_photo_id) }),
+	        _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: this.props.album.cover_photo_id ? cover_photo(this.props.album.cover_photo_id) : "http://res.cloudinary.com/dt5viyxyq/image/upload/v1473229700/Photo-Album3-512_rdgg2m.png" }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'auth' },

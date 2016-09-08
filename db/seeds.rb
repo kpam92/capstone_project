@@ -62,6 +62,8 @@ Album.create!(title: "Main Gallery", author_id: 3, cover_photo_id: 2)
 Album.create!(title: "Illustration", author_id: 3, cover_photo_id: 7)
 Album.create!(title: "Photography", author_id: 3, cover_photo_id: 5)
 Album.create!(title: "ACA Photoshoot", author_id: 2, cover_photo_id: 1)
+Album.create!(title: "Test", author_id: 2)
+
 
 
 Comment.create!(body: "wow so cool", author_id: 1, photo_id: 2)

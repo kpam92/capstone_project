@@ -7,7 +7,7 @@ const CommentReducer = (oldState = [] , action) => {
     case CommentConstants.RECEIVE_ALL_COMMENTS:
       return [...action.comments];
     case CommentConstants.RECEIVE_NEW_COMMENT:
-      debugger;
+      
       return [...oldState, action.comment];
     case CommentConstants.RECEIVE_ERRORS:
       const errors = action.errors;

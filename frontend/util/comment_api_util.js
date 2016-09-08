@@ -19,7 +19,7 @@ export const createComment = function(comment, success, error) {
 	});
 };
 export const deleteComment = function(comment, success, error) {
-	debugger;
+	
 	$.ajax({
 		method: 'DELETE',
 		url: `api/comments/${comment}`,
