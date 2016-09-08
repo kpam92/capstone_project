@@ -37806,7 +37806,11 @@
 	            null,
 	            'PHOTOS'
 	          ),
-	          photoList
+	          photoList.length > 0 ? photoList : _react2.default.createElement(
+	            'h3',
+	            { className: 'no-res' },
+	            'No Results...'
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'ul',
@@ -37816,7 +37820,11 @@
 	            null,
 	            'ALBUMS'
 	          ),
-	          albumList
+	          albumList.length > 0 ? albumList : _react2.default.createElement(
+	            'h3',
+	            { className: 'no-res' },
+	            'No Results...'
+	          )
 	        )
 	      );
 	    }

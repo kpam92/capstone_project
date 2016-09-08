@@ -56,11 +56,11 @@ class Home extends React.Component {
 
       <ul className='landing-photo-grid'>
         <h2>PHOTOS</h2>
-        {photoList}
+        {photoList.length > 0 ? photoList : <h3 className="no-res">No Results...</h3>}
       </ul>
       <ul className='landing-photo-grid'>
         <h2>ALBUMS</h2>
-        {albumList}
+        {albumList.length > 0 ? albumList : <h3 className="no-res">No Results...</h3>}
       </ul>
     </div>
     )
