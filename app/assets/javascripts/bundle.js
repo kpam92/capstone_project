@@ -25831,6 +25831,7 @@
 	    case _comment_actions.CommentConstants.RECEIVE_ALL_COMMENTS:
 	      return [].concat(_toConsumableArray(action.comments));
 	    case _comment_actions.CommentConstants.RECEIVE_NEW_COMMENT:
+	      debugger;
 	      return [].concat(_toConsumableArray(oldState), [action.comment]);
 	    case _comment_actions.CommentConstants.RECEIVE_ERRORS:
 	      var errors = action.errors;
@@ -34065,7 +34066,7 @@
 	        'li',
 	        null,
 	        _react2.default.createElement(
-	          'a',
+	          'div',
 	          { className: 'photo-grid' },
 	          _react2.default.createElement('img', { src: this.props.photo.image_url, onClick: this._handleClick.bind(this) })
 	        ),

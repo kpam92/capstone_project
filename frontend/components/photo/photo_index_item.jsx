@@ -52,9 +52,9 @@ class PhotoIndexItem extends React.Component {
 
     return(
       <li>
-        <a className="photo-grid">
+        <div className="photo-grid">
         <img src={this.props.photo.image_url} onClick={this._handleClick.bind(this)}/>
-        </a>
+        </div>
         <div className="auth">
           <img onClick={handleProfileClick(this.props.router, `/profile/${this.props.photo.author_id}`)} src={author(this.props.photo.author_id)}/>
           <h3>{this.props.photo.title}</h3>

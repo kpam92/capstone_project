@@ -5,11 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Album.destroy_all
+Photo.destroy_all
+Comment.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('photos')
+ActiveRecord::Base.connection.reset_pk_sequence!('albums')
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
 User.create!(username: 'user1', password: 'password')
 User.create!(username: 'Kpam', password: 'password', profile_pic: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1472944078/14089309_10154002731713893_2435401364054337428_n_cbnt2m.jpg')
 User.create!(username: 'SallyMander', password: 'password', profile_pic: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1472938130/12308595_10153376057065889_205887642227916082_n_iqbgzf.jpg')
 
+Album.create!(title: "Main Gallery", author_id: 2, cover_photo_id: 4)
+Album.create!(title: "Main Gallery", author_id: 3, cover_photo_id: 2)
+Album.create!(title: "Illustration", author_id: 3, cover_photo_id: 7)
+Album.create!(title: "Photography", author_id: 3, cover_photo_id: 5)
+Album.create!(title: "ACA Photoshoot", author_id: 2, cover_photo_id: 3)
 
 
 Photo.create!(title:"Girl & Hands",medium:"ink",
@@ -61,11 +74,7 @@ Photo.create!(title:"Jackie",medium:"digital",
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_976/v1473198991/jac1_guias2.jpg")
 
 
-Album.create!(title: "Main Gallery", author_id: 2, cover_photo_id: 4)
-Album.create!(title: "Main Gallery", author_id: 3, cover_photo_id: 2)
-Album.create!(title: "Illustration", author_id: 3, cover_photo_id: 7)
-Album.create!(title: "Photography", author_id: 3, cover_photo_id: 5)
-Album.create!(title: "ACA Photoshoot", author_id: 2, cover_photo_id: 3)
+
 
 
 
