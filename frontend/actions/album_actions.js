@@ -26,9 +26,9 @@ export const receiveSingleAlbum = albums => ({
   albums
 });
 
-export const receiveNewAlbum = comment => ({
+export const receiveNewAlbum = album => ({
 	type: AlbumConstants.RECEIVE_NEW_ALBUM,
-	comment
+	album
 });
 
 export const createAlbum = (album, push) => ({

@@ -26075,10 +26075,10 @@
 	  };
 	};
 	
-	var receiveNewAlbum = exports.receiveNewAlbum = function receiveNewAlbum(comment) {
+	var receiveNewAlbum = exports.receiveNewAlbum = function receiveNewAlbum(album) {
 	  return {
 	    type: AlbumConstants.RECEIVE_NEW_ALBUM,
-	    comment: comment
+	    album: album
 	  };
 	};
 	
@@ -32173,7 +32173,7 @@
 	      };
 	      var receiveNewAlbumSuccess = function receiveNewAlbumSuccess(data) {
 	        dispatch((0, _album_actions.receiveNewAlbum)(data));
-	        _reactRouter.hashHistory.push('/album/' + data.album_id);
+	        _reactRouter.hashHistory.push('/album/' + data.id);
 	      };
 	      var errorCallback = function errorCallback(xhr) {
 	        var errors = xhr.responseJSON;
@@ -36555,6 +36555,10 @@
 	
 	var _album_index_container2 = _interopRequireDefault(_album_index_container);
 	
+	var _album_form_container = __webpack_require__(435);
+	
+	var _album_form_container2 = _interopRequireDefault(_album_form_container);
+	
 	var _reactModal = __webpack_require__(399);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
@@ -36680,29 +36684,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-container' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'album-form-container' },
-	              _react2.default.createElement(
-	                'form',
-	                { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
-	                _react2.default.createElement('input', {
-	                  type: 'text',
-	                  value: this.state.album.title,
-	                  placeholder: 'title',
-	                  onChange: this.update('title') }),
-	                _react2.default.createElement('input', {
-	                  type: 'text',
-	                  value: this.state.album.description,
-	                  placeholder: 'description (optional)',
-	                  onChange: this.update('description') }),
-	                _react2.default.createElement(
-	                  'button',
-	                  { className: 'splash-button' },
-	                  'Create Album'
-	                )
-	              )
-	            )
+	            _react2.default.createElement(_album_form_container2.default, { profileId: parseInt(this.props.params.profileId) })
 	          )
 	        )
 	      );
@@ -37332,6 +37314,8 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
+	var _album_actions = __webpack_require__(303);
+	
 	var _album_form = __webpack_require__(436);
 	
 	var _album_form2 = _interopRequireDefault(_album_form);
@@ -37382,6 +37366,9 @@
 	    }),
 	    createPhoto: function createPhoto(id) {
 	      return dispatch((0, _photo_actions.createPhoto)(id));
+	    },
+	    createAlbum: function createAlbum(id) {
+	      return dispatch((0, _album_actions.createAlbum)(id));
 	    }
 	  };
 	};
@@ -37430,8 +37417,7 @@
 	    _this.state = {
 	      title: '',
 	      description: '',
-	      album_id: parseInt(_this.props.params.albumId),
-	      author_id: parseInt(_this.props.params.profileId)
+	      author_id: parseInt(_this.props.profileId)
 	    };
 	    return _this;
 	  }
@@ -37449,7 +37435,7 @@
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
-	      this.props.createPhoto(this.state);
+	      this.props.createAlbum(this.state);
 	    }
 	  }, {
 	    key: 'render',

@@ -15,7 +15,7 @@ export default ({getState, dispatch}) => next => action => {
   const receiveSingleAlbumSuccess = data => dispatch(receiveSingleAlbum(data));
   const receiveNewAlbumSuccess = (data) => {
     dispatch(receiveNewAlbum(data));
-    hashHistory.push(`/album/${data.album_id}`);
+    hashHistory.push(`/album/${data.id}`);
   };
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;

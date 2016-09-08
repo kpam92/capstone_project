@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchAllPhotos, createPhoto } from '../../actions/photo_actions';
 import { fetchAllUsers } from '../../actions/user_actions';
+import { createAlbum } from '../../actions/album_actions';
 import AlbumForm from './album_form';
 
 const mapStateToProps = state => ({
@@ -14,7 +15,8 @@ const mapDispatchToProps = dispatch => ({
   goToProfile: (id) => dispatch(goToProfile(id)),
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   fetchSingleUser: (id) => dispatch(fetchSingleUser(id)),
-  createPhoto: (id) => dispatch(createPhoto(id))
+  createPhoto: (id) => dispatch(createPhoto(id)),
+  createAlbum: (id) => dispatch(createAlbum(id))
 });
 
 export default connect(

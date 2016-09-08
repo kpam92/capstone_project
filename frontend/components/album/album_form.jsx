@@ -11,8 +11,7 @@ class AlbumForm extends React.Component {
     this.state = {
       title: '',
       description: '',
-      album_id: parseInt(this.props.params.albumId),
-      author_id: parseInt(this.props.params.profileId),
+      author_id: parseInt(this.props.profileId),
     };
   }
 
@@ -22,7 +21,7 @@ class AlbumForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPhoto(this.state);
+    this.props.createAlbum(this.state);
   }
 
   render() {

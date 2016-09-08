@@ -1,7 +1,9 @@
 import React from 'react';
 import AlbumIndexContainer from '../album/album_index_container';
+import AlbumFormContainer from '../album/album_form_container';
 import Modal from 'react-modal';
 import ModalStyle from './modal_style'
+
 
 class Profile extends React.Component{
   constructor(props) {
@@ -69,21 +71,7 @@ class Profile extends React.Component{
           <a className="modal-close" onClick={this.onModalClose}><img src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png"/></a>
 
           <div className='modal-container'>
-            <div className="album-form-container">
-              <form className="form-container" onSubmit={this.handleSubmit.bind(this)}>
-                <input
-                  type="text"
-                  value={this.state.album.title}
-                  placeholder="title"
-                  onChange={this.update('title')}/>
-                <input
-                  type="text"
-                  value={this.state.album.description}
-                  placeholder="description (optional)"
-                  onChange={this.update('description')}/>
-                <button className="splash-button">Create Album</button>
-              </form>
-            </div>
+            <AlbumFormContainer profileId={parseInt(this.props.params.profileId)}/>
           </div>
         </Modal>
       </div>
