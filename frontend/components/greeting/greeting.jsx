@@ -14,15 +14,12 @@ const sessionLinks = () => (
 </div>
 );
 
-const handleProfileClick = (router, url) => (
-() => router.push(url)
-)
 
-const personalGreeting = (currentUser, logout, router) => (
+const personalGreeting = (currentUser, logout, router, receiveNewSearchResults) => (
 	<hgroup className="header-nav">
     <Link to="/home"><label className="icon">O</label></Link>
     <button className="header-button" onClick={logout}>Log Out</button>
-    <form>
+    <form onSubmit={receiveNewSearchResults}>
       <input className="search-bar"type="text" name="search"/>
     </form>
     <div className="right-nav">
@@ -34,9 +31,9 @@ const personalGreeting = (currentUser, logout, router) => (
 	</hgroup>
 );
 
-function Greeting({currentUser, logout, router}){
+function Greeting({currentUser, logout, router, receiveNewSearchResults}){
   if (currentUser){
-    return personalGreeting(currentUser, logout, router);
+    return personalGreeting(currentUser, logout, router, receiveNewSearchResults);
   } else {
     return sessionLinks();
   }
