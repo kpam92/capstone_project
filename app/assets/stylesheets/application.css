@@ -41,6 +41,9 @@ input:focus {
   right: 2em;
   opacity: .25;
 }
+img {
+  transition: opacity 0.5s;
+}
 img:hover {
   opacity: 0.9;
 }
@@ -371,10 +374,16 @@ div.modal-container img:hover{
   opacity: 1;
 }
 
+div.modal-container h3 {
+  font-weight: 200;
+}
 
 .modal-close img{
   position: relative;
   float: right;
+  width: 24px;
+  margin-top: -13px;
+  margin-right: -12px;
 }
 
 .prof-container {
@@ -523,8 +532,9 @@ div.modal-container img:hover{
 }
 
 .form-container img{
-  width: 340px;
+  max-width: 340px;
   padding: 22px;
+  max-height: 300px;
   margin-top: 3px;
 }
 .comment-box {

@@ -1,6 +1,6 @@
 import React from 'react';
-// import Modal from 'react-modal';
-// import ModalStyle from './modal_style'
+import Modal from 'react-modal';
+import ModalStyle from './modal_style'
 import { withRouter } from 'react-router';
 import PhotoIndexItem from '../photo/photo_index_item';
 
@@ -77,12 +77,14 @@ class AlbumDetail extends React.Component {
         )
       }
     }
+
     return(
       <div>
         <div className='home-nav'>
           <h1 className="album-text">{thisAlbum.title}</h1>
 
           <button className="explore-button" onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}`)}>User Profile</button>
+          <button className="explore-button" onClick={this._handleClick.bind(this)}>About Series</button>
           { this.props.currentUser.id === thisAlbum.author_id ? <button onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}/upload/album/${thisAlbum.id}`)}className="explore-button">Add Photo</button> : <a/> }
           {editButton}
         </div>
@@ -91,6 +93,20 @@ class AlbumDetail extends React.Component {
             {photoList}
           </ul>
         </div>
+
+        <Modal
+          isOpen={this.state.modalOpen}
+          onRequestClose={this.onModalClose}
+          style={ModalStyle}
+          onAfterOpen={this.onModalOpen}>
+          <a className="modal-close" onClick={this.onModalClose}><img src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png"/></a>
+
+          <div className='modal-container'>
+            <h3>{thisAlbum.description ? thisAlbum.description : 'No Description...'}</h3>
+          </div>
+
+        </Modal>
+
     </div>
       )
     };
