@@ -30,8 +30,6 @@ The `Comments` table contains `body`, `author_id`, `photo_id`, and `id`.
 
 The `CommentIndex` component renders a list of `CommentIndexItems`s as subcomponents, showing the username of the author, and the comment body. A user can also delete their own comments made on a photo.
 
-![image of album index](docs/wireframes/07_someone_elses_album.png)
-
 ### Search
 
 A search component, seen in the navigation bar, allows the user to search for various photos and albums based on the parameters of their input.
