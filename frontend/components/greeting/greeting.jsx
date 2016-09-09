@@ -18,6 +18,10 @@ class Greeting extends React.Component {
     this.props.receiveNewSearchResults(this.state);
     this.setState({search_results: ''});
   }
+  handleTop(e) {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+  }
 
   render() {
 
@@ -48,6 +52,10 @@ class Greeting extends React.Component {
           <li><a className='prof-icon'><img onClick={handleRouteClick(this.props.router, `/profile/${this.props.currentUser.id}`)}
                                             src={this.props.currentUser.profile_pic}/></a></li>
         </div>
+        <a onClick={this.handleTop.bind(this)}className="back-to-top">
+          <img src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_60/v1473185181/Black_Arrow_Up.svg_tsualf.png"/>
+
+        </a>
     	</hgroup>
     );
 

@@ -33340,6 +33340,12 @@
 	      this.setState({ search_results: '' });
 	    }
 	  }, {
+	    key: 'handleTop',
+	    value: function handleTop(e) {
+	      e.preventDefault();
+	      window.scrollTo(0, 0);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this3 = this;
@@ -33429,6 +33435,11 @@
 	                  src: _this3.props.currentUser.profile_pic })
 	              )
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'a',
+	            { onClick: _this3.handleTop.bind(_this3), className: 'back-to-top' },
+	            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_60/v1473185181/Black_Arrow_Up.svg_tsualf.png' })
 	          )
 	        );
 	      };

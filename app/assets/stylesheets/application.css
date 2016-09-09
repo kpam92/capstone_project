@@ -192,6 +192,7 @@ a:hover {
     padding: 0px 20px 0px 27px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
+    font-weight: 200;
 }
 
 .search-bar:focus {
