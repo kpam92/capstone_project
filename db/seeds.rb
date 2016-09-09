@@ -17,12 +17,17 @@ ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 User.create!(username: 'user1', password: 'password')
 User.create!(username: 'Kpam', password: 'password', profile_pic: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1472944078/14089309_10154002731713893_2435401364054337428_n_cbnt2m.jpg')
 User.create!(username: 'SallyMander', password: 'password', profile_pic: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1472938130/12308595_10153376057065889_205887642227916082_n_iqbgzf.jpg')
-
-Album.create!(title: "Main Gallery", author_id: 2, cover_photo_id: 4)
-Album.create!(title: "Main Gallery", author_id: 3, cover_photo_id: 2)
-Album.create!(title: "Illustration", author_id: 3, cover_photo_id: 7)
-Album.create!(title: "Photography", author_id: 3, cover_photo_id: 5)
-Album.create!(title: "ACA Photoshoot", author_id: 2, cover_photo_id: 3)
+User.create!(username: 'Vyuric', password: 'password', profile_pic: 'http://res.cloudinary.com/dt5viyxyq/image/upload/v1473436799/static1.squarespace-3_iyeesy.jpg')
+Album.create!(title: "Main Gallery", author_id: 2, description: "miscellaneous work",cover_photo_id: 4)
+Album.create!(title: "Main Gallery", author_id: 3, description: "miscellaneous work", cover_photo_id: 2)
+Album.create!(title: "Illustration", author_id: 3, description:"Illustrations and self portraits created  this past year", cover_photo_id: 7)
+Album.create!(title: "Photography", author_id: 3, description:"various photographs taken throughout the years", cover_photo_id: 5)
+Album.create!(title: "ACA Photoshoot", author_id: 2, description:"selects from the ACA photoshoot of the 2016 team", cover_photo_id: 3)
+Album.create!(title: "Main Gallery", author_id: 4, cover_photo_id: 11)
+Album.create!(title: "Doodles", author_id: 4, description:"my doodles when i'm bored...", cover_photo_id: 17)
+Album.create!(title: "Family Portraits", author_id: 2, description: "The documentation of man and dog.", cover_photo_id: 22)
+Album.create!(title: "Main Gallery", author_id: 1, description: "My fave colors", cover_photo_id: 10)
+Album.create!(title: "Self Portraits", author_id: 1, description: "Various self portraits", cover_photo_id: 25)
 
 
 Photo.create!(title:"Girl & Hands",medium:"ink",
@@ -61,17 +66,90 @@ Photo.create!(title:"Crocodile Tears",medium:"illustration",
              author_id:3, album_id:3, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473181576/crocodile-tears_x6btuu.jpg")
 
+Photo.create!(title:"Red",medium:"ink",
+             author_id:1, album_id:9, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438241/tumblr_mxpp2iBXZF1qbadnxo1_500_gtgnyq.png")
 
+Photo.create!(title:"Blue",medium:"ink",
+             author_id:1, album_id:9, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438241/tumblr_mxpob8i6pB1qbadnxo1_500_djjiiq.png")
+
+Photo.create!(title:"Wilting Flower",medium:"Collage",
+             author_id:4, album_id:6, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473436073/Screen_Shot_2016-09-09_at_8.38.35_AM_yx5igi.png")
+
+Photo.create!(title:"Lucky Snake",medium:"Collage",
+             author_id:4, album_id:6, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473436076/Screen_Shot_2016-09-09_at_8.38.51_AM_vzb003.png")
+
+Photo.create!(title:"Tru luv",medium:"Collage",
+             author_id:4, album_id:6, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473436063/static1.squarespace-2_v4hnf6.jpg")
+
+Photo.create!(title:"Untitled Sculpture",medium:"sculpture",
+             author_id:4, album_id:6, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473436130/VYC_w6kgxx.jpg")
+
+Photo.create!(title:"Green",medium:"Ink",
+             author_id:1, album_id:9, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438241/tumblr_mxpp1cMxld1qbadnxo1_500_z5jx1t.png")
+
+Photo.create!(title:"Magenta",medium:"Ink",
+             author_id:1, album_id:9, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438243/tumblr_m98j2kkYsz1qbadnxo1_500_byvngx.png")
+
+Photo.create!(title:"Spaghetti",medium:"pencil",
+             author_id:4, album_id:7, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473436073/static1.squarespace-1_gzv0dc.jpg")
+
+Photo.create!(title:"Melodrama",medium:"pencil",
+             author_id:4, album_id:7, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473436071/static1.squarespace_h8slic.jpg")
+
+Photo.create!(title:"Christmas",medium:"Digital",
+             author_id:2, album_id:8, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_1173/v1473437412/_MG_0586_njy7bg.jpg")
+
+Photo.create!(title:"Ridin'",medium:"Digital",
+             author_id:2, album_id:8, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_915/v1473437403/_MG_6804_dkqzkq.jpg")
+
+Photo.create!(title:"Unconditional Love",medium:"Digital",
+             author_id:2, album_id:8, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473437330/10704359_10152585715538893_2228425815389816462_o_hdx2nf.jpg")
+
+Photo.create!(title:"Graduation",medium:"Digital",
+             author_id:2, album_id:8, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_1052/v1473437458/grad_arucmt.jpg")
 
 Photo.create!(title:"Kelcey",medium:"digital",
              author_id:2, album_id:5, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_900/v1473198970/kelcey2_zw6fxd.jpg")
 
-
-
 Photo.create!(title:"Jackie",medium:"digital",
              author_id:2, album_id:5, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_976/v1473198991/jac1_guias2.jpg")
+
+
+Photo.create!(title:"Self Portrait #1",medium:"digital",
+             author_id:1, album_id:10, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472832936/user_xczx2f.png")
+
+Photo.create!(title:"Self Portrait #2(with friends)",medium:"digital",
+             author_id:1, album_id:10, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438461/images_nidxzj.jpg")
+
+Photo.create!(title:"Self Portrait #3",medium:"digital",
+             author_id:1, album_id:10, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438461/imgres_wohgmo.png")
+
+Photo.create!(title:"Self Portrait #4",medium:"digital",
+             author_id:1, album_id:10, cover_photo: false,
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438461/imgres-1_aixsnl.png")
+
+
+
+
 
 
 
@@ -81,3 +159,21 @@ Photo.create!(title:"Jackie",medium:"digital",
 Comment.create!(body: "wow so cool", author_id: 1, photo_id: 2)
 Comment.create!(body: "omg so dramatic", author_id: 1, photo_id: 1)
 Comment.create!(body: "I have a lot of feelings OKAY", author_id: 3, photo_id: 1)
+Comment.create!(body: "Nice shirt!", author_id: 2, photo_id: 6)
+Comment.create!(body: "I love blue.", author_id: 2, photo_id: 10)
+Comment.create!(body: "looks like yall are having fun!", author_id: 2, photo_id: 26)
+Comment.create!(body: "nice :)", author_id: 2, photo_id: 17)
+Comment.create!(body: "I look so sad here :/", author_id: 4, photo_id: 2)
+Comment.create!(body: "dig the sweaters", author_id: 4, photo_id: 4)
+Comment.create!(body: "WOW!", author_id: 4, photo_id: 1)
+Comment.create!(body: "red is where it's at", author_id: 4, photo_id: 9)
+Comment.create!(body: "dawww", author_id: 4, photo_id: 21)
+Comment.create!(body: "i dig it dood", author_id: 4, photo_id: 24)
+Comment.create!(body: "CATS", author_id: 4, photo_id: 23)
+Comment.create!(body: "that jawline!", author_id: 4, photo_id: 28)
+Comment.create!(body: "^^", author_id: 3, photo_id: 9)
+Comment.create!(body: "very cool wow", author_id: 3, photo_id: 12)
+Comment.create!(body: "nice colors", author_id: 3, photo_id: 13)
+Comment.create!(body: "LOL", author_id: 3, photo_id: 19)
+Comment.create!(body: "biker boiz", author_id: 3, photo_id: 20)
+Comment.create!(body: "looks like a kool team!", author_id: 1, photo_id: 3)

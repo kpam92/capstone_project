@@ -33092,7 +33092,7 @@
 	
 	var _album_detail_container2 = _interopRequireDefault(_album_detail_container);
 	
-	var _photo_form_container = __webpack_require__(438);
+	var _photo_form_container = __webpack_require__(439);
 	
 	var _photo_form_container2 = _interopRequireDefault(_photo_form_container);
 	
@@ -33100,7 +33100,7 @@
 	
 	var _album_form_container2 = _interopRequireDefault(_album_form_container);
 	
-	var _search_container = __webpack_require__(440);
+	var _search_container = __webpack_require__(441);
 	
 	var _search_container2 = _interopRequireDefault(_search_container);
 	
@@ -37278,7 +37278,7 @@
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
-	var _modal_style = __webpack_require__(442);
+	var _modal_style = __webpack_require__(438);
 	
 	var _modal_style2 = _interopRequireDefault(_modal_style);
 	
@@ -37456,6 +37456,40 @@
 
 /***/ },
 /* 438 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ModalStyle = {
+	  overlay: {
+	    position: 'fixed',
+	    top: 0,
+	    left: 0,
+	    right: 0,
+	    bottom: 0,
+	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
+	  },
+	  content: {
+	    position: 'fixed',
+	    top: '72px',
+	    left: '150px',
+	    right: '150px',
+	    bottom: '205px',
+	    border: '1px solid #ccc',
+	    padding: '20px',
+	    opacity: '0',
+	    transition: 'opacity 0.25s'
+	    // z-index: 11
+	  }
+	};
+	
+	exports.default = ModalStyle;
+
+/***/ },
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37470,7 +37504,7 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _photo_form = __webpack_require__(439);
+	var _photo_form = __webpack_require__(440);
 	
 	var _photo_form2 = _interopRequireDefault(_photo_form);
 	
@@ -37527,7 +37561,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_form2.default);
 
 /***/ },
-/* 439 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37656,7 +37690,7 @@
 	exports.default = (0, _reactRouter.withRouter)(PhotoForm);
 
 /***/ },
-/* 440 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37671,7 +37705,7 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _search = __webpack_require__(441);
+	var _search = __webpack_require__(442);
 	
 	var _search2 = _interopRequireDefault(_search);
 	
@@ -37715,7 +37749,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_search2.default);
 
 /***/ },
-/* 441 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37861,40 +37895,6 @@
 	}(_react2.default.Component);
 	
 	exports.default = Home;
-
-/***/ },
-/* 442 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ModalStyle = {
-	  overlay: {
-	    position: 'fixed',
-	    top: 0,
-	    left: 0,
-	    right: 0,
-	    bottom: 0,
-	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
-	  },
-	  content: {
-	    position: 'fixed',
-	    top: '72px',
-	    left: '150px',
-	    right: '150px',
-	    bottom: '205px',
-	    border: '1px solid #ccc',
-	    padding: '20px',
-	    opacity: '0',
-	    transition: 'opacity 0.25s'
-	    // z-index: 11
-	  }
-	};
-	
-	exports.default = ModalStyle;
 
 /***/ }
 /******/ ]);
