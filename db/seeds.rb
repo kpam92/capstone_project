@@ -79,3 +79,5 @@ Photo.create!(title:"Jackie",medium:"digital",
 
 
 Comment.create!(body: "wow so cool", author_id: 1, photo_id: 2)
+Comment.create!(body: "omg so dramatic", author_id: 1, photo_id: 1)
+Comment.create!(body: "I have a lot of feelings OKAY", author_id: 3, photo_id: 1)
