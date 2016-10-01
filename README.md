@@ -1,6 +1,6 @@
 # OpenWall
 
-[OpenWall live][heroku] **NB:** This should be a link to your production site
+[OpenWall live][heroku]
 
 [heroku]: http://www.openwall.space
 
