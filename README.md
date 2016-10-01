@@ -19,7 +19,7 @@ The `Album` table contains `title`, `author_id`, `description`, `cover_photo_id`
 
 The `AlbumIndex` component renders a list of `AlbumIndexItems`s as subcomponents, showing the cover photo of the album. When clicked, it triggers a redux cycle to get the specific album, direct to that show page, and showcase all `PhotoIndexItem`s.
 
-![image of album index](docs/wireframes/07_someone_elses_album.png)
+![image of album index](screenshot.png)
 ### Profiles
 
 User profiles showcase all albums of a specific user.
