@@ -33408,18 +33408,22 @@
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'button',
-	            { className: 'header-button', onClick: _this3.props.logout },
-	            'Log Out'
-	          ),
-	          _react2.default.createElement(
 	            'form',
 	            { onSubmit: _this3.handleSubmit.bind(_this3) },
-	            _react2.default.createElement('input', { className: 'search-bar', type: 'text', autoComplete: 'off', name: 'search', value: _this3.state.search_results, onChange: _this3.update('search_results') })
+	            _react2.default.createElement('input', { className: 'search-bar', type: 'text', autoComplete: 'off', name: 'search', value: _this3.state.search_results, placeholder: 'search', onChange: _this3.update('search_results') })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'right-nav' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'button',
+	                { className: 'header-button', onClick: _this3.props.logout },
+	                'Log Out'
+	              )
+	            ),
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'header-name' },
@@ -33780,11 +33784,17 @@
 	  }, {
 	    key: '_handleAlbumClick',
 	    value: function _handleAlbumClick() {
+	      document.getElementsByClassName("by-album")[0].style.background = "darkgrey";
+	      document.getElementsByClassName("by-piece")[0].style.background = "#eee";
+	
 	      this.setState({ photos: false });
 	    }
 	  }, {
 	    key: '_handlePhotoClick',
 	    value: function _handlePhotoClick() {
+	      document.getElementsByClassName("by-album")[0].style.background = "#eee";
+	      document.getElementsByClassName("by-piece")[0].style.background = "darkgrey";
+	
 	      this.setState({ photos: true });
 	    }
 	  }, {
@@ -33805,13 +33815,13 @@
 	          _react2.default.createElement('div', { className: '' }),
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'explore-button', onClick: this._handleAlbumClick.bind(this) },
+	            { className: 'explore-button by-album', onClick: this._handleAlbumClick.bind(this) },
 	            'By Album'
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'explore-button', onClick: this._handlePhotoClick.bind(this) },
-	            'By Photo'
+	            { className: 'explore-button by-piece', onClick: this._handlePhotoClick.bind(this) },
+	            'By Piece'
 	          )
 	        ),
 	        this.state.photos ? _react2.default.createElement(_index_container2.default, null) : _react2.default.createElement(_album_index_landing_container2.default, null)

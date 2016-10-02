@@ -18,10 +18,16 @@ class Home extends React.Component {
   }
 
   _handleAlbumClick() {
+    document.getElementsByClassName("by-album")[0].style.background = "darkgrey"
+    document.getElementsByClassName("by-piece")[0].style.background = "#eee"
+
     this.setState({photos: false})
   }
 
   _handlePhotoClick() {
+    document.getElementsByClassName("by-album")[0].style.background = "#eee"
+    document.getElementsByClassName("by-piece")[0].style.background = "darkgrey"
+
     this.setState({ photos: true});
   }
   render() {
@@ -32,8 +38,8 @@ class Home extends React.Component {
       <div className='home-nav'>
         <h1 className="explore-text">EXPLORE</h1>
         <div className=""/>
-        <button className="explore-button" onClick={this._handleAlbumClick.bind(this)}>By Album</button>
-        <button className="explore-button" onClick={this._handlePhotoClick.bind(this)}>By Photo</button>
+        <button className="explore-button by-album" onClick={this._handleAlbumClick.bind(this)}>By Album</button>
+        <button className="explore-button by-piece" onClick={this._handlePhotoClick.bind(this)}>By Piece</button>
       </div>
       { this.state.photos ? <PhotoIndexContainer/> : <AlbumIndexLandingContainer/> }
     </div>

@@ -42,12 +42,12 @@ class Greeting extends React.Component {
     const personalGreeting = () => (
     	<hgroup className="header-nav">
         <Link to="/home"><label className="icon">O</label></Link>
-        <button className="header-button" onClick={this.props.logout}>Log Out</button>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <input className="search-bar"type="text" autoComplete="off" name="search" value={this.state.search_results} onChange={this.update('search_results')}/>
+          <input className="search-bar"type="text" autoComplete="off" name="search" value={this.state.search_results} placeholder="search" onChange={this.update('search_results')}/>
         </form>
         <div className="right-nav">
 
+          <li><button className="header-button" onClick={this.props.logout}>Log Out</button></li>
       		<li className="header-name">{this.props.currentUser.username}</li>
           <li><a className='prof-icon'><img onClick={handleRouteClick(this.props.router, `/profile/${this.props.currentUser.id}`)}
                                             src={this.props.currentUser.profile_pic}/></a></li>
