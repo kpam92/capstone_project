@@ -45,6 +45,7 @@ button {
   bottom: 2em;
   right: 2em;
   opacity: .25;
+  cursor: pointer;
 }
 img {
   transition: opacity 0.5s;
@@ -138,7 +139,8 @@ a:hover {
   background-color: #9AC1CE;
   /*background-color: rgba(255,255,255,0.95)*/
   /*background-color: rgba(249, 244, 244, 0.95);*/
-  background-color: rgba(243, 241, 239, 0.95)
+  background-color: rgba(243, 241, 239, 0.95);
+  min-width: 600px;
 }
 .right-nav {
   float: right;
@@ -158,6 +160,7 @@ a:hover {
 
 }
 .prof-icon img{
+  cursor: pointer;
   border-radius: 30px;
   width: 47px;
   margin-top: 3px;
