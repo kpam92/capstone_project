@@ -18,15 +18,23 @@ class Home extends React.Component {
   }
 
   _handleAlbumClick() {
-    document.getElementsByClassName("by-album")[0].style.background = "darkgrey"
-    document.getElementsByClassName("by-piece")[0].style.background = "#eee"
+    let x = document.getElementsByClassName("by-album")[0];
+    x.style.background = "darkgrey";
+    x.style.cursor = "auto";
+    let y = document.getElementsByClassName("by-piece")[0];
+    y.style.background = "#eee";
+    y.style.cursor = "pointer";
 
     this.setState({photos: false})
   }
 
   _handlePhotoClick() {
-    document.getElementsByClassName("by-album")[0].style.background = "#eee"
-    document.getElementsByClassName("by-piece")[0].style.background = "darkgrey"
+    let x = document.getElementsByClassName("by-piece")[0];
+    x.style.background = "darkgrey";
+    x.style.cursor = "auto";
+    let y = document.getElementsByClassName("by-album")[0];
+    y.style.background = "#eee";
+    y.style.cursor = "pointer";
 
     this.setState({ photos: true});
   }

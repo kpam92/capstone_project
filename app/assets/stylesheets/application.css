@@ -29,11 +29,16 @@ button, article, footer, small {
   color: inherit;
   background: transparent;
 }*/
+
 *{
   font-family: 'Roboto', sans-serif;
 }
 input:focus {
   outline: none;
+}
+
+button {
+  cursor: pointer;
 }
 .back-to-top {
   position: fixed;
@@ -225,7 +230,8 @@ a:hover {
 }
 
 .by-piece {
-  background: darkgrey
+  background: darkgrey;
+  cursor: auto;
 }
 .icon {
   font-size: 48px;

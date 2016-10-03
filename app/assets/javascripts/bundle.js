@@ -33784,16 +33784,24 @@
 	  }, {
 	    key: '_handleAlbumClick',
 	    value: function _handleAlbumClick() {
-	      document.getElementsByClassName("by-album")[0].style.background = "darkgrey";
-	      document.getElementsByClassName("by-piece")[0].style.background = "#eee";
+	      var x = document.getElementsByClassName("by-album")[0];
+	      x.style.background = "darkgrey";
+	      x.style.cursor = "auto";
+	      var y = document.getElementsByClassName("by-piece")[0];
+	      y.style.background = "#eee";
+	      y.style.cursor = "pointer";
 	
 	      this.setState({ photos: false });
 	    }
 	  }, {
 	    key: '_handlePhotoClick',
 	    value: function _handlePhotoClick() {
-	      document.getElementsByClassName("by-album")[0].style.background = "#eee";
-	      document.getElementsByClassName("by-piece")[0].style.background = "darkgrey";
+	      var x = document.getElementsByClassName("by-piece")[0];
+	      x.style.background = "darkgrey";
+	      x.style.cursor = "auto";
+	      var y = document.getElementsByClassName("by-album")[0];
+	      y.style.background = "#eee";
+	      y.style.cursor = "pointer";
 	
 	      this.setState({ photos: true });
 	    }
