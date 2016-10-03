@@ -633,3 +633,62 @@ div.modal-container h3 {
 .album-form-container .form-container input {
   margin: 15px;
 }
+
+
+.my-gallery-class img {
+    max-width: 300px;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+/*
+
+.my-gallery-class {
+	max-width: 69em;
+	list-style: none;
+	margin: 30px auto;
+	padding: 0;
+}
+
+.my-gallery-class li {
+	display: block;
+	float: left;
+	padding: 7px;
+	width: 33%;
+	opacity: 0;
+}
+
+.grid li.shown,
+.no-js .grid li,
+.no-cssanimations .grid li {
+	opacity: 1;
+}
+
+.my-gallery-class li a,
+.my-gallery-class li img {
+	outline: none;
+	border: none;
+	display: block;
+	max-width: 100%;
+}
+
+Effect 1: opacity */
+.my-gallery-class li.animate {
+	-webkit-animation: fadeIn 0.65s ease forwards;
+	animation: fadeIn 0.65s ease forwards;
+}
+
+@-webkit-keyframes fadeIn {
+	0% { }
+	100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+	0% { }
+	100% { opacity: 1; }
+}*/
