@@ -33084,23 +33084,23 @@
 	
 	var _home_container2 = _interopRequireDefault(_home_container);
 	
-	var _profile_container = __webpack_require__(429);
+	var _profile_container = __webpack_require__(441);
 	
 	var _profile_container2 = _interopRequireDefault(_profile_container);
 	
-	var _album_detail_container = __webpack_require__(436);
+	var _album_detail_container = __webpack_require__(448);
 	
 	var _album_detail_container2 = _interopRequireDefault(_album_detail_container);
 	
-	var _photo_form_container = __webpack_require__(439);
+	var _photo_form_container = __webpack_require__(452);
 	
 	var _photo_form_container2 = _interopRequireDefault(_photo_form_container);
 	
-	var _album_form_container = __webpack_require__(433);
+	var _album_form_container = __webpack_require__(445);
 	
 	var _album_form_container2 = _interopRequireDefault(_album_form_container);
 	
-	var _search_container = __webpack_require__(441);
+	var _search_container = __webpack_require__(454);
 	
 	var _search_container2 = _interopRequireDefault(_search_container);
 	
@@ -33147,6 +33147,7 @@
 	      if (!currentUser) {
 	        replace('/login');
 	      } else {
+	        window.scrollTo(0, 0);
 	        this._fetchAllAssetsOnEnter();
 	      }
 	    }
@@ -33743,11 +33744,11 @@
 	
 	var _reactRouter = __webpack_require__(311);
 	
-	var _photo_index_landing_container = __webpack_require__(443);
+	var _photo_index_landing_container = __webpack_require__(399);
 	
 	var _photo_index_landing_container2 = _interopRequireDefault(_photo_index_landing_container);
 	
-	var _album_index_landing_container = __webpack_require__(426);
+	var _album_index_landing_container = __webpack_require__(438);
 	
 	var _album_index_landing_container2 = _interopRequireDefault(_album_index_landing_container);
 	
@@ -33858,9 +33859,9 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _photo_index = __webpack_require__(400);
+	var _photo_index_landing = __webpack_require__(400);
 	
-	var _photo_index2 = _interopRequireDefault(_photo_index);
+	var _photo_index_landing2 = _interopRequireDefault(_photo_index_landing);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33910,7 +33911,7 @@
 	  };
 	};
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_index2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_index_landing2.default);
 
 /***/ },
 /* 400 */
@@ -33928,9 +33929,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _photo_index_item = __webpack_require__(401);
+	var _photo_index_item_landing = __webpack_require__(401);
 	
-	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
+	var _photo_index_item_landing2 = _interopRequireDefault(_photo_index_item_landing);
+	
+	var _reactMasonryComponent = __webpack_require__(426);
+	
+	var _reactMasonryComponent2 = _interopRequireDefault(_reactMasonryComponent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33940,41 +33945,46 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var PhotoIndex = function (_React$Component) {
-	  _inherits(PhotoIndex, _React$Component);
+	var PhotoIndexLanding = function (_React$Component) {
+	  _inherits(PhotoIndexLanding, _React$Component);
 	
-	  function PhotoIndex(props) {
-	    _classCallCheck(this, PhotoIndex);
+	  function PhotoIndexLanding(props) {
+	    _classCallCheck(this, PhotoIndexLanding);
 	
-	    return _possibleConstructorReturn(this, (PhotoIndex.__proto__ || Object.getPrototypeOf(PhotoIndex)).call(this, props));
+	    return _possibleConstructorReturn(this, (PhotoIndexLanding.__proto__ || Object.getPrototypeOf(PhotoIndexLanding)).call(this, props));
 	  }
 	
-	  _createClass(PhotoIndex, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.props.fetchAllUsers();
-	    }
-	  }, {
+	  _createClass(PhotoIndexLanding, [{
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
 	
 	      var photoList = this.props.photos.map(function (photo) {
-	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
+	        return _react2.default.createElement(_photo_index_item_landing2.default, { key: photo.id, photo: photo, props: _this2.props });
 	      });
 	
+	      var masonryOptions = {
+	        transitionDuration: 0
+	      };
 	      return _react2.default.createElement(
-	        'ul',
-	        { className: 'landing-photo-grid' },
+	        _reactMasonryComponent2.default,
+	        {
+	          className: 'my-gallery-class' // default ''
+	          , elementType: 'ul' // default 'div'
+	          , options: masonryOptions // default {}
+	          , disableImagesLoaded: false // default false
+	          , updateOnEachImageLoad: false // default false and works only if disableImagesLoaded is false
+	          , onImagesLoaded: this.handleImagesLoaded
+	        },
 	        photoList
 	      );
 	    }
 	  }]);
 	
-	  return PhotoIndex;
+	  return PhotoIndexLanding;
 	}(_react2.default.Component);
 	
-	exports.default = PhotoIndex;
+	exports.default = PhotoIndexLanding;
 
 /***/ },
 /* 401 */
@@ -34014,13 +34024,13 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var PhotoIndexItem = function (_React$Component) {
-	  _inherits(PhotoIndexItem, _React$Component);
+	var PhotoIndexItemLanding = function (_React$Component) {
+	  _inherits(PhotoIndexItemLanding, _React$Component);
 	
-	  function PhotoIndexItem(props) {
-	    _classCallCheck(this, PhotoIndexItem);
+	  function PhotoIndexItemLanding(props) {
+	    _classCallCheck(this, PhotoIndexItemLanding);
 	
-	    var _this = _possibleConstructorReturn(this, (PhotoIndexItem.__proto__ || Object.getPrototypeOf(PhotoIndexItem)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (PhotoIndexItemLanding.__proto__ || Object.getPrototypeOf(PhotoIndexItemLanding)).call(this, props));
 	
 	    _this.state = { modalOpen: false };
 	    _this.onModalClose = _this.onModalClose.bind(_this);
@@ -34028,7 +34038,7 @@
 	    return _this;
 	  }
 	
-	  _createClass(PhotoIndexItem, [{
+	  _createClass(PhotoIndexItemLanding, [{
 	    key: 'onModalClose',
 	    value: function onModalClose() {
 	      this.setState({ modalOpen: false });
@@ -34076,18 +34086,8 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'photo-grid' },
-	          _react2.default.createElement('img', { src: this.props.photo.image_url, onClick: this._handleClick.bind(this) })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'auth' },
-	          _react2.default.createElement('img', { onClick: handleProfileClick(this.props.router, '/profile/' + this.props.photo.author_id), src: author(this.props.photo.author_id) }),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            this.props.photo.title
-	          )
+	          null,
+	          _react2.default.createElement('img', { src: this.props.photo.image_url, media: '(max-width: 400px)', onClick: this._handleClick.bind(this) })
 	        ),
 	        _react2.default.createElement(
 	          _reactModal2.default,
@@ -34104,6 +34104,16 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-container' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'auth' },
+	              _react2.default.createElement('img', { onClick: handleProfileClick(this.props.router, '/profile/' + this.props.photo.author_id), src: author(this.props.photo.author_id) }),
+	              _react2.default.createElement(
+	                'h3',
+	                null,
+	                this.props.photo.title
+	              )
+	            ),
 	            _react2.default.createElement('img', { src: this.props.photo.image_url })
 	          ),
 	          _react2.default.createElement(
@@ -34116,10 +34126,10 @@
 	    }
 	  }]);
 	
-	  return PhotoIndexItem;
+	  return PhotoIndexItemLanding;
 	}(_react2.default.Component);
 	
-	exports.default = (0, _reactRouter.withRouter)(PhotoIndexItem);
+	exports.default = (0, _reactRouter.withRouter)(PhotoIndexItemLanding);
 
 /***/ },
 /* 402 */
@@ -36400,1673 +36410,12 @@
 /* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(384);
-	
-	var _album_index_landing = __webpack_require__(427);
-	
-	var _album_index_landing2 = _interopRequireDefault(_album_index_landing);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    currentUser: state.session.currentUser,
-	    photos: state.photos,
-	    user: state.user,
-	    albums: state.albums
-	  };
-	};
-	// import { fetchAllPhotos } from '../../actions/photo_actions';
-	// import { fetchAllUsers } from '../../actions/user_actions';
-	
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    fetchAllAlbums: function (_fetchAllAlbums) {
-	      function fetchAllAlbums() {
-	        return _fetchAllAlbums.apply(this, arguments);
-	      }
-	
-	      fetchAllAlbums.toString = function () {
-	        return _fetchAllAlbums.toString();
-	      };
-	
-	      return fetchAllAlbums;
-	    }(function () {
-	      return dispatch(fetchAllAlbums());
-	    }),
-	    fetchAllUsers: function (_fetchAllUsers) {
-	      function fetchAllUsers() {
-	        return _fetchAllUsers.apply(this, arguments);
-	      }
-	
-	      fetchAllUsers.toString = function () {
-	        return _fetchAllUsers.toString();
-	      };
-	
-	      return fetchAllUsers;
-	    }(function () {
-	      return dispatch(fetchAllUsers());
-	    }),
-	    fetchSingleUser: function (_fetchSingleUser) {
-	      function fetchSingleUser(_x) {
-	        return _fetchSingleUser.apply(this, arguments);
-	      }
-	
-	      fetchSingleUser.toString = function () {
-	        return _fetchSingleUser.toString();
-	      };
-	
-	      return fetchSingleUser;
-	    }(function (id) {
-	      return dispatch(fetchSingleUser(id));
-	    })
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_index_landing2.default);
-
-/***/ },
-/* 427 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _album_index_item = __webpack_require__(428);
-	
-	var _album_index_item2 = _interopRequireDefault(_album_index_item);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var AlbumIndexLanding = function (_React$Component) {
-	  _inherits(AlbumIndexLanding, _React$Component);
-	
-	  function AlbumIndexLanding(props) {
-	    _classCallCheck(this, AlbumIndexLanding);
-	
-	    return _possibleConstructorReturn(this, (AlbumIndexLanding.__proto__ || Object.getPrototypeOf(AlbumIndexLanding)).call(this, props));
-	  }
-	
-	  _createClass(AlbumIndexLanding, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      // this.props.fetchAllUsers();
-	      //fetchAllAlbums
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var userAlbums = function userAlbums(id) {
-	        var result = [];
-	        _this2.props.albums.map(function (album) {
-	          if (album.author_id === id) {
-	            result.push(album);
-	          };
-	        });
-	        return result;
-	      };
-	      // const userAlbums = (array) => {
-	      //   let result = [];
-	      //   array.map(id => {
-	      //     this.props.albums.map(album => {
-	      //       if (album.author_id === id) {
-	      //         result.push(album);
-	      //       };
-	      //     })
-	      //   })
-	      //   return result;
-	      // }
-	
-	      var albumList = this.props.albums.map(function (album) {
-	        return _react2.default.createElement(_album_index_item2.default, { key: album.id, album: album, props: _this2.props });
-	      });
-	
-	      return _react2.default.createElement(
-	        'ul',
-	        { className: 'landing-photo-grid' },
-	        albumList
-	      );
-	    }
-	  }]);
-	
-	  return AlbumIndexLanding;
-	}(_react2.default.Component);
-	
-	exports.default = AlbumIndexLanding;
-
-/***/ },
-/* 428 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(311);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import Modal from 'react-modal';
-	// import ModalStyle from './modal_style'
-	
-	
-	var AlbumIndexItem = function (_React$Component) {
-	  _inherits(AlbumIndexItem, _React$Component);
-	
-	  function AlbumIndexItem(props) {
-	    _classCallCheck(this, AlbumIndexItem);
-	
-	    return _possibleConstructorReturn(this, (AlbumIndexItem.__proto__ || Object.getPrototypeOf(AlbumIndexItem)).call(this, props));
-	  }
-	
-	  _createClass(AlbumIndexItem, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      // this.props.fetchSingleUser(this.props.photo.author_id);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var cover_photo = function cover_photo(id) {
-	        var result = '';
-	        _this2.props.props.photos.map(function (x) {
-	          if (id === x.id) {
-	            result = x.image_url;
-	          }
-	        });
-	        return result;
-	      };
-	
-	      var handleAlbumClick = function handleAlbumClick(router, url) {
-	        return function () {
-	          return router.push(url);
-	        };
-	      };
-	      var albumAuthFun = function albumAuthFun(id) {
-	        var result = "";
-	        _this2.props.props.user.map(function (x) {
-	          if (id === x.id) {
-	            result = x;
-	          }
-	        });
-	        return result;
-	      };
-	      var Author = albumAuthFun(this.props.album.author_id);
-	      return _react2.default.createElement(
-	        'li',
-	        { className: 'album-li' },
-	        _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: this.props.album.cover_photo_id ? cover_photo(this.props.album.cover_photo_id) : "http://res.cloudinary.com/dt5viyxyq/image/upload/v1473229700/Photo-Album3-512_rdgg2m.png" }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'auth' },
-	          _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: Author.profile_pic }),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            this.props.album.title
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return AlbumIndexItem;
-	}(_react2.default.Component);
-	
-	exports.default = (0, _reactRouter.withRouter)(AlbumIndexItem);
-
-/***/ },
-/* 429 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(384);
-	
-	var _profile = __webpack_require__(430);
-	
-	var _profile2 = _interopRequireDefault(_profile);
-	
-	var _album_actions = __webpack_require__(303);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// import { fetchAllPhotos } from '../../actions/photo_actions';
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    currentUser: state.session.currentUser,
-	    photos: state.photos,
-	    user: state.user
-	  };
-	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    createAlbum: function createAlbum(id) {
-	      return dispatch((0, _album_actions.createAlbum)(id));
-	    }
-	
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_profile2.default);
-
-/***/ },
-/* 430 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _album_index_container = __webpack_require__(431);
-	
-	var _album_index_container2 = _interopRequireDefault(_album_index_container);
-	
-	var _album_form_container = __webpack_require__(433);
-	
-	var _album_form_container2 = _interopRequireDefault(_album_form_container);
-	
-	var _reactModal = __webpack_require__(402);
-	
-	var _reactModal2 = _interopRequireDefault(_reactModal);
-	
-	var _modal_style = __webpack_require__(435);
-	
-	var _modal_style2 = _interopRequireDefault(_modal_style);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Profile = function (_React$Component) {
-	  _inherits(Profile, _React$Component);
-	
-	  function Profile(props) {
-	    _classCallCheck(this, Profile);
-	
-	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
-	
-	    _this.state = { modalOpen: false, album: { title: "",
-	        description: "",
-	        author_id: parseInt(_this.props.params.profileId) } };
-	    _this.onModalClose = _this.onModalClose.bind(_this);
-	    _this.onModalOpen = _this.onModalOpen.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(Profile, [{
-	    key: 'onModalClose',
-	    value: function onModalClose() {
-	      this.setState({ modalOpen: false });
-	      _modal_style2.default.content.opacity = 0;
-	    }
-	  }, {
-	    key: 'onModalOpen',
-	    value: function onModalOpen() {
-	      _modal_style2.default.content.opacity = 100;
-	      _modal_style2.default.content.background;
-	    }
-	  }, {
-	    key: '_handleClick',
-	    value: function _handleClick() {
-	      this.setState({ modalOpen: true });
-	    }
-	  }, {
-	    key: 'update',
-	    value: function update(property) {
-	      var _this2 = this;
-	
-	      return function (e) {
-	        return _this2.setState({ album: _defineProperty({}, property, e.target.value) });
-	      };
-	    }
-	  }, {
-	    key: 'handleSubmit',
-	    value: function handleSubmit(e) {
-	      e.preventDefault();
-	      this.props.createAlbum(this.state.album);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this3 = this;
-	
-	      var profUser = function profUser(id) {
-	        var result = '';
-	        _this3.props.user.map(function (x) {
-	          if (id === x.id) {
-	            result = x;
-	          }
-	        });
-	        return result;
-	      };
-	
-	      var thisProf = profUser(parseInt(this.props.params.profileId));
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'prof-container' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'prof-header' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'prof-main-pic' },
-	            _react2.default.createElement('img', { src: thisProf.profile_pic })
-	          ),
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            thisProf.username
-	          ),
-	          this.props.currentUser.id === thisProf.id ? _react2.default.createElement(
-	            'button',
-	            { className: 'album-button', onClick: this._handleClick.bind(this) },
-	            'Add Album'
-	          ) : _react2.default.createElement('a', null)
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'album-grid' },
-	          _react2.default.createElement(
-	            'h1',
-	            { className: 'explore-text' },
-	            'ALBUMS'
-	          ),
-	          _react2.default.createElement(_album_index_container2.default, { prof: thisProf })
-	        ),
-	        _react2.default.createElement(
-	          _reactModal2.default,
-	          {
-	            isOpen: this.state.modalOpen,
-	            onRequestClose: this.onModalClose,
-	            style: _modal_style2.default,
-	            onAfterOpen: this.onModalOpen },
-	          _react2.default.createElement(
-	            'a',
-	            { className: 'modal-close', onClick: this.onModalClose },
-	            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'modal-container' },
-	            _react2.default.createElement(_album_form_container2.default, { profileId: parseInt(this.props.params.profileId) })
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Profile;
-	}(_react2.default.Component);
-	
-	exports.default = Profile;
-
-/***/ },
-/* 431 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(384);
-	
-	var _album_index = __webpack_require__(432);
-	
-	var _album_index2 = _interopRequireDefault(_album_index);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    currentUser: state.session.currentUser,
-	    photos: state.photos,
-	    user: state.user,
-	    albums: state.albums
-	  };
-	};
-	// import { fetchAllPhotos } from '../../actions/photo_actions';
-	// import { fetchAllUsers } from '../../actions/user_actions';
-	
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    fetchAllAlbums: function (_fetchAllAlbums) {
-	      function fetchAllAlbums() {
-	        return _fetchAllAlbums.apply(this, arguments);
-	      }
-	
-	      fetchAllAlbums.toString = function () {
-	        return _fetchAllAlbums.toString();
-	      };
-	
-	      return fetchAllAlbums;
-	    }(function () {
-	      return dispatch(fetchAllAlbums());
-	    }),
-	    fetchAllUsers: function (_fetchAllUsers) {
-	      function fetchAllUsers() {
-	        return _fetchAllUsers.apply(this, arguments);
-	      }
-	
-	      fetchAllUsers.toString = function () {
-	        return _fetchAllUsers.toString();
-	      };
-	
-	      return fetchAllUsers;
-	    }(function () {
-	      return dispatch(fetchAllUsers());
-	    }),
-	    fetchSingleUser: function (_fetchSingleUser) {
-	      function fetchSingleUser(_x) {
-	        return _fetchSingleUser.apply(this, arguments);
-	      }
-	
-	      fetchSingleUser.toString = function () {
-	        return _fetchSingleUser.toString();
-	      };
-	
-	      return fetchSingleUser;
-	    }(function (id) {
-	      return dispatch(fetchSingleUser(id));
-	    })
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_index2.default);
-
-/***/ },
-/* 432 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _album_index_item = __webpack_require__(428);
-	
-	var _album_index_item2 = _interopRequireDefault(_album_index_item);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var AlbumIndex = function (_React$Component) {
-	  _inherits(AlbumIndex, _React$Component);
-	
-	  function AlbumIndex(props) {
-	    _classCallCheck(this, AlbumIndex);
-	
-	    return _possibleConstructorReturn(this, (AlbumIndex.__proto__ || Object.getPrototypeOf(AlbumIndex)).call(this, props));
-	  }
-	
-	  _createClass(AlbumIndex, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      // this.props.fetchAllUsers();
-	      //fetchAllAlbums
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var userAlbums = function userAlbums(id) {
-	        var result = [];
-	        _this2.props.albums.map(function (album) {
-	          if (album.author_id === id) {
-	            result.push(album);
-	          };
-	        });
-	        return result;
-	      };
-	      // const userAlbums = (array) => {
-	      //   let result = [];
-	      //   array.map(id => {
-	      //     this.props.albums.map(album => {
-	      //       if (album.author_id === id) {
-	      //         result.push(album);
-	      //       };
-	      //     })
-	      //   })
-	      //   return result;
-	      // }
-	
-	      var albumList = userAlbums(this.props.prof.id).map(function (album) {
-	        return _react2.default.createElement(_album_index_item2.default, { key: album.id, album: album, props: _this2.props });
-	      });
-	
-	      return _react2.default.createElement(
-	        'ul',
-	        { className: 'prof-album-grid' },
-	        albumList
-	      );
-	    }
-	  }]);
-	
-	  return AlbumIndex;
-	}(_react2.default.Component);
-	
-	exports.default = AlbumIndex;
-
-/***/ },
-/* 433 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(384);
-	
-	var _photo_actions = __webpack_require__(301);
-	
-	var _user_actions = __webpack_require__(305);
-	
-	var _album_actions = __webpack_require__(303);
-	
-	var _album_form = __webpack_require__(434);
-	
-	var _album_form2 = _interopRequireDefault(_album_form);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    currentUser: state.session.currentUser,
-	    photos: state.photos,
-	    user: state.user
-	  };
-	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    fetchAllPhotos: function fetchAllPhotos() {
-	      return dispatch((0, _photo_actions.fetchAllPhotos)());
-	    },
-	    goToProfile: function (_goToProfile) {
-	      function goToProfile(_x) {
-	        return _goToProfile.apply(this, arguments);
-	      }
-	
-	      goToProfile.toString = function () {
-	        return _goToProfile.toString();
-	      };
-	
-	      return goToProfile;
-	    }(function (id) {
-	      return dispatch(goToProfile(id));
-	    }),
-	    fetchAllUsers: function fetchAllUsers() {
-	      return dispatch((0, _user_actions.fetchAllUsers)());
-	    },
-	    fetchSingleUser: function (_fetchSingleUser) {
-	      function fetchSingleUser(_x2) {
-	        return _fetchSingleUser.apply(this, arguments);
-	      }
-	
-	      fetchSingleUser.toString = function () {
-	        return _fetchSingleUser.toString();
-	      };
-	
-	      return fetchSingleUser;
-	    }(function (id) {
-	      return dispatch(fetchSingleUser(id));
-	    }),
-	    createPhoto: function createPhoto(id) {
-	      return dispatch((0, _photo_actions.createPhoto)(id));
-	    },
-	    createAlbum: function createAlbum(id) {
-	      return dispatch((0, _album_actions.createAlbum)(id));
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_form2.default);
-
-/***/ },
-/* 434 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(311);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import Modal from 'react-modal';
-	// import ModalStyle from './modal_style'
-	
-	
-	var AlbumForm = function (_React$Component) {
-	  _inherits(AlbumForm, _React$Component);
-	
-	  function AlbumForm(props) {
-	    _classCallCheck(this, AlbumForm);
-	
-	    var _this = _possibleConstructorReturn(this, (AlbumForm.__proto__ || Object.getPrototypeOf(AlbumForm)).call(this, props));
-	
-	    _this.state = {
-	      title: '',
-	      description: '',
-	      author_id: parseInt(_this.props.profileId)
-	    };
-	    return _this;
-	  }
-	
-	  _createClass(AlbumForm, [{
-	    key: 'update',
-	    value: function update(property) {
-	      var _this2 = this;
-	
-	      return function (e) {
-	        return _this2.setState(_defineProperty({}, property, e.target.value));
-	      };
-	    }
-	  }, {
-	    key: 'handleSubmit',
-	    value: function handleSubmit(e) {
-	      e.preventDefault();
-	      this.props.createAlbum(this.state);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	
-	      // const currAlbum = currAlbumFun(parseInt(this.props.params.albumId))
-	
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'album-form-container' },
-	        _react2.default.createElement(
-	          'form',
-	          { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
-	          _react2.default.createElement('input', {
-	            type: 'text',
-	            value: this.state.title,
-	            placeholder: 'title',
-	            onChange: this.update('title') }),
-	          _react2.default.createElement('input', {
-	            type: 'text',
-	            value: this.state.description,
-	            placeholder: 'description (optional)',
-	            onChange: this.update('description') }),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'splash-button' },
-	            'Create Album'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return AlbumForm;
-	}(_react2.default.Component);
-	
-	exports.default = (0, _reactRouter.withRouter)(AlbumForm);
-
-/***/ },
-/* 435 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ModalStyle = {
-	  overlay: {
-	    position: 'fixed',
-	    top: 0,
-	    left: 0,
-	    right: 0,
-	    bottom: 0,
-	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
-	  },
-	  content: {
-	    position: 'fixed',
-	    top: '100px',
-	    left: '150px',
-	    right: '150px',
-	    bottom: '100px',
-	    border: '1px solid #ccc',
-	    padding: '20px',
-	    opacity: '0',
-	    transition: 'opacity 0.25s',
-	    background: 'rgb(44, 95, 118)'
-	    // z-index: 11
-	  }
-	};
-	
-	exports.default = ModalStyle;
-
-/***/ },
-/* 436 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(384);
-	
-	var _album_actions = __webpack_require__(303);
-	
-	var _album_detail = __webpack_require__(437);
-	
-	var _album_detail2 = _interopRequireDefault(_album_detail);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// import { fetchAllPhotos } from '../../actions/photo_actions';
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    currentUser: state.session.currentUser,
-	    photos: state.photos,
-	    user: state.user,
-	    albums: state.albums
-	  };
-	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    // fetchAllAlbums: () => dispatch(fetchAllAlbums()),
-	    // fetchAllUsers: () => dispatch(fetchAllUsers()),
-	    fetchSingleAlbum: function fetchSingleAlbum(id) {
-	      return dispatch((0, _album_actions.fetchSingleAlbum)(id));
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_detail2.default);
-
-/***/ },
-/* 437 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactModal = __webpack_require__(402);
-	
-	var _reactModal2 = _interopRequireDefault(_reactModal);
-	
-	var _modal_style = __webpack_require__(438);
-	
-	var _modal_style2 = _interopRequireDefault(_modal_style);
-	
-	var _reactRouter = __webpack_require__(311);
-	
-	var _photo_index_item = __webpack_require__(401);
-	
-	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var AlbumDetail = function (_React$Component) {
-	  _inherits(AlbumDetail, _React$Component);
-	
-	  function AlbumDetail(props) {
-	    _classCallCheck(this, AlbumDetail);
-	
-	    var _this = _possibleConstructorReturn(this, (AlbumDetail.__proto__ || Object.getPrototypeOf(AlbumDetail)).call(this, props));
-	
-	    _this.state = { modalOpen: false };
-	    _this.onModalClose = _this.onModalClose.bind(_this);
-	    _this.onModalOpen = _this.onModalOpen.bind(_this);
-	    _this.upload = _this.upload.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(AlbumDetail, [{
-	    key: 'onModalClose',
-	    value: function onModalClose() {
-	      this.setState({ modalOpen: false });
-	      _modal_style2.default.content.opacity = 0;
-	    }
-	  }, {
-	    key: 'onModalOpen',
-	    value: function onModalOpen() {
-	      _modal_style2.default.content.opacity = 100;
-	      _modal_style2.default.content.background;
-	    }
-	  }, {
-	    key: '_handleClick',
-	    value: function _handleClick() {
-	      this.setState({ modalOpen: true });
-	    }
-	  }, {
-	    key: 'upload',
-	    value: function upload(e) {
-	      e.preventDefault();
-	      cloudinary.openUploadWidget(window.cloudinary_options, function (error, images) {
-	        if (error === null) {
-	          console.log("HI");
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var currAlbumPhotos = function currAlbumPhotos(id) {
-	        var result = [];
-	        _this2.props.photos.map(function (x) {
-	          if (id === x.album_id) {
-	            result.push(x);
-	          }
-	        });
-	        return result;
-	      };
-	      var thisAlbumPhotos = currAlbumPhotos(parseInt(this.props.params.albumId));
-	
-	      var currAlbum = function currAlbum(id) {
-	        var result = "";
-	        _this2.props.albums.map(function (x) {
-	          if (id === x.id) {
-	            result = x;
-	          }
-	        });
-	        return result;
-	      };
-	
-	      var thisAlbum = currAlbum(parseInt(this.props.params.albumId));
-	
-	      var handleProfileClick = function handleProfileClick(router, url) {
-	        return function () {
-	          return router.push(url);
-	        };
-	      };
-	
-	      var photoList = thisAlbumPhotos.map(function (photo) {
-	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
-	      });
-	
-	      var editButton = function editButton() {
-	        if (thisAlbum.author_id === _this2.props.currentUser.id) {
-	          return _react2.default.createElement(
-	            'button',
-	            { className: 'explore-button' },
-	            'Edit Album'
-	          );
-	        }
-	      };
-	
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'home-nav' },
-	          _react2.default.createElement(
-	            'h1',
-	            { className: 'album-text' },
-	            thisAlbum.title
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'explore-button', onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id) },
-	            'User Profile'
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'explore-button', onClick: this._handleClick.bind(this) },
-	            'About Series'
-	          ),
-	          this.props.currentUser.id === thisAlbum.author_id ? _react2.default.createElement(
-	            'button',
-	            { onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id + '/upload/album/' + thisAlbum.id), className: 'explore-button' },
-	            'Add Photo'
-	          ) : _react2.default.createElement('a', null),
-	          editButton
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'album-show-container' },
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'album-photo-grid' },
-	            photoList
-	          )
-	        ),
-	        _react2.default.createElement(
-	          _reactModal2.default,
-	          {
-	            isOpen: this.state.modalOpen,
-	            onRequestClose: this.onModalClose,
-	            style: _modal_style2.default,
-	            onAfterOpen: this.onModalOpen },
-	          _react2.default.createElement(
-	            'a',
-	            { className: 'modal-close', onClick: this.onModalClose },
-	            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'modal-container' },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              thisAlbum.description ? thisAlbum.description : 'No Description...'
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return AlbumDetail;
-	}(_react2.default.Component);
-	
-	exports.default = (0, _reactRouter.withRouter)(AlbumDetail);
-
-/***/ },
-/* 438 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ModalStyle = {
-	  overlay: {
-	    position: 'fixed',
-	    top: 0,
-	    left: 0,
-	    right: 0,
-	    bottom: 0,
-	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
-	  },
-	  content: {
-	    position: 'fixed',
-	    top: '72px',
-	    left: '150px',
-	    right: '150px',
-	    bottom: '205px',
-	    border: '1px solid #ccc',
-	    padding: '20px',
-	    opacity: '0',
-	    transition: 'opacity 0.25s'
-	    // z-index: 11
-	  }
-	};
-	
-	exports.default = ModalStyle;
-
-/***/ },
-/* 439 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(384);
-	
-	var _photo_actions = __webpack_require__(301);
-	
-	var _user_actions = __webpack_require__(305);
-	
-	var _photo_form = __webpack_require__(440);
-	
-	var _photo_form2 = _interopRequireDefault(_photo_form);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    currentUser: state.session.currentUser,
-	    photos: state.photos,
-	    user: state.user
-	  };
-	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    fetchAllPhotos: function fetchAllPhotos() {
-	      return dispatch((0, _photo_actions.fetchAllPhotos)());
-	    },
-	    goToProfile: function (_goToProfile) {
-	      function goToProfile(_x) {
-	        return _goToProfile.apply(this, arguments);
-	      }
-	
-	      goToProfile.toString = function () {
-	        return _goToProfile.toString();
-	      };
-	
-	      return goToProfile;
-	    }(function (id) {
-	      return dispatch(goToProfile(id));
-	    }),
-	    fetchAllUsers: function fetchAllUsers() {
-	      return dispatch((0, _user_actions.fetchAllUsers)());
-	    },
-	    fetchSingleUser: function (_fetchSingleUser) {
-	      function fetchSingleUser(_x2) {
-	        return _fetchSingleUser.apply(this, arguments);
-	      }
-	
-	      fetchSingleUser.toString = function () {
-	        return _fetchSingleUser.toString();
-	      };
-	
-	      return fetchSingleUser;
-	    }(function (id) {
-	      return dispatch(fetchSingleUser(id));
-	    }),
-	    createPhoto: function createPhoto(id) {
-	      return dispatch((0, _photo_actions.createPhoto)(id));
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_form2.default);
-
-/***/ },
-/* 440 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactModal = __webpack_require__(402);
-	
-	var _reactModal2 = _interopRequireDefault(_reactModal);
-	
-	var _modal_style = __webpack_require__(422);
-	
-	var _modal_style2 = _interopRequireDefault(_modal_style);
-	
-	var _reactRouter = __webpack_require__(311);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var PhotoForm = function (_React$Component) {
-	  _inherits(PhotoForm, _React$Component);
-	
-	  function PhotoForm(props) {
-	    _classCallCheck(this, PhotoForm);
-	
-	    var _this = _possibleConstructorReturn(this, (PhotoForm.__proto__ || Object.getPrototypeOf(PhotoForm)).call(this, props));
-	
-	    _this.state = {
-	      title: '',
-	      description: '',
-	      medium: '',
-	      image_url: '',
-	      album_id: parseInt(_this.props.params.albumId),
-	      author_id: parseInt(_this.props.params.profileId)
-	    };
-	    return _this;
-	  }
-	
-	  _createClass(PhotoForm, [{
-	    key: 'update',
-	    value: function update(property) {
-	      var _this2 = this;
-	
-	      return function (e) {
-	        return _this2.setState(_defineProperty({}, property, e.target.value));
-	      };
-	    }
-	  }, {
-	    key: 'handleUpload',
-	    value: function handleUpload(e) {
-	      e.preventDefault();
-	      var that = this;
-	      cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, function (error, images) {
-	        if (error === null) {
-	          that.setState({ image_url: images[0].url });
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'handleSubmit',
-	    value: function handleSubmit(e) {
-	      e.preventDefault();
-	      this.props.createPhoto(this.state);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	
-	      // const currAlbum = currAlbumFun(parseInt(this.props.params.albumId))
-	
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'photo-form-container' },
-	        _react2.default.createElement(
-	          'form',
-	          { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
-	          _react2.default.createElement('input', {
-	            type: 'text',
-	            value: this.state.title,
-	            placeholder: 'title',
-	            onChange: this.update('title') }),
-	          _react2.default.createElement('input', {
-	            type: 'text',
-	            value: this.state.medium,
-	            placeholder: 'medium (optional)',
-	            onChange: this.update('medium') }),
-	          _react2.default.createElement('input', {
-	            type: 'text',
-	            value: this.state.description,
-	            placeholder: 'description (optional)',
-	            onChange: this.update('description') }),
-	          this.state.image_url === "" ? _react2.default.createElement(
-	            'button',
-	            { className: 'splash-button', onClick: this.handleUpload.bind(this) },
-	            'Upload Photo'
-	          ) : _react2.default.createElement('img', { className: 'image-preview', src: this.state.image_url }),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'splash-button' },
-	            'Submit Photo'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return PhotoForm;
-	}(_react2.default.Component);
-	
-	exports.default = (0, _reactRouter.withRouter)(PhotoForm);
-
-/***/ },
-/* 441 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(384);
-	
-	var _session_actions = __webpack_require__(297);
-	
-	var _user_actions = __webpack_require__(305);
-	
-	var _search = __webpack_require__(442);
-	
-	var _search2 = _interopRequireDefault(_search);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  var _ref;
-	
-	  return _ref = {
-	    currentUser: state.session.currentUser,
-	    search_results: state.search_results
-	  }, _defineProperty(_ref, 'currentUser', state.session.currentUser), _defineProperty(_ref, 'photos', state.photos), _defineProperty(_ref, 'user', state.user), _defineProperty(_ref, 'albums', state.albums), _ref;
-	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    logout: function logout() {
-	      return dispatch((0, _session_actions.logout)());
-	    },
-	    goToProfile: function goToProfile(id) {
-	      return dispatch((0, _user_actions.goToProfile)(id));
-	    },
-	    receiveNewSearchResults: function (_receiveNewSearchResults) {
-	      function receiveNewSearchResults(_x) {
-	        return _receiveNewSearchResults.apply(this, arguments);
-	      }
-	
-	      receiveNewSearchResults.toString = function () {
-	        return _receiveNewSearchResults.toString();
-	      };
-	
-	      return receiveNewSearchResults;
-	    }(function (data) {
-	      return dispatch(receiveNewSearchResults(data));
-	    })
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_search2.default);
-
-/***/ },
-/* 442 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(311);
-	
-	var _index_container = __webpack_require__(399);
-	
-	var _index_container2 = _interopRequireDefault(_index_container);
-	
-	var _photo_index_item = __webpack_require__(401);
-	
-	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
-	
-	var _album_index_landing_container = __webpack_require__(426);
-	
-	var _album_index_landing_container2 = _interopRequireDefault(_album_index_landing_container);
-	
-	var _album_index_item = __webpack_require__(428);
-	
-	var _album_index_item2 = _interopRequireDefault(_album_index_item);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	// import AlbumIndexContainer from '../album/album_index_container';
-	var Home = function (_React$Component) {
-	  _inherits(Home, _React$Component);
-	
-	  function Home(props) {
-	    _classCallCheck(this, Home);
-	
-	    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
-	  }
-	
-	  _createClass(Home, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var editedPhotoList = function editedPhotoList(substring) {
-	        var result = [];
-	        _this2.props.photos.map(function (x) {
-	          if (x.title.toUpperCase().indexOf(substring) !== -1) {
-	            result.push(x);
-	          } else if (x.description && x.description.toUpperCase().indexOf(substring) !== -1) {
-	            result.push(x);
-	          } else if (x.medium && x.medium.toUpperCase().indexOf(substring) !== -1) {
-	            result.push(x);
-	          }
-	        });
-	        return result;
-	      };
-	      var editedAlbumList = function editedAlbumList(substring) {
-	        var result = [];
-	        _this2.props.albums.map(function (x) {
-	          if (x.title.toUpperCase().indexOf(substring) !== -1) {
-	            result.push(x);
-	          } else if (x.description && x.description.toUpperCase().indexOf(substring) !== -1) {
-	            result.push(x);
-	          }
-	        });
-	        return result;
-	      };
-	
-	      var albumList = editedAlbumList(this.props.search_results[0].search_results.toUpperCase()).map(function (album) {
-	        return _react2.default.createElement(_album_index_item2.default, { key: album.id, album: album, props: _this2.props });
-	      });
-	
-	      var photoList = editedPhotoList(this.props.search_results[0].search_results.toUpperCase()).map(function (photo) {
-	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
-	      });
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'search-container' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'home-nav' },
-	          _react2.default.createElement(
-	            'h1',
-	            { className: 'explore-text' },
-	            'RESULTS FOR : ',
-	            _react2.default.createElement(
-	              'span',
-	              null,
-	              _react2.default.createElement(
-	                'q',
-	                null,
-	                this.props.search_results[0].search_results
-	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'landing-photo-grid' },
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'PHOTOS'
-	          ),
-	          photoList.length > 0 ? photoList : _react2.default.createElement(
-	            'h3',
-	            { className: 'no-res' },
-	            'No Results...'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'landing-photo-grid' },
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'ALBUMS'
-	          ),
-	          albumList.length > 0 ? albumList : _react2.default.createElement(
-	            'h3',
-	            { className: 'no-res' },
-	            'No Results...'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Home;
-	}(_react2.default.Component);
-	
-	exports.default = Home;
-
-/***/ },
-/* 443 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(384);
-	
-	var _photo_actions = __webpack_require__(301);
-	
-	var _user_actions = __webpack_require__(305);
-	
-	var _photo_index_landing = __webpack_require__(444);
-	
-	var _photo_index_landing2 = _interopRequireDefault(_photo_index_landing);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    currentUser: state.session.currentUser,
-	    photos: state.photos,
-	    user: state.user,
-	    comments: state.comments
-	  };
-	};
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    fetchAllPhotos: function fetchAllPhotos() {
-	      return dispatch((0, _photo_actions.fetchAllPhotos)());
-	    },
-	    goToProfile: function (_goToProfile) {
-	      function goToProfile(_x) {
-	        return _goToProfile.apply(this, arguments);
-	      }
-	
-	      goToProfile.toString = function () {
-	        return _goToProfile.toString();
-	      };
-	
-	      return goToProfile;
-	    }(function (id) {
-	      return dispatch(goToProfile(id));
-	    }),
-	    fetchAllUsers: function fetchAllUsers() {
-	      return dispatch((0, _user_actions.fetchAllUsers)());
-	    },
-	    fetchSingleUser: function (_fetchSingleUser) {
-	      function fetchSingleUser(_x2) {
-	        return _fetchSingleUser.apply(this, arguments);
-	      }
-	
-	      fetchSingleUser.toString = function () {
-	        return _fetchSingleUser.toString();
-	      };
-	
-	      return fetchSingleUser;
-	    }(function (id) {
-	      return dispatch(fetchSingleUser(id));
-	    })
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_index_landing2.default);
-
-/***/ },
-/* 444 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _photo_index_item_landing = __webpack_require__(457);
-	
-	var _photo_index_item_landing2 = _interopRequireDefault(_photo_index_item_landing);
-	
-	var _reactMasonryComponent = __webpack_require__(445);
-	
-	var _reactMasonryComponent2 = _interopRequireDefault(_reactMasonryComponent);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var PhotoIndexLanding = function (_React$Component) {
-	  _inherits(PhotoIndexLanding, _React$Component);
-	
-	  function PhotoIndexLanding(props) {
-	    _classCallCheck(this, PhotoIndexLanding);
-	
-	    return _possibleConstructorReturn(this, (PhotoIndexLanding.__proto__ || Object.getPrototypeOf(PhotoIndexLanding)).call(this, props));
-	  }
-	
-	  _createClass(PhotoIndexLanding, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var photoList = this.props.photos.map(function (photo) {
-	        return _react2.default.createElement(_photo_index_item_landing2.default, { key: photo.id, photo: photo, props: _this2.props });
-	      });
-	
-	      var masonryOptions = {
-	        transitionDuration: 0
-	      };
-	      return _react2.default.createElement(
-	        _reactMasonryComponent2.default,
-	        {
-	          className: 'my-gallery-class' // default ''
-	          , elementType: 'ul' // default 'div'
-	          , options: masonryOptions // default {}
-	          , disableImagesLoaded: false // default false
-	          , updateOnEachImageLoad: false // default false and works only if disableImagesLoaded is false
-	          , onImagesLoaded: this.handleImagesLoaded
-	        },
-	        photoList
-	      );
-	    }
-	  }]);
-	
-	  return PhotoIndexLanding;
-	}(_react2.default.Component);
-	
-	exports.default = PhotoIndexLanding;
-
-/***/ },
-/* 445 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var isBrowser = typeof window !== 'undefined';
-	var Masonry = isBrowser ? window.Masonry || __webpack_require__(446) : null;
-	var imagesloaded = isBrowser ? __webpack_require__(453) : null;
-	var assign = __webpack_require__(454);
-	var debounce = __webpack_require__(455);
-	var omit = __webpack_require__(456);
+	var Masonry = isBrowser ? window.Masonry || __webpack_require__(427) : null;
+	var imagesloaded = isBrowser ? __webpack_require__(434) : null;
+	var assign = __webpack_require__(435);
+	var debounce = __webpack_require__(436);
+	var omit = __webpack_require__(437);
 	var React = __webpack_require__(1);
 	var refName = 'masonryContainer';
 	
@@ -38263,7 +36612,7 @@
 
 
 /***/ },
-/* 446 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -38280,8 +36629,8 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	        __webpack_require__(447),
-	        __webpack_require__(449)
+	        __webpack_require__(428),
+	        __webpack_require__(430)
 	      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS
@@ -38473,7 +36822,7 @@
 
 
 /***/ },
-/* 447 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -38489,10 +36838,10 @@
 	  if ( true ) {
 	    // AMD - RequireJS
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	        __webpack_require__(448),
-	        __webpack_require__(449),
-	        __webpack_require__(450),
-	        __webpack_require__(452)
+	        __webpack_require__(429),
+	        __webpack_require__(430),
+	        __webpack_require__(431),
+	        __webpack_require__(433)
 	      ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Item ) {
 	        return factory( window, EvEmitter, getSize, utils, Item);
 	      }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -39416,7 +37765,7 @@
 
 
 /***/ },
-/* 448 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -39531,7 +37880,7 @@
 
 
 /***/ },
-/* 449 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -39746,7 +38095,7 @@
 
 
 /***/ },
-/* 450 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -39763,7 +38112,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(451)
+	      __webpack_require__(432)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
 	      return factory( window, matchesSelector );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -39989,7 +38338,7 @@
 
 
 /***/ },
-/* 451 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -40048,7 +38397,7 @@
 
 
 /***/ },
-/* 452 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -40061,8 +38410,8 @@
 	  if ( true ) {
 	    // AMD - RequireJS
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	        __webpack_require__(448),
-	        __webpack_require__(449)
+	        __webpack_require__(429),
+	        __webpack_require__(430)
 	      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ( typeof module == 'object' && module.exports ) {
 	    // CommonJS - Browserify, Webpack
@@ -40605,7 +38954,7 @@
 
 
 /***/ },
-/* 453 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -40622,7 +38971,7 @@
 	  if ( true ) {
 	    // AMD
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	      __webpack_require__(448)
+	      __webpack_require__(429)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
 	      return factory( window, EvEmitter );
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -40981,7 +39330,7 @@
 
 
 /***/ },
-/* 454 */
+/* 435 */
 /***/ function(module, exports) {
 
 	/**
@@ -41624,7 +39973,7 @@
 
 
 /***/ },
-/* 455 */
+/* 436 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -42008,7 +40357,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 456 */
+/* 437 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -43503,7 +41852,1117 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 457 */
+/* 438 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(384);
+	
+	var _album_index_landing = __webpack_require__(439);
+	
+	var _album_index_landing2 = _interopRequireDefault(_album_index_landing);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user,
+	    albums: state.albums
+	  };
+	};
+	// import { fetchAllPhotos } from '../../actions/photo_actions';
+	// import { fetchAllUsers } from '../../actions/user_actions';
+	
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchAllAlbums: function (_fetchAllAlbums) {
+	      function fetchAllAlbums() {
+	        return _fetchAllAlbums.apply(this, arguments);
+	      }
+	
+	      fetchAllAlbums.toString = function () {
+	        return _fetchAllAlbums.toString();
+	      };
+	
+	      return fetchAllAlbums;
+	    }(function () {
+	      return dispatch(fetchAllAlbums());
+	    }),
+	    fetchAllUsers: function (_fetchAllUsers) {
+	      function fetchAllUsers() {
+	        return _fetchAllUsers.apply(this, arguments);
+	      }
+	
+	      fetchAllUsers.toString = function () {
+	        return _fetchAllUsers.toString();
+	      };
+	
+	      return fetchAllUsers;
+	    }(function () {
+	      return dispatch(fetchAllUsers());
+	    }),
+	    fetchSingleUser: function (_fetchSingleUser) {
+	      function fetchSingleUser(_x) {
+	        return _fetchSingleUser.apply(this, arguments);
+	      }
+	
+	      fetchSingleUser.toString = function () {
+	        return _fetchSingleUser.toString();
+	      };
+	
+	      return fetchSingleUser;
+	    }(function (id) {
+	      return dispatch(fetchSingleUser(id));
+	    })
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_index_landing2.default);
+
+/***/ },
+/* 439 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _album_index_item = __webpack_require__(440);
+	
+	var _album_index_item2 = _interopRequireDefault(_album_index_item);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AlbumIndexLanding = function (_React$Component) {
+	  _inherits(AlbumIndexLanding, _React$Component);
+	
+	  function AlbumIndexLanding(props) {
+	    _classCallCheck(this, AlbumIndexLanding);
+	
+	    return _possibleConstructorReturn(this, (AlbumIndexLanding.__proto__ || Object.getPrototypeOf(AlbumIndexLanding)).call(this, props));
+	  }
+	
+	  _createClass(AlbumIndexLanding, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      // this.props.fetchAllUsers();
+	      //fetchAllAlbums
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var userAlbums = function userAlbums(id) {
+	        var result = [];
+	        _this2.props.albums.map(function (album) {
+	          if (album.author_id === id) {
+	            result.push(album);
+	          };
+	        });
+	        return result;
+	      };
+	      // const userAlbums = (array) => {
+	      //   let result = [];
+	      //   array.map(id => {
+	      //     this.props.albums.map(album => {
+	      //       if (album.author_id === id) {
+	      //         result.push(album);
+	      //       };
+	      //     })
+	      //   })
+	      //   return result;
+	      // }
+	
+	      var albumList = this.props.albums.map(function (album) {
+	        return _react2.default.createElement(_album_index_item2.default, { key: album.id, album: album, props: _this2.props });
+	      });
+	
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'landing-photo-grid' },
+	        albumList
+	      );
+	    }
+	  }]);
+	
+	  return AlbumIndexLanding;
+	}(_react2.default.Component);
+	
+	exports.default = AlbumIndexLanding;
+
+/***/ },
+/* 440 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(311);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import Modal from 'react-modal';
+	// import ModalStyle from './modal_style'
+	
+	
+	var AlbumIndexItem = function (_React$Component) {
+	  _inherits(AlbumIndexItem, _React$Component);
+	
+	  function AlbumIndexItem(props) {
+	    _classCallCheck(this, AlbumIndexItem);
+	
+	    return _possibleConstructorReturn(this, (AlbumIndexItem.__proto__ || Object.getPrototypeOf(AlbumIndexItem)).call(this, props));
+	  }
+	
+	  _createClass(AlbumIndexItem, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      // this.props.fetchSingleUser(this.props.photo.author_id);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var cover_photo = function cover_photo(id) {
+	        var result = '';
+	        _this2.props.props.photos.map(function (x) {
+	          if (id === x.id) {
+	            result = x.image_url;
+	          }
+	        });
+	        return result;
+	      };
+	
+	      var handleAlbumClick = function handleAlbumClick(router, url) {
+	        return function () {
+	          return router.push(url);
+	        };
+	      };
+	      var albumAuthFun = function albumAuthFun(id) {
+	        var result = "";
+	        _this2.props.props.user.map(function (x) {
+	          if (id === x.id) {
+	            result = x;
+	          }
+	        });
+	        return result;
+	      };
+	      var Author = albumAuthFun(this.props.album.author_id);
+	      return _react2.default.createElement(
+	        'li',
+	        { className: 'album-li' },
+	        _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: this.props.album.cover_photo_id ? cover_photo(this.props.album.cover_photo_id) : "http://res.cloudinary.com/dt5viyxyq/image/upload/v1473229700/Photo-Album3-512_rdgg2m.png" }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'auth' },
+	          _react2.default.createElement('img', { onClick: handleAlbumClick(this.props.router, '/album/' + this.props.album.id), src: Author.profile_pic }),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            this.props.album.title
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return AlbumIndexItem;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouter.withRouter)(AlbumIndexItem);
+
+/***/ },
+/* 441 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(384);
+	
+	var _profile = __webpack_require__(442);
+	
+	var _profile2 = _interopRequireDefault(_profile);
+	
+	var _album_actions = __webpack_require__(303);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// import { fetchAllPhotos } from '../../actions/photo_actions';
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    createAlbum: function createAlbum(id) {
+	      return dispatch((0, _album_actions.createAlbum)(id));
+	    }
+	
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_profile2.default);
+
+/***/ },
+/* 442 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _album_index_container = __webpack_require__(443);
+	
+	var _album_index_container2 = _interopRequireDefault(_album_index_container);
+	
+	var _album_form_container = __webpack_require__(445);
+	
+	var _album_form_container2 = _interopRequireDefault(_album_form_container);
+	
+	var _reactModal = __webpack_require__(402);
+	
+	var _reactModal2 = _interopRequireDefault(_reactModal);
+	
+	var _modal_style = __webpack_require__(447);
+	
+	var _modal_style2 = _interopRequireDefault(_modal_style);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Profile = function (_React$Component) {
+	  _inherits(Profile, _React$Component);
+	
+	  function Profile(props) {
+	    _classCallCheck(this, Profile);
+	
+	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+	
+	    _this.state = { modalOpen: false, album: { title: "",
+	        description: "",
+	        author_id: parseInt(_this.props.params.profileId) } };
+	    _this.onModalClose = _this.onModalClose.bind(_this);
+	    _this.onModalOpen = _this.onModalOpen.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Profile, [{
+	    key: 'onModalClose',
+	    value: function onModalClose() {
+	      this.setState({ modalOpen: false });
+	      _modal_style2.default.content.opacity = 0;
+	    }
+	  }, {
+	    key: 'onModalOpen',
+	    value: function onModalOpen() {
+	      _modal_style2.default.content.opacity = 100;
+	      _modal_style2.default.content.background;
+	    }
+	  }, {
+	    key: '_handleClick',
+	    value: function _handleClick() {
+	      this.setState({ modalOpen: true });
+	    }
+	  }, {
+	    key: 'update',
+	    value: function update(property) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        return _this2.setState({ album: _defineProperty({}, property, e.target.value) });
+	      };
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      this.props.createAlbum(this.state.album);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+	
+	      var profUser = function profUser(id) {
+	        var result = '';
+	        _this3.props.user.map(function (x) {
+	          if (id === x.id) {
+	            result = x;
+	          }
+	        });
+	        return result;
+	      };
+	
+	      var thisProf = profUser(parseInt(this.props.params.profileId));
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'prof-container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'prof-header' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'prof-main-pic' },
+	            _react2.default.createElement('img', { src: thisProf.profile_pic })
+	          ),
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            thisProf.username
+	          ),
+	          this.props.currentUser.id === thisProf.id ? _react2.default.createElement(
+	            'button',
+	            { className: 'album-button', onClick: this._handleClick.bind(this) },
+	            'Add Album'
+	          ) : _react2.default.createElement('a', null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'album-grid' },
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'explore-text' },
+	            'ALBUMS'
+	          ),
+	          _react2.default.createElement(_album_index_container2.default, { prof: thisProf })
+	        ),
+	        _react2.default.createElement(
+	          _reactModal2.default,
+	          {
+	            isOpen: this.state.modalOpen,
+	            onRequestClose: this.onModalClose,
+	            style: _modal_style2.default,
+	            onAfterOpen: this.onModalOpen },
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'modal-close', onClick: this.onModalClose },
+	            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'modal-container' },
+	            _react2.default.createElement(_album_form_container2.default, { profileId: parseInt(this.props.params.profileId) })
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Profile;
+	}(_react2.default.Component);
+	
+	exports.default = Profile;
+
+/***/ },
+/* 443 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(384);
+	
+	var _album_index = __webpack_require__(444);
+	
+	var _album_index2 = _interopRequireDefault(_album_index);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user,
+	    albums: state.albums
+	  };
+	};
+	// import { fetchAllPhotos } from '../../actions/photo_actions';
+	// import { fetchAllUsers } from '../../actions/user_actions';
+	
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchAllAlbums: function (_fetchAllAlbums) {
+	      function fetchAllAlbums() {
+	        return _fetchAllAlbums.apply(this, arguments);
+	      }
+	
+	      fetchAllAlbums.toString = function () {
+	        return _fetchAllAlbums.toString();
+	      };
+	
+	      return fetchAllAlbums;
+	    }(function () {
+	      return dispatch(fetchAllAlbums());
+	    }),
+	    fetchAllUsers: function (_fetchAllUsers) {
+	      function fetchAllUsers() {
+	        return _fetchAllUsers.apply(this, arguments);
+	      }
+	
+	      fetchAllUsers.toString = function () {
+	        return _fetchAllUsers.toString();
+	      };
+	
+	      return fetchAllUsers;
+	    }(function () {
+	      return dispatch(fetchAllUsers());
+	    }),
+	    fetchSingleUser: function (_fetchSingleUser) {
+	      function fetchSingleUser(_x) {
+	        return _fetchSingleUser.apply(this, arguments);
+	      }
+	
+	      fetchSingleUser.toString = function () {
+	        return _fetchSingleUser.toString();
+	      };
+	
+	      return fetchSingleUser;
+	    }(function (id) {
+	      return dispatch(fetchSingleUser(id));
+	    })
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_index2.default);
+
+/***/ },
+/* 444 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _album_index_item = __webpack_require__(440);
+	
+	var _album_index_item2 = _interopRequireDefault(_album_index_item);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AlbumIndex = function (_React$Component) {
+	  _inherits(AlbumIndex, _React$Component);
+	
+	  function AlbumIndex(props) {
+	    _classCallCheck(this, AlbumIndex);
+	
+	    return _possibleConstructorReturn(this, (AlbumIndex.__proto__ || Object.getPrototypeOf(AlbumIndex)).call(this, props));
+	  }
+	
+	  _createClass(AlbumIndex, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      // this.props.fetchAllUsers();
+	      //fetchAllAlbums
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var userAlbums = function userAlbums(id) {
+	        var result = [];
+	        _this2.props.albums.map(function (album) {
+	          if (album.author_id === id) {
+	            result.push(album);
+	          };
+	        });
+	        return result;
+	      };
+	      // const userAlbums = (array) => {
+	      //   let result = [];
+	      //   array.map(id => {
+	      //     this.props.albums.map(album => {
+	      //       if (album.author_id === id) {
+	      //         result.push(album);
+	      //       };
+	      //     })
+	      //   })
+	      //   return result;
+	      // }
+	
+	      var albumList = userAlbums(this.props.prof.id).map(function (album) {
+	        return _react2.default.createElement(_album_index_item2.default, { key: album.id, album: album, props: _this2.props });
+	      });
+	
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'prof-album-grid' },
+	        albumList
+	      );
+	    }
+	  }]);
+	
+	  return AlbumIndex;
+	}(_react2.default.Component);
+	
+	exports.default = AlbumIndex;
+
+/***/ },
+/* 445 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(384);
+	
+	var _photo_actions = __webpack_require__(301);
+	
+	var _user_actions = __webpack_require__(305);
+	
+	var _album_actions = __webpack_require__(303);
+	
+	var _album_form = __webpack_require__(446);
+	
+	var _album_form2 = _interopRequireDefault(_album_form);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchAllPhotos: function fetchAllPhotos() {
+	      return dispatch((0, _photo_actions.fetchAllPhotos)());
+	    },
+	    goToProfile: function (_goToProfile) {
+	      function goToProfile(_x) {
+	        return _goToProfile.apply(this, arguments);
+	      }
+	
+	      goToProfile.toString = function () {
+	        return _goToProfile.toString();
+	      };
+	
+	      return goToProfile;
+	    }(function (id) {
+	      return dispatch(goToProfile(id));
+	    }),
+	    fetchAllUsers: function fetchAllUsers() {
+	      return dispatch((0, _user_actions.fetchAllUsers)());
+	    },
+	    fetchSingleUser: function (_fetchSingleUser) {
+	      function fetchSingleUser(_x2) {
+	        return _fetchSingleUser.apply(this, arguments);
+	      }
+	
+	      fetchSingleUser.toString = function () {
+	        return _fetchSingleUser.toString();
+	      };
+	
+	      return fetchSingleUser;
+	    }(function (id) {
+	      return dispatch(fetchSingleUser(id));
+	    }),
+	    createPhoto: function createPhoto(id) {
+	      return dispatch((0, _photo_actions.createPhoto)(id));
+	    },
+	    createAlbum: function createAlbum(id) {
+	      return dispatch((0, _album_actions.createAlbum)(id));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_form2.default);
+
+/***/ },
+/* 446 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(311);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import Modal from 'react-modal';
+	// import ModalStyle from './modal_style'
+	
+	
+	var AlbumForm = function (_React$Component) {
+	  _inherits(AlbumForm, _React$Component);
+	
+	  function AlbumForm(props) {
+	    _classCallCheck(this, AlbumForm);
+	
+	    var _this = _possibleConstructorReturn(this, (AlbumForm.__proto__ || Object.getPrototypeOf(AlbumForm)).call(this, props));
+	
+	    _this.state = {
+	      title: '',
+	      description: '',
+	      author_id: parseInt(_this.props.profileId)
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(AlbumForm, [{
+	    key: 'update',
+	    value: function update(property) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        return _this2.setState(_defineProperty({}, property, e.target.value));
+	      };
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      this.props.createAlbum(this.state);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	
+	      // const currAlbum = currAlbumFun(parseInt(this.props.params.albumId))
+	
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'album-form-container' },
+	        _react2.default.createElement(
+	          'form',
+	          { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.title,
+	            placeholder: 'title',
+	            onChange: this.update('title') }),
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.description,
+	            placeholder: 'description (optional)',
+	            onChange: this.update('description') }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'splash-button' },
+	            'Create Album'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return AlbumForm;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouter.withRouter)(AlbumForm);
+
+/***/ },
+/* 447 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ModalStyle = {
+	  overlay: {
+	    position: 'fixed',
+	    top: 0,
+	    left: 0,
+	    right: 0,
+	    bottom: 0,
+	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
+	  },
+	  content: {
+	    position: 'fixed',
+	    top: '100px',
+	    left: '150px',
+	    right: '150px',
+	    bottom: '100px',
+	    border: '1px solid #ccc',
+	    padding: '20px',
+	    opacity: '0',
+	    transition: 'opacity 0.25s',
+	    background: 'rgb(44, 95, 118)'
+	    // z-index: 11
+	  }
+	};
+	
+	exports.default = ModalStyle;
+
+/***/ },
+/* 448 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(384);
+	
+	var _album_actions = __webpack_require__(303);
+	
+	var _album_detail = __webpack_require__(449);
+	
+	var _album_detail2 = _interopRequireDefault(_album_detail);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// import { fetchAllPhotos } from '../../actions/photo_actions';
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user,
+	    albums: state.albums
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    // fetchAllAlbums: () => dispatch(fetchAllAlbums()),
+	    // fetchAllUsers: () => dispatch(fetchAllUsers()),
+	    fetchSingleAlbum: function fetchSingleAlbum(id) {
+	      return dispatch((0, _album_actions.fetchSingleAlbum)(id));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_album_detail2.default);
+
+/***/ },
+/* 449 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactModal = __webpack_require__(402);
+	
+	var _reactModal2 = _interopRequireDefault(_reactModal);
+	
+	var _modal_style = __webpack_require__(450);
+	
+	var _modal_style2 = _interopRequireDefault(_modal_style);
+	
+	var _reactRouter = __webpack_require__(311);
+	
+	var _photo_index_item = __webpack_require__(451);
+	
+	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AlbumDetail = function (_React$Component) {
+	  _inherits(AlbumDetail, _React$Component);
+	
+	  function AlbumDetail(props) {
+	    _classCallCheck(this, AlbumDetail);
+	
+	    var _this = _possibleConstructorReturn(this, (AlbumDetail.__proto__ || Object.getPrototypeOf(AlbumDetail)).call(this, props));
+	
+	    _this.state = { modalOpen: false };
+	    _this.onModalClose = _this.onModalClose.bind(_this);
+	    _this.onModalOpen = _this.onModalOpen.bind(_this);
+	    _this.upload = _this.upload.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(AlbumDetail, [{
+	    key: 'onModalClose',
+	    value: function onModalClose() {
+	      this.setState({ modalOpen: false });
+	      _modal_style2.default.content.opacity = 0;
+	    }
+	  }, {
+	    key: 'onModalOpen',
+	    value: function onModalOpen() {
+	      _modal_style2.default.content.opacity = 100;
+	      _modal_style2.default.content.background;
+	    }
+	  }, {
+	    key: '_handleClick',
+	    value: function _handleClick() {
+	      this.setState({ modalOpen: true });
+	    }
+	  }, {
+	    key: 'upload',
+	    value: function upload(e) {
+	      e.preventDefault();
+	      cloudinary.openUploadWidget(window.cloudinary_options, function (error, images) {
+	        if (error === null) {
+	          console.log("HI");
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var currAlbumPhotos = function currAlbumPhotos(id) {
+	        var result = [];
+	        _this2.props.photos.map(function (x) {
+	          if (id === x.album_id) {
+	            result.push(x);
+	          }
+	        });
+	        return result;
+	      };
+	      var thisAlbumPhotos = currAlbumPhotos(parseInt(this.props.params.albumId));
+	
+	      var currAlbum = function currAlbum(id) {
+	        var result = "";
+	        _this2.props.albums.map(function (x) {
+	          if (id === x.id) {
+	            result = x;
+	          }
+	        });
+	        return result;
+	      };
+	
+	      var thisAlbum = currAlbum(parseInt(this.props.params.albumId));
+	
+	      var handleProfileClick = function handleProfileClick(router, url) {
+	        return function () {
+	          return router.push(url);
+	        };
+	      };
+	
+	      var photoList = thisAlbumPhotos.map(function (photo) {
+	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
+	      });
+	
+	      var editButton = function editButton() {
+	        if (thisAlbum.author_id === _this2.props.currentUser.id) {
+	          return _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button' },
+	            'Edit Album'
+	          );
+	        }
+	      };
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'home-nav' },
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'album-text' },
+	            thisAlbum.title
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button', onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id) },
+	            'User Profile'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'explore-button', onClick: this._handleClick.bind(this) },
+	            'About Series'
+	          ),
+	          this.props.currentUser.id === thisAlbum.author_id ? _react2.default.createElement(
+	            'button',
+	            { onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id + '/upload/album/' + thisAlbum.id), className: 'explore-button' },
+	            'Add Photo'
+	          ) : _react2.default.createElement('a', null),
+	          editButton
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'album-show-container' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'album-photo-grid' },
+	            photoList
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _reactModal2.default,
+	          {
+	            isOpen: this.state.modalOpen,
+	            onRequestClose: this.onModalClose,
+	            style: _modal_style2.default,
+	            onAfterOpen: this.onModalOpen },
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'modal-close', onClick: this.onModalClose },
+	            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'modal-container' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              thisAlbum.description ? thisAlbum.description : 'No Description...'
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return AlbumDetail;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouter.withRouter)(AlbumDetail);
+
+/***/ },
+/* 450 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ModalStyle = {
+	  overlay: {
+	    position: 'fixed',
+	    top: 0,
+	    left: 0,
+	    right: 0,
+	    bottom: 0,
+	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
+	  },
+	  content: {
+	    position: 'fixed',
+	    top: '72px',
+	    left: '150px',
+	    right: '150px',
+	    bottom: '205px',
+	    border: '1px solid #ccc',
+	    padding: '20px',
+	    opacity: '0',
+	    transition: 'opacity 0.25s'
+	    // z-index: 11
+	  }
+	};
+	
+	exports.default = ModalStyle;
+
+/***/ },
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43540,13 +42999,13 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var PhotoIndexItemLanding = function (_React$Component) {
-	  _inherits(PhotoIndexItemLanding, _React$Component);
+	var PhotoIndexItem = function (_React$Component) {
+	  _inherits(PhotoIndexItem, _React$Component);
 	
-	  function PhotoIndexItemLanding(props) {
-	    _classCallCheck(this, PhotoIndexItemLanding);
+	  function PhotoIndexItem(props) {
+	    _classCallCheck(this, PhotoIndexItem);
 	
-	    var _this = _possibleConstructorReturn(this, (PhotoIndexItemLanding.__proto__ || Object.getPrototypeOf(PhotoIndexItemLanding)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (PhotoIndexItem.__proto__ || Object.getPrototypeOf(PhotoIndexItem)).call(this, props));
 	
 	    _this.state = { modalOpen: false };
 	    _this.onModalClose = _this.onModalClose.bind(_this);
@@ -43554,7 +43013,7 @@
 	    return _this;
 	  }
 	
-	  _createClass(PhotoIndexItemLanding, [{
+	  _createClass(PhotoIndexItem, [{
 	    key: 'onModalClose',
 	    value: function onModalClose() {
 	      this.setState({ modalOpen: false });
@@ -43602,8 +43061,18 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          null,
-	          _react2.default.createElement('img', { src: this.props.photo.image_url, media: '(max-width: 400px)', onClick: this._handleClick.bind(this) })
+	          { className: 'photo-grid' },
+	          _react2.default.createElement('img', { src: this.props.photo.image_url, onClick: this._handleClick.bind(this) })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'auth' },
+	          _react2.default.createElement('img', { onClick: handleProfileClick(this.props.router, '/profile/' + this.props.photo.author_id), src: author(this.props.photo.author_id) }),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            this.props.photo.title
+	          )
 	        ),
 	        _react2.default.createElement(
 	          _reactModal2.default,
@@ -43620,16 +43089,6 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-container' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'auth' },
-	              _react2.default.createElement('img', { onClick: handleProfileClick(this.props.router, '/profile/' + this.props.photo.author_id), src: author(this.props.photo.author_id) }),
-	              _react2.default.createElement(
-	                'h3',
-	                null,
-	                this.props.photo.title
-	              )
-	            ),
 	            _react2.default.createElement('img', { src: this.props.photo.image_url })
 	          ),
 	          _react2.default.createElement(
@@ -43642,10 +43101,552 @@
 	    }
 	  }]);
 	
-	  return PhotoIndexItemLanding;
+	  return PhotoIndexItem;
 	}(_react2.default.Component);
 	
-	exports.default = (0, _reactRouter.withRouter)(PhotoIndexItemLanding);
+	exports.default = (0, _reactRouter.withRouter)(PhotoIndexItem);
+
+/***/ },
+/* 452 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(384);
+	
+	var _photo_actions = __webpack_require__(301);
+	
+	var _user_actions = __webpack_require__(305);
+	
+	var _photo_form = __webpack_require__(453);
+	
+	var _photo_form2 = _interopRequireDefault(_photo_form);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchAllPhotos: function fetchAllPhotos() {
+	      return dispatch((0, _photo_actions.fetchAllPhotos)());
+	    },
+	    goToProfile: function (_goToProfile) {
+	      function goToProfile(_x) {
+	        return _goToProfile.apply(this, arguments);
+	      }
+	
+	      goToProfile.toString = function () {
+	        return _goToProfile.toString();
+	      };
+	
+	      return goToProfile;
+	    }(function (id) {
+	      return dispatch(goToProfile(id));
+	    }),
+	    fetchAllUsers: function fetchAllUsers() {
+	      return dispatch((0, _user_actions.fetchAllUsers)());
+	    },
+	    fetchSingleUser: function (_fetchSingleUser) {
+	      function fetchSingleUser(_x2) {
+	        return _fetchSingleUser.apply(this, arguments);
+	      }
+	
+	      fetchSingleUser.toString = function () {
+	        return _fetchSingleUser.toString();
+	      };
+	
+	      return fetchSingleUser;
+	    }(function (id) {
+	      return dispatch(fetchSingleUser(id));
+	    }),
+	    createPhoto: function createPhoto(id) {
+	      return dispatch((0, _photo_actions.createPhoto)(id));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_form2.default);
+
+/***/ },
+/* 453 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactModal = __webpack_require__(402);
+	
+	var _reactModal2 = _interopRequireDefault(_reactModal);
+	
+	var _modal_style = __webpack_require__(422);
+	
+	var _modal_style2 = _interopRequireDefault(_modal_style);
+	
+	var _reactRouter = __webpack_require__(311);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var PhotoForm = function (_React$Component) {
+	  _inherits(PhotoForm, _React$Component);
+	
+	  function PhotoForm(props) {
+	    _classCallCheck(this, PhotoForm);
+	
+	    var _this = _possibleConstructorReturn(this, (PhotoForm.__proto__ || Object.getPrototypeOf(PhotoForm)).call(this, props));
+	
+	    _this.state = {
+	      title: '',
+	      description: '',
+	      medium: '',
+	      image_url: '',
+	      album_id: parseInt(_this.props.params.albumId),
+	      author_id: parseInt(_this.props.params.profileId)
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(PhotoForm, [{
+	    key: 'update',
+	    value: function update(property) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        return _this2.setState(_defineProperty({}, property, e.target.value));
+	      };
+	    }
+	  }, {
+	    key: 'handleUpload',
+	    value: function handleUpload(e) {
+	      e.preventDefault();
+	      var that = this;
+	      cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, function (error, images) {
+	        if (error === null) {
+	          that.setState({ image_url: images[0].url });
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      this.props.createPhoto(this.state);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	
+	      // const currAlbum = currAlbumFun(parseInt(this.props.params.albumId))
+	
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'photo-form-container' },
+	        _react2.default.createElement(
+	          'form',
+	          { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.title,
+	            placeholder: 'title',
+	            onChange: this.update('title') }),
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.medium,
+	            placeholder: 'medium (optional)',
+	            onChange: this.update('medium') }),
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            value: this.state.description,
+	            placeholder: 'description (optional)',
+	            onChange: this.update('description') }),
+	          this.state.image_url === "" ? _react2.default.createElement(
+	            'button',
+	            { className: 'splash-button', onClick: this.handleUpload.bind(this) },
+	            'Upload Photo'
+	          ) : _react2.default.createElement('img', { className: 'image-preview', src: this.state.image_url }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'splash-button' },
+	            'Submit Photo'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return PhotoForm;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouter.withRouter)(PhotoForm);
+
+/***/ },
+/* 454 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(384);
+	
+	var _session_actions = __webpack_require__(297);
+	
+	var _user_actions = __webpack_require__(305);
+	
+	var _search = __webpack_require__(455);
+	
+	var _search2 = _interopRequireDefault(_search);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  var _ref;
+	
+	  return _ref = {
+	    currentUser: state.session.currentUser,
+	    search_results: state.search_results
+	  }, _defineProperty(_ref, 'currentUser', state.session.currentUser), _defineProperty(_ref, 'photos', state.photos), _defineProperty(_ref, 'user', state.user), _defineProperty(_ref, 'albums', state.albums), _ref;
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    logout: function logout() {
+	      return dispatch((0, _session_actions.logout)());
+	    },
+	    goToProfile: function goToProfile(id) {
+	      return dispatch((0, _user_actions.goToProfile)(id));
+	    },
+	    receiveNewSearchResults: function (_receiveNewSearchResults) {
+	      function receiveNewSearchResults(_x) {
+	        return _receiveNewSearchResults.apply(this, arguments);
+	      }
+	
+	      receiveNewSearchResults.toString = function () {
+	        return _receiveNewSearchResults.toString();
+	      };
+	
+	      return receiveNewSearchResults;
+	    }(function (data) {
+	      return dispatch(receiveNewSearchResults(data));
+	    })
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_search2.default);
+
+/***/ },
+/* 455 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(311);
+	
+	var _index_container = __webpack_require__(456);
+	
+	var _index_container2 = _interopRequireDefault(_index_container);
+	
+	var _photo_index_item = __webpack_require__(451);
+	
+	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
+	
+	var _album_index_landing_container = __webpack_require__(438);
+	
+	var _album_index_landing_container2 = _interopRequireDefault(_album_index_landing_container);
+	
+	var _album_index_item = __webpack_require__(440);
+	
+	var _album_index_item2 = _interopRequireDefault(_album_index_item);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// import AlbumIndexContainer from '../album/album_index_container';
+	var Home = function (_React$Component) {
+	  _inherits(Home, _React$Component);
+	
+	  function Home(props) {
+	    _classCallCheck(this, Home);
+	
+	    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+	  }
+	
+	  _createClass(Home, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var editedPhotoList = function editedPhotoList(substring) {
+	        var result = [];
+	        _this2.props.photos.map(function (x) {
+	          if (x.title.toUpperCase().indexOf(substring) !== -1) {
+	            result.push(x);
+	          } else if (x.description && x.description.toUpperCase().indexOf(substring) !== -1) {
+	            result.push(x);
+	          } else if (x.medium && x.medium.toUpperCase().indexOf(substring) !== -1) {
+	            result.push(x);
+	          }
+	        });
+	        return result;
+	      };
+	      var editedAlbumList = function editedAlbumList(substring) {
+	        var result = [];
+	        _this2.props.albums.map(function (x) {
+	          if (x.title.toUpperCase().indexOf(substring) !== -1) {
+	            result.push(x);
+	          } else if (x.description && x.description.toUpperCase().indexOf(substring) !== -1) {
+	            result.push(x);
+	          }
+	        });
+	        return result;
+	      };
+	
+	      var albumList = editedAlbumList(this.props.search_results[0].search_results.toUpperCase()).map(function (album) {
+	        return _react2.default.createElement(_album_index_item2.default, { key: album.id, album: album, props: _this2.props });
+	      });
+	
+	      var photoList = editedPhotoList(this.props.search_results[0].search_results.toUpperCase()).map(function (photo) {
+	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
+	      });
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'search-container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'home-nav' },
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'explore-text' },
+	            'RESULTS FOR : ',
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              _react2.default.createElement(
+	                'q',
+	                null,
+	                this.props.search_results[0].search_results
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'landing-photo-grid' },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'PHOTOS'
+	          ),
+	          photoList.length > 0 ? photoList : _react2.default.createElement(
+	            'h3',
+	            { className: 'no-res' },
+	            'No Results...'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'landing-photo-grid' },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'ALBUMS'
+	          ),
+	          albumList.length > 0 ? albumList : _react2.default.createElement(
+	            'h3',
+	            { className: 'no-res' },
+	            'No Results...'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Home;
+	}(_react2.default.Component);
+	
+	exports.default = Home;
+
+/***/ },
+/* 456 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(384);
+	
+	var _photo_actions = __webpack_require__(301);
+	
+	var _user_actions = __webpack_require__(305);
+	
+	var _photo_index = __webpack_require__(457);
+	
+	var _photo_index2 = _interopRequireDefault(_photo_index);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser,
+	    photos: state.photos,
+	    user: state.user,
+	    comments: state.comments
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchAllPhotos: function fetchAllPhotos() {
+	      return dispatch((0, _photo_actions.fetchAllPhotos)());
+	    },
+	    goToProfile: function (_goToProfile) {
+	      function goToProfile(_x) {
+	        return _goToProfile.apply(this, arguments);
+	      }
+	
+	      goToProfile.toString = function () {
+	        return _goToProfile.toString();
+	      };
+	
+	      return goToProfile;
+	    }(function (id) {
+	      return dispatch(goToProfile(id));
+	    }),
+	    fetchAllUsers: function fetchAllUsers() {
+	      return dispatch((0, _user_actions.fetchAllUsers)());
+	    },
+	    fetchSingleUser: function (_fetchSingleUser) {
+	      function fetchSingleUser(_x2) {
+	        return _fetchSingleUser.apply(this, arguments);
+	      }
+	
+	      fetchSingleUser.toString = function () {
+	        return _fetchSingleUser.toString();
+	      };
+	
+	      return fetchSingleUser;
+	    }(function (id) {
+	      return dispatch(fetchSingleUser(id));
+	    })
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_index2.default);
+
+/***/ },
+/* 457 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _photo_index_item = __webpack_require__(451);
+	
+	var _photo_index_item2 = _interopRequireDefault(_photo_index_item);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var PhotoIndex = function (_React$Component) {
+	  _inherits(PhotoIndex, _React$Component);
+	
+	  function PhotoIndex(props) {
+	    _classCallCheck(this, PhotoIndex);
+	
+	    return _possibleConstructorReturn(this, (PhotoIndex.__proto__ || Object.getPrototypeOf(PhotoIndex)).call(this, props));
+	  }
+	
+	  _createClass(PhotoIndex, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.fetchAllUsers();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var photoList = this.props.photos.map(function (photo) {
+	        return _react2.default.createElement(_photo_index_item2.default, { key: photo.id, photo: photo, props: _this2.props });
+	      });
+	
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'landing-photo-grid' },
+	        photoList
+	      );
+	    }
+	  }]);
+	
+	  return PhotoIndex;
+	}(_react2.default.Component);
+	
+	exports.default = PhotoIndex;
 
 /***/ }
 /******/ ]);

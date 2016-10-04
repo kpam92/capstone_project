@@ -31,6 +31,7 @@ class AppRouter extends React.Component{
     if (!currentUser) {
       replace('/login');
     } else {
+      window.scrollTo(0, 0);
       this._fetchAllAssetsOnEnter();
     }
   }
