@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import PhotoIndexLandingContainer from '../photo/photo_index_landing_container';
+import IndexContainer from '../photo/index_container';
+
 import AlbumIndexLandingContainer from '../album/album_index_landing_container';
 // import AlbumIndexContainer from '../album/album_index_container';
 class Home extends React.Component {
@@ -49,7 +51,7 @@ class Home extends React.Component {
         <button className="explore-button by-album" onClick={this._handleAlbumClick.bind(this)}>By Album</button>
         <button className="explore-button by-piece" onClick={this._handlePhotoClick.bind(this)}>By Piece</button>
       </div>
-      { this.state.photos ? <PhotoIndexLandingContainer/> : <AlbumIndexLandingContainer/> }
+      { this.state.photos ? <IndexContainer/> : <AlbumIndexLandingContainer/> }
     </div>
     )
   }

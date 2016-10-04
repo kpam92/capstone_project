@@ -53,7 +53,7 @@ class PhotoIndexItemLanding extends React.Component {
     return(
       <li>
         <div>
-        <img src={this.props.photo.image_url} media="(max-width: 400px)" onClick={this._handleClick.bind(this)}/>
+        <img className="cld-responsive" src={this.props.photo.image_url} media="(max-width: 400px)" onClick={this._handleClick.bind(this)}/>
         </div>
           <Modal
             isOpen={this.state.modalOpen}

@@ -23,6 +23,10 @@ class Greeting extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  componentDidMount(){
+    this.props.router.push(`/login`)
+  }
+
   render() {
 
     const sessionLinks = () => (
@@ -33,7 +37,7 @@ class Greeting extends React.Component {
         &nbsp;or&nbsp;
         <Link to="/signup" activeClassName="current">SIGN UP</Link>
         <div className='splash-logo'><label className="logo-letter">O</label>pen<label className="logo-letter">W</label>all</div>
-        <div className='tagline'> A virtual space for creating and sharing...</div>
+        <div className='tagline'> A virtual space for creating and sharing work...</div>
       </nav>
     </div>
     );
