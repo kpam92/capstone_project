@@ -26,8 +26,8 @@ Album.create!(title: "ACA Photoshoot", author_id: 2, description:"selects from t
 Album.create!(title: "Main Gallery", author_id: 4, cover_photo_id: 11)
 Album.create!(title: "Doodles", author_id: 4, description:"my doodles when i'm bored...", cover_photo_id: 17)
 Album.create!(title: "Family Portraits", author_id: 2, description: "The documentation of man and dog.", cover_photo_id: 22)
-Album.create!(title: "Main Gallery", author_id: 1, description: "My fave colors", cover_photo_id: 10)
-Album.create!(title: "Self Portraits", author_id: 1, description: "Various self portraits", cover_photo_id: 25)
+Album.create!(title: "Main Gallery", author_id: 1, description: "some of my work over the years", cover_photo_id: 10)
+Album.create!(title: "Photography", author_id: 1, description: "Various self portraits", cover_photo_id: 25)
 
 
 Photo.create!(title:"Girl & Hands",medium:"ink",
@@ -66,13 +66,13 @@ Photo.create!(title:"Crocodile Tears",medium:"illustration",
              author_id:3, album_id:3, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473181576/crocodile-tears_x6btuu.jpg")
 
-Photo.create!(title:"Red",medium:"ink",
+Photo.create!(title:"Sam in the Light",medium:"Film",
              author_id:1, album_id:9, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438241/tumblr_mxpp2iBXZF1qbadnxo1_500_gtgnyq.png")
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1475644488/Screen_Shot_2016-10-04_at_10.13.48_PM_m1ndro.png")
 
-Photo.create!(title:"Blue",medium:"ink",
+Photo.create!(title:"Self-Portrait",medium:"Digital",
              author_id:1, album_id:9, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438241/tumblr_mxpob8i6pB1qbadnxo1_500_djjiiq.png")
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1475643434/Screen_Shot_2016-10-04_at_9.48.43_PM_e1zcgt.png")
 
 Photo.create!(title:"Wilting Flower",medium:"Collage",
              author_id:4, album_id:6, cover_photo: false,
@@ -90,13 +90,13 @@ Photo.create!(title:"Untitled Sculpture",medium:"sculpture",
              author_id:4, album_id:6, cover_photo: false,
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473436130/VYC_w6kgxx.jpg")
 
-Photo.create!(title:"Green",medium:"Ink",
+Photo.create!(title:"Willie & Jasmine",medium:"Printmaking",
              author_id:1, album_id:9, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438241/tumblr_mxpp1cMxld1qbadnxo1_500_z5jx1t.png")
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1475605205/Screen_Shot_2016-10-04_at_11.16.38_AM_gkrvll.png")
 
-Photo.create!(title:"Magenta",medium:"Ink",
+Photo.create!(title:"Vanessa in Orange",medium:"Highlighter",
              author_id:1, album_id:9, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438243/tumblr_m98j2kkYsz1qbadnxo1_500_byvngx.png")
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1475605212/Screen_Shot_2016-10-04_at_11.17.31_AM_cdymzc.png")
 
 Photo.create!(title:"Spaghetti",medium:"pencil",
              author_id:4, album_id:7, cover_photo: false,
@@ -131,21 +131,21 @@ Photo.create!(title:"Jackie",medium:"digital",
              image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_976/v1473198991/jac1_guias2.jpg")
 
 
-Photo.create!(title:"Self Portrait #1",medium:"digital",
+Photo.create!(title:"Temple in Thailand",medium:"digital",
              author_id:1, album_id:10, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1472832936/user_xczx2f.png")
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1475605216/Screen_Shot_2016-10-04_at_11.16.14_AM_cnbhim.png")
 
-Photo.create!(title:"Self Portrait #2(with friends)",medium:"digital",
+Photo.create!(title:"Scuba Diving",medium:"digital",
              author_id:1, album_id:10, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438461/images_nidxzj.jpg")
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1475645351/Screen_Shot_2016-10-04_at_9.50.03_PM_mlpdfe.png")
 
-Photo.create!(title:"Self Portrait #3",medium:"digital",
+Photo.create!(title:"Mission Peak View",medium:"digital",
              author_id:1, album_id:10, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438461/imgres_wohgmo.png")
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1475645389/Screen_Shot_2016-10-04_at_9.49.30_PM_flc5yc.png")
 
-Photo.create!(title:"Self Portrait #4",medium:"digital",
+Photo.create!(title:"Conchita",medium:"digital",
              author_id:1, album_id:10, cover_photo: false,
-             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1473438461/imgres-1_aixsnl.png")
+             image_url:"http://res.cloudinary.com/dt5viyxyq/image/upload/v1475645083/Screen_Shot_2016-10-04_at_10.12.59_PM_sxf7oc.png")
 
 
 
