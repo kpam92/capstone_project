@@ -33,9 +33,12 @@ class Greeting extends React.Component {
     <div>
     <div className="splash-background"/>
       <nav className="login-signup">
-        <Link to="/login" activeClassName="current">LOGIN</Link>
-        &nbsp;or&nbsp;
-        <Link to="/signup" activeClassName="current">SIGN UP</Link>
+        <div className="actions">
+          <Link to="/login" activeClassName="current">LOGIN</Link>
+          &nbsp;or&nbsp;
+          <Link to="/signup" activeClassName="current">SIGN UP</Link>
+        </div>
+
         <div className='splash-logo'><label className="logo-letter">O</label>pen<label className="logo-letter">W</label>all</div>
         <div className='tagline'> A virtual space for creating and sharing work...</div>
       </nav>

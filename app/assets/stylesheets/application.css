@@ -98,13 +98,11 @@ a:hover {
 
 }
 .actions {
-  margin-left: auto;
+  margin-left: 390px;
   margin-right: auto;
-  /*margin-top: 50px;*/
   text-align: center;
-  /* height: 270px; */
   width: 216px;
-  padding: 20px;
+  padding: 8px;
   background-color: lightgrey;
   -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);

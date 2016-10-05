@@ -33365,15 +33365,19 @@
 	            'nav',
 	            { className: 'login-signup' },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/login', activeClassName: 'current' },
-	              'LOGIN'
-	            ),
-	            ' or ',
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/signup', activeClassName: 'current' },
-	              'SIGN UP'
+	              'div',
+	              { className: 'actions' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/login', activeClassName: 'current' },
+	                'LOGIN'
+	              ),
+	              ' or ',
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/signup', activeClassName: 'current' },
+	                'SIGN UP'
+	              )
 	            ),
 	            _react2.default.createElement(
 	              'div',
