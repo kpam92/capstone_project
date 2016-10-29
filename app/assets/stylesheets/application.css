@@ -132,21 +132,7 @@ a:hover {
  .root {
    min-width: 900px;
  }
-/*.header-nav {
-  background: lightgrey;
-  height: 100px;
-  width: 960px;
-  position: absolute;
-}*/
-/*.header-nav { list-style: none;
-    font-weight: bold;
-    margin-bottom: 8px;
-    width: 100%;
 
-    background-color: lightgrey;
-    height:50px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc2c2), color-stop(15%, #cccccc), color-stop(100%, #fffcfc))
-}*/
 .header-nav {
   position: fixed;
   top: 0;
