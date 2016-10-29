@@ -644,24 +644,6 @@ div.modal-container h3 {
 }
 
 
-
-
-
-
-
-/*
-
-
-
-.my-gallery-class li a,
-.my-gallery-class li img {
-	outline: none;
-	border: none;
-	display: block;
-	max-width: 100%;
-}
-
-Effect 1: opacity */
 .my-gallery-class li.animate {
 	-webkit-animation: fadeIn 0.65s ease forwards;
 	animation: fadeIn 0.65s ease forwards;
