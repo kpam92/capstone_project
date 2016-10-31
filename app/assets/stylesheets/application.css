@@ -93,6 +93,7 @@ a:hover {
   margin-left: -8px;
   margin-top: -8px;
 }
+
 .splash-logo {
   color: white;
   font-size: 150px;
@@ -102,8 +103,8 @@ a:hover {
   margin-right: auto;
   padding-left: 130px;
   padding-top: 20px;
-
 }
+
 .actions {
   margin-left: auto;
   margin-right: auto;
@@ -119,12 +120,14 @@ a:hover {
   border-radius: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(15%, #fffcfc), color-stop(100%, #fffcfc));
 }
+
 .logo-letter {
   font-size: 160px;
   font-style: italic;
   color: steelblue;
   font-weight: 500;
 }
+
 .tagline {
   display: inline-block;
   color: white;
