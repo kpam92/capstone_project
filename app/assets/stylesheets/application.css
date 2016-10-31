@@ -40,6 +40,7 @@ input:focus {
 button {
   cursor: pointer;
 }
+
 .back-to-top {
   position: fixed;
   bottom: 2em;
