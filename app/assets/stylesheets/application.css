@@ -56,17 +56,21 @@ img {
 img:hover {
   opacity: 0.9;
 }
+
 ul {
 list-style-type: none;
 }
+
 a:link{
   text-decoration:none;
   color: steelblue;
 }
+
 a:visited{
   text-decoration:none;
   color: steelblue;
 }
+
 a:hover {
   text-decoration-color: red;
 }
