@@ -48,9 +48,11 @@ button {
   opacity: .25;
   cursor: pointer;
 }
+
 img {
   transition: opacity 0.5s;
 }
+
 img:hover {
   opacity: 0.9;
 }
