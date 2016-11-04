@@ -199,6 +199,7 @@ a:hover {
 .auth {
   position: relative;
 }
+
 .auth *{
   float: left;
   margin-left: 12px;
