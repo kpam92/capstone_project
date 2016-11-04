@@ -28,12 +28,13 @@ button, article, footer, small {
   vertical-align: inherit;
   color: inherit;
   background: transparent;
-  
+
 }*/
 
 *{
   font-family: 'Roboto', sans-serif;
 }
+
 input:focus {
   outline: none;
 }
