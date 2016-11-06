@@ -22,7 +22,7 @@ if (window.currentUser) {
   ReactDOM.render(<Root store = {store}/>, root);
   window.store = store;
   window.receiveCurrentUser = receiveCurrentUser;
-  window.fetchAllAlbums = fetchAllAlbums;
+  // window.fetchAllAlbums = fetchAllAlbums;
   // window.fetchAllComments = fetchAllComments;
   // window.deleteComment = deleteComment;
 
