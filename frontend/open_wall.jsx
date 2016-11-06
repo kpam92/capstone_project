@@ -23,7 +23,7 @@ if (window.currentUser) {
   window.store = store;
   window.receiveCurrentUser = receiveCurrentUser;
   window.fetchAllAlbums = fetchAllAlbums;
-  window.fetchAllComments = fetchAllComments;
+  // window.fetchAllComments = fetchAllComments;
   // window.deleteComment = deleteComment;
 
 });
