@@ -24,6 +24,6 @@ if (window.currentUser) {
   window.receiveCurrentUser = receiveCurrentUser;
   window.fetchAllAlbums = fetchAllAlbums;
   window.fetchAllComments = fetchAllComments;
-  window.deleteComment = deleteComment;
+  // window.deleteComment = deleteComment;
 
 });
