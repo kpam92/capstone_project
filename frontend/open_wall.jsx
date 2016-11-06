@@ -21,7 +21,7 @@ if (window.currentUser) {
   const root = document.getElementById("root");
   ReactDOM.render(<Root store = {store}/>, root);
   window.store = store;
-  window.receiveCurrentUser = receiveCurrentUser;
+  // window.receiveCurrentUser = receiveCurrentUser;
   // window.fetchAllAlbums = fetchAllAlbums;
   // window.fetchAllComments = fetchAllComments;
   // window.deleteComment = deleteComment;
