@@ -20,7 +20,7 @@ if (window.currentUser) {
   Modal.setAppElement(document.body);
   const root = document.getElementById("root");
   ReactDOM.render(<Root store = {store}/>, root);
-  window.store = store;
+  // window.store = store;
   // window.receiveCurrentUser = receiveCurrentUser;
   // window.fetchAllAlbums = fetchAllAlbums;
   // window.fetchAllComments = fetchAllComments;
