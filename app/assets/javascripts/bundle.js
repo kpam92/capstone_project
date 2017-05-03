@@ -83,11 +83,11 @@
 	  _reactModal2.default.setAppElement(document.body);
 	  var root = document.getElementById("root");
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
-	  window.store = store;
-	  window.receiveCurrentUser = _session_actions.receiveCurrentUser;
-	  window.fetchAllAlbums = _album_actions.fetchAllAlbums;
-	  window.fetchAllComments = _comment_actions.fetchAllComments;
-	  window.deleteComment = _comment_actions.deleteComment;
+	  // window.store = store;
+	  // window.receiveCurrentUser = receiveCurrentUser;
+	  // window.fetchAllAlbums = fetchAllAlbums;
+	  // window.fetchAllComments = fetchAllComments;
+	  // window.deleteComment = deleteComment;
 	});
 
 /***/ },
