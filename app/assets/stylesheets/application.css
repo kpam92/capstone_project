@@ -221,9 +221,9 @@ a:hover {
     background-color: white;
     background-image: url('http://res.cloudinary.com/dt5viyxyq/image/upload/v1472837172/search-icon-png-2_tfgi9a.png');
     background-size: contain;
-    background-position: 2px 0px;
+    background-position: 8px 0px;
     background-repeat: no-repeat;
-    padding: 0px 20px 0px 40px;
+    padding: 0px 20px 0px 35px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
     font-weight: 200;
