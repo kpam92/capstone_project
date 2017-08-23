@@ -223,7 +223,7 @@ a:hover {
     background-size: contain;
     background-position: 2px 0px;
     background-repeat: no-repeat;
-    padding: 0px 20px 0px 27px;
+    padding: 0px 20px 0px 40px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
     font-weight: 200;
