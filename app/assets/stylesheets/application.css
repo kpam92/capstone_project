@@ -382,7 +382,7 @@ a:hover {
   min-width: 900px;
   /*display: flex;*/
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 23px;
 }
 .landing-photo-grid li {
   display: inline-block;
