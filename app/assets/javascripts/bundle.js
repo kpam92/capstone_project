@@ -43183,7 +43183,7 @@
 	          { className: 'album-show-container' },
 	          _react2.default.createElement(
 	            'ul',
-	            { className: 'album-photo-grid' },
+	            { className: 'album-photo landing-photo-grid' },
 	            photoList
 	          )
 	        ),

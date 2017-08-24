@@ -89,7 +89,7 @@ class AlbumDetail extends React.Component {
           {editButton}
         </div>
         <div className="album-show-container">
-          <ul className="album-photo-grid">
+          <ul className="album-photo landing-photo-grid">
             {photoList}
           </ul>
         </div>

@@ -257,7 +257,7 @@ a:hover {
   cursor: auto;
 }
 .icon {
-  font-size: 48px;
+  font-size: 40px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-style: italic;
@@ -348,6 +348,7 @@ a:hover {
 .explore-text {
   padding-left: 50px;
   padding-top: 50px;
+  padding-bottom: 20px;
   letter-spacing: 7px;
   font-size: 50px;
 }
@@ -502,15 +503,9 @@ div.modal-container h3 {
 .prof-album h3{
   text-align: center;
 }
-.album-photo-grid {
-  list-style: none;
-  min-width: 900px;
-  /*display: flex;*/
-  margin: 0;
-  padding: 0;
-}
 
-.album-photo-grid li {
+
+.album-photo li {
   display: inline-block;
   width: 50%;
   height:50%;
@@ -540,6 +535,7 @@ div.modal-container h3 {
 .album-text {
   padding-left: 50px;
   padding-top: 50px;
+  padding-bottom: 20px;
   letter-spacing: 7px;
   font-size: 50px;
 }
