@@ -602,7 +602,7 @@ div.modal-container h3 {
   -webkit-box-flex: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
-  height: 560px;
+  height: 530px;
   margin: 0 15px;
 }
 
@@ -612,6 +612,7 @@ div.modal-container h3 {
   flex-grow: 2;
   overflow-y: scroll;
   border-bottom: 1px solid #ededed;
+  margin-bottom: 12px;
 }
 .info>div:last-child {
   background: white;
@@ -629,8 +630,12 @@ div.modal-container h3 {
   /*outline: solid #515a47 4px;*/
   background: #d7be82;
   float: right;
+  width: 300px;
   height: 600px;
   }
+.comment-box header {
+  height: 40px;
+}
 
 .comments-grid {
   padding: 0;
