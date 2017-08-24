@@ -18,7 +18,6 @@ class CommentIndexItem extends React.Component {
 
 
   handleDeleteClick(e) {
-    debugger;
     e.preventDefault();
     this.props.props.deleteComment(this.props.comment.id);
   }

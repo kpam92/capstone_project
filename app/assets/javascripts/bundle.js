@@ -36366,7 +36366,6 @@
 	  }, {
 	    key: 'handleDeleteClick',
 	    value: function handleDeleteClick(e) {
-	      debugger;
 	      e.preventDefault();
 	      this.props.props.deleteComment(this.props.comment.id);
 	    }
