@@ -682,9 +682,12 @@ div.modal-container h3 {
 
   img.delete-button {
     padding-left: 3px;
+    float: right;
   }
 .comment-div h5 {
   width: 204px;
+  font-size: 13px;
+  line-height: 135%;
 }
 
 .explore-text span {

@@ -42,7 +42,7 @@ class CommentIndexItem extends React.Component {
     return(
       <li>
         <div className="comment-div">
-          <h5>{currAuthor.username} : {this.props.comment.body}   {this.props.props.currentUser.id === this.props.comment.author_id ?
+          <h5><span className="bold">{currAuthor.username}</span> : {this.props.comment.body}   {this.props.props.currentUser.id === this.props.comment.author_id ?
            <img className="delete-button" onClick={this.handleDeleteClick.bind(this)} src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_15/v1472778565/x_alt-128_p7d2vo.png"/> : <a/>}</h5>
         </div>
       </li>

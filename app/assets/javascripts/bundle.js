@@ -36412,7 +36412,11 @@
 	          _react2.default.createElement(
 	            'h5',
 	            null,
-	            currAuthor.username,
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'bold' },
+	              currAuthor.username
+	            ),
 	            ' : ',
 	            this.props.comment.body,
 	            '   ',
