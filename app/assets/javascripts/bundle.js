@@ -43202,11 +43202,6 @@
 	            style: _modal_style2.default,
 	            onAfterOpen: this.onModalOpen },
 	          _react2.default.createElement(
-	            'a',
-	            { className: 'modal-close', onClick: this.onModalClose },
-	            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
-	          ),
-	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-container' },
 	            _react2.default.createElement(
