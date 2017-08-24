@@ -642,7 +642,10 @@ div.modal-container h3 {
 }
 
 .comment-box h3 {
-  margin: 10px 40px 10px 40px;
+  margin: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 10px;
 }
 .comment-box input {
   width: 195px;
