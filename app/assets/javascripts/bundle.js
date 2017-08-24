@@ -36285,25 +36285,33 @@
 	          'COMMENTS'
 	        ),
 	        _react2.default.createElement(
-	          'ul',
-	          { className: 'comments-grid' },
-	          allComments
-	        ),
-	        _react2.default.createElement(
-	          'form',
-	          { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
-	          _react2.default.createElement('input', {
-	            type: 'text',
-	            id: 'comment-body',
-	            value: this.state.body,
-	            placeholder: 'type comment here...',
-	            autoComplete: 'off',
-	            onChange: this.update('body'),
-	            required: true }),
+	          'aside',
+	          { className: 'info' },
 	          _react2.default.createElement(
-	            'button',
-	            { className: 'comment-button' },
-	            'Add Comment'
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'ul',
+	              { className: 'comments-grid' },
+	              allComments
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'form',
+	            { className: 'form-container', onSubmit: this.handleSubmit.bind(this) },
+	            _react2.default.createElement('input', {
+	              type: 'text',
+	              id: 'comment-body',
+	              value: this.state.body,
+	              placeholder: 'type comment here...',
+	              autoComplete: 'off',
+	              onChange: this.update('body'),
+	              required: true }),
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'comment-button' },
+	              'Add Comment'
+	            )
 	          )
 	        )
 	      );

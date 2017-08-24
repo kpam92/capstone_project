@@ -590,6 +590,28 @@ div.modal-container h3 {
   max-height: 300px;
   margin-top: 3px;
 }
+
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  height: 300px;
+}
+
+.info>div:first-child {
+  -webkit-box-flex: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  overflow-y: scroll;
+}
+
 .comment-box {
   /*border-radius: 10px;
   position: relative;
