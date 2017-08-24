@@ -676,17 +676,19 @@ div.modal-container h3 {
   border-radius: 5px;
   outline: none;
 }
-  .comment-button:hover {
-    background-color: #cccccc;
-  }
+.comment-button:hover {
+  background-color: #cccccc;
+}
 
-  img.delete-button {
-    padding-left: 3px;
-    float: right;
-  }
+img.delete-button {
+  padding-left: 3px;
+  float: right;
+}
+.bold {
+  font-weight: bold;
+}
 .comment-div h5 {
   width: 204px;
-  font-size: 13px;
   line-height: 135%;
 }
 
