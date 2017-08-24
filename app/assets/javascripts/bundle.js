@@ -36104,7 +36104,7 @@
 	  },
 	  content: {
 	    position: 'fixed',
-	    top: '72px',
+	    top: '57px',
 	    left: '150px',
 	    right: '150px',
 	    bottom: '7px',
@@ -42117,7 +42117,8 @@
 	            isOpen: this.state.modalOpen,
 	            onRequestClose: this.onModalClose,
 	            style: _modal_style2.default,
-	            onAfterOpen: this.onModalOpen },
+	            onAfterOpen: this.onModalOpen,
+	            className: 'modal' },
 	          _react2.default.createElement(
 	            'a',
 	            { className: 'modal-close', onClick: this.onModalClose },
