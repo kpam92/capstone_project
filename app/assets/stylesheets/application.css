@@ -603,14 +603,17 @@ div.modal-container h3 {
   margin-top: 3px;
 }
 .comment-box {
-  border-radius: 10px;
+  /*border-radius: 10px;
   position: relative;
   background: #d7be82;
   float: right;
   width: 220px;
   margin: 50px 10px 50px 10px;
-  padding: 10px;
+  padding: 10px;*/
   /*outline: solid #515a47 4px;*/
+  background: #d7be82;
+  float: right;
+  height: 600px;
   }
 .comment-box h3 {
   margin: 10px 40px 10px 40px;

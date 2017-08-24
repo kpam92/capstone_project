@@ -36108,7 +36108,6 @@
 	    left: '150px',
 	    right: '150px',
 	    bottom: '7px',
-	    border: '1px solid #ccc',
 	    padding: '20px',
 	    opacity: '0',
 	    transition: 'opacity 0.25s'
