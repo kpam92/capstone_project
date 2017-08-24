@@ -87,7 +87,9 @@ class AlbumDetail extends React.Component {
           <button className="explore-button" onClick={this._handleClick.bind(this)}>About Series</button>
           { this.props.currentUser.id === thisAlbum.author_id ? <button onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}/upload/album/${thisAlbum.id}`)}className="explore-button">Add Photo</button> : <a/> }
           {editButton}
+          <h1 className="album-text">{thisAlbum.description ? thisAlbum.description : ''}</h1>
         </div>
+
         <div className="album-show-container">
           <ul className="album-photo landing-photo-grid">
             {photoList}

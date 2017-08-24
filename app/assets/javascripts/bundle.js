@@ -43183,7 +43183,12 @@
 	            { onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id + '/upload/album/' + thisAlbum.id), className: 'explore-button' },
 	            'Add Photo'
 	          ) : _react2.default.createElement('a', null),
-	          editButton
+	          editButton,
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'album-text' },
+	            thisAlbum.description ? thisAlbum.description : ''
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -43243,7 +43248,7 @@
 	    top: '72px',
 	    left: '150px',
 	    right: '150px',
-	    bottom: '205px',
+	    // bottom          : '205px',
 	    border: '1px solid #ccc',
 	    padding: '20px',
 	    opacity: '0',
