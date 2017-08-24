@@ -48,17 +48,19 @@ class CommentIndex extends React.Component {
               {allComments}
             </ul>
           </div>
-          <form className="form-container" onSubmit={this.handleSubmit.bind(this)}>
-            <input
-              type="text"
-              id="comment-body"
-              value={this.state.body}
-              placeholder="type comment here..."
-              autoComplete="off"
-              onChange={this.update('body')}
-              required/>
-            <button className="comment-button">Add Comment</button>
-          </form>
+          <div>
+            <form className="form-container" onSubmit={this.handleSubmit.bind(this)}>
+              <input
+                type="text"
+                id="comment-body"
+                value={this.state.body}
+                placeholder="type comment here..."
+                autoComplete="off"
+                onChange={this.update('body')}
+                required/>
+              <button className="comment-button">Add Comment</button>
+            </form>
+          </div>
         </aside>
       </div>
   	);
