@@ -487,15 +487,7 @@ div.modal-container h3 {
   font-weight: 100;
 }
 
-.prof-album-grid {
-  list-style: none;
-  min-width: 900px;
-  /*display: flex;*/
-  margin: 0;
-  padding: 0;
-}
-
-.prof-album-grid li {
+.prof-album li {
   display: inline-block;
   width: 50%;
   height:50%;
@@ -503,11 +495,11 @@ div.modal-container h3 {
 
 }
 
-.prof-album-grid img{
+.prof-album img{
   width: 65%;
   height: inherit;
 }
-.prof-album-grid h3{
+.prof-album h3{
   text-align: center;
 }
 .album-photo-grid {

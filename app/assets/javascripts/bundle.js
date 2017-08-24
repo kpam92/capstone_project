@@ -42757,7 +42757,7 @@
 	
 	      return _react2.default.createElement(
 	        'ul',
-	        { className: 'prof-album-grid' },
+	        { className: 'landing-photo-grid prof-album' },
 	        albumList
 	      );
 	    }

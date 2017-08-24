@@ -40,7 +40,7 @@ class AlbumIndex extends React.Component {
     ));
 
   	return (
-  		<ul className='prof-album-grid'>
+  		<ul className='landing-photo-grid prof-album'>
         {albumList}
       </ul>
   	);
