@@ -69,9 +69,7 @@ class PhotoIndexItem extends React.Component {
             <div className='modal-container'>
               <img src={this.props.photo.image_url}/>
             </div>
-            <div className="comment-box">
-              <CommentIndexContainer photoid={this.props.photo.id}/>
-            </div>
+            <CommentIndexContainer photoid={this.props.photo.id}/>
 
           </Modal>
 

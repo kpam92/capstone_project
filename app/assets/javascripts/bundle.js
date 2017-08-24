@@ -36278,11 +36278,19 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'comment-box' },
 	        _react2.default.createElement(
-	          'h3',
-	          { className: '' },
-	          'COMMENTS'
+	          'header',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'h3',
+	              { className: '' },
+	              'COMMENTS'
+	            )
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'aside',
@@ -36313,7 +36321,7 @@
 	              _react2.default.createElement(
 	                'button',
 	                { className: 'comment-button' },
-	                'Add Comment'
+	                '+'
 	              )
 	            )
 	          )
@@ -42125,11 +42133,7 @@
 	            { className: 'modal-container' },
 	            _react2.default.createElement('img', { src: this.props.photo.image_url })
 	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'comment-box' },
-	            _react2.default.createElement(_comment_container2.default, { photoid: this.props.photo.id })
-	          )
+	          _react2.default.createElement(_comment_container2.default, { photoid: this.props.photo.id })
 	        )
 	      );
 	    }

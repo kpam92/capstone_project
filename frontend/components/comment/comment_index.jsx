@@ -40,8 +40,12 @@ class CommentIndex extends React.Component {
     ))
 
   	return (
-      <div>
-        <h3 className="">COMMENTS</h3>
+      <div className='comment-box'>
+        <header>
+          <div>
+            <h3 className="">COMMENTS</h3>
+          </div>
+        </header>
         <aside className='info'>
           <div>
         		<ul className='comments-grid'>
@@ -58,7 +62,7 @@ class CommentIndex extends React.Component {
                 autoComplete="off"
                 onChange={this.update('body')}
                 required/>
-              <button className="comment-button">Add Comment</button>
+              <button className="comment-button">+</button>
             </form>
           </div>
         </aside>
