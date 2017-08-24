@@ -91,7 +91,6 @@ class SessionForm extends React.Component {
 									className="login-input" />
 							</label>
 
-							<br />
 							<input className="splash-button" type="button" onClick={this.handleGuest} value="Guest Login" />
 							<input className="splash-button" type="submit" value="Submit" />
 						</div>

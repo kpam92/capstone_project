@@ -277,7 +277,7 @@ a:hover {
   margin-right: auto;
   margin-top: 50px;
   text-align: center;
-  height: 270px;
+  height: 282px;
   width: 400px;
   padding: 20px;
   background-color: lightgrey;
@@ -298,7 +298,7 @@ a:hover {
 }
 .login-form-box {
   font-family: 'Roboto', sans-serif;
-  padding: 20px;
+  /*padding: 20px;*/
   align-content: center;
   position: relative;
 }
@@ -447,8 +447,8 @@ div.modal-container h3 {
   position: fixed;
   /* float: right; */
   width: 24px;
-  right: 13%;
-  top: 11%;
+  right: 15%;
+  top: 12%;
 }
 
 .prof-container {

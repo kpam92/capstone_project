@@ -33684,7 +33684,6 @@
 										onChange: this.update("password"),
 										className: 'login-input' })
 								),
-								_react2.default.createElement('br', null),
 								_react2.default.createElement('input', { className: 'splash-button', type: 'button', onClick: this.handleGuest, value: 'Guest Login' }),
 								_react2.default.createElement('input', { className: 'splash-button', type: 'submit', value: 'Submit' })
 							)
