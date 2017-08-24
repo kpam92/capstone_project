@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import ModalStyle from './modal_style'
+// import ModalStyle from './modal_style'
 import { withRouter } from 'react-router';
 import PhotoIndexItem from '../photo/photo_index_item';
 
@@ -9,24 +9,24 @@ import PhotoIndexItem from '../photo/photo_index_item';
 class AlbumDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { modalOpen: false };
-    this.onModalClose = this.onModalClose.bind(this)
-    this.onModalOpen = this.onModalOpen.bind(this)
+    // this.state = { modalOpen: false };
+    // this.onModalClose = this.onModalClose.bind(this)
+    // this.onModalOpen = this.onModalOpen.bind(this)
     this.upload = this.upload.bind(this)
   }
 
-  onModalClose(){
-    this.setState({modalOpen: false});
-    ModalStyle.content.opacity = 0;
-  }
-  onModalOpen(){
-    ModalStyle.content.opacity = 100;
-    ModalStyle.content.background
-  }
-
-  _handleClick() {
-    this.setState({ modalOpen: true});
-  }
+  // onModalClose(){
+  //   this.setState({modalOpen: false});
+  //   ModalStyle.content.opacity = 0;
+  // }
+  // onModalOpen(){
+  //   ModalStyle.content.opacity = 100;
+  //   ModalStyle.content.background
+  // }
+  //
+  // _handleClick() {
+  //   this.setState({ modalOpen: true});
+  // }
   upload(e) {
     e.preventDefault();
     cloudinary.openUploadWidget(
@@ -84,10 +84,9 @@ class AlbumDetail extends React.Component {
           <h1 className="album-text">{thisAlbum.title}</h1>
 
           <button className="explore-button" onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}`)}>User Profile</button>
-          <button className="explore-button" onClick={this._handleClick.bind(this)}>About Series</button>
           { this.props.currentUser.id === thisAlbum.author_id ? <button onClick={handleProfileClick(this.props.router, `/profile/${thisAlbum.author_id}/upload/album/${thisAlbum.id}`)}className="explore-button">Add Photo</button> : <a/> }
           {editButton}
-          <h1 className="album-text">{thisAlbum.description ? thisAlbum.description : ''}</h1>
+          <h5>{thisAlbum.description ? thisAlbum.description : ''}</h5>
         </div>
 
         <div className="album-show-container">
@@ -96,16 +95,7 @@ class AlbumDetail extends React.Component {
           </ul>
         </div>
 
-        <Modal
-          isOpen={this.state.modalOpen}
-          onRequestClose={this.onModalClose}
-          style={ModalStyle}
-          onAfterOpen={this.onModalOpen}>
-          <div className='modal-container'>
-            <h3>{thisAlbum.description ? thisAlbum.description : 'No Description...'}</h3>
-          </div>
 
-        </Modal>
 
     </div>
       )

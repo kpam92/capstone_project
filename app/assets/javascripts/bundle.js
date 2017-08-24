@@ -42579,9 +42579,13 @@
 	          'div',
 	          { className: 'album-grid' },
 	          _react2.default.createElement(
-	            'h1',
-	            { className: 'explore-text' },
-	            'ALBUMS'
+	            'div',
+	            { className: 'home-nav' },
+	            _react2.default.createElement(
+	              'h1',
+	              { className: 'explore-text' },
+	              'ALBUMS'
+	            )
 	          ),
 	          _react2.default.createElement(_album_index_container2.default, { prof: thisProf })
 	        ),
@@ -43049,10 +43053,6 @@
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
-	var _modal_style = __webpack_require__(453);
-	
-	var _modal_style2 = _interopRequireDefault(_modal_style);
-	
 	var _reactRouter = __webpack_require__(311);
 	
 	var _photo_index_item = __webpack_require__(440);
@@ -43066,6 +43066,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import ModalStyle from './modal_style'
+	
 	
 	var AlbumDetail = function (_React$Component) {
 	  _inherits(AlbumDetail, _React$Component);
@@ -43073,33 +43075,30 @@
 	  function AlbumDetail(props) {
 	    _classCallCheck(this, AlbumDetail);
 	
+	    // this.state = { modalOpen: false };
+	    // this.onModalClose = this.onModalClose.bind(this)
+	    // this.onModalOpen = this.onModalOpen.bind(this)
 	    var _this = _possibleConstructorReturn(this, (AlbumDetail.__proto__ || Object.getPrototypeOf(AlbumDetail)).call(this, props));
 	
-	    _this.state = { modalOpen: false };
-	    _this.onModalClose = _this.onModalClose.bind(_this);
-	    _this.onModalOpen = _this.onModalOpen.bind(_this);
 	    _this.upload = _this.upload.bind(_this);
 	    return _this;
 	  }
 	
+	  // onModalClose(){
+	  //   this.setState({modalOpen: false});
+	  //   ModalStyle.content.opacity = 0;
+	  // }
+	  // onModalOpen(){
+	  //   ModalStyle.content.opacity = 100;
+	  //   ModalStyle.content.background
+	  // }
+	  //
+	  // _handleClick() {
+	  //   this.setState({ modalOpen: true});
+	  // }
+	
+	
 	  _createClass(AlbumDetail, [{
-	    key: 'onModalClose',
-	    value: function onModalClose() {
-	      this.setState({ modalOpen: false });
-	      _modal_style2.default.content.opacity = 0;
-	    }
-	  }, {
-	    key: 'onModalOpen',
-	    value: function onModalOpen() {
-	      _modal_style2.default.content.opacity = 100;
-	      _modal_style2.default.content.background;
-	    }
-	  }, {
-	    key: '_handleClick',
-	    value: function _handleClick() {
-	      this.setState({ modalOpen: true });
-	    }
-	  }, {
 	    key: 'upload',
 	    value: function upload(e) {
 	      e.preventDefault();
@@ -43173,11 +43172,6 @@
 	            { className: 'explore-button', onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id) },
 	            'User Profile'
 	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'explore-button', onClick: this._handleClick.bind(this) },
-	            'About Series'
-	          ),
 	          this.props.currentUser.id === thisAlbum.author_id ? _react2.default.createElement(
 	            'button',
 	            { onClick: handleProfileClick(this.props.router, '/profile/' + thisAlbum.author_id + '/upload/album/' + thisAlbum.id), className: 'explore-button' },
@@ -43185,8 +43179,8 @@
 	          ) : _react2.default.createElement('a', null),
 	          editButton,
 	          _react2.default.createElement(
-	            'h1',
-	            { className: 'album-text' },
+	            'h5',
+	            null,
 	            thisAlbum.description ? thisAlbum.description : ''
 	          )
 	        ),
@@ -43197,23 +43191,6 @@
 	            'ul',
 	            { className: 'album-photo landing-photo-grid' },
 	            photoList
-	          )
-	        ),
-	        _react2.default.createElement(
-	          _reactModal2.default,
-	          {
-	            isOpen: this.state.modalOpen,
-	            onRequestClose: this.onModalClose,
-	            style: _modal_style2.default,
-	            onAfterOpen: this.onModalOpen },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'modal-container' },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              thisAlbum.description ? thisAlbum.description : 'No Description...'
-	            )
 	          )
 	        )
 	      );
@@ -43226,40 +43203,7 @@
 	exports.default = (0, _reactRouter.withRouter)(AlbumDetail);
 
 /***/ },
-/* 453 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ModalStyle = {
-	  overlay: {
-	    position: 'fixed',
-	    top: 0,
-	    left: 0,
-	    right: 0,
-	    bottom: 0,
-	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
-	  },
-	  content: {
-	    position: 'fixed',
-	    top: '72px',
-	    left: '150px',
-	    right: '150px',
-	    // bottom          : '205px',
-	    border: '1px solid #ccc',
-	    padding: '20px',
-	    opacity: '0',
-	    transition: 'opacity 0.25s'
-	    // z-index: 11
-	  }
-	};
-	
-	exports.default = ModalStyle;
-
-/***/ },
+/* 453 */,
 /* 454 */
 /***/ function(module, exports, __webpack_require__) {
 

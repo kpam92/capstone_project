@@ -60,7 +60,9 @@ class Profile extends React.Component{
           { this.props.currentUser.id === thisProf.id ? <button className="album-button" onClick={this._handleClick.bind(this)}>Add Album</button> : <a/> }
         </div>
         <div className="album-grid">
-          <h1 className="explore-text">ALBUMS</h1>
+          <div className="home-nav">
+            <h1 className="explore-text">ALBUMS</h1>
+          </div>
           <AlbumIndexContainer prof={thisProf}/>
         </div>
 

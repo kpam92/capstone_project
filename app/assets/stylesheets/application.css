@@ -158,6 +158,11 @@ a:hover {
   min-width: 600px;
 }
 
+.home-nav {
+  padding-left: 50px;
+  padding-bottom: 31px;
+}
+
 .right-nav {
   float: right;
   margin-right: 77px;
@@ -245,7 +250,7 @@ a:hover {
   font-size: 16px;
   border-radius: 5px;
   outline: none;
-  margin: -12px 20px 31px 50px;
+  margin: -12px 20px 0px 0px;
 }
 
 .by-album {
@@ -346,7 +351,6 @@ a:hover {
 
 
 .explore-text {
-  padding-left: 50px;
   padding-top: 50px;
   padding-bottom: 20px;
   letter-spacing: 7px;
@@ -533,7 +537,6 @@ div.modal-container h3 {
 }
 
 .album-text {
-  padding-left: 50px;
   padding-top: 50px;
   padding-bottom: 20px;
   letter-spacing: 7px;
