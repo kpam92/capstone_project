@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchAllPhotos } from '../../actions/photo_actions';
 import { fetchAllUsers } from '../../actions/user_actions';
-import { createComment } from '../../actions/comment_actions';
+import { createComment, deleteComment } from '../../actions/comment_actions';
 import CommentIndex from './comment_index';
 
 const mapStateToProps = state => ({

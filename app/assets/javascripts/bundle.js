@@ -36186,19 +36186,9 @@
 	    createComment: function createComment(id) {
 	      return dispatch((0, _comment_actions.createComment)(id));
 	    },
-	    deleteComment: function (_deleteComment) {
-	      function deleteComment(_x3) {
-	        return _deleteComment.apply(this, arguments);
-	      }
-	
-	      deleteComment.toString = function () {
-	        return _deleteComment.toString();
-	      };
-	
-	      return deleteComment;
-	    }(function (id) {
-	      return dispatch(deleteComment(id));
-	    })
+	    deleteComment: function deleteComment(id) {
+	      return dispatch((0, _comment_actions.deleteComment)(id));
+	    }
 	
 	  };
 	};
@@ -36308,7 +36298,8 @@
 	            value: this.state.body,
 	            placeholder: 'type comment here...',
 	            autoComplete: 'off',
-	            onChange: this.update('body') }),
+	            onChange: this.update('body'),
+	            required: true }),
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'comment-button' },
@@ -36367,6 +36358,7 @@
 	  }, {
 	    key: 'handleDeleteClick',
 	    value: function handleDeleteClick(e) {
+	      debugger;
 	      e.preventDefault();
 	      this.props.props.deleteComment(this.props.comment.id);
 	    }
