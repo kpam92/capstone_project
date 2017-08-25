@@ -71,9 +71,7 @@ class Profile extends React.Component{
           onRequestClose={this.onModalClose}
           style={ModalStyle}
           onAfterOpen={this.onModalOpen}>
-          <a className="modal-close" onClick={this.onModalClose}><img src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png"/></a>
-
-          <div className='modal-container'>
+          <div>
             <AlbumFormContainer profileId={parseInt(this.props.params.profileId)}/>
           </div>
         </Modal>

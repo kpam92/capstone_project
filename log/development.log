@@ -63581,3 +63581,1337 @@ Completed 200 OK in 115ms (Views: 110.7ms | ActiveRecord: 2.1ms)
 Completed 200 OK in 150ms (Views: 138.0ms | ActiveRecord: 7.5ms)
 
 
+Started POST "/api/comments" for ::1 at 2017-08-24 16:09:05 -0700
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"comment"=>{"body"=>"asdf", "photo_id"=>"8", "author_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("body", "author_id", "photo_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "asdf"], ["author_id", 1], ["photo_id", 8], ["created_at", 2017-08-24 23:09:05 UTC], ["updated_at", 2017-08-24 23:09:05 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/comments/show.json.jbuilder
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/comments/show.json.jbuilder (1.3ms)
+Completed 200 OK in 17ms (Views: 6.9ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/api/comments/99" for ::1 at 2017-08-24 16:09:07 -0700
+Processing by Api::CommentsController#destroy as JSON
+  Parameters: {"id"=>"99"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 99], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 99]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/comments/show.json.jbuilder
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/comments/show.json.jbuilder (1.3ms)
+Completed 200 OK in 10ms (Views: 5.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/comments" for ::1 at 2017-08-24 16:09:07 -0700
+Processing by Api::CommentsController#index as JSON
+  Rendering api/comments/index.json.jbuilder
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (15.6ms)
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users" for ::1 at 2017-08-24 16:18:20 -0700
+Started GET "/api/albums" for ::1 at 2017-08-24 16:18:20 -0700
+Processing by Api::AlbumsController#index as JSON
+Started GET "/api/photos" for ::1 at 2017-08-24 16:18:20 -0700
+Processing by Api::UsersController#index as JSON
+Started GET "/api/comments" for ::1 at 2017-08-24 16:18:20 -0700
+Processing by Api::PhotosController#index as JSON
+  Rendering api/albums/index.json.jbuilder
+Processing by Api::CommentsController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mAlbum Load (5.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendering api/photos/index.json.jbuilder
+  Rendering api/comments/index.json.jbuilder
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered api/albums/_album.json.jbuilder (1.1ms)
+  [1m[36mComment Load (3.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  [1m[36mPhoto Load (6.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (1.0ms)
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (31.7ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 52ms (Views: 40.1ms | ActiveRecord: 8.1ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/index.json.jbuilder (49.0ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 81ms (Views: 68.5ms | ActiveRecord: 5.2ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (53.0ms)
+Completed 200 OK in 66ms (Views: 61.0ms | ActiveRecord: 3.0ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (63.4ms)
+Completed 200 OK in 87ms (Views: 70.3ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 16:18:29 -0700
+Started GET "/api/albums" for ::1 at 2017-08-24 16:18:29 -0700
+Started GET "/api/users" for ::1 at 2017-08-24 16:18:29 -0700
+Processing by Api::PhotosController#index as JSON
+Processing by Api::AlbumsController#index as JSON
+Processing by Api::UsersController#index as JSON
+Started GET "/api/comments" for ::1 at 2017-08-24 16:18:29 -0700
+  Rendering api/photos/index.json.jbuilder
+  Rendering api/albums/index.json.jbuilder
+Processing by Api::CommentsController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mPhoto Load (6.9ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  [1m[36mAlbum Load (4.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendering api/comments/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered api/albums/_album.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  [1m[36mComment Load (2.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (24.9ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 41ms (Views: 29.8ms | ActiveRecord: 6.4ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (46.0ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 68ms (Views: 60.4ms | ActiveRecord: 4.4ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (47.7ms)
+Completed 200 OK in 59ms (Views: 53.1ms | ActiveRecord: 2.3ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/index.json.jbuilder (75.1ms)
+Completed 200 OK in 103ms (Views: 93.8ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 16:18:31 -0700
+Processing by Api::PhotosController#index as JSON
+  Rendering api/photos/index.json.jbuilder
+Started GET "/api/albums" for ::1 at 2017-08-24 16:18:31 -0700
+Processing by Api::AlbumsController#index as JSON
+  Rendering api/albums/index.json.jbuilder
+  [1m[36mPhoto Load (21.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+Started GET "/api/users" for ::1 at 2017-08-24 16:18:31 -0700
+Started GET "/api/comments" for ::1 at 2017-08-24 16:18:31 -0700
+Processing by Api::UsersController#index as JSON
+  [1m[36mAlbum Load (6.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+Processing by Api::CommentsController#index as JSON
+  Rendered api/albums/_album.json.jbuilder (0.8ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendering api/users/index.json.jbuilder
+  Rendering api/comments/index.json.jbuilder
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered api/albums/_album.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (19.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 49ms (Views: 42.7ms | ActiveRecord: 1.5ms)
+
+
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (68.4ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 85ms (Views: 74.7ms | ActiveRecord: 6.6ms)
+
+
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (49.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 70ms (Views: 58.3ms | ActiveRecord: 0.9ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (116.2ms)
+Completed 200 OK in 131ms (Views: 104.1ms | ActiveRecord: 21.5ms)
+
+
+Started POST "/api/comments" for ::1 at 2017-08-24 17:06:38 -0700
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"comment"=>{"body"=>"me 2", "photo_id"=>"10", "author_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("body", "author_id", "photo_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "me 2"], ["author_id", 1], ["photo_id", 10], ["created_at", 2017-08-25 00:06:38 UTC], ["updated_at", 2017-08-25 00:06:38 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/comments/show.json.jbuilder
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/comments/show.json.jbuilder (1.7ms)
+Completed 200 OK in 20ms (Views: 6.2ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/api/comments/100" for ::1 at 2017-08-24 17:06:40 -0700
+Processing by Api::CommentsController#destroy as JSON
+  Parameters: {"id"=>"100"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 100], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 100]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/comments/show.json.jbuilder
+  Rendered api/comments/_comment.json.jbuilder (0.4ms)
+  Rendered api/comments/show.json.jbuilder (2.1ms)
+Completed 200 OK in 14ms (Views: 9.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/comments" for ::1 at 2017-08-24 17:06:40 -0700
+Processing by Api::CommentsController#index as JSON
+  Rendering api/comments/index.json.jbuilder
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered api/comments/_comment.json.jbuilder (0.4ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.0ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.0ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.0ms)
+  Rendered api/comments/_comment.json.jbuilder (0.0ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.0ms)
+  Rendered api/comments/index.json.jbuilder (17.3ms)
+Completed 200 OK in 26ms (Views: 21.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:06:44 -0700
+Processing by Api::PhotosController#index as JSON
+  Rendering api/photos/index.json.jbuilder
+Started GET "/api/users" for ::1 at 2017-08-24 17:06:44 -0700
+Started GET "/api/albums" for ::1 at 2017-08-24 17:06:44 -0700
+Started GET "/api/comments" for ::1 at 2017-08-24 17:06:44 -0700
+Processing by Api::UsersController#index as JSON
+Processing by Api::AlbumsController#index as JSON
+Processing by Api::CommentsController#index as JSON
+  Rendering api/comments/index.json.jbuilder
+  Rendering api/users/index.json.jbuilder
+  Rendering api/albums/index.json.jbuilder
+  [1m[36mPhoto Load (37.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  [1m[36mComment Load (8.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAlbum Load (1.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendered api/comments/_comment.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/albums/_album.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.4ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (31.5ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+Completed 200 OK in 54ms (Views: 39.3ms | ActiveRecord: 3.7ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/albums/_album.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Started GET "/api/users" for ::1 at 2017-08-24 17:06:44 -0700
+  Rendered api/albums/_album.json.jbuilder (0.7ms)
+Processing by Api::UsersController#index as JSON
+  Rendered api/comments/_comment.json.jbuilder (2.8ms)
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendering api/users/index.json.jbuilder
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (68.4ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+Completed 200 OK in 93ms (Views: 80.2ms | ActiveRecord: 1.7ms)
+
+
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (21.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 39ms (Views: 33.2ms | ActiveRecord: 1.4ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (107.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 118ms (Views: 107.1ms | ActiveRecord: 8.9ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/index.json.jbuilder (156.9ms)
+Completed 200 OK in 172ms (Views: 128.5ms | ActiveRecord: 37.8ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:06:48 -0700
+Processing by Api::PhotosController#index as JSON
+Started GET "/api/users" for ::1 at 2017-08-24 17:06:48 -0700
+Processing by Api::UsersController#index as JSON
+Started GET "/api/comments" for ::1 at 2017-08-24 17:06:48 -0700
+Processing by Api::CommentsController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  Rendering api/photos/index.json.jbuilder
+Started GET "/api/albums" for ::1 at 2017-08-24 17:06:48 -0700
+Processing by Api::AlbumsController#index as JSON
+  Rendering api/comments/index.json.jbuilder
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPhoto Load (6.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  [1m[36mComment Load (9.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendering api/albums/index.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  [1m[36mAlbum Load (2.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.6ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (32.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 58ms (Views: 49.8ms | ActiveRecord: 5.9ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.0ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.0ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (32.5ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 51ms (Views: 39.7ms | ActiveRecord: 2.0ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (61.6ms)
+Completed 200 OK in 75ms (Views: 62.4ms | ActiveRecord: 9.9ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (77.4ms)
+Completed 200 OK in 110ms (Views: 100.2ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/" for ::1 at 2017-08-24 17:07:36 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EXQvYpXrZPc5gJPLT4fT_A"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 46ms (Views: 43.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-08-24 17:07:36 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EXQvYpXrZPc5gJPLT4fT_A"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-08-24 17:07:37 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EXQvYpXrZPc5gJPLT4fT_A"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 50ms (Views: 47.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-08-24 17:07:37 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EXQvYpXrZPc5gJPLT4fT_A"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-08-24 17:07:37 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EXQvYpXrZPc5gJPLT4fT_A"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 51ms (Views: 48.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-08-24 17:07:37 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EXQvYpXrZPc5gJPLT4fT_A"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 54ms (Views: 50.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-08-24 17:07:37 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EXQvYpXrZPc5gJPLT4fT_A"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:07:37 -0700
+Processing by Api::PhotosController#index as JSON
+  Rendering api/photos/index.json.jbuilder
+Started GET "/api/comments" for ::1 at 2017-08-24 17:07:38 -0700
+Started GET "/api/users" for ::1 at 2017-08-24 17:07:38 -0700
+Started GET "/api/albums" for ::1 at 2017-08-24 17:07:38 -0700
+Processing by Api::CommentsController#index as JSON
+Processing by Api::UsersController#index as JSON
+  [1m[36mPhoto Load (4.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+Processing by Api::AlbumsController#index as JSON
+  Rendering api/comments/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.7ms)
+  Rendering api/users/index.json.jbuilder
+  Rendering api/albums/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  [1m[36mComment Load (4.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAlbum Load (1.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/comments/_comment.json.jbuilder (0.6ms)
+  Rendered api/albums/_album.json.jbuilder (0.7ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (30.6ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.4ms)
+Completed 200 OK in 74ms (Views: 67.3ms | ActiveRecord: 1.4ms)
+
+
+  Rendered api/comments/_comment.json.jbuilder (0.7ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.7ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/index.json.jbuilder (61.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+Completed 200 OK in 94ms (Views: 76.2ms | ActiveRecord: 1.6ms)
+
+
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (85.1ms)
+Completed 200 OK in 121ms (Views: 112.6ms | ActiveRecord: 4.6ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (138.4ms)
+Completed 200 OK in 152ms (Views: 144.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:07:38 -0700
+Started GET "/api/comments" for ::1 at 2017-08-24 17:07:38 -0700
+Started GET "/api/albums" for ::1 at 2017-08-24 17:07:38 -0700
+Started GET "/api/users" for ::1 at 2017-08-24 17:07:38 -0700
+Processing by Api::PhotosController#index as JSON
+Processing by Api::CommentsController#index as JSON
+Processing by Api::AlbumsController#index as JSON
+Processing by Api::UsersController#index as JSON
+  Rendering api/photos/index.json.jbuilder
+  Rendering api/comments/index.json.jbuilder
+  Rendering api/albums/index.json.jbuilder
+  Rendering api/users/index.json.jbuilder
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mPhoto Load (4.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  [1m[36mAlbum Load (1.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.8ms)
+  Rendered api/comments/_comment.json.jbuilder (0.7ms)
+  Rendered api/albums/_album.json.jbuilder (0.8ms)
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.3ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/index.json.jbuilder (33.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+Completed 200 OK in 55ms (Views: 50.1ms | ActiveRecord: 2.5ms)
+
+
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+Started GET "/api/users" for ::1 at 2017-08-24 17:07:38 -0700
+  Rendered api/albums/_album.json.jbuilder (0.7ms)
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendered api/comments/_comment.json.jbuilder (0.7ms)
+Processing by Api::UsersController#index as JSON
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendering api/users/index.json.jbuilder
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (73.9ms)
+Completed 200 OK in 108ms (Views: 100.9ms | ActiveRecord: 1.9ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/photos/_photo.json.jbuilder (1.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.4ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendered api/comments/index.json.jbuilder (120.8ms)
+  Rendered api/users/index.json.jbuilder (47.7ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 162ms (Views: 145.8ms | ActiveRecord: 2.5ms)
+
+
+Completed 200 OK in 63ms (Views: 56.0ms | ActiveRecord: 4.8ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (138.4ms)
+Completed 200 OK in 179ms (Views: 170.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:07:39 -0700
+Processing by Api::PhotosController#index as JSON
+Started GET "/api/users" for ::1 at 2017-08-24 17:07:39 -0700
+Processing by Api::UsersController#index as JSON
+Started GET "/api/comments" for ::1 at 2017-08-24 17:07:39 -0700
+Started GET "/api/albums" for ::1 at 2017-08-24 17:07:39 -0700
+  Rendering api/photos/index.json.jbuilder
+Processing by Api::CommentsController#index as JSON
+  Rendering api/users/index.json.jbuilder
+Processing by Api::AlbumsController#index as JSON
+  [1m[36mPhoto Load (2.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering api/comments/index.json.jbuilder
+  Rendering api/albums/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  [1m[36mAlbum Load (3.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  [1m[36mComment Load (4.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.6ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.4ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (38.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+Completed 200 OK in 65ms (Views: 59.2ms | ActiveRecord: 2.7ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (42.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+Completed 200 OK in 57ms (Views: 50.4ms | ActiveRecord: 3.0ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (93.5ms)
+Completed 200 OK in 123ms (Views: 114.6ms | ActiveRecord: 2.3ms)
+
+
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/comments/index.json.jbuilder (77.1ms)
+Completed 200 OK in 101ms (Views: 92.7ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:07:41 -0700
+Processing by Api::PhotosController#index as JSON
+  Rendering api/photos/index.json.jbuilder
+Started GET "/api/albums" for ::1 at 2017-08-24 17:07:41 -0700
+Started GET "/api/users" for ::1 at 2017-08-24 17:07:41 -0700
+Processing by Api::UsersController#index as JSON
+Started GET "/api/comments" for ::1 at 2017-08-24 17:07:41 -0700
+Processing by Api::AlbumsController#index as JSON
+Processing by Api::CommentsController#index as JSON
+  [1m[36mPhoto Load (16.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  Rendering api/users/index.json.jbuilder
+  Rendering api/albums/index.json.jbuilder
+  Rendering api/comments/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (3.1ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  [1m[36mComment Load (3.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered api/users/_user.json.jbuilder (1.5ms)
+  Rendered api/albums/_album.json.jbuilder (0.8ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.8ms)
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (35.6ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 77ms (Views: 72.8ms | ActiveRecord: 1.4ms)
+
+
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (2.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (51.5ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 89ms (Views: 80.6ms | ActiveRecord: 0.7ms)
+
+
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendered api/comments/index.json.jbuilder (87.2ms)
+Completed 200 OK in 115ms (Views: 108.8ms | ActiveRecord: 3.3ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (154.9ms)
+Completed 200 OK in 168ms (Views: 149.3ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:07:42 -0700
+Processing by Api::PhotosController#index as JSON
+Started GET "/api/users" for ::1 at 2017-08-24 17:07:42 -0700
+  Rendering api/photos/index.json.jbuilder
+Processing by Api::UsersController#index as JSON
+Started GET "/api/albums" for ::1 at 2017-08-24 17:07:42 -0700
+Started GET "/api/comments" for ::1 at 2017-08-24 17:07:42 -0700
+Processing by Api::AlbumsController#index as JSON
+  [1m[36mPhoto Load (6.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+Processing by Api::CommentsController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendering api/albums/index.json.jbuilder
+  Rendering api/comments/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAlbum Load (5.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  [1m[36mComment Load (2.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/albums/_album.json.jbuilder (0.4ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.4ms)
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.5ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (28.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+Completed 200 OK in 58ms (Views: 52.8ms | ActiveRecord: 2.1ms)
+
+
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (44.9ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+Completed 200 OK in 64ms (Views: 55.7ms | ActiveRecord: 5.1ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.5ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (71.4ms)
+  Rendered api/photos/index.json.jbuilder (106.2ms)
+Completed 200 OK in 89ms (Views: 80.7ms | ActiveRecord: 2.6ms)
+
+
+Completed 200 OK in 125ms (Views: 113.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/" for ::1 at 2017-08-24 17:07:44 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EXQvYpXrZPc5gJPLT4fT_A"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 399ms (Views: 396.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:07:45 -0700
+Processing by Api::PhotosController#index as JSON
+Started GET "/api/users" for ::1 at 2017-08-24 17:07:45 -0700
+Started GET "/api/comments" for ::1 at 2017-08-24 17:07:45 -0700
+Started GET "/api/albums" for ::1 at 2017-08-24 17:07:45 -0700
+  Rendering api/photos/index.json.jbuilder
+Processing by Api::UsersController#index as JSON
+Processing by Api::CommentsController#index as JSON
+Processing by Api::AlbumsController#index as JSON
+  [1m[36mPhoto Load (6.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  Rendering api/users/index.json.jbuilder
+  Rendering api/comments/index.json.jbuilder
+  [1m[36mComment Load (1.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendering api/albums/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.6ms)
+  Rendered api/comments/_comment.json.jbuilder (1.9ms)
+  [1m[36mUser Load (12.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAlbum Load (1.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (1.6ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.6ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (52.7ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 91ms (Views: 74.9ms | ActiveRecord: 12.4ms)
+
+
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/index.json.jbuilder (52.7ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 90ms (Views: 78.6ms | ActiveRecord: 1.4ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (83.7ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+Completed 200 OK in 122ms (Views: 111.1ms | ActiveRecord: 1.9ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (135.5ms)
+Completed 200 OK in 152ms (Views: 142.7ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/api/photos" for ::1 at 2017-08-24 17:07:46 -0700
+Processing by Api::PhotosController#index as JSON
+  Rendering api/photos/index.json.jbuilder
+Started GET "/api/users" for ::1 at 2017-08-24 17:07:46 -0700
+Processing by Api::UsersController#index as JSON
+Started GET "/api/comments" for ::1 at 2017-08-24 17:07:46 -0700
+Started GET "/api/albums" for ::1 at 2017-08-24 17:07:46 -0700
+Processing by Api::CommentsController#index as JSON
+  [1m[36mPhoto Load (11.7ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+Processing by Api::AlbumsController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  Rendering api/comments/index.json.jbuilder
+  Rendered api/photos/_photo.json.jbuilder (0.5ms)
+  Rendering api/albums/index.json.jbuilder
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  [1m[36mComment Load (3.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mAlbum Load (1.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.4ms)
+  Rendered api/albums/_album.json.jbuilder (0.5ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (23.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+Completed 200 OK in 61ms (Views: 54.2ms | ActiveRecord: 4.1ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/albums/_album.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.3ms)
+  Rendered api/albums/_album.json.jbuilder (0.2ms)
+  Rendered api/albums/index.json.jbuilder (44.1ms)
+Completed 200 OK in 56ms (Views: 51.2ms | ActiveRecord: 1.6ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/comments/_comment.json.jbuilder (0.1ms)
+  Rendered api/comments/index.json.jbuilder (61.2ms)
+Completed 200 OK in 83ms (Views: 77.4ms | ActiveRecord: 3.2ms)
+
+
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.2ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/_photo.json.jbuilder (0.1ms)
+  Rendered api/photos/index.json.jbuilder (112.7ms)
+Completed 200 OK in 124ms (Views: 109.1ms | ActiveRecord: 11.7ms)
+
+
