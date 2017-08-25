@@ -9,17 +9,6 @@ const ModalStyle = {
     // z-index         : 10
   },
   content : {
-    position        : 'fixed',
-    top             : '100px',
-    left            : '150px',
-    right           : '150px',
-    bottom          : '100px',
-    border          : '1px solid #ccc',
-    padding         : '20px',
-    opacity         : '0',
-    transition      : 'opacity 0.25s',
-    background      : 'rgb(44, 95, 118)'
-    // z-index: 11
   }
 }
 

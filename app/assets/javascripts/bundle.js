@@ -42569,11 +42569,15 @@
 	            null,
 	            thisProf.username
 	          ),
-	          this.props.currentUser.id === thisProf.id ? _react2.default.createElement(
-	            'button',
-	            { className: 'album-button', onClick: this._handleClick.bind(this) },
-	            'Add Album'
-	          ) : _react2.default.createElement('a', null)
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'add-album' },
+	            this.props.currentUser.id === thisProf.id ? _react2.default.createElement(
+	              'button',
+	              { className: 'album-button', onClick: this._handleClick.bind(this) },
+	              'Add Album'
+	            ) : _react2.default.createElement('a', null)
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -42595,7 +42599,9 @@
 	            isOpen: this.state.modalOpen,
 	            onRequestClose: this.onModalClose,
 	            style: _modal_style2.default,
-	            onAfterOpen: this.onModalOpen },
+	            onAfterOpen: this.onModalOpen,
+	            className: 'add-album-modal'
+	          },
 	          _react2.default.createElement(
 	            'div',
 	            null,
@@ -42969,19 +42975,7 @@
 	    bottom: 0,
 	    backgroundColor: 'rgba(53, 41, 17, 0.74902)'
 	  },
-	  content: {
-	    position: 'fixed',
-	    top: '100px',
-	    left: '150px',
-	    right: '150px',
-	    bottom: '100px',
-	    border: '1px solid #ccc',
-	    padding: '20px',
-	    opacity: '0',
-	    transition: 'opacity 0.25s',
-	    background: 'rgb(44, 95, 118)'
-	    // z-index: 11
-	  }
+	  content: {}
 	};
 	
 	exports.default = ModalStyle;

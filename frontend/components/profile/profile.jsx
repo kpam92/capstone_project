@@ -57,7 +57,9 @@ class Profile extends React.Component{
         <div className="prof-header">
           <div className="prof-main-pic"><img src={thisProf.profile_pic}/></div>
           <h1>{thisProf.username}</h1>
-          { this.props.currentUser.id === thisProf.id ? <button className="album-button" onClick={this._handleClick.bind(this)}>Add Album</button> : <a/> }
+          <div className='add-album'>
+            { this.props.currentUser.id === thisProf.id ? <button className="album-button" onClick={this._handleClick.bind(this)}>Add Album</button> : <a/> }
+          </div>
         </div>
         <div className="album-grid">
           <div className="home-nav">
@@ -70,7 +72,9 @@ class Profile extends React.Component{
           isOpen={this.state.modalOpen}
           onRequestClose={this.onModalClose}
           style={ModalStyle}
-          onAfterOpen={this.onModalOpen}>
+          onAfterOpen={this.onModalOpen}
+          className='add-album-modal'
+          >
           <div>
             <AlbumFormContainer profileId={parseInt(this.props.params.profileId)}/>
           </div>

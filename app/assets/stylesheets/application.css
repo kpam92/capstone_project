@@ -456,6 +456,36 @@ div.modal-container h3 {
   top: 12%;
 }
 
+.add-album {
+  padding-right: 100px;
+}
+
+.add-album-modal {
+
+border: 1px solid rgb(204, 204, 204);
+background: rgb(44, 95, 118);
+border-radius: 4px;
+outline: none;
+opacity: 100;
+transition: opacity 0.25s;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+width: 500px;
+max-width: 100%;
+/*height: 400px;*/
+max-height: 100%;
+position: fixed;
+left: 66%;
+top: 46%;
+-webkit-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
+
+.album-form-container {
+  text-align: center;
+  padding-top: 10px;
+}
 .prof-container {
   margin-top: 67px;
 }
@@ -482,6 +512,9 @@ div.modal-container h3 {
 .prof-main-pic > img:hover {
   opacity: 1;
 }
+
+
+
 .prof-header > h1 {
   color: white;
   position: absolute;
