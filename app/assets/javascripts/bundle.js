@@ -43362,7 +43362,8 @@
 	            type: 'text',
 	            value: this.state.title,
 	            placeholder: 'title',
-	            onChange: this.update('title') }),
+	            onChange: this.update('title'),
+	            required: true }),
 	          _react2.default.createElement('input', {
 	            type: 'text',
 	            value: this.state.medium,
