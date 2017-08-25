@@ -456,6 +456,13 @@ div.modal-container h3 {
   top: 12%;
 }
 
+.album-grid .home-nav{
+  padding-bottom: 0px;
+}
+.album-grid .home-nav .explore-text {
+  padding-top: 0px;
+}
+
 .add-album {
   padding-right: 100px;
 }
