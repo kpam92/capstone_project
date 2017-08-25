@@ -55,25 +55,19 @@ class PhotoIndexItemLanding extends React.Component {
         <div>
         <img className="cld-responsive" src={this.props.photo.image_url} media="(max-width: 400px)" onClick={this._handleClick.bind(this)}/>
         </div>
-          <Modal
-            isOpen={this.state.modalOpen}
-            onRequestClose={this.onModalClose}
-            style={ModalStyle}
-            onAfterOpen={this.onModalOpen}>
-            <a className="modal-close" onClick={this.onModalClose}><img src="http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png"/></a>
+        <Modal
+          isOpen={this.state.modalOpen}
+          onRequestClose={this.onModalClose}
+          style={ModalStyle}
+          onAfterOpen={this.onModalOpen}
+          className='modal'>
 
-            <div className='modal-container'>
-              <div className="auth">
-                <img onClick={handleProfileClick(this.props.router, `/profile/${this.props.photo.author_id}`)} src={author(this.props.photo.author_id)}/>
-                <h3>{this.props.photo.title}</h3>
-              </div>
-              <img src={this.props.photo.image_url}/>
-            </div>
-            <div className="comment-box">
-              <CommentIndexContainer photoid={this.props.photo.id}/>
-            </div>
+          <div className='modal-container'>
+            <img src={this.props.photo.image_url}/>
+          </div>
+          <CommentIndexContainer photoid={this.props.photo.id}/>
 
-          </Modal>
+        </Modal>
 
       </li>
       )

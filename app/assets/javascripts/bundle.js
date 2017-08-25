@@ -34107,32 +34107,14 @@
 	            isOpen: this.state.modalOpen,
 	            onRequestClose: this.onModalClose,
 	            style: _modal_style2.default,
-	            onAfterOpen: this.onModalOpen },
-	          _react2.default.createElement(
-	            'a',
-	            { className: 'modal-close', onClick: this.onModalClose },
-	            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dt5viyxyq/image/upload/c_scale,h_41/v1472778565/x_alt-128_p7d2vo.png' })
-	          ),
+	            onAfterOpen: this.onModalOpen,
+	            className: 'modal' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-container' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'auth' },
-	              _react2.default.createElement('img', { onClick: handleProfileClick(this.props.router, '/profile/' + this.props.photo.author_id), src: author(this.props.photo.author_id) }),
-	              _react2.default.createElement(
-	                'h3',
-	                null,
-	                this.props.photo.title
-	              )
-	            ),
 	            _react2.default.createElement('img', { src: this.props.photo.image_url })
 	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'comment-box' },
-	            _react2.default.createElement(_comment_container2.default, { photoid: this.props.photo.id })
-	          )
+	          _react2.default.createElement(_comment_container2.default, { photoid: this.props.photo.id })
 	        )
 	      );
 	    }
