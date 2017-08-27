@@ -1,5 +1,5 @@
 import AlbumReducer from '../album_reducer';
-import {AlbumConstants} from "../../actions/photo_actions";
+import {AlbumConstants} from "../../actions/album_actions";
 import { fromJS } from 'immutable';
 
 let testAlbums = [
