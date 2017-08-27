@@ -23,7 +23,7 @@ export const fetchSingleAlbum = id => ({
 
 export const receiveSingleAlbum = albums => ({
   type: AlbumConstants.RECEIVE_SINGLE_ALBUM,
-  albums
+  album
 });
 
 export const receiveNewAlbum = album => ({

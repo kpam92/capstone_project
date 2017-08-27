@@ -1,8 +1,5 @@
-// import PhotoReducer from '../photo_reducer'
-// // import {PhotoConstants} from "../../actions/photo_actions";
-// import * as types from '../../constants/ActionTypes'
-
 import PhotoReducer from '../photo_reducer';
+import {PhotoConstants} from "../../actions/photo_actions";
 import { fromJS } from 'immutable';
 
 let testPhotos = [
@@ -27,6 +24,6 @@ describe('PhotoReducer', function() {
     expect(PhotoReducer(undefined, {})).toEqual(fromJS([]));
   });
   it('should return action.photos', function() {
-    expect(PhotoReducer(undefined, {type: "RECEIVE_ALL_PHOTOS", photos: testPhotos})).toEqual(fromJS(testPhotos));
+    expect(PhotoReducer(undefined, {type: PhotoConstants.RECEIVE_ALL_PHOTOS, photos: testPhotos})).toEqual(fromJS(testPhotos));
   });
 });

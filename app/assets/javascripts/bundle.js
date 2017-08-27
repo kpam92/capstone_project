@@ -26023,7 +26023,7 @@
 	    case _album_actions.AlbumConstants.RECEIVE_ALL_ALBUMS:
 	      return [].concat(_toConsumableArray(action.albums));
 	    case _album_actions.AlbumConstants.RECEIVE_SINGLE_ALBUM:
-	      return [action.albums];
+	      return [action.album];
 	    case _album_actions.AlbumConstants.RECEIVE_NEW_ALBUM:
 	      return [].concat(_toConsumableArray(oldState), [action.album]);
 	    case _album_actions.AlbumConstants.RECEIVE_ERRORS:
@@ -26077,7 +26077,7 @@
 	var receiveSingleAlbum = exports.receiveSingleAlbum = function receiveSingleAlbum(albums) {
 	  return {
 	    type: AlbumConstants.RECEIVE_SINGLE_ALBUM,
-	    albums: albums
+	    album: album
 	  };
 	};
 	
