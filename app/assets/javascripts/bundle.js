@@ -22411,7 +22411,7 @@
 	var defaultState = Object.freeze({ currentUser: null, errors: [] });
 	
 	var SessionReducer = function SessionReducer() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -25824,7 +25824,7 @@
 	
 	// const defaultState = Object.freeze({currentUser: null, errors:[]});
 	var CommentReducer = function CommentReducer() {
-	  var oldState = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -25925,7 +25925,7 @@
 	
 	// const defaultState = Object.freeze({currentUser: null, errors:[]});
 	var PhotoReducer = function PhotoReducer() {
-	  var oldState = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -26016,7 +26016,7 @@
 	
 	// const defaultState = Object.freeze({currentUser: null, errors:[]});
 	var AlbumReducer = function AlbumReducer() {
-	  var oldState = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -26124,7 +26124,7 @@
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 	
 	var UserReducer = function UserReducer() {
-	  var oldState = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -26210,7 +26210,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var SearchReducer = function SearchReducer() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -26303,8 +26303,8 @@
 	var _reactRouter = __webpack_require__(311);
 	
 	exports.default = function (_ref) {
-	  var getState = _ref.getState;
-	  var dispatch = _ref.dispatch;
+	  var getState = _ref.getState,
+	      dispatch = _ref.dispatch;
 	  return function (next) {
 	    return function (action) {
 	      var successCallback = function successCallback(user) {
@@ -32048,8 +32048,8 @@
 	var _reactRouter = __webpack_require__(311);
 	
 	exports.default = function (_ref) {
-	  var getState = _ref.getState;
-	  var dispatch = _ref.dispatch;
+	  var getState = _ref.getState,
+	      dispatch = _ref.dispatch;
 	  return function (next) {
 	    return function (action) {
 	      var receiveCommentSuccess = function receiveCommentSuccess(data) {
@@ -32142,8 +32142,8 @@
 	var _reactRouter = __webpack_require__(311);
 	
 	exports.default = function (_ref) {
-	  var getState = _ref.getState;
-	  var dispatch = _ref.dispatch;
+	  var getState = _ref.getState,
+	      dispatch = _ref.dispatch;
 	  return function (next) {
 	    return function (action) {
 	
@@ -32181,8 +32181,8 @@
 	var _reactRouter = __webpack_require__(311);
 	
 	exports.default = function (_ref) {
-	  var getState = _ref.getState;
-	  var dispatch = _ref.dispatch;
+	  var getState = _ref.getState,
+	      dispatch = _ref.dispatch;
 	  return function (next) {
 	    return function (action) {
 	      var receivePhotoSuccess = function receivePhotoSuccess(data) {
@@ -32261,8 +32261,8 @@
 	var _reactRouter = __webpack_require__(311);
 	
 	exports.default = function (_ref) {
-	  var getState = _ref.getState;
-	  var dispatch = _ref.dispatch;
+	  var getState = _ref.getState,
+	      dispatch = _ref.dispatch;
 	  return function (next) {
 	    return function (action) {
 	      var receiveAllAlbumSuccess = function receiveAllAlbumSuccess(data) {
@@ -32357,8 +32357,8 @@
 	var _reactRouter = __webpack_require__(311);
 	
 	exports.default = function (_ref) {
-	  var getState = _ref.getState;
-	  var dispatch = _ref.dispatch;
+	  var getState = _ref.getState,
+	      dispatch = _ref.dispatch;
 	  return function (next) {
 	    return function (action) {
 	      var receiveUserSuccess = function receiveUserSuccess(data) {
@@ -33092,7 +33092,7 @@
 	
 	var _album_detail_container2 = _interopRequireDefault(_album_detail_container);
 	
-	var _photo_form_container = __webpack_require__(454);
+	var _photo_form_container = __webpack_require__(453);
 	
 	var _photo_form_container2 = _interopRequireDefault(_photo_form_container);
 	
@@ -33100,7 +33100,7 @@
 	
 	var _album_form_container2 = _interopRequireDefault(_album_form_container);
 	
-	var _search_container = __webpack_require__(456);
+	var _search_container = __webpack_require__(455);
 	
 	var _search_container2 = _interopRequireDefault(_search_container);
 	
@@ -43174,8 +43174,7 @@
 	exports.default = (0, _reactRouter.withRouter)(AlbumDetail);
 
 /***/ },
-/* 453 */,
-/* 454 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43190,7 +43189,7 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _photo_form = __webpack_require__(455);
+	var _photo_form = __webpack_require__(454);
 	
 	var _photo_form2 = _interopRequireDefault(_photo_form);
 	
@@ -43247,7 +43246,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_photo_form2.default);
 
 /***/ },
-/* 455 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43377,7 +43376,7 @@
 	exports.default = (0, _reactRouter.withRouter)(PhotoForm);
 
 /***/ },
-/* 456 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43392,7 +43391,7 @@
 	
 	var _user_actions = __webpack_require__(305);
 	
-	var _search = __webpack_require__(457);
+	var _search = __webpack_require__(456);
 	
 	var _search2 = _interopRequireDefault(_search);
 	
@@ -43436,7 +43435,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_search2.default);
 
 /***/ },
-/* 457 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
