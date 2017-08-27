@@ -26215,7 +26215,6 @@
 	
 	  switch (action.type) {
 	    case _search_actions.SearchConstants.RECEIVE_NEW_SEARCH_RESULTS:
-	
 	      return [action.search_results];
 	    default:
 	      return state;
